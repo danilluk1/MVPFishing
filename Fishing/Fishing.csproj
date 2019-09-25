@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{238518C6-80BB-4F69-B39D-32CBA398B52D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Fishing</RootNamespace>
+    <AssemblyName>Fishing</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Fishes\Fish.cs" />
+    <Compile Include="Model\Fishes\Trout.cs" />
+    <Compile Include="Model\Game\Assembly.cs" />
+    <Compile Include="Model\Fishes\ArcticChar.cs" />
+    <Compile Include="Model\Fishes\PinkSalmon.cs" />
+    <Compile Include="Presenter\AssemblyPresenter.cs" />
+    <Compile Include="Presenter\FPondPresenter.cs" />
+    <Compile Include="Presenter\GUIPresenter.cs" />
+    <Compile Include="Presenter\InventoryPresenter.cs" />
+    <Compile Include="Presenter\LVLPresenter.cs" />
+    <Compile Include="Presenter\MenuPresenter.cs" />
+    <Compile Include="Presenter\Presenter.cs" />
+    <Compile Include="Presenter\ShopPresenter.cs" />
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Assembly\AddAssembly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Assembly\AddAssembly.Designer.cs">
+      <DependentUpon>AddAssembly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Assembly\IAddAssembly.cs" />
+    <Compile Include="View\FPond\IFPond.cs" />
+    <Compile Include="View\GUI\GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GUI\GUI.Designer.cs">
+      <DependentUpon>GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FPond\CurrentFish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FPond\CurrentFish.Designer.cs">
+      <DependentUpon>CurrentFish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FPond\FPondForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FPond\FPondForm.Designer.cs">
+      <DependentUpon>FPondForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Items\Item.cs" />
+    <Compile Include="Model\Items\Sounder.cs" />
+    <Compile Include="View\GUI\IGUI.cs" />
+    <Compile Include="View\GUI\IGUIPresenter.cs" />
+    <Compile Include="View\LureSelector\Presenter\SelectorPresenter.cs" />
+    <Compile Include="View\LureSelector\View\ISelector.cs" />
+    <Compile Include="View\LureSelector\View\LureSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LureSelector\View\LureSelector.Designer.cs">
+      <DependentUpon>LureSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LVLS\Ozero\ILVL.cs" />
+    <Compile Include="View\LVLS\Ozero\LVL1\LVL1.cs" />
+    <Compile Include="View\LVLS\Ozero\OzeroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LVLS\Ozero\OzeroForm.Designer.cs">
+      <DependentUpon>OzeroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inventory\IInventory.cs" />
+    <Compile Include="View\Inventory\InventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Inventory\InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Lures\Iron.cs" />
+    <Compile Include="Model\Items\FLine.cs" />
+    <Compile Include="Model\Lures\Lure.cs" />
+    <Compile Include="View\LVLS\LVL.cs" />
+    <Compile Include="View\LVLS\Ozero\LVL2.cs" />
+    <Compile Include="View\Menu\IMenu.cs" />
+    <Compile Include="View\Menu\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Menu\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Fishes\Perch.cs" />
+    <Compile Include="View\LVLS\Ozero\Map.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LVLS\Ozero\Map.Designer.cs">
+      <DependentUpon>Map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Game\Pictures.cs" />
+    <Compile Include="Model\Fishes\Pike.cs" />
+    <Compile Include="Model\Game\Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Items\Reel.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Items\Road.cs" />
+    <Compile Include="Model\Fishes\Salmon.cs" />
+    <Compile Include="View\Settings\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Shop\IShop.cs" />
+    <Compile Include="View\Shop\Shop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Shop\Shop.Designer.cs">
+      <DependentUpon>Shop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Game\Sounds.cs" />
+    <Compile Include="Model\Lures\Wobbler.cs" />
+    <Compile Include="Model\Fishes\Grayling.cs" />
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Assembly\AddAssembly.resx">
+      <DependentUpon>AddAssembly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GUI\GUI.resx">
+      <DependentUpon>GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FPond\CurrentFish.resx">
+      <DependentUpon>CurrentFish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FPond\FPondForm.resx">
+      <DependentUpon>FPondForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LureSelector\View\LureSelector.resx">
+      <DependentUpon>LureSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LVLS\Ozero\OzeroForm.resx">
+      <DependentUpon>OzeroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Inventory\InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LVLS\Ozero\Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Shop\Shop.resx">
+      <DependentUpon>Shop.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\Assembly.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ozero1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ozero.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ribec.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plotva.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ozerolvl3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\podsachik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rak.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ozerolvl4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ozero1f.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\karass.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lesh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ribec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\osetr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beluga.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catfish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\85.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon8.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon11.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ring.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zabros.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\step7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layer2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indiana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achilles 233.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Colorado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yellow SuperCarp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\step3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\not_scaf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\not_reel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\not_hook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\not_bait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vesta 276.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SuperFisher-950.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Phantom 852.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marco-R5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Quest Reel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zymix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Quest Fishers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Atlantic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\road.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\road2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\izg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\broken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rm_mollusk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rm_topy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rm_zhivec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rm_fish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oparysh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\podsak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vob-3002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vob-3003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vob-3001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vob-3015.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ozerolvl2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1052.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1039.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2030.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1089.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1081.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1014.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1040.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vib-6016.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vib-6012.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vib-6000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vib-6008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circl-5113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circl-5103.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barah_but03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barah_but01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop_but11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brake5.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\golec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gorbusha.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TBR-4000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syberia LT-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syberia HD-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syberia HD-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DRACO FD 1704.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syberia HD-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marco-R6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marco-R1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hydra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HYDRA 1711.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Titanium.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\step2.png" />
+    <None Include="Resources\layer10.jpg" />
+    <None Include="Resources\layer6.jpg" />
+    <None Include="Resources\Sounder.png" />
+    <None Include="Resources\image011.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
