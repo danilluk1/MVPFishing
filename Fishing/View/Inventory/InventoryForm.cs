@@ -19,7 +19,6 @@ namespace Fishing
         {
             InitializeComponent();
             presenter = new InventoryPresenter(this, GUI.gui);
-            assembliesList.DataSource = Player.getPlayer().Assemblies;
         }
 
         public void showAssembly(Assembly ass)

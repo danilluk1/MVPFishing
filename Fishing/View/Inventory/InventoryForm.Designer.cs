@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.BaitBox = new System.Windows.Forms.PictureBox();
             this.FLineBox = new System.Windows.Forms.PictureBox();
             this.ReelBox = new System.Windows.Forms.PictureBox();
@@ -59,7 +58,6 @@
             this.flineTextBox = new System.Windows.Forms.TextBox();
             this.lureTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
-            this.assembliesList = new System.Windows.Forms.BindingSource(this.components);
             this.makeOutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BaitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FLineBox)).BeginInit();
@@ -72,7 +70,6 @@
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.ItemsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.assembliesList)).BeginInit();
             this.SuspendLayout();
             // 
             // BaitBox
@@ -439,7 +436,6 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ItemsTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.assembliesList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,7 +472,6 @@
         private System.Windows.Forms.TextBox lureTextBox;
         private System.Windows.Forms.Button AddButton;
         protected internal System.Windows.Forms.ListBox RoadsList;
-        private System.Windows.Forms.BindingSource assembliesList;
         private System.Windows.Forms.Button makeOutButton;
     }
 }

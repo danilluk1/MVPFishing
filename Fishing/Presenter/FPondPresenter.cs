@@ -39,6 +39,9 @@ namespace Fishing.Presenter
             catch (ArgumentOutOfRangeException)
             {
             }
+            catch (NullReferenceException)
+            {
+            }
         }
 
         private void View_SellButtonClick(object sender, EventArgs e)

@@ -61,7 +61,7 @@ namespace Fishing
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            MenuLoad?.Invoke(this, EventArgs.Empty);         
+            MenuLoad?.Invoke(this, EventArgs.Empty);
         }
 
         private void Label2_Click(object sender, EventArgs e)

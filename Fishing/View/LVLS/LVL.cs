@@ -99,6 +99,7 @@ namespace Fishing
                 if (GUI.gui.EventsBox.Items.Count > 5) GUI.gui.EventsBox.Items.Clear();
                 GUI.gui.FLineBar.Value = 0;
                 GUI.gui.ReelBar.Value = 0;
+                Player.getPlayer().SavePlayer();
                 LVL.setCurrentFish();
                 string message = Player.getPlayer().NickName + " поймал " + Player.getPlayer().CFish.ToString();
                 if (Player.getPlayer().CFish.isTrophy())

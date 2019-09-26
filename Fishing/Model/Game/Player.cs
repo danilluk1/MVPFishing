@@ -91,7 +91,13 @@ namespace Fishing
 
         public Fish GetFishByIndex(int index)
         {
-            return Fishlist[index];
+            try
+            {
+                return Fishlist[index];
+            }
+            catch (ArgumentOutOfRangeException) { }
+
+            return null;
         }
 
         public void SellFish(Fish f)

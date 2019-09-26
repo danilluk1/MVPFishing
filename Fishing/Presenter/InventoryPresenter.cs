@@ -59,7 +59,7 @@ namespace Fishing.Presenter
             if (Player.getPlayer().Reel != null)
                 Player.getPlayer().ReelInv.Add(Player.getPlayer().Reel);
 
-            Player.getPlayer().Assemblies.Add(view.Assembly_P);
+            Player.getPlayer().Assemblies.Remove(view.Assembly_P);
         }
 
         private void View_AssemblyDoubleClick(object sender, EventArgs e)

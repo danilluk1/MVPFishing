@@ -15,6 +15,7 @@ namespace Fishing.Presenter
         private readonly IMenu view;
         public MenuPresenter(IMenu view)
         {
+            Player.getPlayer().Initiallize();
             this.view = view;
             view.InventoryButtonClick += View_InventoryButtonClick;
             view.SettingsButtonClick += View_SettingsButtonClick;
@@ -108,7 +109,6 @@ namespace Fishing.Presenter
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            Player.getPlayer().Initiallize();//todo
             view.lowerLValue += "Игрок: " + Player.getPlayer().NickName + "                              " + Player.getPlayer().Money;
             Item.RoadShop.Add(Road.Titanium);
             Item.RoadShop.Add(Road.Achilles);
