@@ -29,12 +29,18 @@ namespace Fishing
             {
                 if (PriceButton.Text.Length > 0)
                 {
-                    Player.getPlayer().Money += Convert.ToInt32(PriceButton.Text);
+                    Player.getPlayer().SellFish(Player.getPlayer().CFish);
+                    GUI.gui.MoneyLabel.Text = Player.getPlayer().Money.ToString();
                     MessageBox.Show("Продано");
                     this.Close();
                 }
             }
 
-        } 
+        }
+
+        private void PriceButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

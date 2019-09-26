@@ -30,17 +30,17 @@ namespace Fishing
             if (this is Road)
             {
                 Road r = RoadShop[i];
-                Player.getPlayer().GetRoads().Add(r);
+                Player.getPlayer().RoadInv.Add(r);
             }
             if (this is Reel)
             {
                 Reel r = ReelShop[i];
-                Player.getPlayer().GetReels().Add(r);
+                Player.getPlayer().ReelInv.Add(r);
             }
             if (this is FLine)
             {
                 FLine r = LeskaShop[i];
-                Player.getPlayer().GetFLines().Add(r);
+                Player.getPlayer().FLineInv.Add(r);
             }
         }
 

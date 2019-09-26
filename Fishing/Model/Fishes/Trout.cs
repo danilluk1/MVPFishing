@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fishing
 {
+    [Serializable]
     class Trout : Fish
     {
         private static HashSet<LureType> lures = new HashSet<LureType>() { LureType.TopSmall, LureType.Small, LureType.DeepSmall, LureType.FlyingSmall, LureType.DeepLarge, LureType.FlyingLarge, LureType.Large, LureType.TopLarge };     

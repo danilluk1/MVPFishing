@@ -18,8 +18,8 @@ namespace Fishing
         public Inventory()
         {
             InitializeComponent();
-            presenter = new InventoryPresenter(this);
-            assembliesList.DataSource = Player.getPlayer().GetAssemblies();
+            presenter = new InventoryPresenter(this, GUI.gui);
+            assembliesList.DataSource = Player.getPlayer().Assemblies;
         }
 
         public void showAssembly(Assembly ass)
@@ -49,7 +49,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().GetRoads()[RoadsList.SelectedIndex];
+                    return Player.getPlayer().RoadInv[RoadsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -66,7 +66,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().GetReels()[ReelsList.SelectedIndex];
+                    return Player.getPlayer().ReelInv[ReelsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -83,7 +83,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().GetFLines()[FLineList.SelectedIndex];
+                    return Player.getPlayer().FLineInv[FLineList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -100,7 +100,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().GetLures()[LuresList.SelectedIndex];
+                    return Player.getPlayer().LureInv[LuresList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -118,7 +118,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().GetAssemblies()[assembliesBox.SelectedIndex];
+                    return Player.getPlayer().Assemblies[assembliesBox.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -146,8 +146,6 @@ namespace Fishing
         public event EventHandler AssemblyDoubleClick;
         public event EventHandler MakeOutClick;
         public event EventHandler BaitPicClick;
-        public event EventHandler BaitPicChanged;
-
         private void RoadsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             RoadSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
@@ -198,11 +196,11 @@ namespace Fishing
 
         private void Inventory_Load(object sender, EventArgs e)
         {
-            LuresList.DataSource = Player.getPlayer().GetLures();
-            FLineList.DataSource = Player.getPlayer().GetFLines();
-            ReelsList.DataSource = Player.getPlayer().GetReels();
-            RoadsList.DataSource = Player.getPlayer().GetRoads();
-            assembliesBox.DataSource = Player.getPlayer().GetAssemblies();        
+            LuresList.DataSource = Player.getPlayer().LureInv;
+            FLineList.DataSource = Player.getPlayer().FLineInv;
+            ReelsList.DataSource = Player.getPlayer().ReelInv;
+            RoadsList.DataSource = Player.getPlayer().RoadInv;
+            assembliesBox.DataSource = Player.getPlayer().Assemblies;        
         }
 
         private void FetchButton_Click(object sender, EventArgs e)

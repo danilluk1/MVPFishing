@@ -80,7 +80,7 @@
             this.BaitBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BaitBox.Location = new System.Drawing.Point(219, 394);
             this.BaitBox.Name = "BaitBox";
-            this.BaitBox.Size = new System.Drawing.Size(104, 110);
+            this.BaitBox.Size = new System.Drawing.Size(104, 104);
             this.BaitBox.TabIndex = 3;
             this.BaitBox.TabStop = false;
             this.BaitBox.Click += new System.EventHandler(this.BaitBox_Click);
@@ -102,7 +102,7 @@
             this.ReelBox.InitialImage = global::Fishing.Resource1.NOT_REEL;
             this.ReelBox.Location = new System.Drawing.Point(0, 390);
             this.ReelBox.Name = "ReelBox";
-            this.ReelBox.Size = new System.Drawing.Size(179, 185);
+            this.ReelBox.Size = new System.Drawing.Size(179, 111);
             this.ReelBox.TabIndex = 1;
             this.ReelBox.TabStop = false;
             // 
@@ -117,8 +117,9 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(421, 51);
+            this.pictureBox5.Location = new System.Drawing.Point(503, 54);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(155, 171);
             this.pictureBox5.TabIndex = 12;
@@ -126,21 +127,24 @@
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(421, 252);
+            this.nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameBox.Location = new System.Drawing.Point(503, 273);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(155, 20);
             this.nameBox.TabIndex = 13;
             // 
             // powerBox
             // 
-            this.powerBox.Location = new System.Drawing.Point(421, 295);
+            this.powerBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.powerBox.Location = new System.Drawing.Point(504, 328);
             this.powerBox.Name = "powerBox";
             this.powerBox.Size = new System.Drawing.Size(155, 20);
             this.powerBox.TabIndex = 14;
             // 
             // typeBox
             // 
-            this.typeBox.Location = new System.Drawing.Point(421, 341);
+            this.typeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.typeBox.Location = new System.Drawing.Point(504, 374);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(155, 20);
             this.typeBox.TabIndex = 16;
@@ -154,7 +158,8 @@
             // 
             // FetchButton
             // 
-            this.FetchButton.Location = new System.Drawing.Point(493, 367);
+            this.FetchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FetchButton.Location = new System.Drawing.Point(568, 422);
             this.FetchButton.Name = "FetchButton";
             this.FetchButton.Size = new System.Drawing.Size(91, 23);
             this.FetchButton.TabIndex = 19;
@@ -164,7 +169,8 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(543, 22);
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.Location = new System.Drawing.Point(637, 569);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(33, 23);
             this.CloseButton.TabIndex = 24;
@@ -184,7 +190,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(338, 578);
+            this.tabPage6.Size = new System.Drawing.Size(338, 504);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Сборки";
             // 
@@ -205,7 +211,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(338, 578);
+            this.tabPage5.Size = new System.Drawing.Size(338, 504);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Приманки";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -216,7 +222,7 @@
             this.LuresList.FormattingEnabled = true;
             this.LuresList.Location = new System.Drawing.Point(-4, 1);
             this.LuresList.Name = "LuresList";
-            this.LuresList.Size = new System.Drawing.Size(339, 576);
+            this.LuresList.Size = new System.Drawing.Size(339, 511);
             this.LuresList.TabIndex = 20;
             this.LuresList.SelectedIndexChanged += new System.EventHandler(this.LuresList_SelectedIndexChanged);
             this.LuresList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LuresList_MouseDoubleClick);
@@ -227,7 +233,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(338, 578);
+            this.tabPage3.Size = new System.Drawing.Size(338, 504);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Катушки";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -238,7 +244,7 @@
             this.ReelsList.FormattingEnabled = true;
             this.ReelsList.Location = new System.Drawing.Point(-4, 0);
             this.ReelsList.Name = "ReelsList";
-            this.ReelsList.Size = new System.Drawing.Size(342, 576);
+            this.ReelsList.Size = new System.Drawing.Size(342, 511);
             this.ReelsList.TabIndex = 5;
             this.ReelsList.SelectedIndexChanged += new System.EventHandler(this.ReelsList_SelectedIndexChanged);
             this.ReelsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ReelsList_MouseDoubleClick);
@@ -249,7 +255,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(338, 578);
+            this.tabPage2.Size = new System.Drawing.Size(338, 504);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Леска";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -259,7 +265,7 @@
             this.FLineList.BackColor = System.Drawing.Color.SeaGreen;
             this.FLineList.Location = new System.Drawing.Point(-4, 0);
             this.FLineList.Name = "FLineList";
-            this.FLineList.Size = new System.Drawing.Size(339, 576);
+            this.FLineList.Size = new System.Drawing.Size(339, 511);
             this.FLineList.TabIndex = 6;
             this.FLineList.SelectedIndexChanged += new System.EventHandler(this.FLineList_SelectedIndexChanged);
             this.FLineList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.FLineList_MouseDoubleClick);
@@ -270,7 +276,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(338, 578);
+            this.tabPage1.Size = new System.Drawing.Size(338, 504);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Удочки";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -279,9 +285,9 @@
             // 
             this.RoadsList.BackColor = System.Drawing.Color.SeaGreen;
             this.RoadsList.FormattingEnabled = true;
-            this.RoadsList.Location = new System.Drawing.Point(-4, -2);
+            this.RoadsList.Location = new System.Drawing.Point(0, 0);
             this.RoadsList.Name = "RoadsList";
-            this.RoadsList.Size = new System.Drawing.Size(342, 589);
+            this.RoadsList.Size = new System.Drawing.Size(342, 498);
             this.RoadsList.TabIndex = 4;
             this.RoadsList.SelectedIndexChanged += new System.EventHandler(this.RoadsList_SelectedIndexChanged);
             this.RoadsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.RoadsList_MouseDoubleClick);
@@ -293,19 +299,20 @@
             this.ItemsTab.Controls.Add(this.tabPage3);
             this.ItemsTab.Controls.Add(this.tabPage5);
             this.ItemsTab.Controls.Add(this.tabPage6);
-            this.ItemsTab.Location = new System.Drawing.Point(35, 22);
+            this.ItemsTab.Location = new System.Drawing.Point(41, 27);
             this.ItemsTab.Name = "ItemsTab";
             this.ItemsTab.SelectedIndex = 0;
-            this.ItemsTab.Size = new System.Drawing.Size(346, 604);
+            this.ItemsTab.Size = new System.Drawing.Size(346, 530);
             this.ItemsTab.TabIndex = 23;
             // 
             // nameLabel
             // 
+            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nameLabel.AutoSize = true;
             this.nameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameLabel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.nameLabel.Location = new System.Drawing.Point(485, 229);
+            this.nameLabel.Location = new System.Drawing.Point(567, 246);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(91, 20);
             this.nameLabel.TabIndex = 25;
@@ -313,11 +320,12 @@
             // 
             // powerLabel
             // 
+            this.powerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.powerLabel.AutoSize = true;
             this.powerLabel.BackColor = System.Drawing.Color.Transparent;
             this.powerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.powerLabel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.powerLabel.Location = new System.Drawing.Point(480, 272);
+            this.powerLabel.Location = new System.Drawing.Point(552, 302);
             this.powerLabel.Name = "powerLabel";
             this.powerLabel.Size = new System.Drawing.Size(96, 20);
             this.powerLabel.TabIndex = 26;
@@ -325,11 +333,12 @@
             // 
             // typeLabel
             // 
+            this.typeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.typeLabel.AutoSize = true;
             this.typeLabel.BackColor = System.Drawing.Color.Transparent;
             this.typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.typeLabel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.typeLabel.Location = new System.Drawing.Point(537, 318);
+            this.typeLabel.Location = new System.Drawing.Point(620, 351);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(39, 20);
             this.typeLabel.TabIndex = 27;
@@ -337,35 +346,40 @@
             // 
             // roadTextBox
             // 
-            this.roadTextBox.Location = new System.Drawing.Point(484, 407);
+            this.roadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.roadTextBox.Location = new System.Drawing.Point(399, 127);
             this.roadTextBox.Name = "roadTextBox";
             this.roadTextBox.Size = new System.Drawing.Size(100, 20);
             this.roadTextBox.TabIndex = 28;
             // 
             // reelTextBox
             // 
-            this.reelTextBox.Location = new System.Drawing.Point(484, 438);
+            this.reelTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.reelTextBox.Location = new System.Drawing.Point(399, 153);
             this.reelTextBox.Name = "reelTextBox";
             this.reelTextBox.Size = new System.Drawing.Size(100, 20);
             this.reelTextBox.TabIndex = 29;
             // 
             // flineTextBox
             // 
-            this.flineTextBox.Location = new System.Drawing.Point(485, 473);
+            this.flineTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.flineTextBox.Location = new System.Drawing.Point(399, 179);
             this.flineTextBox.Name = "flineTextBox";
             this.flineTextBox.Size = new System.Drawing.Size(100, 20);
             this.flineTextBox.TabIndex = 30;
             // 
             // lureTextBox
             // 
-            this.lureTextBox.Location = new System.Drawing.Point(484, 511);
+            this.lureTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lureTextBox.Location = new System.Drawing.Point(399, 205);
             this.lureTextBox.Name = "lureTextBox";
             this.lureTextBox.Size = new System.Drawing.Size(100, 20);
             this.lureTextBox.TabIndex = 31;
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(501, 603);
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddButton.Location = new System.Drawing.Point(556, 569);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
             this.AddButton.TabIndex = 32;
@@ -375,7 +389,8 @@
             // 
             // makeOutButton
             // 
-            this.makeOutButton.Location = new System.Drawing.Point(501, 574);
+            this.makeOutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.makeOutButton.Location = new System.Drawing.Point(556, 540);
             this.makeOutButton.Name = "makeOutButton";
             this.makeOutButton.Size = new System.Drawing.Size(75, 23);
             this.makeOutButton.TabIndex = 33;
@@ -389,7 +404,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Fishing.Resource1.layer10;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(611, 650);
+            this.ClientSize = new System.Drawing.Size(715, 620);
             this.Controls.Add(this.makeOutButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.lureTextBox);

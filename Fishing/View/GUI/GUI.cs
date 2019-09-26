@@ -22,7 +22,11 @@ namespace Fishing
             addDeep();
             presenter = new GUIPresenter(this);
             Sounder sounder = new Sounder(SounderPanel, SounderUpdater);
-            BaitsPicture.Image = Player.getPlayer().Lure.Pict;
+            try
+            {
+                BaitsPicture.Image = Player.getPlayer().Assembly.Lure.Pict;
+            }
+            catch (NullReferenceException) { }
             MoneyLValue = Player.getPlayer().Money;
         }
 

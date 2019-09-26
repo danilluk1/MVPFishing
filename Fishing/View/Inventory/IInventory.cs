@@ -26,8 +26,6 @@ namespace Fishing.View.Inventory
         event EventHandler MakeOutClick;
         event EventHandler BaitPicClick;
 
-        event EventHandler BaitPicChanged;
-
         Road Road_P { get; set; }
         Reel Reel_P { get; set; }
         FLine FLine_P { get; set; }

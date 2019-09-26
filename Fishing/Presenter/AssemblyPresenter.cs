@@ -21,7 +21,7 @@ namespace Fishing.Presenter
         private void View_AddAssemblyClick(object sender, EventArgs e)
         {
             string name = view.AssemblyName;
-            Player.getPlayer().AddAssembly(new Assembly(name));
+            Player.getPlayer().Assemblies.Add(new Assembly(name));
             (sender as AddAssembly).Close();
         }
         public void Close()

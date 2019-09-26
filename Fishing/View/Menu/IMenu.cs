@@ -13,7 +13,10 @@ namespace Fishing.View.Menu
         event EventHandler ShopButtonClick;
         event EventHandler ExitButtonClick;
         event EventHandler MapButtonClick;
+        event EventHandler MenuLoad;
 
         string NickNameL { get; set; }
+
+        string lowerLValue { get; set; }
     }
 }

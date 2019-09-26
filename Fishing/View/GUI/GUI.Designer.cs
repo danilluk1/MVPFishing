@@ -279,6 +279,7 @@
             this.Controls.Add(this.EventsBox);
             this.Controls.Add(this.LowerPanel);
             this.Controls.Add(this.UpperPanel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GUI";
             this.ShowIcon = false;

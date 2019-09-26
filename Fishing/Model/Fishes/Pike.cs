@@ -8,6 +8,7 @@ using Fishing.Resources;
 
 namespace Fishing
 {
+    [Serializable]
     class Pike : Fish
     {
         private static HashSet<LureType> lures = new HashSet<LureType>() { LureType.DeepLarge, LureType.FlyingLarge, LureType.Large, LureType.TopLarge, LureType.DeepXL, LureType.FlyingXL, LureType.TopXL, LureType.XL};

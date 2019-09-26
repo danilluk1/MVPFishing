@@ -28,7 +28,7 @@ namespace Fishing.Presenter
         {
             if (isPlayerAbleToBuyItem(view.Road_P))
             {
-                Player.getPlayer().AddRoad(view.Road_P);
+                Player.getPlayer().RoadInv.Add(view.Road_P);
                 Player.getPlayer().Money -= view.Road_P.Price;
                 view.MoneyL = Player.getPlayer().Money.ToString();
             }
@@ -38,7 +38,7 @@ namespace Fishing.Presenter
         {
             if (isPlayerAbleToBuyItem(view.Reel_P))
             {
-                Player.getPlayer().AddReel(view.Reel_P);
+                Player.getPlayer().ReelInv.Add(view.Reel_P);
                 Player.getPlayer().Money -= view.Reel_P.Price;
                 view.MoneyL = Player.getPlayer().Money.ToString();
             }
@@ -48,7 +48,7 @@ namespace Fishing.Presenter
         {
             if (isPlayerAbleToBuyItem(view.FLine_P))
             {
-                Player.getPlayer().AddFLine(view.FLine_P);
+                Player.getPlayer().FLineInv.Add(view.FLine_P);
                 Player.getPlayer().Money -= view.FLine_P.Price;
                 view.MoneyL = Player.getPlayer().Money.ToString();
             }

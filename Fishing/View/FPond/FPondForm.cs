@@ -32,7 +32,7 @@ namespace Fishing
 
         private void FishList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedIndexChanged?.Invoke(this, EventArgs.Empty);          
+            SelectedIndexChanged?.Invoke(this, EventArgs.Empty);
         }
 
 
@@ -44,6 +44,7 @@ namespace Fishing
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
+            Player.getPlayer().SavePlayer();
             this.Close();
         }
 

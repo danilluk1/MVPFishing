@@ -8,6 +8,7 @@ using Fishing.Resources;
 
 namespace Fishing
 {
+    [Serializable]
     class Perch : Fish
     {
         private static HashSet<LureType> lures = new HashSet<LureType>() { LureType.TopSmall, LureType.Small, LureType.DeepSmall, LureType.FlyingSmall };

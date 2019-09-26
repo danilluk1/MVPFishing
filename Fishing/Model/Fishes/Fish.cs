@@ -38,9 +38,9 @@ namespace Fishing
         }
         public override string ToString()
         {
-            if (Player.getPlayer().CFish.Weight / 1000 > 0)
+            if (Weight / 1000 > 0)
             {
-                return Name + " масса " + Weight / 1000 + "кг " + Player.getPlayer().CFish.Weight % 1000 + "г";
+                return Name + " масса " + Weight / 1000 + "кг " + Weight % 1000 + "г";
             }
             else
             {

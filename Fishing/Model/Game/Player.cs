@@ -15,14 +15,22 @@ namespace Fishing
     [Serializable]
     sealed class Player
     {
+        public const string LURES_DIR = "config/lures.dat";
+        public const string FISHLIST_DIR = "config/fishlist.dat";
+        public const string ROADS_DIR = "config/roads.dat";
+        public const string REELS_DIR = "config/reels.dat";
+        public const string FLINES_DIR = "config/flines.dat";
+        public const string ASSEMBLIES_DIR = "config/assemblies.dat";
+        public const string MONEY_DIR = "config/money.dat";
+        public const string NAME_DIR = "config/name.dat";
         private static Player player;
         public Assembly Assembly { get; set; }
-        private BindingList<Fish> Fishlist { get; set; }
-        private BindingList<Assembly> Assemblies;
-        private BindingList<Road> RoadInv;
-        private BindingList<Reel> ReelInv;
-        private BindingList<FLine> FLineInv;
-        public BindingList<Lure> LureInv;
+        public BindingList<Fish> Fishlist { get; set; }
+        public BindingList<Assembly> Assemblies { get; set; }
+        public BindingList<Road> RoadInv { get; set; }
+        public BindingList<Reel> ReelInv { get; set; }
+        public BindingList<FLine> FLineInv { get; set; }
+        public BindingList<Lure> LureInv { get; set; }
         public bool IsBaitMoving = false;
         public Point LastCastPoint;
         public int RoadX = 0;
@@ -39,21 +47,14 @@ namespace Fishing
         public int WindingSpeed;
         public Fish CFish { get; set; }
 
-        public Road Road = Road.Titanium;
-        public Reel Reel = Reel.SYBERIA_4;
-        public FLine Fline = FLine.Quest_Fishers;
-        public Lure Lure { get; set; } = Lure.jelezo4;
+        public Road Road { get; set; }
+        public Reel Reel { get; set; }
+        public FLine Fline { get; set; }
+        public Lure Lure { get; set; }
         public string NickName { get; set; } = "Рыболов";
 
         private Player()
         {
-            Fishlist = new BindingList<Fish>();
-            Assemblies = new BindingList<Assembly>();
-            RoadInv = new BindingList<Road>();
-            ReelInv = new BindingList<Reel>();
-            LureInv = new BindingList<Lure>();
-            FLineInv = new BindingList<FLine>();
-            Assemblies.Add(new Assembly("Сборка 1",Road.Titanium, Reel.Quest_Reel, FLine.Quest_Fishers, Lure.vob1));
         }
         public static Player getPlayer()                           
         {
@@ -96,81 +97,41 @@ namespace Fishing
         public void SellFish(Fish f)
         {
             Fishlist.Remove(f);
-            player.Money += (int)f.Price * f.Weight;
+            if (!f.isTrophy())
+            {
+                player.Money += (int)f.Price * f.Weight;
+            }
+            else
+            {
+                player.Money += (int)f.Price * 3 * f.Weight;
+            }
+            player.SavePlayer();
         }
 
-
-        public void AddAssembly(Assembly ass)
+        public void Initiallize()
         {
-            Assemblies.Add(ass);
+            getPlayer().LureInv = getPlayer().Load<BindingList<Lure>>(LURES_DIR) ?? new BindingList<Lure>();
+            getPlayer().RoadInv = getPlayer().Load<BindingList<Road>>(ROADS_DIR) ?? new BindingList<Road>();
+            getPlayer().FLineInv = getPlayer().Load<BindingList<FLine>>(FLINES_DIR) ?? new BindingList<FLine>();
+            getPlayer().ReelInv = getPlayer().Load<BindingList<Reel>>(REELS_DIR) ?? new BindingList<Reel>();
+            getPlayer().Assemblies = getPlayer().Load<BindingList<Assembly>>(ASSEMBLIES_DIR) ?? new BindingList<Assembly>();
+            getPlayer().Fishlist = getPlayer().Load<BindingList<Fish>>(FISHLIST_DIR) ?? new BindingList<Fish>();
+            getPlayer().NickName = getPlayer().Load<string>(NAME_DIR) ?? "Рыболов";
+            getPlayer().Money = Convert.ToInt32(getPlayer().Load<string>(MONEY_DIR) ?? "1000000");
         }
 
-        public void RemoveAssembly(Assembly ass)
+        public void SavePlayer()
         {
-            Assemblies.Remove(ass);
-        }
+            getPlayer().Save(LURES_DIR, getPlayer().LureInv);
+            getPlayer().Save(ROADS_DIR, getPlayer().RoadInv);
+            getPlayer().Save(REELS_DIR, getPlayer().ReelInv);
+            getPlayer().Save(FLINES_DIR, getPlayer().FLineInv);
+            getPlayer().Save(ASSEMBLIES_DIR, getPlayer().Assemblies);
+            getPlayer().Save(FISHLIST_DIR, getPlayer().Fishlist);
+            getPlayer().Save(MONEY_DIR, getPlayer().Money.ToString());
+            getPlayer().Save(NAME_DIR, getPlayer().NickName);
 
-        public  BindingList<Assembly> GetAssemblies()
-        {
-            return Assemblies;
-        }
 
-        public void AddRoad(Road r)
-        {
-            RoadInv.Add(r);
-        }
-
-        public BindingList<Road> GetRoads()
-        {
-            return RoadInv;
-        }
-
-        public void RemoveRoad(Road r)
-        {
-            RoadInv.Remove(r);
-        }
-
-        public void AddFLine(FLine f)
-        {
-            FLineInv.Add(f);
-        }
-
-        public BindingList<FLine> GetFLines()
-        {
-            return FLineInv;
-        }
-
-        public void RemoveFLine(FLine f)
-        {
-            FLineInv.Remove(f);
-        }
-        public void AddReel(Reel r)
-        {
-            ReelInv.Add(r);
-        }
-
-        public BindingList<Reel> GetReels()
-        {
-            return ReelInv;
-        }
-
-        public void RemoveReel(Reel r)
-        {
-            ReelInv.Remove(r);
-        }
-        public void AddLure(Lure l)
-        {
-            LureInv.Add(l);
-        }
-
-        public BindingList<Lure> GetLures()
-        {
-            return LureInv;
-        }
-
-        public void RemoveLure(Lure l)
-        {
-            LureInv.Remove(l);
         }
 
         public void Save(string fileName, object item)

@@ -72,6 +72,7 @@
             this.PriceButton.Size = new System.Drawing.Size(339, 23);
             this.PriceButton.TabIndex = 3;
             this.PriceButton.UseVisualStyleBackColor = true;
+            this.PriceButton.Click += new System.EventHandler(this.PriceButton_Click);
             // 
             // CurrentFish
             // 

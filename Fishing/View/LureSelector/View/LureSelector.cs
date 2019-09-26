@@ -15,7 +15,7 @@ namespace Fishing.View.LureSelector
             presenter = new SelectorPresenter(this, Fishing.GUI.gui);           
         }
 
-        public Lure Lure { get => Player.getPlayer().GetLures()[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
+        public Lure Lure { get => Player.getPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
         public Image Picture { get => lureImage.Image; set => lureImage.Image = Lure.Pict; }
         public string NameBoxText { get => nameBox.Text; set => nameBox.Text = value; }
         public string TypeBoxText { get => typeBox.Text; set => typeBox.Text = value; }
@@ -30,7 +30,7 @@ namespace Fishing.View.LureSelector
 
         private void LureSelector_Load(object sender, EventArgs e)
         {
-            lureList.DataSource = Player.getPlayer().GetLures();
+            lureList.DataSource = Player.getPlayer().LureInv;
         }
 
         private void LureList_MouseDoubleClick(object sender, MouseEventArgs e)
