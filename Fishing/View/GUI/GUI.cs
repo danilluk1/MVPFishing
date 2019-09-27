@@ -1,5 +1,6 @@
 ﻿using Fishing.Presenter;
 using Fishing.View.GUI;
+using Fishing.View.LureSelector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,17 +48,22 @@ namespace Fishing
 
         private void MapLabel_Click(object sender, EventArgs e)
         {
-            MapButtonClick?.Invoke(this, e);
+            Ozero map = new Ozero();
+            map.Show();
         }
 
         private void InventoryLabel_Click(object sender, EventArgs e)
         {
-            InventoryButtonClick?.Invoke(this, e);
+            Inventory inventory = new Inventory();
+            inventory.Show();
         }
 
         private void MenuLabel_Click(object sender, EventArgs e)
         {
-            MenuButtonClick?.Invoke(this, e);
+            GUI.gui.Close();
+            Ozero.ozero.Close();
+            Menu menu = new Menu();
+            menu.Show();
         }
 
         private void SettingLabel_Click(object sender, EventArgs e)
@@ -67,12 +73,14 @@ namespace Fishing
 
         private void FpondBox_Click(object sender, EventArgs e)
         {
-            FPondClick?.Invoke(this, e);
+            fishesForm form = new fishesForm();
+            form.Show();
         }
 
         private void BaitsPicture_Click(object sender, EventArgs e)
         {
-            BaitPicClick?.Invoke(this, e);
+            LureSelector selector = new LureSelector();
+            selector.Show();
         }
 
         private void addDeep()

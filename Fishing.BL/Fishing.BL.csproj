@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fishing.BL</RootNamespace>
+    <AssemblyName>Fishing.BL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Fishes\ArcticChar.cs" />
+    <Compile Include="Model\Fishes\Fish.cs" />
+    <Compile Include="Model\Fishes\Grayling.cs" />
+    <Compile Include="Model\Fishes\Perch.cs" />
+    <Compile Include="Model\Fishes\Pike.cs" />
+    <Compile Include="Model\Fishes\PinkSalmon.cs" />
+    <Compile Include="Model\Fishes\Salmon.cs" />
+    <Compile Include="Model\Fishes\Trout.cs" />
+    <Compile Include="Model\Game\Assembly.cs" />
+    <Compile Include="Model\Game\UserEvent.cs" />
+    <Compile Include="Model\Game\Pictures.cs" />
+    <Compile Include="Model\Game\Player.cs" />
+    <Compile Include="Model\Game\Sounds.cs" />
+    <Compile Include="Model\Items\FLine.cs" />
+    <Compile Include="Model\Items\Item.cs" />
+    <Compile Include="Model\Items\Reel.cs" />
+    <Compile Include="Model\Items\Road.cs" />
+    <Compile Include="Model\Items\Sounder.cs" />
+    <Compile Include="Model\Lures\Iron.cs" />
+    <Compile Include="Model\Lures\Lure.cs" />
+    <Compile Include="Model\Lures\wobbler.cs" />
+    <Compile Include="Model\LVL.cs" />
+    <Compile Include="Model\LVL2.cs" />
+    <Compile Include="Presenter\AssemblyPresenter.cs" />
+    <Compile Include="Presenter\CurrentFishPresenter.cs" />
+    <Compile Include="Presenter\FPondPresenter.cs" />
+    <Compile Include="Presenter\GUIPresenter.cs" />
+    <Compile Include="Presenter\InventoryPresenter.cs" />
+    <Compile Include="Presenter\LVLPresenter.cs" />
+    <Compile Include="Presenter\MenuPresenter.cs" />
+    <Compile Include="Presenter\Presenter.cs" />
+    <Compile Include="Presenter\ShopPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\IAddAssembly.cs" />
+    <Compile Include="View\ICurrentFishF.cs" />
+    <Compile Include="View\IFPond.cs" />
+    <Compile Include="View\IGUI.cs" />
+    <Compile Include="View\IGUIPresenter.cs" />
+    <Compile Include="View\IInventory.cs" />
+    <Compile Include="View\ILVL.cs" />
+    <Compile Include="View\IMenu.cs" />
+    <Compile Include="View\ISelector.cs" />
+    <Compile Include="View\IShop.cs" />
+    <Compile Include="Presenter\SelectorPresenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\1014.png" />
+    <Content Include="Resources\1039.png" />
+    <Content Include="Resources\1040.png" />
+    <Content Include="Resources\1052.png" />
+    <Content Include="Resources\1081.png" />
+    <Content Include="Resources\1089.png" />
+    <Content Include="Resources\2030.png" />
+    <Content Include="Resources\85.wav" />
+    <Content Include="Resources\Achilles 233.jpg" />
+    <Content Include="Resources\Atlantic.png" />
+    <Content Include="Resources\barah_but01.png" />
+    <Content Include="Resources\barah_but03.png" />
+    <Content Include="Resources\beluga.jpg" />
+    <Content Include="Resources\boil.png" />
+    <Content Include="Resources\brake5.wav" />
+    <Content Include="Resources\broken.png" />
+    <Content Include="Resources\catfish.jpg" />
+    <Content Include="Resources\Circl-5103.png" />
+    <Content Include="Resources\Circl-5113.png" />
+    <Content Include="Resources\Colorado.png" />
+    <Content Include="Resources\DRACO FD 1704.png" />
+    <Content Include="Resources\fon11.wav" />
+    <Content Include="Resources\fon8.wav" />
+    <Content Include="Resources\frog.png" />
+    <Content Include="Resources\golec.png" />
+    <Content Include="Resources\gorbusha.jpg" />
+    <Content Include="Resources\HYDRA 1711.png" />
+    <Content Include="Resources\Hydra.png" />
+    <Content Include="Resources\image011.jpg" />
+    <Content Include="Resources\indiana.png" />
+    <Content Include="Resources\inventory.jpg" />
+    <Content Include="Resources\izg1.png" />
+    <Content Include="Resources\karass.jpg" />
+    <Content Include="Resources\key.png" />
+    <Content Include="Resources\layer10.jpg" />
+    <Content Include="Resources\layer2.jpg" />
+    <Content Include="Resources\layer6.jpg" />
+    <Content Include="Resources\lesh.jpg" />
+    <Content Include="Resources\lesh.png" />
+    <Content Include="Resources\map.jpg" />
+    <Content Include="Resources\Marco-R1.png" />
+    <Content Include="Resources\Marco-R5.png" />
+    <Content Include="Resources\Marco-R6.png" />
+    <Content Include="Resources\menu.jpg" />
+    <Content Include="Resources\menuu.jpg" />
+    <Content Include="Resources\not_bait.png" />
+    <Content Include="Resources\not_hook.png" />
+    <Content Include="Resources\not_reel.png" />
+    <Content Include="Resources\not_scaf.png" />
+    <Content Include="Resources\oparysh.png" />
+    <Content Include="Resources\osetr.jpg" />
+    <Content Include="Resources\ozero.jpg" />
+    <Content Include="Resources\ozero1.jpg" />
+    <Content Include="Resources\ozero1f.jpg" />
+    <Content Include="Resources\ozerolvl2.jpg" />
+    <Content Include="Resources\ozerolvl3.jpg" />
+    <Content Include="Resources\ozerolvl4.jpg" />
+    <Content Include="Resources\Phantom 852.jpg" />
+    <Content Include="Resources\pike.jpg" />
+    <Content Include="Resources\plotva.png" />
+    <Content Include="Resources\podsachik.png" />
+    <Content Include="Resources\podsak.dds" />
+    <Content Include="Resources\podsak.png" />
+    <Content Include="Resources\Quest Fishers.png" />
+    <Content Include="Resources\Quest Reel.png" />
+    <Content Include="Resources\rak.jpg" />
+    <Content Include="Resources\ribec.jpg" />
+    <Content Include="Resources\ribec.png" />
+    <Content Include="Resources\ring.wav" />
+    <Content Include="Resources\rm_fish.png" />
+    <Content Include="Resources\rm_mollusk.png" />
+    <Content Include="Resources\rm_topy.png" />
+    <Content Include="Resources\rm_zhivec.png" />
+    <Content Include="Resources\road.png" />
+    <Content Include="Resources\road2.png" />
+    <Content Include="Resources\shop_but11.png" />
+    <Content Include="Resources\Sounder.png" />
+    <Content Include="Resources\step2.png" />
+    <Content Include="Resources\step3.png" />
+    <Content Include="Resources\step7.png" />
+    <Content Include="Resources\SuperFisher-950.jpg" />
+    <Content Include="Resources\Syberia HD-1.png" />
+    <Content Include="Resources\Syberia HD-3.png" />
+    <Content Include="Resources\Syberia HD-4.png" />
+    <Content Include="Resources\Syberia LT-2.png" />
+    <Content Include="Resources\TBR-4000.png" />
+    <Content Include="Resources\Titanium.jpg" />
+    <Content Include="Resources\Vesta 276.jpg" />
+    <Content Include="Resources\Vib-6000.png" />
+    <Content Include="Resources\Vib-6008.png" />
+    <Content Include="Resources\Vib-6012.png" />
+    <Content Include="Resources\Vib-6016.png" />
+    <Content Include="Resources\Vob-3001.png" />
+    <Content Include="Resources\Vob-3002.png" />
+    <Content Include="Resources\Vob-3003.png" />
+    <Content Include="Resources\Vob-3015.png" />
+    <Content Include="Resources\worm.png" />
+    <Content Include="Resources\Yellow SuperCarp.jpg" />
+    <Content Include="Resources\zabros.wav" />
+    <Content Include="Resources\Zymix.png" />
+    <Content Include="road.png" />
+    <Content Include="road2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

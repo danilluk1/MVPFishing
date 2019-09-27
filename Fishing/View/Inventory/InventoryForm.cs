@@ -1,5 +1,7 @@
 ﻿using Fishing.Presenter;
+using Fishing.View.Assembly;
 using Fishing.View.Inventory;
+using Fishing.View.LureSelector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,12 @@ namespace Fishing
         {
             InitializeComponent();
             presenter = new InventoryPresenter(this, GUI.gui);
+
+            if (Player.getPlayer().Assemblies.Count == 0)
+            {
+                AddAssembly add = new AddAssembly();
+                add.Show();
+            }
         }
 
         public void showAssembly(Assembly ass)
@@ -190,7 +198,7 @@ namespace Fishing
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            CloseButtonClick?.Invoke(this, EventArgs.Empty);
+            this.Close();
         }
 
         private void Inventory_Load(object sender, EventArgs e)
@@ -209,7 +217,8 @@ namespace Fishing
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddButtonClick?.Invoke(this, EventArgs.Empty);
+            AddAssembly add = new AddAssembly();
+            add.Show();
         }
         public void addItemToRightView(Item item)
         {
@@ -259,7 +268,8 @@ namespace Fishing
 
         private void BaitBox_Click(object sender, EventArgs e)
         {
-            BaitPicClick?.Invoke(this, EventArgs.Empty);
+            LureSelector selector = new LureSelector();
+            selector.Show();
         }
     }
 }

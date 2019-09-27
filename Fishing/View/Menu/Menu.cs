@@ -35,28 +35,32 @@ namespace Fishing
 
         private void SettingButton_Click(object sender, EventArgs e)
         {
-            SettingsButtonClick?.Invoke(this, EventArgs.Empty);
+            SettingsForm settings = new SettingsForm();
+            settings.Show();
         }
 
         private void MapButton_Click(object sender, EventArgs e)
         {
-            MapButtonClick?.Invoke(this, EventArgs.Empty);
-
+            Ozero map = new Ozero();
+            map.Show();
         }
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            ShopButtonClick?.Invoke(this, EventArgs.Empty);
+            Shop shop = new Shop();
+            shop.Show();
         }
 
         private void InventoryButton_Click(object sender, EventArgs e)
         {
-            InventoryButtonClick?.Invoke(this, EventArgs.Empty);
+            Inventory inventory = new Inventory();
+            inventory.Show();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            ExitButtonClick?.Invoke(this, EventArgs.Empty);
+            //Player.getPlayer().SavePlayer();
+            this.Close();
         }
 
         private void Menu_Load(object sender, EventArgs e)

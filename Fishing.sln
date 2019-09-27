@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fishing", "Fishing\Fishing.csproj", "{238518C6-80BB-4F69-B39D-32CBA398B52D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fishing.BL", "Fishing.BL\Fishing.BL.csproj", "{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{238518C6-80BB-4F69-B39D-32CBA398B52D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{238518C6-80BB-4F69-B39D-32CBA398B52D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{238518C6-80BB-4F69-B39D-32CBA398B52D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

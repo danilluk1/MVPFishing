@@ -10,22 +10,39 @@ namespace Fishing
 {
     public partial class OzeroForm : Form, ILVL
     {
-        static LVL2 lvl2;
         LVLPresenter presenter;
         public OzeroForm()
         {
             InitializeComponent();
             presenter = new LVLPresenter(this, GUI.gui);
             presenter.StartBaitTimer += Presenter_StartBaitTimer;
+            presenter.StopBaitTimer += Presenter_StopBaitTimer;
             presenter.StopGatheringTimer += Presenter_StopGatheringTimer;
+            presenter.RefreshForm += Presenter_RefreshForm;
+            presenter.CreateCurrentFishF += Presenter_CreateCurrentFishF;
             
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint, true);
 
             UpdateStyles();
-            lvl2 = new LVL2();
-            lvl2.SetDeep();
-            lvl2.addFishes();
+            LVL2.lvl2 = new LVL2();
+            LVL2.lvl2.SetDeep();
+            LVL2.lvl2.addFishes();
+        }
+
+        private void Presenter_CreateCurrentFishF(object sender, EventArgs e)
+        {
+            CurrentFish cf = new CurrentFish();
+        }
+
+        private void Presenter_StopBaitTimer(object sender, EventArgs e)
+        {
+            baitTimer.Stop();
+        }
+
+        private void Presenter_RefreshForm(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
 
         private void Presenter_StopGatheringTimer(object sender, EventArgs e)
@@ -90,7 +107,7 @@ namespace Fishing
 
         private void BaitTimer_Tick(object sender, EventArgs e)
         {
-            lvl2.getFish();
+            LVL2.lvl2.getFish();
         }
     }
 }

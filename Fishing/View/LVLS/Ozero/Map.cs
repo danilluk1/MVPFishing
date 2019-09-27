@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fishing.BL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,7 @@ namespace Fishing
             ozero = new OzeroForm();
             this.Close();
             ozero.Show();
-            ozero.BackgroundImage = Resource1.ozerolvl2;
+            ozero.BackgroundImage = Images.ozerolvl2;
             GUI.gui.Show();
         }
 

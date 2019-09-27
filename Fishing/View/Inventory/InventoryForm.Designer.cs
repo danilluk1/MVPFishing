@@ -1,4 +1,6 @@
-﻿namespace Fishing
+﻿using Fishing.BL;
+
+namespace Fishing
 {
     partial class Inventory
     {
@@ -84,7 +86,7 @@
             // 
             // FLineBox
             // 
-            this.FLineBox.BackgroundImage = global::Fishing.Resource1.NOT_SCAF;
+            this.FLineBox.BackgroundImage = Images.not_scaf;
             this.FLineBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FLineBox.Location = new System.Drawing.Point(185, 220);
             this.FLineBox.Name = "FLineBox";
@@ -94,9 +96,9 @@
             // 
             // ReelBox
             // 
-            this.ReelBox.BackgroundImage = global::Fishing.Resource1.NOT_REEL;
+            this.ReelBox.BackgroundImage = Images.not_reel;
             this.ReelBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ReelBox.InitialImage = global::Fishing.Resource1.NOT_REEL;
+            this.ReelBox.InitialImage = Images.not_reel;
             this.ReelBox.Location = new System.Drawing.Point(0, 390);
             this.ReelBox.Name = "ReelBox";
             this.ReelBox.Size = new System.Drawing.Size(179, 111);
@@ -399,7 +401,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Fishing.Resource1.layer10;
+            this.BackgroundImage = Images.layer10;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(715, 620);
             this.Controls.Add(this.makeOutButton);

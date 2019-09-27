@@ -1,4 +1,6 @@
-﻿namespace Fishing
+﻿using Fishing.BL;
+
+namespace Fishing
 {
     partial class GUI
     {
@@ -118,7 +120,7 @@
             // 
             // FpondBox
             // 
-            this.FpondBox.BackgroundImage = global::Fishing.Resource1.step7;
+            this.FpondBox.BackgroundImage = Fishing.BL.Images.step7;
             this.FpondBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FpondBox.Location = new System.Drawing.Point(934, 156);
             this.FpondBox.Name = "FpondBox";
@@ -129,7 +131,7 @@
             // 
             // LowerPanel
             // 
-            this.LowerPanel.BackgroundImage = global::Fishing.Resource1.LAYER1;
+            this.LowerPanel.BackgroundImage = Fishing.BL.Images.layer2;
             this.LowerPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LowerPanel.Controls.Add(this.LeskaLabel);
             this.LowerPanel.Controls.Add(this.ReelBar);
@@ -195,7 +197,7 @@
             // UpperPanel
             // 
             this.UpperPanel.BackColor = System.Drawing.Color.Transparent;
-            this.UpperPanel.BackgroundImage = global::Fishing.Resource1.LAYER1;
+            this.UpperPanel.BackgroundImage = Images.layer2;
             this.UpperPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.UpperPanel.Controls.Add(this.MenuLabel);
             this.UpperPanel.Controls.Add(this.InventoryLabel);

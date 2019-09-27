@@ -1,4 +1,6 @@
-﻿namespace Fishing
+﻿using Fishing.BL;
+
+namespace Fishing
 {
     partial class Shop
     {
@@ -205,7 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Fishing.Resource1.layer10;
+            this.BackgroundImage = Images.layer10;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 612);
             this.Controls.Add(this.closeButton);

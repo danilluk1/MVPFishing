@@ -149,7 +149,7 @@ namespace Fishing
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            CloseButtonClick?.Invoke(this, EventArgs.Empty);
+            this.Close();
         }
 
         private void RoadsList_MouseDoubleClick_1(object sender, MouseEventArgs e)

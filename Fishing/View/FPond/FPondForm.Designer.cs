@@ -1,4 +1,6 @@
-﻿namespace Fishing
+﻿using Fishing.BL;
+
+namespace Fishing
 {
     partial class fishesForm
     {
@@ -58,7 +60,7 @@
             // 
             // SellButton
             // 
-            this.SellButton.BackgroundImage = global::Fishing.Resource1.LAYER1;
+            this.SellButton.BackgroundImage = Images.layer2;
             this.SellButton.Location = new System.Drawing.Point(305, 497);
             this.SellButton.Name = "SellButton";
             this.SellButton.Size = new System.Drawing.Size(157, 36);
@@ -69,7 +71,7 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.BackgroundImage = global::Fishing.Resource1.LAYER1;
+            this.CloseButton.BackgroundImage = Images.layer2;
             this.CloseButton.Location = new System.Drawing.Point(581, 497);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(140, 36);
@@ -91,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Fishing.Resource1.LAYER1;
+            this.BackgroundImage = Images.layer2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(733, 545);
             this.Controls.Add(this.fishDescription);
