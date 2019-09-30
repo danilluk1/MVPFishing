@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL;
+using Fishing.BL.Model.Game;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +12,8 @@ namespace Fishing
     [Serializable]
     public sealed class Player
     {
-        public const string LURES_DIR = "config/lures.dat";
-        public const string FISHLIST_DIR = "config/fishlist.dat";
-        public const string ROADS_DIR = "config/roads.dat";
-        public const string REELS_DIR = "config/reels.dat";
-        public const string FLINES_DIR = "config/flines.dat";
-        public const string ASSEMBLIES_DIR = "config/assemblies.dat";
-        public const string MONEY_DIR = "config/money.dat";
-        public const string NAME_DIR = "config/name.dat";
-        public const string EVENTHSTR_DIR = "config/history.dat";
-
         private static Player player;
+
         public Assembly Assembly { get; set; }
         public BindingList<Fish> Fishlist { get; set; }
         public BindingList<Assembly> Assemblies { get; set; }
@@ -29,28 +21,21 @@ namespace Fishing
         public BindingList<Reel> ReelInv { get; set; }
         public BindingList<FLine> FLineInv { get; set; }
         public BindingList<Lure> LureInv { get; set; }
-
         public Stack<UserEvent> EventHistory { get; set; }
+
         public bool IsBaitMoving = false;
         public Point LastCastPoint;
         public int RoadX = 0;
         public int RoadY = 470;
         public bool isFishAttack = false;
-        public int NettingY;
         public int CurrentDeep;
-        public Point CurPoint; 
+        public Point CurPoint;
+        public int IncValue;
+        public Netting Netting = new Netting();
         public int Money { get; set; } = 10000000;
-        public int RoadPower { get; set; }
-        public int LeskaPower { get; set; }
-        public int ReelPower { get; set; }
 
         public int WindingSpeed;
         public Fish CFish { get; set; }
-
-        public Road Road { get; set; }
-        public Reel Reel { get; set; }
-        public FLine Fline { get; set; }
-        public Lure Lure { get; set; }
         public string NickName { get; set; } = "Рыболов";
 
         private Player()
@@ -66,14 +51,9 @@ namespace Fishing
             return player;              
         }
 
-
         public void setAssembly(Assembly ass)
         {
-            this.Road = ass.Proad;
-            this.Reel = ass.Reel;
-            this.Fline = ass.FLine;
-            this.Lure = ass.Lure;
-            this.Assembly = ass;
+            Assembly = ass != null ? ass : null;
         }
 
         public void addFish(Fish f)
@@ -113,34 +93,34 @@ namespace Fishing
                 {
                     player.Money += (int)f.Price * 3 * f.Weight;
                 }
-                //player.SavePlayer();
             }
         }
 
         public void Initiallize()
         {
-            getPlayer().LureInv = getPlayer().Load<BindingList<Lure>>(LURES_DIR) ?? new BindingList<Lure>();
-            getPlayer().RoadInv = getPlayer().Load<BindingList<Road>>(ROADS_DIR) ?? new BindingList<Road>();
-            getPlayer().FLineInv = getPlayer().Load<BindingList<FLine>>(FLINES_DIR) ?? new BindingList<FLine>();
-            getPlayer().ReelInv = getPlayer().Load<BindingList<Reel>>(REELS_DIR) ?? new BindingList<Reel>();
-            getPlayer().Assemblies = getPlayer().Load<BindingList<Assembly>>(ASSEMBLIES_DIR) ?? new BindingList<Assembly>();
-            getPlayer().Fishlist = getPlayer().Load<BindingList<Fish>>(FISHLIST_DIR) ?? new BindingList<Fish>();
-            getPlayer().NickName = getPlayer().Load<string>(NAME_DIR) ?? "Рыболов";
-            getPlayer().Money = Convert.ToInt32(getPlayer().Load<string>(MONEY_DIR) ?? "1000000");
-            getPlayer().EventHistory = getPlayer().Load<Stack<UserEvent>>(EVENTHSTR_DIR) ?? new Stack<UserEvent>();
+            getPlayer().LureInv = getPlayer().Load<BindingList<Lure>>(ConfigPaths.LURES_DIR) ?? new BindingList<Lure>();
+            getPlayer().RoadInv = getPlayer().Load<BindingList<Road>>(ConfigPaths.ROADS_DIR) ?? new BindingList<Road>();
+            getPlayer().FLineInv = getPlayer().Load<BindingList<FLine>>(ConfigPaths.FLINES_DIR) ?? new BindingList<FLine>();
+            getPlayer().ReelInv = getPlayer().Load<BindingList<Reel>>(ConfigPaths.REELS_DIR) ?? new BindingList<Reel>();
+            getPlayer().Assemblies = getPlayer().Load<BindingList<Assembly>>(ConfigPaths.ASSEMBLIES_DIR) ?? new BindingList<Assembly>();
+            getPlayer().Fishlist = getPlayer().Load<BindingList<Fish>>(ConfigPaths.FISHLIST_DIR) ?? new BindingList<Fish>();
+            getPlayer().NickName = getPlayer().Load<string>(ConfigPaths.NAME_DIR) ?? "Рыболов";
+            getPlayer().Money = Convert.ToInt32(getPlayer().Load<string>(ConfigPaths.MONEY_DIR) ?? "1000000");
+            getPlayer().EventHistory = getPlayer().Load<Stack<UserEvent>>(ConfigPaths.EVENTHSTR_DIR) ?? new Stack<UserEvent>();
+            Assembly = Assemblies[0];
         }
 
         public void SavePlayer()
         {
-            getPlayer().Save(LURES_DIR, getPlayer().LureInv);
-            getPlayer().Save(ROADS_DIR, getPlayer().RoadInv);
-            getPlayer().Save(REELS_DIR, getPlayer().ReelInv);
-            getPlayer().Save(FLINES_DIR, getPlayer().FLineInv);
-            getPlayer().Save(ASSEMBLIES_DIR, getPlayer().Assemblies);
-            getPlayer().Save(FISHLIST_DIR, getPlayer().Fishlist);
-            getPlayer().Save(MONEY_DIR, getPlayer().Money.ToString());
-            getPlayer().Save(NAME_DIR, getPlayer().NickName);
-            getPlayer().Save(EVENTHSTR_DIR, getPlayer().EventHistory);
+            getPlayer().Save(ConfigPaths.LURES_DIR, getPlayer().LureInv);
+            getPlayer().Save(ConfigPaths.ROADS_DIR, getPlayer().RoadInv);
+            getPlayer().Save(ConfigPaths.REELS_DIR, getPlayer().ReelInv);
+            getPlayer().Save(ConfigPaths.FLINES_DIR, getPlayer().FLineInv);
+            getPlayer().Save(ConfigPaths.ASSEMBLIES_DIR, getPlayer().Assemblies);
+            getPlayer().Save(ConfigPaths.FISHLIST_DIR, getPlayer().Fishlist);
+            getPlayer().Save(ConfigPaths.MONEY_DIR, getPlayer().Money.ToString());
+            getPlayer().Save(ConfigPaths.NAME_DIR, getPlayer().NickName);
+            getPlayer().Save(ConfigPaths.EVENTHSTR_DIR, getPlayer().EventHistory);
 
 
         }
@@ -154,6 +134,7 @@ namespace Fishing
                 formatter.Serialize(fs, item);
             }
         }
+
         public T Load<T>(string fileName)
         {
             var formatter = new BinaryFormatter();
@@ -170,5 +151,59 @@ namespace Fishing
             }
         }
 
+        public void CheckXBorders()
+        {
+            if (player.CurPoint.X > 1049) player.CurPoint.X = 1048;
+            if (player.CurPoint.X < 0) player.CurPoint.X = 1;
+        }
+
+        public bool IsFishAbleToGoIntoFpond()
+        {
+            if(player.Netting.Y == 550 && player.isFishAttack && player.CurPoint.Y > 600)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void AddNewMessage(MessageType type)
+        {
+            string text = string.Empty;
+            switch (type)
+            {
+                case MessageType.FLineIsTorn:
+                    text = player.NickName + " порвал леску";
+                    break;
+                case MessageType.NewFish:
+                    text = player.NickName + " поймал " + Player.getPlayer().CFish.ToString();
+                    break;
+                case MessageType.NewTrophyFish:
+                    text = "Трофей! " + Player.getPlayer().NickName + " поймал " + Player.getPlayer().CFish.ToString();
+                    break;
+                case MessageType.RoadIsBroken:
+                    text = player.NickName + " сломал удочку";
+                    break;
+                case MessageType.Gathering:
+                    text = player.NickName + " сход =(";
+                    break;
+            }
+            player.EventHistory.Push(new UserEvent(text, type));
+        }
+
+        public void BrokeRoad()
+        {
+            Pictures.road = Pictures.brokenRoad;
+            player.isFishAttack = false;
+            player.Assembly.Proad = null;
+            player.CurPoint.Y = 0;
+        }
+
+        public void TornFLine()
+        {
+            player.isFishAttack = false;
+            player.CurPoint.Y = 0;
+            player.Assembly.Lure = null;
+        }
     }
 }

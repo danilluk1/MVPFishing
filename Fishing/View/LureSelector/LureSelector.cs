@@ -39,7 +39,7 @@ namespace Fishing.View.LureSelector
             Player.getPlayer().Assembly.Lure = Lure;
             Player.getPlayer().setAssembly(Player.getPlayer().Assembly);
             this.Close();
-            Fishing.GUI.gui.BaitPicture = Player.getPlayer().Lure.Pict;
+            Fishing.GUI.gui.BaitPicture = Player.getPlayer().Assembly.Lure.Pict;
         }
     }
 }

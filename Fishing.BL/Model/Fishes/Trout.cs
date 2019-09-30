@@ -11,7 +11,8 @@ namespace Fishing
     public class Trout : Fish
     {
         private static HashSet<LureType> lures = new HashSet<LureType>()
-        { LureType.TopSmall,
+        {
+          LureType.TopSmall,
           LureType.Small,
           LureType.DeepSmall,
           LureType.FlyingSmall,

@@ -50,14 +50,15 @@ namespace Fishing
         {
            Random randomGathering = new Random();
            Random randomFish = new Random();
-                if((Player.getPlayer().Lure is Wobbler || Player.getPlayer().Lure is Iron) && Player.getPlayer().CurrentDeep > 350 )
+                if((Player.getPlayer().Assembly.Lure is Wobbler || Player.getPlayer().Assembly.Lure is Iron) && Player.getPlayer().CurrentDeep > 350 )
 
-                if (Player.getPlayer().CurPoint.Y > 400 && Player.getPlayer().CurPoint.Y < 800)
+                if (Player.getPlayer().CurPoint.Y > 400 && Player.getPlayer().CurPoint.Y < 800 && !Player.getPlayer().isFishAttack)
                 {
                     Player.getPlayer().CFish = fishes[randomFish.Next(1, 994)];
-                    if (isFishAttackAbble(Player.getPlayer().CFish) && Player.getPlayer().IsBaitMoving)
+                    if (IsFishAttackAbble(Player.getPlayer().CFish) && Player.getPlayer().IsBaitMoving)
                     {
                         Player.getPlayer().isFishAttack = true;
+                        Player.getPlayer().IncValue = Player.getPlayer().CFish.Weight * 20 / (Player.getPlayer().Assembly.Proad.Power);
                         StopBaitTimer?.Invoke(this, EventArgs.Empty);
                         int Gathering = randomGathering.Next(1, 100);
                         if (Gathering <= 5)

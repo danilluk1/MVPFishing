@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigPaths.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigPaths.resx</DependentUpon>
+    </Compile>
     <Compile Include="Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,8 +67,9 @@
     <Compile Include="Model\Fishes\Salmon.cs" />
     <Compile Include="Model\Fishes\Trout.cs" />
     <Compile Include="Model\Game\Assembly.cs" />
-    <Compile Include="Model\Game\UserEvent.cs" />
+    <Compile Include="Model\Game\Netting.cs" />
     <Compile Include="Model\Game\Pictures.cs" />
+    <Compile Include="Model\Game\UserEvent.cs" />
     <Compile Include="Model\Game\Player.cs" />
     <Compile Include="Model\Game\Sounds.cs" />
     <Compile Include="Model\Items\FLine.cs" />
@@ -203,6 +209,10 @@
     <Content Include="road2.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ConfigPaths.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfigPaths.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Images.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>

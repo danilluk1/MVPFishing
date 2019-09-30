@@ -63,7 +63,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddAssembly";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.AddAssembly_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -58,27 +58,27 @@ namespace Fishing
             Player player = Player.getPlayer();
             try
             {
-                if (player.Lure.Type == LureType.FlyingLarge
-                                || player.Lure.Type == LureType.FlyingSmall
-                                            || player.Lure.Type == LureType.FlyingXL)
+                if (player.Assembly.Lure.Type == LureType.FlyingLarge
+                                || player.Assembly.Lure.Type == LureType.FlyingSmall
+                                            || player.Assembly.Lure.Type == LureType.FlyingXL)
                 {
                     g.DrawEllipse(new Pen(Color.Black), X * 10, Player.getPlayer().CurrentDeep / 20, 3, 3);
                 }
-                else if (player.Lure.Type == LureType.TopLarge
-                                || player.Lure.Type == LureType.TopSmall
-                                            || player.Lure.Type == LureType.TopXL)
+                else if (player.Assembly.Lure.Type == LureType.TopLarge
+                                || player.Assembly.Lure.Type == LureType.TopSmall
+                                            || player.Assembly.Lure.Type == LureType.TopXL)
                 {
                     g.DrawEllipse(new Pen(Color.Black), X * 10, 5, 3, 3);
                 }
-                else if (player.Lure.Type == LureType.XL
-                                || player.Lure.Type == LureType.Small
-                                            || player.Lure.Type == LureType.Large)
+                else if (player.Assembly.Lure.Type == LureType.XL
+                                || player.Assembly.Lure.Type == LureType.Small
+                                            || player.Assembly.Lure.Type == LureType.Large)
                 {
                     g.DrawEllipse(new Pen(Color.Black), X * 10, Player.getPlayer().CurrentDeep / 10 - 5, 3, 3);
                 }
-                else if (player.Lure.Type == LureType.DeepXL
-                                || player.Lure.Type == LureType.DeepSmall
-                                            || player.Lure.Type == LureType.DeepLarge)
+                else if (player.Assembly.Lure.Type == LureType.DeepXL
+                                || player.Assembly.Lure.Type == LureType.DeepSmall
+                                            || player.Assembly.Lure.Type == LureType.DeepLarge)
                 {
                     g.DrawEllipse(new Pen(Color.Black), X * 10, Player.getPlayer().CurrentDeep / 10 - 5, 3, 3);
                 }

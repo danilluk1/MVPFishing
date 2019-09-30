@@ -22,6 +22,7 @@ namespace Fishing.View.GUI
         void ClearEvents();
         void IncrementRoadBarValue(int value);
         void IncrementFLineBarValue(int value);
+        void CheckNeedsAndClearEventBox();
 
 
     }

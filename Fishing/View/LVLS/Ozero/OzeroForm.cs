@@ -25,9 +25,6 @@ namespace Fishing
                     ControlStyles.UserPaint, true);
 
             UpdateStyles();
-            LVL2.lvl2 = new LVL2();
-            LVL2.lvl2.SetDeep();
-            LVL2.lvl2.addFishes();
         }
 
         private void Presenter_CreateCurrentFishF(object sender, EventArgs e)
@@ -64,6 +61,7 @@ namespace Fishing
         public event KeyEventHandler KeyDOWN;
         public event KeyEventHandler KeyUP;
         public event EventHandler MainTimerTick;
+        public event EventHandler BaitTimerTick;
 
         private void OzeroForm_Load(object sender, EventArgs e)
         {
@@ -107,7 +105,7 @@ namespace Fishing
 
         private void BaitTimer_Tick(object sender, EventArgs e)
         {
-            LVL2.lvl2.getFish();
+            BaitTimerTick?.Invoke(this, e);
         }
     }
 }

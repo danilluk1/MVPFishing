@@ -18,6 +18,7 @@ namespace Fishing.View.LVLS.Ozero
         event KeyEventHandler KeyDOWN;
         event KeyEventHandler KeyUP;
         event EventHandler MainTimerTick;
+        event EventHandler BaitTimerTick;
 
 
     }

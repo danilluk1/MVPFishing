@@ -23,7 +23,6 @@ namespace Fishing.Presenter
             view.ExitButtonClick += View_ExitButtonClick;
             view.MapButtonClick += View_MapButtonClick;
             view.MenuLoad += Menu_Load;
-            Player.getPlayer().Assemblies.Add(new Assembly("new", Road.Titanium, Reel.Zymix, FLine.Atlantic, Lure.jelezo2));
         }
 
         private void View_MapButtonClick(object sender, EventArgs e)
@@ -74,13 +73,6 @@ namespace Fishing.Presenter
             Item.ReelShop.Add(Reel.Zymix);
             Item.ReelShop.Add(Reel.Syberia_1);
             Item.ReelShop.Add(Reel.TBR_4000);
-            Player.getPlayer().LureInv.Add(Lure.jelezo2);
-            Player.getPlayer().LureInv.Add(Lure.jelezo3);
-            Player.getPlayer().LureInv.Add(Lure.jelezo4);
-            Player.getPlayer().LureInv.Add(Lure.vob1);
-            Player.getPlayer().LureInv.Add(Lure.vob2);
-            Player.getPlayer().LureInv.Add(Lure.vob3);
-            Player.getPlayer().LureInv.Add(Lure.vob4);
         }
 
     }

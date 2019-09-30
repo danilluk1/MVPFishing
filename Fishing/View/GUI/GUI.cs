@@ -114,8 +114,6 @@ namespace Fishing
         }
         private void SounderUpdater_Tick(object sender, EventArgs e)
         {
-            ReelBar.Refresh();
-            FLineBar.Refresh();
         }
 
         public void IncrementRoadBarValue(int value)
@@ -126,6 +124,14 @@ namespace Fishing
         public void IncrementFLineBarValue(int value)
         {
             FLineBar.Increment(value);
+        }
+
+        public void CheckNeedsAndClearEventBox()
+        {
+            if(EventBoxItemsCount > 5)
+            {
+                ClearEvents();
+            }
         }
     }
 }

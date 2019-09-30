@@ -20,19 +20,12 @@ namespace Fishing.View.Assembly
             presenter = new AssemblyPresenter(this);
             presenter.CloseForm += Presenter_CloseForm;
         }
+        public string AssemblyName { get => nameBox.Text; set => AssemblyName = nameBox.Text; }
+        public event EventHandler AddAssemblyClick;
 
         private void Presenter_CloseForm(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        public string AssemblyName { get => nameBox.Text; set => AssemblyName = nameBox.Text; }
-
-        public event EventHandler AddAssemblyClick;
-
-        private void AddAssembly_Load(object sender, EventArgs e)
-        {
-
         }
         private void Add_Click(object sender, EventArgs e)
         {

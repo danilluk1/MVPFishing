@@ -20,11 +20,11 @@ namespace Fishing
 
         public abstract void SetDeep();
 
-        public static bool isFishAttackAbble(Fish fish)
+        public static bool IsFishAttackAbble(Fish fish)
         {
             try
             {
-                var bait = fish.Lures.Single(b => b == Player.getPlayer().Lure.Type);
+                var bait = fish.Lures.Single(b => b == Player.getPlayer().Assembly.Lure.Type);
                 bool ba = bait.ToString() == null ? false : true;
                 return ba;
             }

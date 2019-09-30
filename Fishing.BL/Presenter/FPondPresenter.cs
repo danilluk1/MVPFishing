@@ -34,6 +34,12 @@ namespace Fishing.Presenter
                     view.RightImage = Images.gorbusha;
                 if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Pike)
                     view.RightImage = Images.pike;
+                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Grayling)
+                    view.RightImage = Images._1081;
+                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Trout)
+                    view.RightImage = Images._1052;
+                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Salmon)
+                    view.RightImage = Images._1039;
 
                 view.DescriptionText = Player.getPlayer().GetFishByIndex(view.SelectedIndex).Description;
             }

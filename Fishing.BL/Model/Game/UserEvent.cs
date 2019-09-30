@@ -12,8 +12,8 @@ namespace Fishing.BL.Model.Game
         RoadIsBroken,
         FLineIsTorn,
         NewFish,
-        NewTrophyFish
-
+        NewTrophyFish,
+        Gathering,
     }
     [Serializable]
     public class UserEvent

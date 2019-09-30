@@ -8,7 +8,7 @@ using Fishing.BL;
 
 namespace Fishing
 {
-    class Pictures
+    static class Pictures
     {
         public static Bitmap brokenRoad = new Bitmap(Images.broken);
         public static Bitmap netting = new Bitmap(Images.podsak1);

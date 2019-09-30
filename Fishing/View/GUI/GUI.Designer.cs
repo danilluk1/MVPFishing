@@ -31,6 +31,7 @@ namespace Fishing
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
             this.EventsBox = new System.Windows.Forms.ListBox();
             this.DeepLabel = new System.Windows.Forms.Label();
             this.TextDeepLabel = new System.Windows.Forms.Label();
@@ -120,7 +121,7 @@ namespace Fishing
             // 
             // FpondBox
             // 
-            this.FpondBox.BackgroundImage = Fishing.BL.Images.step7;
+            this.FpondBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FpondBox.BackgroundImage")));
             this.FpondBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FpondBox.Location = new System.Drawing.Point(934, 156);
             this.FpondBox.Name = "FpondBox";
@@ -131,7 +132,7 @@ namespace Fishing
             // 
             // LowerPanel
             // 
-            this.LowerPanel.BackgroundImage = Fishing.BL.Images.layer2;
+            this.LowerPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LowerPanel.BackgroundImage")));
             this.LowerPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LowerPanel.Controls.Add(this.LeskaLabel);
             this.LowerPanel.Controls.Add(this.ReelBar);
@@ -186,7 +187,7 @@ namespace Fishing
             // BaitsPicture
             // 
             this.BaitsPicture.BackColor = System.Drawing.Color.Transparent;
-            this.BaitsPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BaitsPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BaitsPicture.Location = new System.Drawing.Point(319, 15);
             this.BaitsPicture.Name = "BaitsPicture";
             this.BaitsPicture.Size = new System.Drawing.Size(74, 64);
@@ -197,7 +198,7 @@ namespace Fishing
             // UpperPanel
             // 
             this.UpperPanel.BackColor = System.Drawing.Color.Transparent;
-            this.UpperPanel.BackgroundImage = Images.layer2;
+            this.UpperPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UpperPanel.BackgroundImage")));
             this.UpperPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.UpperPanel.Controls.Add(this.MenuLabel);
             this.UpperPanel.Controls.Add(this.InventoryLabel);

@@ -35,11 +35,10 @@ namespace Fishing
             SelectedIndexChanged?.Invoke(this, EventArgs.Empty);
         }
 
-
         private void FishesForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
-                (sender as fishesForm).Close();
+                this.Close();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
