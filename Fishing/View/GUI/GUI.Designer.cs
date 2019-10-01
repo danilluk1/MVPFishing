@@ -67,7 +67,7 @@ namespace Fishing
             this.EventsBox.FormattingEnabled = true;
             this.EventsBox.Location = new System.Drawing.Point(544, -1);
             this.EventsBox.Name = "EventsBox";
-            this.EventsBox.Size = new System.Drawing.Size(321, 121);
+            this.EventsBox.Size = new System.Drawing.Size(314, 121);
             this.EventsBox.TabIndex = 12;
             // 
             // DeepLabel
@@ -98,7 +98,7 @@ namespace Fishing
             // 
             // SounderPanel
             // 
-            this.SounderPanel.BackColor = System.Drawing.Color.DimGray;
+            this.SounderPanel.BackColor = System.Drawing.Color.Wheat;
             this.SounderPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SounderPanel.Location = new System.Drawing.Point(862, 0);
             this.SounderPanel.Name = "SounderPanel";

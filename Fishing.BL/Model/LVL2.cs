@@ -8,6 +8,21 @@ namespace Fishing
 {
     public class LVL2 : LVL
     {
+        private static LVL2 lvl2;
+
+        private LVL2()
+        {
+
+        }
+        public static LVL2 getLVL()
+        {
+            if (lvl2 == null)
+            {
+                lvl2 = new LVL2();
+            }
+
+            return lvl2;
+        }
         public override void AddFishes()
         {          
             for(int i = 0; i < 1000; i++)

@@ -18,8 +18,6 @@ namespace Fishing.Presenter
 {
     public class LVLPresenter : Presenter
     {
-        private static LVL level;
-
         ILVL view;
         IGUIPresenter gui;
 
@@ -32,11 +30,10 @@ namespace Fishing.Presenter
         {
             this.view = view;
             this.gui = v;
-            setLVL(new LVL2());
-            level.AddDeep();
-            gui.AddLabels(level.Deeparr);
-            level.SetDeep();
-            level.AddFishes();
+            LVL2.getLVL().AddDeep();
+            gui.AddLabels(LVL2.getLVL().Deeparr);
+            LVL2.getLVL().SetDeep();
+            LVL2.getLVL().AddFishes();
             view.RepaintScreen += View_RepaintScreen;
             view.MouseLeftClick += View_MouseLeftClick;
             view.KeyDOWN += View_KeyDOWN;
@@ -44,14 +41,14 @@ namespace Fishing.Presenter
             view.CountFishMoves += View_CountFishMoves;
             view.CountGathering += View_CountGathering;
             view.MainTimerTick += View_MainTimerTick;
-            level.GatheringisTrue += View_CountGathering;
-            level.StopBaitTimer += View_StopBaitTimer;
+            LVL2.getLVL().GatheringisTrue += View_CountGathering;
+            LVL2.getLVL().StopBaitTimer += View_StopBaitTimer;
             view.BaitTimerTick += View_BaitTimerTick;
         }
 
         private void View_BaitTimerTick(object sender, EventArgs e)
         {
-            level.GetFish();
+            LVL2.getLVL().GetFish();
         }
 
         private void View_StopBaitTimer(object sender, EventArgs e)
@@ -125,12 +122,12 @@ namespace Fishing.Presenter
             {
                 for (int x = 0; x < 51; x++)
                 {
-                    Point between = new Point(player.CurPoint.X - level.Deeparr[x, y].Location.X,
-                                                player.CurPoint.Y - level.Deeparr[x, y].Location.Y);
+                    Point between = new Point(player.CurPoint.X - LVL2.getLVL().Deeparr[x, y].Location.X,
+                                                player.CurPoint.Y - LVL2.getLVL().Deeparr[x, y].Location.Y);
                     float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
                     if (distance < 20)
                     {
-                        gui.DeepValue = Convert.ToInt32(level.Deeparr[x, y].Tag);
+                        gui.DeepValue = Convert.ToInt32(LVL2.getLVL().Deeparr[x, y].Tag);
                         Sounder.getSounder().Column = y;
                         Sounder.getSounder().Row = x;
                     }
@@ -218,12 +215,12 @@ namespace Fishing.Presenter
             {
                 for (int x = 0; x < 51; x++)
                 {
-                    Point between = new Point(player.CurPoint.X - level.Deeparr[x, y].Location.X,
-                                                player.CurPoint.Y - level.Deeparr[x, y].Location.Y);
+                    Point between = new Point(player.CurPoint.X - LVL2.getLVL().Deeparr[x, y].Location.X,
+                                                player.CurPoint.Y - LVL2.getLVL().Deeparr[x, y].Location.Y);
                     float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
                     if (distance < 20)
                     {
-                        gui.DeepValue = Convert.ToInt32(level.Deeparr[x, y].Tag);
+                        gui.DeepValue = Convert.ToInt32(LVL2.getLVL().Deeparr[x, y].Tag);
                         Sounder.getSounder().Column = y;
                         Sounder.getSounder().Row = x;
                     }
@@ -298,11 +295,6 @@ namespace Fishing.Presenter
             }
 
         }
-        private void setLVL(LVL lvl)
-        {
-            level = lvl;
-        }
-
         public void Close()
         {
             throw new NotImplementedException();

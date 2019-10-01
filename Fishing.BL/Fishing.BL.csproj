@@ -92,6 +92,7 @@
     <Compile Include="Presenter\MenuPresenter.cs" />
     <Compile Include="Presenter\Presenter.cs" />
     <Compile Include="Presenter\ShopPresenter.cs" />
+    <Compile Include="Presenter\SounderPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\IAddAssembly.cs" />
     <Compile Include="View\ICurrentFishF.cs" />

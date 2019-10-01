@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Game;
+using Fishing.BL.Presenter;
 using Fishing.BL.View;
 using Fishing.Presenter;
 using Fishing.View.GUI;
@@ -18,12 +19,14 @@ namespace Fishing
     public partial class GUI : Form, IGUI, IGUIPresenter, ISounder
     {
         GUIPresenter presenter;
+        SounderPresenter sound;
         public static GUI gui;
 
         public GUI()
         {
             InitializeComponent();
             presenter = new GUIPresenter(this);
+            sound = new SounderPresenter(this);
             try
             {
                 BaitsPicture.Image = Player.getPlayer().Assembly.Lure.Pict;
@@ -86,6 +89,18 @@ namespace Fishing
             LureSelector selector = new LureSelector();
             selector.Show();
         }
+
+
+        private void SounderPanel_Paint(object sender, PaintEventArgs e)
+        {
+            SounderPaint?.Invoke(this, e);
+        }
+
+        private void SounderUpdater_Tick(object sender, EventArgs e)
+        {
+            SounderPanel.Refresh();
+        }
+
         public void AddEventToBox(string s)
         {
             EventsBox.Items.Add(s);
@@ -123,50 +138,6 @@ namespace Fishing
                     Controls.Add(l[x, y]);
                 }
             }
-        }
-
-        private void SounderPanel_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            drawPoint(g);
-        }
-
-        private void SounderUpdater_Tick(object sender, EventArgs e)
-        {
-            SounderPanel.Refresh();
-        }
-
-        private void drawPoint(Graphics g)
-        {
-            Player player = Player.getPlayer();
-            try
-            {
-                if (player.Assembly.Lure.Type == LureType.FlyingLarge
-                                || player.Assembly.Lure.Type == LureType.FlyingSmall
-                                            || player.Assembly.Lure.Type == LureType.FlyingXL)
-                {
-                    g.DrawEllipse(new Pen(Color.Black), Sounder.getSounder().Column * 10, Player.getPlayer().CurrentDeep / 20, 3, 3);
-                }
-                else if (player.Assembly.Lure.Type == LureType.TopLarge
-                                || player.Assembly.Lure.Type == LureType.TopSmall
-                                            || player.Assembly.Lure.Type == LureType.TopXL)
-                {
-                    g.DrawEllipse(new Pen(Color.Black), Sounder.getSounder().Column * 10, 5, 3, 3);
-                }
-                else if (player.Assembly.Lure.Type == LureType.XL
-                                || player.Assembly.Lure.Type == LureType.Small
-                                            || player.Assembly.Lure.Type == LureType.Large)
-                {
-                    g.DrawEllipse(new Pen(Color.Black), Sounder.getSounder().Column * 10, Player.getPlayer().CurrentDeep / 10 - 5, 3, 3);
-                }
-                else if (player.Assembly.Lure.Type == LureType.DeepXL
-                                || player.Assembly.Lure.Type == LureType.DeepSmall
-                                            || player.Assembly.Lure.Type == LureType.DeepLarge)
-                {
-                    g.DrawEllipse(new Pen(Color.Black), Sounder.getSounder().Column * 10, Player.getPlayer().CurrentDeep / 10 - 5, 3, 3);
-                }
-            }
-            catch (NullReferenceException) { }
         }
     }
 }
