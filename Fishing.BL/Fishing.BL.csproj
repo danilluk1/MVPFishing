@@ -69,6 +69,7 @@
     <Compile Include="Model\Game\Assembly.cs" />
     <Compile Include="Model\Game\Netting.cs" />
     <Compile Include="Model\Game\Pictures.cs" />
+    <Compile Include="Model\Game\Sounder.cs" />
     <Compile Include="Model\Game\UserEvent.cs" />
     <Compile Include="Model\Game\Player.cs" />
     <Compile Include="Model\Game\Sounds.cs" />
@@ -76,11 +77,11 @@
     <Compile Include="Model\Items\Item.cs" />
     <Compile Include="Model\Items\Reel.cs" />
     <Compile Include="Model\Items\Road.cs" />
-    <Compile Include="Model\Items\Sounder.cs" />
     <Compile Include="Model\Lures\Iron.cs" />
     <Compile Include="Model\Lures\Lure.cs" />
     <Compile Include="Model\Lures\wobbler.cs" />
     <Compile Include="Model\LVL.cs" />
+    <Compile Include="Model\LVL1.cs" />
     <Compile Include="Model\LVL2.cs" />
     <Compile Include="Presenter\AssemblyPresenter.cs" />
     <Compile Include="Presenter\CurrentFishPresenter.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="View\ISelector.cs" />
     <Compile Include="View\IShop.cs" />
     <Compile Include="Presenter\SelectorPresenter.cs" />
+    <Compile Include="View\ISounder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\1014.png" />

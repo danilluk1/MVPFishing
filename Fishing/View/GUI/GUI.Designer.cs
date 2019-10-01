@@ -104,6 +104,7 @@ namespace Fishing
             this.SounderPanel.Name = "SounderPanel";
             this.SounderPanel.Size = new System.Drawing.Size(171, 120);
             this.SounderPanel.TabIndex = 22;
+            this.SounderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SounderPanel_Paint);
             // 
             // SpeedBar
             // 

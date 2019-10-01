@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Fishing.View.GUI
 {
@@ -23,6 +24,7 @@ namespace Fishing.View.GUI
         void IncrementRoadBarValue(int value);
         void IncrementFLineBarValue(int value);
         void CheckNeedsAndClearEventBox();
+        void AddLabels(Label[,] l);
 
 
     }

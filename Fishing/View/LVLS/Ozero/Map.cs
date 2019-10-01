@@ -21,6 +21,12 @@ namespace Fishing
 
         private void Label1_Click(object sender, EventArgs e)
         {
+            GUI.gui = new GUI();
+            ozero = new OzeroForm();
+            this.Close();
+            ozero.Show();
+            ozero.BackgroundImage = Images.ozero1;
+            GUI.gui.Show();
         }
 
         private void Label2_Click(object sender, EventArgs e)

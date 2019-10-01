@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fishing
+namespace Fishing.BL.Model
 {
-    public class LVL2 : LVL
+    class LVL1 : LVL
     {
         public override void AddFishes()
-        {          
-            for(int i = 0; i < 1000; i++)
+        {
+            for (int i = 0; i < 1000; i++)
             {
-                if(i < 250)
+                if (i < 250)
                 {
                     Fishes.Add(new Pike());
                 }
@@ -24,32 +24,19 @@ namespace Fishing
                 {
                     Fishes.Add(new ArcticChar());
                 }
-                if(i > 600 && i < 700)
-                {
-                    Fishes.Add(new Trout());
-                }
-                if (i > 700 && i < 800)
-                {
-                    Fishes.Add(new PinkSalmon());
-                }
-                if (i > 800 && i < 900)
+                if (i > 600 && i < 1000)
                 {
                     Fishes.Add(new Grayling());
-                }
-                if (i > 900 && i < 1000)
-                {
-                    Fishes.Add(new Salmon());
                 }
             }
         }
 
-
         public override void GetFish()
         {
-           Random randomGathering = new Random();
-           Random randomFish = new Random();
-                if((Player.getPlayer().Assembly.Lure is Wobbler || Player.getPlayer().Assembly.Lure is Iron) && Player.getPlayer().CurrentDeep > 350 )
-
+            Random randomGathering = new Random();
+            Random randomFish = new Random();
+            if (Player.getPlayer().CurrentDeep > 350)
+            {
                 if (Player.getPlayer().CurPoint.Y > 400 && Player.getPlayer().CurPoint.Y < 800 && !Player.getPlayer().isFishAttack)
                 {
                     Player.getPlayer().CFish = Fishes[randomFish.Next(1, 994)];
@@ -64,7 +51,8 @@ namespace Fishing
                             GatheringisTrue?.Invoke(this, EventArgs.Empty);
                         }
                     }
-                }   
+                }
+            }
         }
 
         public override void SetDeep()
@@ -74,10 +62,10 @@ namespace Fishing
                 for (int y = 0; y < 18; y++)
                 {
                 }
-                Deeparr[x, 0].Tag = 340;
-                Deeparr[x, 1].Tag = 340;
-                Deeparr[x, 2].Tag = 360;
-                Deeparr[x, 3].Tag = 380;
+                Deeparr[x, 0].Tag = 500;
+                Deeparr[x, 1].Tag = 530;
+                Deeparr[x, 2].Tag = 570;
+                Deeparr[x, 3].Tag = 600;
                 Deeparr[x, 4].Tag = 450;
                 Deeparr[x, 5].Tag = 500;
                 Deeparr[x, 6].Tag = 550;
@@ -95,6 +83,5 @@ namespace Fishing
 
             }
         }
-
     }
 }

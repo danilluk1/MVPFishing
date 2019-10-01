@@ -1,6 +1,8 @@
 ﻿
 using Fishing.BL;
+using Fishing.BL.Model;
 using Fishing.BL.Model.Game;
+using Fishing.BL.Presenter;
 using Fishing.BL.View;
 using Fishing.View.GUI;
 using Fishing.View.LVLS.Ozero;
@@ -16,11 +18,11 @@ namespace Fishing.Presenter
 {
     public class LVLPresenter : Presenter
     {
-        private static LVL2 level = LVL.lvl2;
+        private static LVL level;
 
         ILVL view;
         IGUIPresenter gui;
-        
+
         public event EventHandler StartBaitTimer;
         public event EventHandler StopBaitTimer;
         public event EventHandler StopGatheringTimer;
@@ -30,6 +32,11 @@ namespace Fishing.Presenter
         {
             this.view = view;
             this.gui = v;
+            setLVL(new LVL2());
+            level.AddDeep();
+            gui.AddLabels(level.Deeparr);
+            level.SetDeep();
+            level.AddFishes();
             view.RepaintScreen += View_RepaintScreen;
             view.MouseLeftClick += View_MouseLeftClick;
             view.KeyDOWN += View_KeyDOWN;
@@ -40,14 +47,11 @@ namespace Fishing.Presenter
             level.GatheringisTrue += View_CountGathering;
             level.StopBaitTimer += View_StopBaitTimer;
             view.BaitTimerTick += View_BaitTimerTick;
-            LVL2.lvl2 = new LVL2();
-            LVL2.lvl2.SetDeep();
-            LVL2.lvl2.addFishes();
         }
 
         private void View_BaitTimerTick(object sender, EventArgs e)
         {
-            LVL2.lvl2.getFish();
+            level.GetFish();
         }
 
         private void View_StopBaitTimer(object sender, EventArgs e)
@@ -117,18 +121,18 @@ namespace Fishing.Presenter
         private void View_KeyDOWN(object sender, KeyEventArgs e)
         {
             Player player = Player.getPlayer();
-            for (int x = 0; x < 51; x++)
+            for(int y = 0; y < 18; y++)
             {
-                for (int y = 0; y < 18; y++)
+                for (int x = 0; x < 51; x++)
                 {
-                    Point between = new Point(player.CurPoint.X - LVL.Deeparr[x, y].Location.X,
-                                                player.CurPoint.Y - LVL.Deeparr[x, y].Location.Y);
+                    Point between = new Point(player.CurPoint.X - level.Deeparr[x, y].Location.X,
+                                                player.CurPoint.Y - level.Deeparr[x, y].Location.Y);
                     float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
                     if (distance < 20)
                     {
-                        gui.DeepValue = Convert.ToInt32(LVL.Deeparr[x, y].Tag);
-                        Sounder.setY(x);
-                        Sounder.setX(y);
+                        gui.DeepValue = Convert.ToInt32(level.Deeparr[x, y].Tag);
+                        Sounder.getSounder().Column = y;
+                        Sounder.getSounder().Row = x;
                     }
                     player.CurrentDeep = Convert.ToInt32(gui.DeepValue);
                 }
@@ -210,25 +214,22 @@ namespace Fishing.Presenter
                 player.CurPoint = view.CurPoint;
                 player.LastCastPoint = view.CurPoint;
             }
-             for (int x = 0; x < 51; x++)
-             {
-                for (int y = 0; y < 18; y++)
+            for (int y = 0; y < 18; y++)
+            {
+                for (int x = 0; x < 51; x++)
                 {
-                    Point between = new Point(player.CurPoint.X - LVL.Deeparr[x, y].Location.X,
-                                                player.CurPoint.Y - LVL.Deeparr[x, y].Location.Y);
+                    Point between = new Point(player.CurPoint.X - level.Deeparr[x, y].Location.X,
+                                                player.CurPoint.Y - level.Deeparr[x, y].Location.Y);
                     float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
                     if (distance < 20)
                     {
-                        if (player.Assembly.Lure != null)
-                        {
-                            gui.DeepValue = Convert.ToInt32(LVL.Deeparr[x, y].Tag);
-                            Sounder.setY(x);
-                            Sounder.setX(y);
-                        }
+                        gui.DeepValue = Convert.ToInt32(level.Deeparr[x, y].Tag);
+                        Sounder.getSounder().Column = y;
+                        Sounder.getSounder().Row = x;
                     }
                     player.CurrentDeep = Convert.ToInt32(gui.DeepValue);
                 }
-             }
+            }
             if (!player.isFishAttack)
             {
                 if (player.Assembly.Proad != null)
@@ -297,6 +298,11 @@ namespace Fishing.Presenter
             }
 
         }
+        private void setLVL(LVL lvl)
+        {
+            level = lvl;
+        }
+
         public void Close()
         {
             throw new NotImplementedException();
