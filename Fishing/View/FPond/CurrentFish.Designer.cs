@@ -72,7 +72,6 @@
             this.PriceButton.Size = new System.Drawing.Size(339, 23);
             this.PriceButton.TabIndex = 3;
             this.PriceButton.UseVisualStyleBackColor = true;
-            this.PriceButton.Click += new System.EventHandler(this.PriceButton_Click);
             // 
             // CurrentFish
             // 
@@ -92,7 +91,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CurrentFish";
             this.TransparencyKey = System.Drawing.Color.Yellow;
-            this.Load += new System.EventHandler(this.CurrentFish_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CurrentFish_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.FishImage)).EndInit();
             this.ResumeLayout(false);

@@ -31,9 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LightInject, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.6.1.0\lib\net46\LightInject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Linq.Expressions" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,17 +53,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigPaths.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConfigPaths.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Images.Designer.cs">
+    <Compile Include="Resources\Images\Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Images.resx</DependentUpon>
     </Compile>
-    <Compile Include="Messages.Designer.cs">
+    <Compile Include="Resources\Paths\ConfigPaths.Designer.cs">
+      <DependentUpon>ConfigPaths.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Controller\BaseController.cs" />
+    <Compile Include="Controller\IDataSaver.cs" />
+    <Compile Include="Controller\SerializeDataSaver.cs" />
+    <Compile Include="Resources\Messages\Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
@@ -80,9 +93,9 @@
     <Compile Include="Model\Lures\Iron.cs" />
     <Compile Include="Model\Lures\Lure.cs" />
     <Compile Include="Model\Lures\wobbler.cs" />
-    <Compile Include="Model\LVL.cs" />
-    <Compile Include="Model\LVL1.cs" />
-    <Compile Include="Model\LVL2.cs" />
+    <Compile Include="Model\LVLS\LVL.cs" />
+    <Compile Include="Model\LVLS\LVL1.cs" />
+    <Compile Include="Model\LVLS\LVL2.cs" />
     <Compile Include="Presenter\AssemblyPresenter.cs" />
     <Compile Include="Presenter\CurrentFishPresenter.cs" />
     <Compile Include="Presenter\FPondPresenter.cs" />
@@ -208,19 +221,17 @@
     <Content Include="Resources\Yellow SuperCarp.jpg" />
     <Content Include="Resources\zabros.wav" />
     <Content Include="Resources\Zymix.png" />
-    <Content Include="road.png" />
-    <Content Include="road2.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ConfigPaths.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ConfigPaths.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Images.resx">
+    <EmbeddedResource Include="Resources\Images\Images.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Messages.resx">
+    <EmbeddedResource Include="Resources\Paths\ConfigPaths.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfigPaths.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages\Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>

@@ -59,8 +59,7 @@ namespace Fishing
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            //Player.getPlayer().SavePlayer();
-            this.Close();
+            ExitButtonClick?.Invoke(this, EventArgs.Empty);
         }
 
         private void Menu_Load(object sender, EventArgs e)

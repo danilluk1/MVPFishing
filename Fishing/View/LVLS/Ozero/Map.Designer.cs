@@ -1,4 +1,5 @@
 ﻿using Fishing.BL;
+using Fishing.BL.Resources.Images;
 
 namespace Fishing
 {

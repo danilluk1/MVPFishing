@@ -43,7 +43,6 @@ namespace Fishing
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            Player.getPlayer().SavePlayer();
             this.Close();
         }
 

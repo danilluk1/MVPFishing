@@ -1,15 +1,8 @@
 ﻿using Fishing.BL;
 using Fishing.BL.Presenter;
+using Fishing.BL.Resources.Images;
 using Fishing.BL.View;
-using Fishing.View;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing
@@ -50,15 +43,6 @@ namespace Fishing
             }           
         }
 
-        private void PriceButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CurrentFish_Load(object sender, EventArgs e)
-        {
-
-        }
         public void setCurrentFish(Fish fish)
         {
             Player player = Player.getPlayer();

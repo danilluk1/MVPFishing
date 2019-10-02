@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using Fishing.BL;
+using Fishing.BL.Resources.Images;
 
 namespace Fishing
 {

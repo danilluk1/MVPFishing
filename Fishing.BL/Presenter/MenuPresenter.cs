@@ -1,5 +1,6 @@
 ﻿using Fishing.View;
 using Fishing.View.Menu;
+using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace Fishing.Presenter
         private readonly IMenu view;
         public MenuPresenter(IMenu view)
         {
-            Player.getPlayer().Initiallize();
+            
             this.view = view;
             view.InventoryButtonClick += View_InventoryButtonClick;
             view.SettingsButtonClick += View_SettingsButtonClick;
@@ -23,6 +24,7 @@ namespace Fishing.Presenter
             view.ExitButtonClick += View_ExitButtonClick;
             view.MapButtonClick += View_MapButtonClick;
             view.MenuLoad += Menu_Load;
+            BaseController.GetController().Initiallize();
         }
 
         private void View_MapButtonClick(object sender, EventArgs e)
@@ -31,7 +33,8 @@ namespace Fishing.Presenter
 
         private void View_ExitButtonClick(object sender, EventArgs e)
         {
-
+            BaseController.GetController().SavePlayer();
+            Application.Exit();
         }
 
         private void View_ShopButtonClick(object sender, EventArgs e)
@@ -52,7 +55,7 @@ namespace Fishing.Presenter
 
         public void Close()
         {
-            Application.Exit();
+            
         }
 
         private void Menu_Load(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using Fishing.BL;
 using Fishing.BL.Model.Game;
+using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,61 +94,7 @@ namespace Fishing
                 {
                     player.Money += (int)f.Price * 3 * f.Weight;
                 }
-            }
-        }
-
-        public void Initiallize()
-        {
-            getPlayer().LureInv = getPlayer().Load<BindingList<Lure>>(ConfigPaths.LURES_DIR) ?? new BindingList<Lure>();
-            getPlayer().RoadInv = getPlayer().Load<BindingList<Road>>(ConfigPaths.ROADS_DIR) ?? new BindingList<Road>();
-            getPlayer().FLineInv = getPlayer().Load<BindingList<FLine>>(ConfigPaths.FLINES_DIR) ?? new BindingList<FLine>();
-            getPlayer().ReelInv = getPlayer().Load<BindingList<Reel>>(ConfigPaths.REELS_DIR) ?? new BindingList<Reel>();
-            getPlayer().Assemblies = getPlayer().Load<BindingList<Assembly>>(ConfigPaths.ASSEMBLIES_DIR) ?? new BindingList<Assembly>();
-            getPlayer().Fishlist = getPlayer().Load<BindingList<Fish>>(ConfigPaths.FISHLIST_DIR) ?? new BindingList<Fish>();
-            getPlayer().NickName = getPlayer().Load<string>(ConfigPaths.NAME_DIR) ?? "Рыболов";
-            getPlayer().Money = Convert.ToInt32(getPlayer().Load<string>(ConfigPaths.MONEY_DIR) ?? "1000000");
-            getPlayer().EventHistory = getPlayer().Load<Stack<UserEvent>>(ConfigPaths.EVENTHSTR_DIR) ?? new Stack<UserEvent>();
-            Assembly = Assemblies[0];
-        }
-
-        public void SavePlayer()
-        {
-            getPlayer().Save(ConfigPaths.LURES_DIR, getPlayer().LureInv);
-            getPlayer().Save(ConfigPaths.ROADS_DIR, getPlayer().RoadInv);
-            getPlayer().Save(ConfigPaths.REELS_DIR, getPlayer().ReelInv);
-            getPlayer().Save(ConfigPaths.FLINES_DIR, getPlayer().FLineInv);
-            getPlayer().Save(ConfigPaths.ASSEMBLIES_DIR, getPlayer().Assemblies);
-            getPlayer().Save(ConfigPaths.FISHLIST_DIR, getPlayer().Fishlist);
-            getPlayer().Save(ConfigPaths.MONEY_DIR, getPlayer().Money.ToString());
-            getPlayer().Save(ConfigPaths.NAME_DIR, getPlayer().NickName);
-            getPlayer().Save(ConfigPaths.EVENTHSTR_DIR, getPlayer().EventHistory);
-
-
-        }
-
-        public void Save(string fileName, object item)
-        {
-            var formatter = new BinaryFormatter();
-
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, item);
-            }
-        }
-
-        public T Load<T>(string fileName)
-        {
-            var formatter = new BinaryFormatter();
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                if (fs.Length > 0 && formatter.Deserialize(fs) is T items)
-                {
-                    return items;
-                }
-                else
-                {
-                    return default(T);
-                }
+                BaseController.GetController().SavePlayer();
             }
         }
 

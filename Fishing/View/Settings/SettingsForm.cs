@@ -23,7 +23,6 @@ namespace Fishing
             {
                 Player.getPlayer().NickName = nameBox.Text;
                 MessageBox.Show("Успешно");
-                Player.getPlayer().SavePlayer();
                 this.Close();
             }
         }
