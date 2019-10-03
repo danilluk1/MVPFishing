@@ -140,5 +140,14 @@ namespace Fishing.BL.Resources.Paths {
                 return ResourceManager.GetString("ROADS_DIR", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на config/stats.dat.
+        /// </summary>
+        internal static string STATS_DIR {
+            get {
+                return ResourceManager.GetString("STATS_DIR", resourceCulture);
+            }
+        }
     }
 }

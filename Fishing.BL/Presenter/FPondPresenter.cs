@@ -21,22 +21,22 @@ namespace Fishing.Presenter
         {
             try
             {
-                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is ArcticChar)
+                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is ArcticChar)
                     view.RightImage = Images.golec;
-                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Perch)
+                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Perch)
                     view.RightImage = Images._1040;
-                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is PinkSalmon)
+                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is PinkSalmon)
                     view.RightImage = Images.gorbusha;
-                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Pike)
+                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Pike)
                     view.RightImage = Images.pike;
-                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Grayling)
+                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Grayling)
                     view.RightImage = Images._1081;
-                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Trout)
+                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Trout)
                     view.RightImage = Images._1052;
-                if (Player.getPlayer().GetFishByIndex(view.SelectedIndex) is Salmon)
+                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Salmon)
                     view.RightImage = Images._1039;
 
-                view.DescriptionText = Player.getPlayer().GetFishByIndex(view.SelectedIndex).Description;
+                view.DescriptionText = Player.GetPlayer().GetFishByIndex(view.SelectedIndex).Description;
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -48,8 +48,8 @@ namespace Fishing.Presenter
 
         private void View_SellButtonClick(object sender, EventArgs e)
         {
-            Player.getPlayer().SellFish(Player.getPlayer().GetFishByIndex(view.SelectedIndex));
-            gui.MoneyLValue = Player.getPlayer().Money;
+            Player.GetPlayer().SellFish(Player.GetPlayer().GetFishByIndex(view.SelectedIndex));
+            gui.MoneyLValue = Player.GetPlayer().Money;
             view.DescriptionText = " ";
             view.RightImage = null;
         }

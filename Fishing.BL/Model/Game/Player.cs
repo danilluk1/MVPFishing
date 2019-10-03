@@ -1,5 +1,6 @@
 ﻿using Fishing.BL;
 using Fishing.BL.Model.Game;
+using Fishing.BL.Model.UserEvent;
 using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,9 @@ namespace Fishing
         public BindingList<Reel> ReelInv { get; set; }
         public BindingList<FLine> FLineInv { get; set; }
         public BindingList<Lure> LureInv { get; set; }
-        public Stack<UserEvent> EventHistory { get; set; }
+        public Stack<BaseEvent> EventHistory { get; set; }
+
+        public Statistic Statistic { get; set; } = new Statistic();
 
         public bool IsBaitMoving = false;
         public Point LastCastPoint;
@@ -42,7 +45,7 @@ namespace Fishing
         private Player()
         {
         }
-        public static Player getPlayer()                           
+        public static Player GetPlayer()                           
         {
             if(player == null)
             {
@@ -52,12 +55,12 @@ namespace Fishing
             return player;              
         }
 
-        public void setAssembly(Assembly ass)
+        public void SetAssembly(Assembly ass)
         {
-            Assembly = ass != null ? ass : null;
+            Assembly = ass ?? null;
         }
 
-        public void addFish(Fish f)
+        public void AddFish(Fish f)
         {
             if (f != null)
             {
@@ -114,28 +117,9 @@ namespace Fishing
             return false;
         }
 
-        public void AddNewMessage(MessageType type)
+        public void AddNewMessage(BaseEvent ev)
         {
-            string text = string.Empty;
-            switch (type)
-            {
-                case MessageType.FLineIsTorn:
-                    text = player.NickName + " порвал леску";
-                    break;
-                case MessageType.NewFish:
-                    text = player.NickName + " поймал " + Player.getPlayer().CFish.ToString();
-                    break;
-                case MessageType.NewTrophyFish:
-                    text = "Трофей! " + Player.getPlayer().NickName + " поймал " + Player.getPlayer().CFish.ToString();
-                    break;
-                case MessageType.RoadIsBroken:
-                    text = player.NickName + " сломал удочку";
-                    break;
-                case MessageType.Gathering:
-                    text = player.NickName + " сход =(";
-                    break;
-            }
-            player.EventHistory.Push(new UserEvent(text, type));
+            player.EventHistory.Push(ev);
         }
 
         public void BrokeRoad()
@@ -143,14 +127,18 @@ namespace Fishing
             Pictures.road = Pictures.brokenRoad;
             player.isFishAttack = false;
             player.Assembly.Proad = null;
-            player.CurPoint.Y = 0;
+            player.CurPoint.Y = 800;
+            player.Statistic.BrokensRoadsCount++;
         }
 
         public void TornFLine()
         {
             player.isFishAttack = false;
-            player.CurPoint.Y = 0;
+            player.CurPoint.Y = 800;
+            player.Statistic.TornsFLinesCount++;
             player.Assembly.Lure = null;
+            player.Statistic.GatheringCount++;
+            player.AddNewMessage(new GatheringEvent());
         }
     }
 }

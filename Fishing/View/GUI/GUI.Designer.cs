@@ -32,7 +32,6 @@ namespace Fishing
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
-            this.EventsBox = new System.Windows.Forms.ListBox();
             this.DeepLabel = new System.Windows.Forms.Label();
             this.TextDeepLabel = new System.Windows.Forms.Label();
             this.SounderUpdater = new System.Windows.Forms.Timer(this.components);
@@ -51,31 +50,25 @@ namespace Fishing
             this.MoneyLabel = new System.Windows.Forms.Label();
             this.SettingLabel = new System.Windows.Forms.Label();
             this.MapLabel = new System.Windows.Forms.Label();
+            this.StatisticLabel = new System.Windows.Forms.Label();
+            this.eventsList = new System.Windows.Forms.ImageList(this.components);
+            this.sounderBack = new System.Windows.Forms.Panel();
+            this.eventsView = new System.Windows.Forms.ListView();
+            this.SounderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FpondBox)).BeginInit();
             this.LowerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BaitsPicture)).BeginInit();
             this.UpperPanel.SuspendLayout();
+            this.sounderBack.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // EventsBox
-            // 
-            this.EventsBox.BackColor = System.Drawing.Color.Wheat;
-            this.EventsBox.Enabled = false;
-            this.EventsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EventsBox.ForeColor = System.Drawing.Color.Black;
-            this.EventsBox.FormattingEnabled = true;
-            this.EventsBox.Location = new System.Drawing.Point(544, -1);
-            this.EventsBox.Name = "EventsBox";
-            this.EventsBox.Size = new System.Drawing.Size(314, 121);
-            this.EventsBox.TabIndex = 12;
             // 
             // DeepLabel
             // 
             this.DeepLabel.AutoSize = true;
             this.DeepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DeepLabel.ForeColor = System.Drawing.Color.Red;
-            this.DeepLabel.Location = new System.Drawing.Point(977, 123);
+            this.DeepLabel.Location = new System.Drawing.Point(135, 99);
             this.DeepLabel.Name = "DeepLabel";
             this.DeepLabel.Size = new System.Drawing.Size(19, 20);
             this.DeepLabel.TabIndex = 18;
@@ -84,7 +77,7 @@ namespace Fishing
             // TextDeepLabel
             // 
             this.TextDeepLabel.AutoSize = true;
-            this.TextDeepLabel.Location = new System.Drawing.Point(900, 123);
+            this.TextDeepLabel.Location = new System.Drawing.Point(78, 104);
             this.TextDeepLabel.Name = "TextDeepLabel";
             this.TextDeepLabel.Size = new System.Drawing.Size(51, 13);
             this.TextDeepLabel.TabIndex = 21;
@@ -100,7 +93,9 @@ namespace Fishing
             // 
             this.SounderPanel.BackColor = System.Drawing.Color.Wheat;
             this.SounderPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SounderPanel.Location = new System.Drawing.Point(862, 0);
+            this.SounderPanel.Controls.Add(this.TextDeepLabel);
+            this.SounderPanel.Controls.Add(this.DeepLabel);
+            this.SounderPanel.Location = new System.Drawing.Point(5, 3);
             this.SounderPanel.Name = "SounderPanel";
             this.SounderPanel.Size = new System.Drawing.Size(171, 120);
             this.SounderPanel.TabIndex = 22;
@@ -124,7 +119,7 @@ namespace Fishing
             // 
             this.FpondBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FpondBox.BackgroundImage")));
             this.FpondBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FpondBox.Location = new System.Drawing.Point(934, 156);
+            this.FpondBox.Location = new System.Drawing.Point(934, 151);
             this.FpondBox.Name = "FpondBox";
             this.FpondBox.Size = new System.Drawing.Size(99, 96);
             this.FpondBox.TabIndex = 23;
@@ -208,7 +203,7 @@ namespace Fishing
             this.UpperPanel.Controls.Add(this.MapLabel);
             this.UpperPanel.Location = new System.Drawing.Point(0, 0);
             this.UpperPanel.Name = "UpperPanel";
-            this.UpperPanel.Size = new System.Drawing.Size(548, 41);
+            this.UpperPanel.Size = new System.Drawing.Size(536, 41);
             this.UpperPanel.TabIndex = 11;
             // 
             // MenuLabel
@@ -268,6 +263,52 @@ namespace Fishing
             this.MapLabel.Text = "Карта";
             this.MapLabel.Click += new System.EventHandler(this.MapLabel_Click);
             // 
+            // StatisticLabel
+            // 
+            this.StatisticLabel.AutoSize = true;
+            this.StatisticLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatisticLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StatisticLabel.Location = new System.Drawing.Point(700, 124);
+            this.StatisticLabel.Name = "StatisticLabel";
+            this.StatisticLabel.Size = new System.Drawing.Size(137, 25);
+            this.StatisticLabel.TabIndex = 16;
+            this.StatisticLabel.Text = "Статистика";
+            this.StatisticLabel.Click += new System.EventHandler(this.StatisticLabel_Click);
+            // 
+            // eventsList
+            // 
+            this.eventsList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("eventsList.ImageStream")));
+            this.eventsList.TransparentColor = System.Drawing.Color.Transparent;
+            this.eventsList.Images.SetKeyName(0, "break.png");
+            this.eventsList.Images.SetKeyName(1, "hvastun.png");
+            this.eventsList.Images.SetKeyName(2, "spoon.png");
+            this.eventsList.Images.SetKeyName(3, "vert.png");
+            this.eventsList.Images.SetKeyName(4, "deepvobler.png");
+            this.eventsList.Images.SetKeyName(5, "sriv.png");
+            // 
+            // sounderBack
+            // 
+            this.sounderBack.BackgroundImage = global::Fishing.Properties.Resources.layer10;
+            this.sounderBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sounderBack.Controls.Add(this.SounderPanel);
+            this.sounderBack.Location = new System.Drawing.Point(854, 0);
+            this.sounderBack.Name = "sounderBack";
+            this.sounderBack.Size = new System.Drawing.Size(179, 126);
+            this.sounderBack.TabIndex = 24;
+            // 
+            // eventsView
+            // 
+            this.eventsView.BackColor = System.Drawing.Color.Wheat;
+            this.eventsView.Location = new System.Drawing.Point(542, 0);
+            this.eventsView.Name = "eventsView";
+            this.eventsView.Scrollable = false;
+            this.eventsView.Size = new System.Drawing.Size(311, 126);
+            this.eventsView.SmallImageList = this.eventsList;
+            this.eventsView.StateImageList = this.eventsList;
+            this.eventsView.TabIndex = 23;
+            this.eventsView.UseCompatibleStateImageBehavior = false;
+            this.eventsView.View = System.Windows.Forms.View.SmallIcon;
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,12 +316,11 @@ namespace Fishing
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1033, 716);
             this.ControlBox = false;
+            this.Controls.Add(this.eventsView);
+            this.Controls.Add(this.sounderBack);
+            this.Controls.Add(this.StatisticLabel);
             this.Controls.Add(this.SpeedBar);
             this.Controls.Add(this.FpondBox);
-            this.Controls.Add(this.DeepLabel);
-            this.Controls.Add(this.TextDeepLabel);
-            this.Controls.Add(this.SounderPanel);
-            this.Controls.Add(this.EventsBox);
             this.Controls.Add(this.LowerPanel);
             this.Controls.Add(this.UpperPanel);
             this.DoubleBuffered = true;
@@ -292,6 +332,8 @@ namespace Fishing
             this.Text = "Baits";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.DimGray;
+            this.SounderPanel.ResumeLayout(false);
+            this.SounderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FpondBox)).EndInit();
             this.LowerPanel.ResumeLayout(false);
@@ -299,6 +341,7 @@ namespace Fishing
             ((System.ComponentModel.ISupportInitialize)(this.BaitsPicture)).EndInit();
             this.UpperPanel.ResumeLayout(false);
             this.UpperPanel.PerformLayout();
+            this.sounderBack.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,7 +350,6 @@ namespace Fishing
         #endregion
 
         private System.Windows.Forms.Panel UpperPanel;
-        protected internal System.Windows.Forms.ListBox EventsBox;
         protected internal System.Windows.Forms.Label InventoryLabel;
         protected internal System.Windows.Forms.Label MoneyLabel;
         protected internal System.Windows.Forms.Label MapLabel;
@@ -325,5 +367,9 @@ namespace Fishing
         protected internal System.Windows.Forms.Label SettingLabel;
         protected internal System.Windows.Forms.Label TextDeepLabel;
         protected internal System.Windows.Forms.PictureBox FpondBox;
+        protected internal System.Windows.Forms.Label StatisticLabel;
+        private System.Windows.Forms.ImageList eventsList;
+        private System.Windows.Forms.Panel sounderBack;
+        private System.Windows.Forms.ListView eventsView;
     }
 }

@@ -31,7 +31,7 @@ namespace Fishing.View.LureSelector.Presenter
         {
             view.Picture = view.Lure.Pict;
             view.NameBoxText = view.Lure.Name;
-            view.TypeBoxText = view.Lure.Type.ToString();
+            view.TypeBoxText = view.Lure.Size.ToString();
         }
 
         private void View_LureListDoubleClick(object sender, EventArgs e)

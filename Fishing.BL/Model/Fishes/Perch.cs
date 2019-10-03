@@ -1,26 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using Fishing.BL;
+using Fishing.BL.Resources.Messages;
 
 namespace Fishing
 {
     [Serializable]
     public class Perch : Fish
     {
-        private static HashSet<LureType> lures = new HashSet<LureType>()
-        { LureType.TopSmall,
-          LureType.Small,
-          LureType.DeepSmall,
-          LureType.FlyingSmall
+        private readonly static HashSet<Size> lures = new HashSet<Size>()
+        {
+          Size.Small,
+          Size.Large,
         };
-        private static int power = 3;
-        private static string name = "Окунь";
-        private static int price = 1;
-        private static string description = Messages.PERCH_DESCRIPTION;
+        private readonly static int power = 3;
+        private readonly static string name = "Окунь";
+        private readonly static int price = 1;
+        private readonly static string description = Messages.PERCH_DESCRIPTION;
         public Perch() : base(name, randWigth.Next(200, 1700), power, price, 1300, lures, description)
         {
 

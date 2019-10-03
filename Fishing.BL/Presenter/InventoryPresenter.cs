@@ -43,22 +43,22 @@ namespace Fishing.Presenter
 
         private void View_MakeOutClick(object sender, EventArgs e)
         {
-            if (Player.getPlayer().Assembly.FLine != null)
-                Player.getPlayer().FLineInv.Add(view.Assembly_P.FLine);
-            if (Player.getPlayer().Assembly.Proad != null)
-                Player.getPlayer().RoadInv.Add(view.Assembly_P.Proad);
-            if (Player.getPlayer().Assembly.Lure != null)
-                Player.getPlayer().LureInv.Add(view.Assembly_P.Lure);
-            if (Player.getPlayer().Assembly.Reel != null)
-                Player.getPlayer().ReelInv.Add(view.Assembly_P.Reel);
+            if (Player.GetPlayer().Assembly.FLine != null)
+                Player.GetPlayer().FLineInv.Add(view.Assembly_P.FLine);
+            if (Player.GetPlayer().Assembly.Proad != null)
+                Player.GetPlayer().RoadInv.Add(view.Assembly_P.Proad);
+            if (Player.GetPlayer().Assembly.Lure != null)
+                Player.GetPlayer().LureInv.Add(view.Assembly_P.Lure);
+            if (Player.GetPlayer().Assembly.Reel != null)
+                Player.GetPlayer().ReelInv.Add(view.Assembly_P.Reel);
 
-            Player.getPlayer().Assemblies.Remove(view.Assembly_P);
+            Player.GetPlayer().Assemblies.Remove(view.Assembly_P);
         }
 
         private void View_AssemblyDoubleClick(object sender, EventArgs e)
         {
             view.showAssembly(view.Assembly_P);
-            Player.getPlayer().setAssembly(view.Assembly_P);
+            Player.GetPlayer().SetAssembly(view.Assembly_P);
             try
             {
                 gui.BaitPicture = view.Assembly_P.Lure.Pict;
@@ -75,16 +75,16 @@ namespace Fishing.Presenter
             if(view.FLine_P != null && view.Road_P != null && view.Reel_P != null && view.Lure_P != null)
             {
                 view.Assembly_P.Proad = view.Road_P;
-                Player.getPlayer().RoadInv.Remove(view.Road_P);
+                Player.GetPlayer().RoadInv.Remove(view.Road_P);
 
                 view.Assembly_P.Reel = view.Reel_P;
-                Player.getPlayer().ReelInv.Remove(view.Reel_P);
+                Player.GetPlayer().ReelInv.Remove(view.Reel_P);
 
                 view.Assembly_P.Lure = view.Lure_P;
-                Player.getPlayer().LureInv.Remove(view.Lure_P);
+                Player.GetPlayer().LureInv.Remove(view.Lure_P);
 
                 view.Assembly_P.FLine = view.FLine_P;
-                Player.getPlayer().FLineInv.Remove(view.FLine_P);
+                Player.GetPlayer().FLineInv.Remove(view.FLine_P);
             }
             else
             {

@@ -26,7 +26,7 @@ namespace Fishing
         {
             try
             {
-                var bait = fish.Lures.Single(b => b == Player.getPlayer().Assembly.Lure.Type);
+                var bait = fish.Lures.Single(b => b == Player.GetPlayer().Assembly.Lure.Size);
                 bool ba = bait.ToString() == null ? false : true;
                 return ba;
             }

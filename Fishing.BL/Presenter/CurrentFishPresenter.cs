@@ -9,8 +9,7 @@ namespace Fishing.BL.Presenter
 {
     public class CurrentFishPresenter
     {
-        ICurrentFishF view;
-        public event EventHandler CreateNewCurrentFish;
+        readonly ICurrentFishF view;
 
         public CurrentFishPresenter(ICurrentFishF view)
         {

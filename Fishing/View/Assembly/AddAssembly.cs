@@ -21,6 +21,7 @@ namespace Fishing.View.Assembly
             presenter.CloseForm += Presenter_CloseForm;
         }
         public string AssemblyName { get => nameBox.Text; set => AssemblyName = nameBox.Text; }
+
         public event EventHandler AddAssemblyClick;
 
         private void Presenter_CloseForm(object sender, EventArgs e)

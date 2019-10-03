@@ -1,30 +1,23 @@
-﻿using Fishing.BL;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Fishing.BL.Resources.Messages;
+
 
 namespace Fishing
 {
     [Serializable]
     public class Salmon : Fish
     {
-        private static HashSet<LureType> lures = new HashSet<LureType>()
-        { LureType.DeepLarge,
-          LureType.FlyingLarge,
-          LureType.Large,
-          LureType.TopLarge,
-          LureType.DeepXL,
-          LureType.FlyingXL,
-          LureType.TopXL,
-          LureType.XL
+        private readonly static HashSet<Size> lures = new HashSet<Size>()
+        {
+          Size.XL,
+          Size.Large,
         };
-        private static int power = 7;
-        private static string name = "Сёмга";
-        private static int price = 6;
-        private static int trophyWeight = 25000;
-        private static string description = Messages.SALMON_DESCRIPTION;
+        private readonly static int power = 7;
+        private readonly static string name = "Сёмга";
+        private readonly static int price = 6;
+        private readonly static int trophyWeight = 25000;
+        private readonly static string description = Messages.SALMON_DESCRIPTION;
         public Salmon() : base(name, randWigth.Next(500, 30000), power, price, trophyWeight, lures, description)
         {
 

@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LightInject, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LightInject.6.1.0\lib\net46\LightInject.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -41,9 +38,6 @@
     <Reference Include="System.Linq.Expressions" />
     <Reference Include="System.Runtime" />
     <Reference Include="System.Threading.Tasks" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,6 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Game\Statistic.cs" />
+    <Compile Include="Model\Lures\Pinwheel.cs" />
+    <Compile Include="Model\UserEvent\FishEvent.cs" />
+    <Compile Include="Model\UserEvent\FLineTornEvent.cs" />
+    <Compile Include="Model\UserEvent\GatheringEvent.cs" />
+    <Compile Include="Model\UserEvent\RoadBrokenEvent.cs" />
+    <Compile Include="Model\UserEvent\TrophyFishEvent.cs" />
+    <Compile Include="Model\UserEvent\BaseEvent.cs" />
+    <Compile Include="Presenter\StatisticPresenter.cs" />
     <Compile Include="Resources\Images\Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,16 +86,15 @@
     <Compile Include="Model\Game\Netting.cs" />
     <Compile Include="Model\Game\Pictures.cs" />
     <Compile Include="Model\Game\Sounder.cs" />
-    <Compile Include="Model\Game\UserEvent.cs" />
     <Compile Include="Model\Game\Player.cs" />
     <Compile Include="Model\Game\Sounds.cs" />
     <Compile Include="Model\Items\FLine.cs" />
     <Compile Include="Model\Items\Item.cs" />
     <Compile Include="Model\Items\Reel.cs" />
     <Compile Include="Model\Items\Road.cs" />
-    <Compile Include="Model\Lures\Iron.cs" />
+    <Compile Include="Model\Lures\Shaker.cs" />
     <Compile Include="Model\Lures\Lure.cs" />
-    <Compile Include="Model\Lures\wobbler.cs" />
+    <Compile Include="Model\Lures\Wobbler.cs" />
     <Compile Include="Model\LVLS\LVL.cs" />
     <Compile Include="Model\LVLS\LVL1.cs" />
     <Compile Include="Model\LVLS\LVL2.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="View\IShop.cs" />
     <Compile Include="Presenter\SelectorPresenter.cs" />
     <Compile Include="View\ISounder.cs" />
+    <Compile Include="View\IStatistic.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\1014.png" />
@@ -136,17 +139,20 @@
     <Content Include="Resources\beluga.jpg" />
     <Content Include="Resources\boil.png" />
     <Content Include="Resources\brake5.wav" />
+    <None Include="Resources\break.png" />
     <Content Include="Resources\broken.png" />
     <Content Include="Resources\catfish.jpg" />
     <Content Include="Resources\Circl-5103.png" />
     <Content Include="Resources\Circl-5113.png" />
     <Content Include="Resources\Colorado.png" />
+    <None Include="Resources\deepvobler.png" />
     <Content Include="Resources\DRACO FD 1704.png" />
     <Content Include="Resources\fon11.wav" />
     <Content Include="Resources\fon8.wav" />
     <Content Include="Resources\frog.png" />
     <Content Include="Resources\golec.png" />
     <Content Include="Resources\gorbusha.jpg" />
+    <None Include="Resources\hvastun.png" />
     <Content Include="Resources\HYDRA 1711.png" />
     <Content Include="Resources\Hydra.png" />
     <Content Include="Resources\image011.jpg" />
@@ -198,6 +204,8 @@
     <Content Include="Resources\road2.png" />
     <Content Include="Resources\shop_but11.png" />
     <Content Include="Resources\Sounder.png" />
+    <None Include="Resources\sriv.png" />
+    <None Include="Resources\spoon.png" />
     <Content Include="Resources\step2.png" />
     <Content Include="Resources\step3.png" />
     <Content Include="Resources\step7.png" />
@@ -208,6 +216,7 @@
     <Content Include="Resources\Syberia LT-2.png" />
     <Content Include="Resources\TBR-4000.png" />
     <Content Include="Resources\Titanium.jpg" />
+    <None Include="Resources\vert.png" />
     <Content Include="Resources\Vesta 276.jpg" />
     <Content Include="Resources\Vib-6000.png" />
     <Content Include="Resources\Vib-6008.png" />
@@ -217,6 +226,7 @@
     <Content Include="Resources\Vob-3002.png" />
     <Content Include="Resources\Vob-3003.png" />
     <Content Include="Resources\Vob-3015.png" />
+    <None Include="Resources\vob.png" />
     <Content Include="Resources\worm.png" />
     <Content Include="Resources\Yellow SuperCarp.jpg" />
     <Content Include="Resources\zabros.wav" />

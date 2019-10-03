@@ -144,4 +144,7 @@
   <data name="ROADS_DIR" xml:space="preserve">
     <value>config/roads.dat</value>
   </data>
+  <data name="STATS_DIR" xml:space="preserve">
+    <value>config/stats.dat</value>
+  </data>
 </root>

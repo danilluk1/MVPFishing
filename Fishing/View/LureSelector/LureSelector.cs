@@ -8,14 +8,14 @@ namespace Fishing.View.LureSelector
 {
     public partial class LureSelector : Form, ISelector
     {
-        SelectorPresenter presenter;
+        readonly SelectorPresenter presenter;
         public LureSelector()
         {
             InitializeComponent();
             presenter = new SelectorPresenter(this, Fishing.GUI.gui);           
         }
 
-        public Lure Lure { get => Player.getPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
+        public Lure Lure { get => Player.GetPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
         public Image Picture { get => lureImage.Image; set => lureImage.Image = Lure.Pict; }
         public string NameBoxText { get => nameBox.Text; set => nameBox.Text = value; }
         public string TypeBoxText { get => typeBox.Text; set => typeBox.Text = value; }
@@ -31,15 +31,15 @@ namespace Fishing.View.LureSelector
 
         private void LureSelector_Load(object sender, EventArgs e)
         {
-            lureList.DataSource = Player.getPlayer().LureInv;
+            lureList.DataSource = Player.GetPlayer().LureInv;
         }
 
         private void LureList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Player.getPlayer().Assembly.Lure = Lure;
-            Player.getPlayer().setAssembly(Player.getPlayer().Assembly);
+            Player.GetPlayer().Assembly.Lure = Lure;
+            Player.GetPlayer().SetAssembly(Player.GetPlayer().Assembly);
             this.Close();
-            Fishing.GUI.gui.BaitPicture = Player.getPlayer().Assembly.Lure.Pict;
+            Fishing.GUI.gui.BaitPicture = Player.GetPlayer().Assembly.Lure.Pict;
         }
     }
 }

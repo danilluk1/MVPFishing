@@ -60,7 +60,7 @@ namespace Fishing.Presenter
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            view.lowerLValue += "Игрок: " + Player.getPlayer().NickName + "                              " + Player.getPlayer().Money;
+            view.lowerLValue += "Игрок: " + Player.GetPlayer().NickName + "                              " + Player.GetPlayer().Money;
             Item.RoadShop.Add(Road.Titanium);
             Item.RoadShop.Add(Road.Achilles);
             Item.RoadShop.Add(Road.YSuperCarp);
@@ -76,6 +76,13 @@ namespace Fishing.Presenter
             Item.ReelShop.Add(Reel.Zymix);
             Item.ReelShop.Add(Reel.Syberia_1);
             Item.ReelShop.Add(Reel.TBR_4000);
+            Player.GetPlayer().LureInv.Add(Lure.vob1);
+            Player.GetPlayer().LureInv.Add(Lure.vob3);
+            Player.GetPlayer().LureInv.Add(Lure.vob2);
+            Player.GetPlayer().LureInv.Add(Lure.vob4);
+            Player.GetPlayer().LureInv.Add(Lure.vert1);
+            Player.GetPlayer().LureInv.Add(Lure.jelezo1);
+            Player.GetPlayer().LureInv.Add(Lure.jelezo2);
         }
 
     }

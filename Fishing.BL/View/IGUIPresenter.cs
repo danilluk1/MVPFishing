@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fishing.BL.Model.UserEvent;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Fishing.View.GUI
         int MoneyLValue { get; set; }
         int EventBoxItemsCount { get; set; }
 
-        void AddEventToBox(string s);
+        void AddEventToBox(BaseEvent ev);
         void ClearEvents();
         void IncrementRoadBarValue(int value);
         void IncrementFLineBarValue(int value);

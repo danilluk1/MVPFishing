@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 using Fishing.BL.Resources.Images;
 
 namespace Fishing
@@ -9,5 +10,6 @@ namespace Fishing
         public static Bitmap netting = new Bitmap(Images.podsak1);
         public static Bitmap road = Images.road;
         public static Bitmap roadMaxBend = Images.road2;
+       
     }
 }

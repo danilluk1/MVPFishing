@@ -1,4 +1,5 @@
 ﻿using Fishing.BL;
+using Fishing.BL.Resources.Images;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

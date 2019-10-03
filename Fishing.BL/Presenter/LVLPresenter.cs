@@ -1,7 +1,10 @@
 ﻿using Fishing.BL.Model.Game;
+using Fishing.BL.Model.Lures;
+using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Resources.Messages;
 using Fishing.View.GUI;
 using Fishing.View.LVLS.Ozero;
+using Saver.BL.Controller;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,22 +13,27 @@ namespace Fishing.Presenter
 {
     public class LVLPresenter : Presenter
     {
-        ILVL view;
-        IGUIPresenter gui;
+        readonly ILVL view;
+        readonly IGUIPresenter gui;
 
         public event EventHandler StartBaitTimer;
         public event EventHandler StopBaitTimer;
         public event EventHandler StopGatheringTimer;
         public event EventHandler RefreshForm;
         public event EventHandler CreateCurrentFishF;
+
         public LVLPresenter(ILVL view, IGUIPresenter v)
         {
             this.view = view;
             this.gui = v;
-            LVL2.getLVL().AddDeep();
-            gui.AddLabels(LVL2.getLVL().Deeparr);
-            LVL2.getLVL().SetDeep();
-            LVL2.getLVL().AddFishes();
+
+            LVL2.GetLVL().AddDeep();
+            gui.AddLabels(LVL2.GetLVL().Deeparr);
+            LVL2.GetLVL().SetDeep();
+            LVL2.GetLVL().AddFishes();
+            LVL2.GetLVL().GatheringisTrue += View_CountGathering;
+            LVL2.GetLVL().StopBaitTimer += View_StopBaitTimer;
+
             view.RepaintScreen += View_RepaintScreen;
             view.MouseLeftClick += View_MouseLeftClick;
             view.KeyDOWN += View_KeyDOWN;
@@ -33,14 +41,18 @@ namespace Fishing.Presenter
             view.CountFishMoves += View_CountFishMoves;
             view.CountGathering += View_CountGathering;
             view.MainTimerTick += View_MainTimerTick;
-            LVL2.getLVL().GatheringisTrue += View_CountGathering;
-            LVL2.getLVL().StopBaitTimer += View_StopBaitTimer;
             view.BaitTimerTick += View_BaitTimerTick;
+            view.FormClose += View_FormClose;
+        }
+
+        private void View_FormClose(object sender, EventArgs e)
+        {
+            BaseController.GetController().SavePlayer();
         }
 
         private void View_BaitTimerTick(object sender, EventArgs e)
         {
-            LVL2.getLVL().GetFish();
+            LVL2.GetLVL().GetFish();
         }
 
         private void View_StopBaitTimer(object sender, EventArgs e)
@@ -50,37 +62,49 @@ namespace Fishing.Presenter
 
         private void View_MainTimerTick(object sender, EventArgs e)
         {
-            Player player = Player.getPlayer();
+            Player player = Player.GetPlayer();
             player.CheckXBorders();
-            if (gui.FLineBarValue > 0)
-                gui.IncrementFLineBarValue(-1);
-            if (gui.RoadBarValue > 0)
-                gui.IncrementRoadBarValue(-1);
+            AutoDecBarValues();
             if (gui.FLineBarValue > 98)
             {
-                player.AddNewMessage(MessageType.FLineIsTorn);
-                gui.AddEventToBox(player.EventHistory.Peek().Text);
+                player.AddNewMessage(new FLineTornEvent());
+                gui.AddEventToBox(new FLineTornEvent());
                 player.TornFLine();
             }
             if (gui.RoadBarValue > 98)
             {
-                player.AddNewMessage(MessageType.RoadIsBroken);
-                gui.AddEventToBox(player.EventHistory.Peek().Text);
+                player.AddNewMessage(new RoadBrokenEvent());
+                gui.AddEventToBox(new RoadBrokenEvent());
                 player.BrokeRoad();
             }
             RefreshForm?.Invoke(this, EventArgs.Empty);
             if (player.IsFishAbleToGoIntoFpond())
             {
-                gui.CheckNeedsAndClearEventBox();
-                if (!Player.getPlayer().CFish.isTrophy())
+                int imageindex = 0;
+                if (player.Assembly.Lure is Wobbler)
                 {
-                    player.AddNewMessage(MessageType.NewFish);
+                    imageindex = 4;
+                }
+                if(player.Assembly.Lure is Shaker)
+                {
+                    imageindex = 2;
+                }
+                if (player.Assembly.Lure is Pinwheel)
+                {
+                    imageindex = 3;
+                }
+                gui.CheckNeedsAndClearEventBox();
+                if (!player.CFish.isTrophy())
+                {
+                    player.AddNewMessage(new FishEvent(player.CFish, imageindex));
+                    gui.AddEventToBox(new FishEvent(player.CFish, imageindex));
                 }
                 else
                 {
-                    player.AddNewMessage(MessageType.NewTrophyFish);
+                    player.AddNewMessage(new TrophyFishEvent(player.CFish, imageindex));
+                    gui.AddEventToBox(new TrophyFishEvent(player.CFish, imageindex));
                 }
-                gui.AddEventToBox(player.EventHistory.Peek().Text);
+                Player.GetPlayer().Statistic.TakenFishesCount++;
                 CreateCurrentFishF?.Invoke(this, EventArgs.Empty);
                 player.Netting.HideNetting();
             }
@@ -88,17 +112,19 @@ namespace Fishing.Presenter
 
         private void View_CountGathering(object sender, EventArgs e)
         {
-            if (Player.getPlayer().isFishAttack == true)
+            if (Player.GetPlayer().isFishAttack == true)
             {
-                Player.getPlayer().AddNewMessage(MessageType.Gathering);
-                Player.getPlayer().isFishAttack = false;
                 StopGatheringTimer?.Invoke(this, EventArgs.Empty);
+                Player.GetPlayer().AddNewMessage(new GatheringEvent());
+                gui.AddEventToBox(new GatheringEvent());
+                Player.GetPlayer().isFishAttack = false;
+                Player.GetPlayer().Statistic.GatheringCount++;
             }
         }
 
         private void View_CountFishMoves(object sender, EventArgs e)
         {
-            Player player = Player.getPlayer();
+            Player player = Player.GetPlayer();
             Random fishMoving = new Random();
             if (player.isFishAttack)
             {
@@ -108,19 +134,19 @@ namespace Fishing.Presenter
 
         private void View_KeyDOWN(object sender, KeyEventArgs e)
         {
-            Player player = Player.getPlayer();
+            Player player = Player.GetPlayer();
             for(int y = 0; y < 18; y++)
             {
                 for (int x = 0; x < 51; x++)
                 {
-                    Point between = new Point(player.CurPoint.X - LVL2.getLVL().Deeparr[x, y].Location.X,
-                                                player.CurPoint.Y - LVL2.getLVL().Deeparr[x, y].Location.Y);
+                    Point between = new Point(player.CurPoint.X - LVL2.GetLVL().Deeparr[x, y].Location.X,
+                                                player.CurPoint.Y - LVL2.GetLVL().Deeparr[x, y].Location.Y);
                     float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
                     if (distance < 20)
                     {
-                        gui.DeepValue = Convert.ToInt32(LVL2.getLVL().Deeparr[x, y].Tag);
-                        Sounder.getSounder().Column = y;
-                        Sounder.getSounder().Row = x;
+                        gui.DeepValue = Convert.ToInt32(LVL2.GetLVL().Deeparr[x, y].Tag);
+                        Sounder.GetSounder().Column = y;
+                        Sounder.GetSounder().Row = x;
                     }
                     player.CurrentDeep = Convert.ToInt32(gui.DeepValue);
                 }
@@ -146,11 +172,11 @@ namespace Fishing.Presenter
                     {
                         if (gui.FLineBarValue < 100)
                         {
-                            gui.IncrementFLineBarValue(Player.getPlayer().IncValue);
+                            gui.IncrementFLineBarValue(Player.GetPlayer().IncValue);
                         }
                         if (gui.RoadBarValue > 0)
                         {
-                            gui.IncrementRoadBarValue(-(Player.getPlayer().IncValue));
+                            gui.IncrementRoadBarValue(-(Player.GetPlayer().IncValue));
                         }
                     }
                     break;
@@ -159,11 +185,11 @@ namespace Fishing.Presenter
                     {
                         if (gui.RoadBarValue < 100)
                         {
-                            gui.IncrementRoadBarValue(Player.getPlayer().IncValue);
+                            gui.IncrementRoadBarValue(Player.GetPlayer().IncValue);
                         }
                         if (gui.FLineBarValue > 0)
                         {
-                            gui.IncrementFLineBarValue(-(Player.getPlayer().IncValue));
+                            gui.IncrementFLineBarValue(-(Player.GetPlayer().IncValue));
                         }
                     }
                     break;
@@ -184,9 +210,9 @@ namespace Fishing.Presenter
             switch (e.KeyCode)
             {
                 case Keys.G:
-                    Player.getPlayer().IsBaitMoving = false;
-                    Player.getPlayer().WindingSpeed = 0;
-                    Player.getPlayer().RoadY -= 7;
+                    Player.GetPlayer().IsBaitMoving = false;
+                    Player.GetPlayer().WindingSpeed = 0;
+                    Player.GetPlayer().RoadY -= 7;
                     break;
                 case Keys.H:
 
@@ -198,7 +224,7 @@ namespace Fishing.Presenter
         {
             try
             {
-                Player player = Player.getPlayer();
+                Player player = Player.GetPlayer();
                 if (!player.isFishAttack && player.Assembly.Proad != null)
                 {
                     player.CurPoint = view.CurPoint;
@@ -208,14 +234,14 @@ namespace Fishing.Presenter
                 {
                     for (int x = 0; x < 51; x++)
                     {
-                        Point between = new Point(player.CurPoint.X - LVL2.getLVL().Deeparr[x, y].Location.X,
-                                                    player.CurPoint.Y - LVL2.getLVL().Deeparr[x, y].Location.Y);
+                        Point between = new Point(player.CurPoint.X - LVL2.GetLVL().Deeparr[x, y].Location.X,
+                                                    player.CurPoint.Y - LVL2.GetLVL().Deeparr[x, y].Location.Y);
                         float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
                         if (distance < 20)
                         {
-                            gui.DeepValue = Convert.ToInt32(LVL2.getLVL().Deeparr[x, y].Tag);
-                            Sounder.getSounder().Column = y;
-                            Sounder.getSounder().Row = x;
+                            gui.DeepValue = Convert.ToInt32(LVL2.GetLVL().Deeparr[x, y].Tag);
+                            Sounder.GetSounder().Column = y;
+                            Sounder.GetSounder().Row = x;
                         }
                         player.CurrentDeep = Convert.ToInt32(gui.DeepValue);
                     }
@@ -256,7 +282,7 @@ namespace Fishing.Presenter
         {
             try
             {
-                Player player = Player.getPlayer();
+                Player player = Player.GetPlayer();
                 Rectangle NormalRoad = new Rectangle(player.CurPoint.X, player.RoadY, 33, 257);
                 Rectangle BrokenRoad = new Rectangle(player.RoadX, player.RoadY, 87, 257);
                 Rectangle Netting = new Rectangle(player.CurPoint.X, -300, 60, 200);
@@ -284,9 +310,9 @@ namespace Fishing.Presenter
                     g.DrawEllipse(new Pen(sbrush), player.CurPoint.X, player.CurPoint.Y, 4, 4);
                     g.FillEllipse(sbrush, player.CurPoint.X, player.CurPoint.Y, 4, 4);
                 }
-                else if (player.CurPoint.Y < 350 && player.CurPoint.Y != 0 && player.Assembly.Proad != null)
+                else if (player.CurPoint.Y < LVL2.GetLVL().Deeparr[0, 0].Location.Y && player.CurPoint.Y != 0 && player.Assembly.Proad != null)
                 {
-                    player.CurPoint.Y = 349;
+                    player.CurPoint.Y = LVL2.GetLVL().Deeparr[0, 0].Location.Y - 3;
                     g.DrawEllipse(new Pen(sbrush), player.CurPoint.X, player.CurPoint.Y, 4, 4);
                     g.FillEllipse(sbrush, player.CurPoint.X, player.CurPoint.Y, 4, 4);
                 }
@@ -302,6 +328,14 @@ namespace Fishing.Presenter
         public void Load()
         {
             throw new NotImplementedException();
+        }
+
+        private void AutoDecBarValues()
+        {
+            if (gui.FLineBarValue > 0)
+                gui.IncrementFLineBarValue(-1);
+            if (gui.RoadBarValue > 0)
+                gui.IncrementRoadBarValue(-1);
         }
     }
 }

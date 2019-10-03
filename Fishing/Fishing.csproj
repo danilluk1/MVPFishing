@@ -119,6 +119,12 @@
     <Compile Include="View\Shop\Shop.Designer.cs">
       <DependentUpon>Shop.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Statistic\StatisticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Statistic\StatisticForm.Designer.cs">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\Assembly\AddAssembly.resx">
       <DependentUpon>AddAssembly.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,12 +160,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Shop\Shop.resx">
       <DependentUpon>Shop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Statistic\StatisticForm.resx">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Assembly.datasource" />
     <None Include="Properties\Settings.settings">

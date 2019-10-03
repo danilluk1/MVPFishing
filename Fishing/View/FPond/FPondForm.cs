@@ -23,7 +23,7 @@ namespace Fishing
         public fishesForm()
         {
             InitializeComponent();
-            FishList.DataSource = Player.getPlayer().GetFishList();
+            FishList.DataSource = Player.GetPlayer().GetFishList();
             presenter = new FPondPresenter(this, GUI.gui);
         }
 

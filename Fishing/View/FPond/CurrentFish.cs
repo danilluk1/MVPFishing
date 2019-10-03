@@ -9,13 +9,12 @@ namespace Fishing
 {
     public partial class CurrentFish : Form, ICurrentFishF
     {
-        CurrentFishPresenter presenter;
+        readonly CurrentFishPresenter presenter;
         public CurrentFish()
         {
             InitializeComponent();
             presenter = new CurrentFishPresenter(this);
-            presenter.CreateNewCurrentFish += Presenter_CreateNewCurrentFish;
-            setCurrentFish(Player.getPlayer().CFish);
+            SetCurrentFish(Player.GetPlayer().CFish);
         }
 
         private void Presenter_CreateNewCurrentFish(object sender, EventArgs e)
@@ -27,15 +26,15 @@ namespace Fishing
             switch (e.KeyCode)
             {
                 case Keys.Space:
-                    Player.getPlayer().addFish(Player.getPlayer().CFish);
+                    Player.GetPlayer().AddFish(Player.GetPlayer().CFish);
                     this.Close();
                     break;
 
                 case Keys.F:
                     if (PriceButton.Text.Length > 0)
                     {
-                        Player.getPlayer().SellFish(Player.getPlayer().CFish);
-                        GUI.gui.MoneyLabel.Text = Player.getPlayer().Money.ToString();
+                        Player.GetPlayer().SellFish(Player.GetPlayer().CFish);
+                        GUI.gui.MoneyLabel.Text = Player.GetPlayer().Money.ToString();
                         MessageBox.Show("Продано");
                         this.Close();
                     }
@@ -43,10 +42,8 @@ namespace Fishing
             }           
         }
 
-        public void setCurrentFish(Fish fish)
+        public void SetCurrentFish(Fish fish)
         {
-            Player player = Player.getPlayer();
-
             if (fish is Pike)
             {
                 this.FishImage.Image = Images.pike;
@@ -79,7 +76,7 @@ namespace Fishing
             this.WeightLabel.Text = fish.Weight.ToString();
             this.PriceButton.Text = (fish.Price * fish.Weight).ToString();
             this.Show();
-            Player.getPlayer().isFishAttack = false;
+            Player.GetPlayer().isFishAttack = false;
         }
     }
 }

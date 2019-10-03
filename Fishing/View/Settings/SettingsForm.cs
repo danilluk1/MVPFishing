@@ -21,7 +21,7 @@ namespace Fishing
         {
             if (nameBox.Text != null)
             {
-                Player.getPlayer().NickName = nameBox.Text;
+                Player.GetPlayer().NickName = nameBox.Text;
                 MessageBox.Show("Успешно");
                 this.Close();
             }

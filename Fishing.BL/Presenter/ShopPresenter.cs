@@ -28,9 +28,9 @@ namespace Fishing.Presenter
         {
             if (isPlayerAbleToBuyItem(view.Road_P))
             {
-                Player.getPlayer().RoadInv.Add(view.Road_P);
-                Player.getPlayer().Money -= view.Road_P.Price;
-                view.MoneyL = Player.getPlayer().Money.ToString();
+                Player.GetPlayer().RoadInv.Add(view.Road_P);
+                Player.GetPlayer().Money -= view.Road_P.Price;
+                view.MoneyL = Player.GetPlayer().Money.ToString();
             }
         }
 
@@ -38,9 +38,9 @@ namespace Fishing.Presenter
         {
             if (isPlayerAbleToBuyItem(view.Reel_P))
             {
-                Player.getPlayer().ReelInv.Add(view.Reel_P);
-                Player.getPlayer().Money -= view.Reel_P.Price;
-                view.MoneyL = Player.getPlayer().Money.ToString();
+                Player.GetPlayer().ReelInv.Add(view.Reel_P);
+                Player.GetPlayer().Money -= view.Reel_P.Price;
+                view.MoneyL = Player.GetPlayer().Money.ToString();
             }
         }
 
@@ -48,9 +48,9 @@ namespace Fishing.Presenter
         {
             if (isPlayerAbleToBuyItem(view.FLine_P))
             {
-                Player.getPlayer().FLineInv.Add(view.FLine_P);
-                Player.getPlayer().Money -= view.FLine_P.Price;
-                view.MoneyL = Player.getPlayer().Money.ToString();
+                Player.GetPlayer().FLineInv.Add(view.FLine_P);
+                Player.GetPlayer().Money -= view.FLine_P.Price;
+                view.MoneyL = Player.GetPlayer().Money.ToString();
             }
         }
 
@@ -59,7 +59,7 @@ namespace Fishing.Presenter
         private bool isPlayerAbleToBuyItem(Item item)
         {
             bool result;
-            result = item.Price <= Player.getPlayer().Money ? true : false;
+            result = item.Price <= Player.GetPlayer().Money ? true : false;
 
             return result;
         }

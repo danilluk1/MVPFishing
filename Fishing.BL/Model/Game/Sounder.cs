@@ -18,7 +18,7 @@ namespace Fishing.BL.Model.Game
         private Sounder()
         {
         }
-        public static Sounder getSounder()
+        public static Sounder GetSounder()
         {
             if (sounder == null)
             {

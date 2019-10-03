@@ -162,7 +162,7 @@ namespace Fishing
             RoadsList.DataSource = Item.RoadShop;
             ReelsList.DataSource = Item.ReelShop;
             FLineList.DataSource = Item.LeskaShop;
-            moneyBox.Text = Player.getPlayer().Money.ToString();
+            moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
     }
 }

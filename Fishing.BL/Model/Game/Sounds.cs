@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Media;
 using Fishing.BL;
+using Fishing.BL.Resources.Images;
 
 namespace Fishing
 {

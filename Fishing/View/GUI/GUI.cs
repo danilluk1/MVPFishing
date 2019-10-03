@@ -1,9 +1,11 @@
 ﻿using Fishing.BL.Model.Game;
+using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Presenter;
 using Fishing.BL.View;
 using Fishing.Presenter;
 using Fishing.View.GUI;
 using Fishing.View.LureSelector;
+using Fishing.View.Statistic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +20,8 @@ namespace Fishing
 {
     public partial class GUI : Form, IGUI, IGUIPresenter, ISounder
     {
-        GUIPresenter presenter;
-        SounderPresenter sound;
+        readonly GUIPresenter presenter;
+        readonly SounderPresenter sound;
         public static GUI gui;
 
         public GUI()
@@ -29,10 +31,10 @@ namespace Fishing
             sound = new SounderPresenter(this);
             try
             {
-                BaitsPicture.Image = Player.getPlayer().Assembly.Lure.Pict;
+                BaitsPicture.Image = Player.GetPlayer().Assembly.Lure.Pict;
             }
             catch (NullReferenceException) { }
-            MoneyLValue = Player.getPlayer().Money;
+            MoneyLValue = Player.GetPlayer().Money;
 
         }
 
@@ -41,7 +43,7 @@ namespace Fishing
         public int DeepValue { get => Convert.ToInt32(DeepLabel.Text); set => DeepLabel.Text = value.ToString(); }
         public int RoadBarValue { get => ReelBar.Value; set => ReelBar.Value = value; }
         public int FLineBarValue { get => FLineBar.Value; set => FLineBar.Value = value; }
-        public int EventBoxItemsCount { get => EventsBox.Items.Count; set => throw new NotImplementedException(); }
+        public int EventBoxItemsCount { get => eventsView.Items.Count; set => throw new NotImplementedException(); }
         public int MoneyLValue { get => Convert.ToInt32(MoneyLabel.Text); set => MoneyLabel.Text = value.ToString(); }
 
         public event EventHandler MapButtonClick;
@@ -101,14 +103,18 @@ namespace Fishing
             SounderPanel.Refresh();
         }
 
-        public void AddEventToBox(string s)
+        public void AddEventToBox(BaseEvent ev)
         {
-            EventsBox.Items.Add(s);
+
+            ListViewItem lvi = new ListViewItem();
+            lvi.Text = ev.Text;
+            lvi.ImageIndex = ev.Index;
+            eventsView.Items.Add(lvi);
         }
 
         public void ClearEvents()
         {
-            EventsBox.Items.Clear();
+            eventsView.Items.Clear();
         }
 
         public void IncrementRoadBarValue(int value)
@@ -138,6 +144,12 @@ namespace Fishing
                     Controls.Add(l[x, y]);
                 }
             }
+        }
+
+        private void StatisticLabel_Click(object sender, EventArgs e)
+        {
+            StatisticForm form = new StatisticForm();
+            form.Show();
         }
     }
 }

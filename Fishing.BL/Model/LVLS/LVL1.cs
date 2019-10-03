@@ -35,15 +35,15 @@ namespace Fishing.BL.Model
         {
             Random randomGathering = new Random();
             Random randomFish = new Random();
-            if (Player.getPlayer().CurrentDeep > 350)
+            if (Player.GetPlayer().CurrentDeep > 350)
             {
-                if (Player.getPlayer().CurPoint.Y > 400 && Player.getPlayer().CurPoint.Y < 800 && !Player.getPlayer().isFishAttack)
+                if (Player.GetPlayer().CurPoint.Y > 400 && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
                 {
-                    Player.getPlayer().CFish = Fishes[randomFish.Next(1, 994)];
-                    if (IsFishAttackAbble(Player.getPlayer().CFish) && Player.getPlayer().IsBaitMoving)
+                    Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
+                    if (IsFishAttackAbble(Player.GetPlayer().CFish) && Player.GetPlayer().IsBaitMoving)
                     {
-                        Player.getPlayer().isFishAttack = true;
-                        Player.getPlayer().IncValue = Player.getPlayer().CFish.Weight * 20 / (Player.getPlayer().Assembly.Proad.Power);
+                        Player.GetPlayer().isFishAttack = true;
+                        Player.GetPlayer().IncValue = Player.GetPlayer().CFish.Weight * 20 / (Player.GetPlayer().Assembly.Proad.Power);
                         StopBaitTimer?.Invoke(this, EventArgs.Empty);
                         int Gathering = randomGathering.Next(1, 100);
                         if (Gathering <= 5)

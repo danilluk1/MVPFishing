@@ -10,7 +10,7 @@ namespace Fishing
     [Serializable]
     public sealed class Wobbler : Lure
     {
-        public Wobbler(string name, LureType type, int count, int price, Bitmap pic) : base (name, type, count, price, pic)
+        public Wobbler(string name, Size s, DeepType type, int price, Bitmap pic) : base (name, s, type, price, pic)
         {
         }
     }

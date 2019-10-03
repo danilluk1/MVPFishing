@@ -22,7 +22,7 @@ namespace Fishing
             InitializeComponent();
             presenter = new InventoryPresenter(this, GUI.gui);
 
-            if (Player.getPlayer().Assemblies.Count == 0)
+            if (Player.GetPlayer().Assemblies.Count == 0)
             {
                 AddAssembly add = new AddAssembly();
                 add.Show();
@@ -35,10 +35,10 @@ namespace Fishing
             {
                 try
                 {
-                    RoadBox.Image = ass.Proad.Pict;
-                    ReelBox.Image = ass.Reel.Pict;
-                    BaitBox.Image = ass.Lure.Pict;
-                    FLineBox.Image = ass.FLine.Pict;
+                    RoadBox.BackgroundImage = ass.Proad.Pict;
+                    ReelBox.BackgroundImage = ass.Reel.Pict;
+                    BaitBox.BackgroundImage = ass.Lure.Pict;
+                    FLineBox.BackgroundImage = ass.FLine.Pict;
                     RoadText = ass.Proad.Name;
                     ReelText = ass.Reel.Name;
                     LureText = ass.Lure.Name;
@@ -56,7 +56,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().RoadInv[RoadsList.SelectedIndex];
+                    return Player.GetPlayer().RoadInv[RoadsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -73,7 +73,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().ReelInv[ReelsList.SelectedIndex];
+                    return Player.GetPlayer().ReelInv[ReelsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -90,7 +90,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().FLineInv[FLineList.SelectedIndex];
+                    return Player.GetPlayer().FLineInv[FLineList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -107,7 +107,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().LureInv[LuresList.SelectedIndex];
+                    return Player.GetPlayer().LureInv[LuresList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -125,7 +125,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.getPlayer().Assemblies[assembliesBox.SelectedIndex];
+                    return Player.GetPlayer().Assemblies[assembliesBox.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -203,11 +203,11 @@ namespace Fishing
 
         private void Inventory_Load(object sender, EventArgs e)
         {
-            LuresList.DataSource = Player.getPlayer().LureInv;
-            FLineList.DataSource = Player.getPlayer().FLineInv;
-            ReelsList.DataSource = Player.getPlayer().ReelInv;
-            RoadsList.DataSource = Player.getPlayer().RoadInv;
-            assembliesBox.DataSource = Player.getPlayer().Assemblies;        
+            LuresList.DataSource = Player.GetPlayer().LureInv;
+            FLineList.DataSource = Player.GetPlayer().FLineInv;
+            ReelsList.DataSource = Player.GetPlayer().ReelInv;
+            RoadsList.DataSource = Player.GetPlayer().RoadInv;
+            assembliesBox.DataSource = Player.GetPlayer().Assemblies;        
         }
 
         private void FetchButton_Click(object sender, EventArgs e)
@@ -227,7 +227,7 @@ namespace Fishing
                 if (Item.selectItemType(item) is Road)
                 {
                     Road r = (Road)item;
-                    this.pictureBox5.Image = r.Pict;
+                    this.pictureBox5.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Power.ToString();
                     this.typeBox.Text = r.Type.ToString();
@@ -252,7 +252,7 @@ namespace Fishing
                 {
 
                     Lure r = (Lure)item;
-                    this.pictureBox5.Image = r.Pict;
+                    this.pictureBox5.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = " ";
                     this.typeBox.Text = " ";

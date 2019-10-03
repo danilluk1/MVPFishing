@@ -22,7 +22,7 @@ namespace Fishing.Presenter
         private void View_AddAssemblyClick(object sender, EventArgs e)
         {
             string name = view.AssemblyName;
-            Player.getPlayer().Assemblies.Add(new Assembly(name));
+            Player.GetPlayer().Assemblies.Add(new Assembly(name));
             CloseForm?.Invoke(this, EventArgs.Empty);
         }
         public void Close()

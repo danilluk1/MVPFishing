@@ -62,6 +62,7 @@ namespace Fishing
         public event KeyEventHandler KeyUP;
         public event EventHandler MainTimerTick;
         public event EventHandler BaitTimerTick;
+        public event EventHandler FormClose;
 
         private void OzeroForm_Load(object sender, EventArgs e)
         {
@@ -106,6 +107,11 @@ namespace Fishing
         private void BaitTimer_Tick(object sender, EventArgs e)
         {
             BaitTimerTick?.Invoke(this, e);
+        }
+
+        private void OzeroForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormClose?.Invoke(this, EventArgs.Empty);
         }
     }
 }

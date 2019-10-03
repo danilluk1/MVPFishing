@@ -16,11 +16,11 @@ namespace Fishing
         public int Power { get; set; }
         public double Price { get; set; }
         public int TrophyWeight { get; set; }
-        public HashSet<LureType> Lures { get; set; }
+        public HashSet<Size> Lures { get; set; }
         public string Description { get; set; }
         
 
-        public Fish(string name, int weight, int power, double price, int trophyWeight, HashSet<LureType> lures, string description)
+        public Fish(string name, int weight, int power, double price, int trophyWeight, HashSet<Size> lures, string description)
         {
             this.Name = name;
             this.Weight = weight;

@@ -154,6 +154,9 @@
   <data name="Colorado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Colorado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="deepvobler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\deepvobler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DRACO_FD_1704" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\DRACO FD 1704.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,6 +166,9 @@
   <data name="fon8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\fon8.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="forel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1052.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="frog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\frog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -171,6 +177,9 @@
   </data>
   <data name="gorbusha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gorbusha.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hvastun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\hvastun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Hydra" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Hydra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -240,6 +249,9 @@
   </data>
   <data name="not_scaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\not_scaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="okyn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1040.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="oparysh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\oparysh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -319,11 +331,20 @@
   <data name="road2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\road2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="semga" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1039.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="shop_but11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\shop_but11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sounder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Sounder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\spoon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sriv" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sriv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="step2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\step2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,6 +376,9 @@
   <data name="Titanium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Titanium.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="vert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\vert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Vesta_276" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Vesta 276.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -369,6 +393,9 @@
   </data>
   <data name="Vib_6016" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Vib-6016.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vob" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\vob.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vob_3001" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Vob-3001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,6 +412,9 @@
   <data name="worm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\worm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="xariys" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1081.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Yellow_SuperCarp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Yellow SuperCarp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -397,22 +427,13 @@
   <data name="_1014" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\1014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1039" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1039.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1040" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1040.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1052" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1052.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1081" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1081.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_1089" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\1089.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_2030" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\2030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_break" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\break.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

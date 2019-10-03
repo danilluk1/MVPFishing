@@ -8,9 +8,9 @@ using System.Drawing;
 namespace Fishing
 {
     [Serializable]
-    public sealed class Iron : Lure
+    public sealed class Shaker : Lure
     {
-        public Iron(string name, LureType type, int count, int price, Bitmap pic) : base(name, type, count, price, pic)
+        public Shaker(string name, Size s, DeepType type, int price, Bitmap pic) : base(name, s, type, price, pic)
         {
         }
     }
