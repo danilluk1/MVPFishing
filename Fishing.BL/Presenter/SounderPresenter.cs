@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model;
+using Fishing.BL.Model.Game;
 using Fishing.BL.View;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,11 @@ namespace Fishing.BL.Presenter
     public class SounderPresenter
     {
         private readonly ISounder view;
+        public LVL CurLVL { get; set; }
 
-        public SounderPresenter(ISounder view)
+        public SounderPresenter(ISounder view, LVL lvl)
         {
+            CurLVL = lvl;
             this.view = view;
             view.SounderPaint += SounderPanel_Paint;
         }
@@ -30,8 +33,8 @@ namespace Fishing.BL.Presenter
                 for (int i = 0; i < 17; i++)
                 {
                     drawX2 = drawX + 10;
-                    g.DrawLine(new Pen(Color.White, 2), drawX, (int)LVL2.GetLVL().Deeparr[Sounder.GetSounder().Row, i].Tag / 10, drawX2,
-                                                                                (int)LVL2.GetLVL().Deeparr[Sounder.GetSounder().Row, i + 1].Tag / 10);
+                    g.DrawLine(new Pen(Color.White, 2), drawX, (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i].Tag / 10, drawX2,
+                                                                                (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i + 1].Tag / 10);
                     drawX = drawX2;
                 }
                 drawPoint(g);

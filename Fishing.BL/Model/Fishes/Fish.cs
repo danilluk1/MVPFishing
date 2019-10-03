@@ -18,9 +18,10 @@ namespace Fishing
         public int TrophyWeight { get; set; }
         public HashSet<Size> Lures { get; set; }
         public string Description { get; set; }
+        public Bitmap Bitmap { get; set; }
         
 
-        public Fish(string name, int weight, int power, double price, int trophyWeight, HashSet<Size> lures, string description)
+        public Fish(string name, int weight, int power, double price, int trophyWeight, HashSet<Size> lures, string description, Bitmap bit)
         {
             this.Name = name;
             this.Weight = weight;
@@ -29,6 +30,7 @@ namespace Fishing
             this.TrophyWeight = trophyWeight;
             this.Lures = lures;
             this.Description = description;
+            this.Bitmap = bit;
         }
 
         public bool isTrophy()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using Fishing.BL;
 using Fishing.BL.Resources.Messages;
+using Fishing.BL.Resources.Images;
 
 namespace Fishing
 {
@@ -22,8 +23,9 @@ namespace Fishing
         private readonly static int price = 2;
         private readonly static int trophyWeight = 16000;
         private readonly static string description = Messages.ARCTICCHAR_DESCRIPTION;
+        private readonly static Bitmap bit = Images.golec;
 
-        public ArcticChar() : base(name, randWigth.Next(200, 20000), power, price, trophyWeight, lures, description)
+        public ArcticChar() : base(name, randWigth.Next(200, 20000), power, price, trophyWeight, lures, description, bit)
         {
         }
     }

@@ -43,16 +43,20 @@ namespace Fishing.Presenter
 
         private void View_MakeOutClick(object sender, EventArgs e)
         {
-            if (Player.GetPlayer().Assembly.FLine != null)
-                Player.GetPlayer().FLineInv.Add(view.Assembly_P.FLine);
-            if (Player.GetPlayer().Assembly.Proad != null)
-                Player.GetPlayer().RoadInv.Add(view.Assembly_P.Proad);
-            if (Player.GetPlayer().Assembly.Lure != null)
-                Player.GetPlayer().LureInv.Add(view.Assembly_P.Lure);
-            if (Player.GetPlayer().Assembly.Reel != null)
-                Player.GetPlayer().ReelInv.Add(view.Assembly_P.Reel);
+            try
+            {
+                if (Player.GetPlayer().Assembly.FLine != null)
+                    Player.GetPlayer().FLineInv.Add(view.Assembly_P.FLine);
+                if (Player.GetPlayer().Assembly.Proad != null)
+                    Player.GetPlayer().RoadInv.Add(view.Assembly_P.Proad);
+                if (Player.GetPlayer().Assembly.Lure != null)
+                    Player.GetPlayer().LureInv.Add(view.Assembly_P.Lure);
+                if (Player.GetPlayer().Assembly.Reel != null)
+                    Player.GetPlayer().ReelInv.Add(view.Assembly_P.Reel);
 
-            Player.GetPlayer().Assemblies.Remove(view.Assembly_P);
+                Player.GetPlayer().Assemblies.Remove(view.Assembly_P);
+            }
+            catch (NullReferenceException) { }
         }
 
         private void View_AssemblyDoubleClick(object sender, EventArgs e)

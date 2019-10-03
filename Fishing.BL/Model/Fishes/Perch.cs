@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 
 namespace Fishing
@@ -16,7 +18,8 @@ namespace Fishing
         private readonly static string name = "Окунь";
         private readonly static int price = 1;
         private readonly static string description = Messages.PERCH_DESCRIPTION;
-        public Perch() : base(name, randWigth.Next(200, 1700), power, price, 1300, lures, description)
+        private readonly static Bitmap bit = Images.okyn;
+        public Perch() : base(name, randWigth.Next(200, 1700), power, price, 1300, lures, description, bit)
         {
 
         }

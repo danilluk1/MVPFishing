@@ -1,8 +1,10 @@
 ﻿
 using Fishing.BL;
+using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,8 @@ namespace Fishing
         private readonly static int price = 5;
         private readonly static int trophyWeight = 1600;
         private readonly static string description = Messages.GRAYLING_DESCRIPTION;
-        public Grayling() : base(name, randWigth.Next(500, 2000), power, price, trophyWeight, lures, description)
+        private readonly static Bitmap bit = Images.xariys;
+        public Grayling() : base(name, randWigth.Next(500, 2000), power, price, trophyWeight, lures, description, bit)
         {
         }
     }

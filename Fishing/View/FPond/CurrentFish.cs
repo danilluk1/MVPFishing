@@ -44,34 +44,7 @@ namespace Fishing
 
         public void SetCurrentFish(Fish fish)
         {
-            if (fish is Pike)
-            {
-                this.FishImage.Image = Images.pike;
-            }
-            if (fish is Perch)
-            {
-                this.FishImage.Image = Images._1040;
-            }
-            if (fish is PinkSalmon)
-            {
-                this.FishImage.Image = Images.gorbusha;
-            }
-            if (fish is ArcticChar)
-            {
-                this.FishImage.Image = Images.golec;
-            }
-            if (fish is Grayling)
-            {
-                this.FishImage.Image = Images._1081;
-            }
-            if (fish is Salmon)
-            {
-                this.FishImage.Image = Images._1039;
-            }
-            if (fish is Trout)
-            {
-                this.FishImage.Image = Images._1052;
-            }
+            FishImage.Image = fish.Bitmap;
             this.NameLabel.Text = fish.Name;
             this.WeightLabel.Text = fish.Weight.ToString();
             this.PriceButton.Text = (fish.Price * fish.Weight).ToString();

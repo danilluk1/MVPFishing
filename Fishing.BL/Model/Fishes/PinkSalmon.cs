@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 
 namespace Fishing
@@ -17,7 +19,8 @@ namespace Fishing
         private readonly static int price = 3;
         private readonly static int trophyWeight = 18000;
         private readonly static string description = Messages.PINKSALMON_DESCRIPTION;
-        public PinkSalmon() : base(name, randWigth.Next(500, 20000), power, price, trophyWeight, lures, description)
+        private readonly static Bitmap bit = Images.gorbusha;
+        public PinkSalmon() : base(name, randWigth.Next(500, 20000), power, price, trophyWeight, lures, description, bit)
         {
         }
     }

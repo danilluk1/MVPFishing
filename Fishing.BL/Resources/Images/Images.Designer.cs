@@ -440,6 +440,16 @@ namespace Fishing.BL.Resources.Images {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap lvl1 {
+            get {
+                object obj = ResourceManager.GetObject("lvl1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap map {
             get {
                 object obj = ResourceManager.GetObject("map", resourceCulture);
@@ -1102,6 +1112,16 @@ namespace Fishing.BL.Resources.Images {
         public static System.IO.UnmanagedMemoryStream zabros {
             get {
                 return ResourceManager.GetStream("zabros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap zmeegolov {
+            get {
+                object obj = ResourceManager.GetObject("zmeegolov", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

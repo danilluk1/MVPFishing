@@ -133,6 +133,15 @@ namespace Fishing.BL.Resources.Messages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Хищник. Предпочитает большие и средние приманки. Обитает на маленькой глубине..
+        /// </summary>
+        internal static string SNAKEHEAD_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("SNAKEHEAD_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине..
         /// </summary>
         internal static string TROUT_DESCRIPTION {

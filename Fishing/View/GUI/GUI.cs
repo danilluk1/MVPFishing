@@ -24,11 +24,11 @@ namespace Fishing
         readonly SounderPresenter sound;
         public static GUI gui;
 
-        public GUI()
+        public GUI(LVL lvl)
         {
             InitializeComponent();
             presenter = new GUIPresenter(this);
-            sound = new SounderPresenter(this);
+            sound = new SounderPresenter(this, lvl);
             try
             {
                 BaitsPicture.Image = Player.GetPlayer().Assembly.Lure.Pict;

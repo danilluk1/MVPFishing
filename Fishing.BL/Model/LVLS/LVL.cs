@@ -11,8 +11,14 @@ namespace Fishing
 {
     public abstract class LVL
     {
+        public Bitmap Image { get; set; }
         public EventHandler StopBaitTimer;
         public EventHandler GatheringisTrue;
+
+        public LVL(Bitmap img)
+        {
+            Image = img;
+        }
 
         public Label[,] Deeparr = new Label[51, 18];
         protected List<Fish> Fishes = new List<Fish>(1000);

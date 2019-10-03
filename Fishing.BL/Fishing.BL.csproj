@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Fishes\SnakeHead.cs" />
     <Compile Include="Model\Game\Statistic.cs" />
     <Compile Include="Model\Lures\Pinwheel.cs" />
     <Compile Include="Model\UserEvent\FishEvent.cs" />
@@ -166,6 +167,7 @@
     <Content Include="Resources\layer6.jpg" />
     <Content Include="Resources\lesh.jpg" />
     <Content Include="Resources\lesh.png" />
+    <Content Include="Resources\lvl1.jpg" />
     <Content Include="Resources\map.jpg" />
     <Content Include="Resources\Marco-R1.png" />
     <Content Include="Resources\Marco-R5.png" />
@@ -230,6 +232,7 @@
     <Content Include="Resources\worm.png" />
     <Content Include="Resources\Yellow SuperCarp.jpg" />
     <Content Include="Resources\zabros.wav" />
+    <None Include="Resources\zmeegolov.jpg" />
     <Content Include="Resources\Zymix.png" />
   </ItemGroup>
   <ItemGroup>

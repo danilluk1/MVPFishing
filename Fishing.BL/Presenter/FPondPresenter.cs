@@ -21,20 +21,7 @@ namespace Fishing.Presenter
         {
             try
             {
-                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is ArcticChar)
-                    view.RightImage = Images.golec;
-                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Perch)
-                    view.RightImage = Images._1040;
-                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is PinkSalmon)
-                    view.RightImage = Images.gorbusha;
-                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Pike)
-                    view.RightImage = Images.pike;
-                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Grayling)
-                    view.RightImage = Images._1081;
-                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Trout)
-                    view.RightImage = Images._1052;
-                if (Player.GetPlayer().GetFishByIndex(view.SelectedIndex) is Salmon)
-                    view.RightImage = Images._1039;
+                view.RightImage = Player.GetPlayer().GetFishByIndex(view.SelectedIndex).Bitmap;
 
                 view.DescriptionText = Player.GetPlayer().GetFishByIndex(view.SelectedIndex).Description;
             }

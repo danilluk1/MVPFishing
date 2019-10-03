@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 
 namespace Fishing
@@ -17,7 +19,8 @@ namespace Fishing
         private readonly static int price = 1;
         private readonly static int trophyWeight = 8000;
         private readonly static string description = Messages.PIKE_DESCRIPTION;
-        public Pike() : base(name, randWigth.Next(1, 10000), power, price, trophyWeight, lures, description)
+        private readonly static Bitmap bit = Images.pike;
+        public Pike() : base(name, randWigth.Next(1, 10000), power, price, trophyWeight, lures, description, bit)
         {
         }
     }

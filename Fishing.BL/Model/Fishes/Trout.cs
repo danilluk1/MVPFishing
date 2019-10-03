@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fishing.BL.Resources.Messages;
+using System.Drawing;
+using Fishing.BL.Resources.Images;
 
 namespace Fishing
 {
@@ -21,7 +23,8 @@ namespace Fishing
         private readonly static int price = 2;
         private readonly static int trophyWeight = 11000;
         private readonly static string description = Messages.TROUT_DESCRIPTION;
-        public Trout() : base(name, randWigth.Next(500, 15000), power, price, trophyWeight, lures, description)
+        private readonly static Bitmap bit = Images.forel;
+        public Trout() : base(name, randWigth.Next(500, 15000), power, price, trophyWeight, lures, description, bit)
         {
         }
     }

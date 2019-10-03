@@ -141,6 +141,9 @@
   <data name="SALMON_DESCRIPTION" xml:space="preserve">
     <value>Хищник. Предпочитает большие и средние приманки. Обитает на предпочтительно большой глубине.</value>
   </data>
+  <data name="SNAKEHEAD_DESCRIPTION" xml:space="preserve">
+    <value>Хищник. Предпочитает большие и средние приманки. Обитает на маленькой глубине.</value>
+  </data>
   <data name="TROUT_DESCRIPTION" xml:space="preserve">
     <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине.</value>
   </data>

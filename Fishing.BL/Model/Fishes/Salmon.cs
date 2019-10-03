@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 
 
@@ -18,7 +20,8 @@ namespace Fishing
         private readonly static int price = 6;
         private readonly static int trophyWeight = 25000;
         private readonly static string description = Messages.SALMON_DESCRIPTION;
-        public Salmon() : base(name, randWigth.Next(500, 30000), power, price, trophyWeight, lures, description)
+        private readonly static Bitmap bit = Images.semga;
+        public Salmon() : base(name, randWigth.Next(500, 30000), power, price, trophyWeight, lures, description,bit)
         {
 
         }

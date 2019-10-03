@@ -220,6 +220,9 @@
   <data name="lesh1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\lesh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lvl1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\lvl1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="map" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\map.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -420,6 +423,9 @@
   </data>
   <data name="zabros" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\zabros.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="zmeegolov" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\zmeegolov.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Zymix" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Zymix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

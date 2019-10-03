@@ -15,6 +15,7 @@ namespace Fishing.Presenter
     {
         readonly ILVL view;
         readonly IGUIPresenter gui;
+        public LVL CurLVL { get; set; }
 
         public event EventHandler StartBaitTimer;
         public event EventHandler StopBaitTimer;
@@ -22,17 +23,18 @@ namespace Fishing.Presenter
         public event EventHandler RefreshForm;
         public event EventHandler CreateCurrentFishF;
 
-        public LVLPresenter(ILVL view, IGUIPresenter v)
+        public LVLPresenter(ILVL view, IGUIPresenter v, LVL curLVL)
         {
+            this.CurLVL = curLVL;
             this.view = view;
             this.gui = v;
 
-            LVL2.GetLVL().AddDeep();
+            CurLVL.AddDeep();
             gui.AddLabels(LVL2.GetLVL().Deeparr);
-            LVL2.GetLVL().SetDeep();
-            LVL2.GetLVL().AddFishes();
-            LVL2.GetLVL().GatheringisTrue += View_CountGathering;
-            LVL2.GetLVL().StopBaitTimer += View_StopBaitTimer;
+            CurLVL.SetDeep();
+            CurLVL.AddFishes();
+            CurLVL.GatheringisTrue += View_CountGathering;
+            CurLVL.StopBaitTimer += View_StopBaitTimer;
 
             view.RepaintScreen += View_RepaintScreen;
             view.MouseLeftClick += View_MouseLeftClick;
@@ -52,7 +54,7 @@ namespace Fishing.Presenter
 
         private void View_BaitTimerTick(object sender, EventArgs e)
         {
-            LVL2.GetLVL().GetFish();
+            CurLVL.GetFish();
         }
 
         private void View_StopBaitTimer(object sender, EventArgs e)
@@ -139,12 +141,12 @@ namespace Fishing.Presenter
             {
                 for (int x = 0; x < 51; x++)
                 {
-                    Point between = new Point(player.CurPoint.X - LVL2.GetLVL().Deeparr[x, y].Location.X,
-                                                player.CurPoint.Y - LVL2.GetLVL().Deeparr[x, y].Location.Y);
+                    Point between = new Point(player.CurPoint.X - CurLVL.Deeparr[x, y].Location.X,
+                                                player.CurPoint.Y - CurLVL.Deeparr[x, y].Location.Y);
                     float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
                     if (distance < 20)
                     {
-                        gui.DeepValue = Convert.ToInt32(LVL2.GetLVL().Deeparr[x, y].Tag);
+                        gui.DeepValue = Convert.ToInt32(CurLVL.Deeparr[x, y].Tag);
                         Sounder.GetSounder().Column = y;
                         Sounder.GetSounder().Row = x;
                     }
@@ -234,12 +236,12 @@ namespace Fishing.Presenter
                 {
                     for (int x = 0; x < 51; x++)
                     {
-                        Point between = new Point(player.CurPoint.X - LVL2.GetLVL().Deeparr[x, y].Location.X,
-                                                    player.CurPoint.Y - LVL2.GetLVL().Deeparr[x, y].Location.Y);
+                        Point between = new Point(player.CurPoint.X - CurLVL.Deeparr[x, y].Location.X,
+                                                    player.CurPoint.Y - CurLVL.Deeparr[x, y].Location.Y);
                         float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
                         if (distance < 20)
                         {
-                            gui.DeepValue = Convert.ToInt32(LVL2.GetLVL().Deeparr[x, y].Tag);
+                            gui.DeepValue = Convert.ToInt32(CurLVL.Deeparr[x, y].Tag);
                             Sounder.GetSounder().Column = y;
                             Sounder.GetSounder().Row = x;
                         }
@@ -305,14 +307,14 @@ namespace Fishing.Presenter
                 {
                     g.DrawImage(Pictures.roadMaxBend, BrokenRoad);
                 }
-                if (player.CurPoint.Y > 350 && player.Assembly.Proad != null)
+                if (player.CurPoint.Y > CurLVL.Deeparr[17, 0].Location.Y && player.Assembly.Proad != null)
                 {
                     g.DrawEllipse(new Pen(sbrush), player.CurPoint.X, player.CurPoint.Y, 4, 4);
                     g.FillEllipse(sbrush, player.CurPoint.X, player.CurPoint.Y, 4, 4);
                 }
-                else if (player.CurPoint.Y < LVL2.GetLVL().Deeparr[0, 0].Location.Y && player.CurPoint.Y != 0 && player.Assembly.Proad != null)
+                else if (player.CurPoint.Y < CurLVL.Deeparr[0, 0].Location.Y && player.CurPoint.Y != 0 && player.Assembly.Proad != null)
                 {
-                    player.CurPoint.Y = LVL2.GetLVL().Deeparr[0, 0].Location.Y - 3;
+                    player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 3;
                     g.DrawEllipse(new Pen(sbrush), player.CurPoint.X, player.CurPoint.Y, 4, 4);
                     g.FillEllipse(sbrush, player.CurPoint.X, player.CurPoint.Y, 4, 4);
                 }

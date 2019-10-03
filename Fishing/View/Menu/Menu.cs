@@ -19,7 +19,6 @@ namespace Fishing
         {
             InitializeComponent();
             presenter = new MenuPresenter(this);
-            GUI.gui = new GUI();
         }
         MenuPresenter presenter;
 

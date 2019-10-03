@@ -11,10 +11,10 @@ namespace Fishing
     public partial class OzeroForm : Form, ILVL
     {
         LVLPresenter presenter;
-        public OzeroForm()
+        public OzeroForm(LVL curLVL)
         {
             InitializeComponent();
-            presenter = new LVLPresenter(this, GUI.gui);
+            presenter = new LVLPresenter(this, GUI.gui, curLVL);
             presenter.StartBaitTimer += Presenter_StartBaitTimer;
             presenter.StopBaitTimer += Presenter_StopBaitTimer;
             presenter.StopGatheringTimer += Presenter_StopGatheringTimer;
@@ -26,6 +26,17 @@ namespace Fishing
 
             UpdateStyles();
         }
+        public Point CurPoint { get => PointToClient(Cursor.Position); set => throw new ArgumentException(); }
+
+        public event EventHandler MouseLeftClick;
+        public event EventHandler CountGathering;
+        public event EventHandler CountFishMoves;
+        public event PaintEventHandler RepaintScreen;
+        public event KeyEventHandler KeyDOWN;
+        public event KeyEventHandler KeyUP;
+        public event EventHandler MainTimerTick;
+        public event EventHandler BaitTimerTick;
+        public event EventHandler FormClose;
 
         private void Presenter_CreateCurrentFishF(object sender, EventArgs e)
         {
@@ -51,18 +62,6 @@ namespace Fishing
         {
             baitTimer.Start();
         }
-
-        public Point CurPoint { get => PointToClient(Cursor.Position); set => throw new ArgumentException(); }
-
-        public event EventHandler MouseLeftClick;
-        public event EventHandler CountGathering;
-        public event EventHandler CountFishMoves;
-        public event PaintEventHandler RepaintScreen;
-        public event KeyEventHandler KeyDOWN;
-        public event KeyEventHandler KeyUP;
-        public event EventHandler MainTimerTick;
-        public event EventHandler BaitTimerTick;
-        public event EventHandler FormClose;
 
         private void OzeroForm_Load(object sender, EventArgs e)
         {

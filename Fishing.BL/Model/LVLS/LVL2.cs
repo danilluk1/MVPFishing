@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fishing.BL.Resources.Images;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,20 +9,19 @@ namespace Fishing
 {
     public class LVL2 : LVL
     {
-        private static LVL2 lvl2;
-
-        private LVL2()
+        private static LVL2 lvl;
+        private LVL2() : base(Images.ozerolvl2)
         {
 
         }
         public static LVL2 GetLVL()
         {
-            if (lvl2 == null)
+            if (lvl == null)
             {
-                lvl2 = new LVL2();
+                lvl = new LVL2();
             }
 
-            return lvl2;
+            return lvl;
         }
         public override void AddFishes()
         {          
@@ -65,7 +65,7 @@ namespace Fishing
            Random randomFish = new Random();
                 if((Player.GetPlayer().Assembly.Lure is Lure) && Player.GetPlayer().CurrentDeep > 350 )
 
-                if (Player.GetPlayer().CurPoint.Y > lvl2.Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
+                if (Player.GetPlayer().CurPoint.Y > lvl.Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
                 {
                     Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
                     if (IsFishAttackAbble(Player.GetPlayer().CFish) && Player.GetPlayer().IsBaitMoving)
