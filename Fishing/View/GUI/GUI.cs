@@ -1,6 +1,7 @@
 ﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Presenter;
+using Fishing.BL.Resources.Sounds;
 using Fishing.BL.View;
 using Fishing.Presenter;
 using Fishing.View.GUI;
@@ -12,6 +13,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +25,7 @@ namespace Fishing
         GUIPresenter presenter;
         readonly SounderPresenter sound;
         public static GUI gui;
+        private SoundPlayer sp = new SoundPlayer();
 
         public GUI(LVL lvl)
         {
@@ -45,6 +48,7 @@ namespace Fishing
         public int FLineBarValue { get => FLineBar.Value; set => FLineBar.Value = value; }
         public int EventBoxItemsCount { get => eventsView.Items.Count; set => throw new NotImplementedException(); }
         public int MoneyLValue { get => Convert.ToInt32(MoneyLabel.Text); set => MoneyLabel.Text = value.ToString(); }
+        public int LureDeepValue { get => Convert.ToInt32(LureDeep.Text); set => LureDeep.Text = value.ToString(); }
 
         public event EventHandler MapButtonClick;
         public event EventHandler InventoryButtonClick;
@@ -60,6 +64,8 @@ namespace Fishing
             Ozero map = new Ozero();
             map.Show();
             Ozero.ozero.Close();
+            sp.Stream = SoundsRes.open_items;
+            sp.Play();
         }
         private void MenuLabel_Click(object sender, EventArgs e)
         {
@@ -67,6 +73,8 @@ namespace Fishing
             Ozero.ozero.Close();
             Menu menu = new Menu();
             menu.Show();
+            sp.Stream = SoundsRes.open_items;
+            sp.Play();
         }
 
         private void SettingLabel_Click(object sender, EventArgs e)
@@ -78,12 +86,16 @@ namespace Fishing
         {
             fishesForm form = new fishesForm();
             form.Show();
+            sp.Stream = SoundsRes.open_items;
+            sp.Play();
         }
 
         private void BaitsPicture_Click(object sender, EventArgs e)
         {
             LureSelector selector = new LureSelector();
             selector.Show();
+            sp.Stream = SoundsRes.open_items;
+            sp.Play();
         }
 
 
@@ -100,12 +112,16 @@ namespace Fishing
         {
             Inventory inventory = new Inventory();
             inventory.Show();
+            sp.Stream = SoundsRes.open_items;
+            sp.Play();
         }
 
         private void StatsBox_Click(object sender, EventArgs e)
         {
             StatisticForm form = new StatisticForm();
             form.Show();
+            sp.Stream = SoundsRes.open_corf;
+            sp.Play();
         }
         public void AddEventToBox(BaseEvent ev)
         {

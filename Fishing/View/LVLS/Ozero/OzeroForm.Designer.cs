@@ -33,6 +33,7 @@
             this.mainTaskstimer = new System.Windows.Forms.Timer(this.components);
             this.fishMovestimer = new System.Windows.Forms.Timer(this.components);
             this.GatheringTimer = new System.Windows.Forms.Timer(this.components);
+            this.soundPlayerTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // baitTimer
@@ -56,6 +57,12 @@
             // 
             this.GatheringTimer.Interval = 1500;
             this.GatheringTimer.Tick += new System.EventHandler(this.GatheringTimer_Tick);
+            // 
+            // soundPlayerTimer
+            // 
+            this.soundPlayerTimer.Enabled = true;
+            this.soundPlayerTimer.Interval = 30000;
+            this.soundPlayerTimer.Tick += new System.EventHandler(this.SoundPlayerTimer_Tick);
             // 
             // OzeroForm
             // 
@@ -84,6 +91,7 @@
         protected internal System.Windows.Forms.Timer fishMovestimer;
         protected internal System.Windows.Forms.Timer baitTimer;
         protected internal System.Windows.Forms.Timer GatheringTimer;
+        private System.Windows.Forms.Timer soundPlayerTimer;
     }
 }
 

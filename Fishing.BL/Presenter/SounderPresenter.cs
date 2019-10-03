@@ -45,18 +45,7 @@ namespace Fishing.BL.Presenter
         private void drawPoint(Graphics g)
         {
             Player player = Player.GetPlayer();
-            if (player.Assembly.Lure.DeepType == DeepType.Flying)
-            {
-                g.DrawEllipse(new Pen(Color.Black), Sounder.GetSounder().Column * 10, Player.GetPlayer().CurrentDeep / 20, 3, 3);
-            }
-            else if (player.Assembly.Lure.DeepType == DeepType.Top)
-            {
-                g.DrawEllipse(new Pen(Color.Black), Sounder.GetSounder().Column * 10, 5, 3, 3);
-            }
-            else if (player.Assembly.Lure.DeepType == DeepType.Deep)
-            {
-                g.DrawEllipse(new Pen(Color.Black), Sounder.GetSounder().Column * 10, Player.GetPlayer().CurrentDeep / 10 - 5, 3, 3);
-            }
+            g.DrawEllipse(new Pen(Color.Black), Sounder.GetSounder().Column * 10, Player.GetPlayer().CurrentDeep / 10, 4, 4);
         }
     }
 }

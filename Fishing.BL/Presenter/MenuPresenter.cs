@@ -83,6 +83,7 @@ namespace Fishing.Presenter
             Player.GetPlayer().LureInv.Add(Lure.vert1);
             Player.GetPlayer().LureInv.Add(Lure.jelezo1);
             Player.GetPlayer().LureInv.Add(Lure.jelezo2);
+            Player.GetPlayer().LureInv.Add(Lure.jig1);
         }
 
     }

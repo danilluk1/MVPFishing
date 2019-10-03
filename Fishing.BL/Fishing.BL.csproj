@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Model\Fishes\SnakeHead.cs" />
     <Compile Include="Model\Game\Statistic.cs" />
+    <Compile Include="Model\Lures\Jig.cs" />
     <Compile Include="Model\Lures\Pinwheel.cs" />
     <Compile Include="Model\UserEvent\FishEvent.cs" />
     <Compile Include="Model\UserEvent\FLineTornEvent.cs" />
@@ -88,7 +89,6 @@
     <Compile Include="Model\Game\Pictures.cs" />
     <Compile Include="Model\Game\Sounder.cs" />
     <Compile Include="Model\Game\Player.cs" />
-    <Compile Include="Model\Game\Sounds.cs" />
     <Compile Include="Model\Items\FLine.cs" />
     <Compile Include="Model\Items\Item.cs" />
     <Compile Include="Model\Items\Reel.cs" />
@@ -153,6 +153,18 @@
     <Content Include="Resources\Colorado.png" />
     <None Include="Resources\deepvobler.png" />
     <Content Include="Resources\data_a.png" />
+    <None Include="Resources\day.wav" />
+    <None Include="Resources\day1.wav" />
+    <None Include="Resources\day2.wav" />
+    <None Include="Resources\day3.wav" />
+    <None Include="Resources\day4.wav" />
+    <None Include="Resources\day5.wav" />
+    <None Include="Resources\day6.wav" />
+    <None Include="Resources\day7.wav" />
+    <None Include="Resources\day8.wav" />
+    <None Include="Resources\day9.wav" />
+    <None Include="Resources\day10.wav" />
+    <None Include="Resources\day11.wav" />
     <Content Include="Resources\DRACO FD 1704.png" />
     <Content Include="Resources\fon11.wav" />
     <Content Include="Resources\fon8.wav" />
@@ -185,6 +197,8 @@
     <Content Include="Resources\not_reel.png" />
     <Content Include="Resources\not_scaf.png" />
     <Content Include="Resources\oparysh.png" />
+    <Content Include="Resources\open_corf.wav" />
+    <Content Include="Resources\open_items.wav" />
     <Content Include="Resources\osetr.jpg" />
     <Content Include="Resources\ozero.jpg" />
     <Content Include="Resources\ozero1.jpg" />
@@ -225,6 +239,7 @@
     <Content Include="Resources\TBR-4000.png" />
     <Content Include="Resources\Titanium.jpg" />
     <None Include="Resources\vert.png" />
+    <Content Include="Resources\Tvis-103.png" />
     <Content Include="Resources\Vesta 276.jpg" />
     <Content Include="Resources\Vib-6000.png" />
     <Content Include="Resources\Vib-6008.png" />
@@ -237,8 +252,9 @@
     <None Include="Resources\vob.png" />
     <Content Include="Resources\worm.png" />
     <Content Include="Resources\Yellow SuperCarp.jpg" />
-    <Content Include="Resources\zabros.wav" />
+    <Content Include="Resources\zabr.wav" />
     <None Include="Resources\zmeegolov.jpg" />
+    <Content Include="Resources\zabros.wav" />
     <Content Include="Resources\Zymix.png" />
   </ItemGroup>
   <ItemGroup>
@@ -255,7 +271,7 @@
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Sounds\SoundsRes.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SoundsRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

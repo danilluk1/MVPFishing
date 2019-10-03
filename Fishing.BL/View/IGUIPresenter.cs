@@ -20,6 +20,8 @@ namespace Fishing.View.GUI
         int MoneyLValue { get; set; }
         int EventBoxItemsCount { get; set; }
 
+        int LureDeepValue { get; set; }
+
         void AddEventToBox(BaseEvent ev);
         void ClearEvents();
         void IncrementRoadBarValue(int value);

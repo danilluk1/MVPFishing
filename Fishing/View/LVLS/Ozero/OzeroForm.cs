@@ -1,10 +1,12 @@
-﻿using Fishing.Presenter;
+﻿using Fishing.BL.Model.Game;
+using Fishing.Presenter;
 using Fishing.View.LVLS.Ozero;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using Fishing.BL.Resources.Sounds;
 
 namespace Fishing
 {
@@ -112,6 +114,14 @@ namespace Fishing
         {
             FormClose?.Invoke(this, EventArgs.Empty);
             GUI.gui.Close();
+        }
+
+        private void SoundPlayerTimer_Tick(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            string name = "day" + r.Next(1, 9).ToString();
+            SoundPlayer player = new SoundPlayer(SoundsRes.ResourceManager.GetStream(name));
+            player.Play();
         }
     }
 }
