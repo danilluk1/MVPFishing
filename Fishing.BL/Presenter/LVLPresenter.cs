@@ -137,14 +137,14 @@ namespace Fishing.Presenter
         private void View_KeyDOWN(object sender, KeyEventArgs e)
         {
             Player player = Player.GetPlayer();
-            for(int y = 0; y < 18; y++)
+            for(int y = 0; y < CurLVL.Height; y++)
             {
-                for (int x = 0; x < 51; x++)
+                for (int x = 0; x < CurLVL.Widgth; x++)
                 {
                     Point between = new Point(player.CurPoint.X - CurLVL.Deeparr[x, y].Location.X,
                                                 player.CurPoint.Y - CurLVL.Deeparr[x, y].Location.Y);
                     float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
-                    if (distance < 20)
+                    if (distance <= 20)
                     {
                         gui.DeepValue = Convert.ToInt32(CurLVL.Deeparr[x, y].Tag);
                         Sounder.GetSounder().Column = y;
@@ -227,19 +227,27 @@ namespace Fishing.Presenter
             try
             {
                 Player player = Player.GetPlayer();
-                if (!player.isFishAttack && player.Assembly.Proad != null)
+                if (!player.isFishAttack && player.Assembly != null)
                 {
-                    player.CurPoint = view.CurPoint;
-                    player.LastCastPoint = view.CurPoint;
+                    if (view.CurPoint.Y >= CurLVL.Deeparr[0, 0].Location.Y)
+                    {
+                        player.CurPoint = view.CurPoint;
+                    }
+                    else
+                    {
+                        player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 1;
+                        player.CurPoint.X = view.CurPoint.X;
+                    }
+                    player.LastCastPoint = player.CurPoint;
                 }
-                for (int y = 0; y < 18; y++)
+                for (int y = 0; y < CurLVL.Height; y++)
                 {
-                    for (int x = 0; x < 51; x++)
+                    for (int x = 0; x < CurLVL.Widgth; x++)
                     {
                         Point between = new Point(player.CurPoint.X - CurLVL.Deeparr[x, y].Location.X,
                                                     player.CurPoint.Y - CurLVL.Deeparr[x, y].Location.Y);
                         float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
-                        if (distance < 20)
+                        if (distance <= 20)
                         {
                             gui.DeepValue = Convert.ToInt32(CurLVL.Deeparr[x, y].Tag);
                             Sounder.GetSounder().Column = y;
@@ -307,14 +315,14 @@ namespace Fishing.Presenter
                 {
                     g.DrawImage(Pictures.roadMaxBend, BrokenRoad);
                 }
-                if (player.CurPoint.Y > CurLVL.Deeparr[17, 0].Location.Y && player.Assembly.Proad != null)
+                if (player.CurPoint.Y >= CurLVL.Deeparr[0, 0].Location.Y && player.Assembly.Proad != null)
                 {
                     g.DrawEllipse(new Pen(sbrush), player.CurPoint.X, player.CurPoint.Y, 4, 4);
                     g.FillEllipse(sbrush, player.CurPoint.X, player.CurPoint.Y, 4, 4);
                 }
                 else if (player.CurPoint.Y < CurLVL.Deeparr[0, 0].Location.Y && player.CurPoint.Y != 0 && player.Assembly.Proad != null)
                 {
-                    player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 3;
+                    player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 5;
                     g.DrawEllipse(new Pen(sbrush), player.CurPoint.X, player.CurPoint.Y, 4, 4);
                     g.FillEllipse(sbrush, player.CurPoint.X, player.CurPoint.Y, 4, 4);
                 }

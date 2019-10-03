@@ -34,7 +34,7 @@ namespace Fishing
         private void Label2_Click(object sender, EventArgs e)
         {
 
-            GUI.gui = new GUI(LVL1.GetLVL());
+            GUI.gui = new GUI(LVL2.GetLVL());
             ozero = new OzeroForm(LVL2.GetLVL());
             ozero.BackgroundImage = LVL2.GetLVL().Image;
             this.Close();

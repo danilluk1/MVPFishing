@@ -9,8 +9,9 @@ using Fishing.BL.Resources.Images;
 
 namespace Fishing
 {
-    class Sounds
+    public static class Sounds
     {
         public static SoundPlayer ringPlayer = new SoundPlayer(Images.brake5);
+        public static SoundPlayer gatheringPlayer = new SoundPlayer()
     }
 }

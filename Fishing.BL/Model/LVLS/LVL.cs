@@ -14,13 +14,17 @@ namespace Fishing
         public Bitmap Image { get; set; }
         public EventHandler StopBaitTimer;
         public EventHandler GatheringisTrue;
+        public int Widgth = 51;
+        public int Height = 18;
+        public int LabelStartY = 350;
 
         public LVL(Bitmap img)
         {
             Image = img;
+            Deeparr = new Label[Widgth, Height];
         }
 
-        public Label[,] Deeparr = new Label[51, 18];
+        public Label[,] Deeparr;
         protected List<Fish> Fishes = new List<Fish>(1000);
         public abstract void AddFishes();
 
@@ -40,14 +44,14 @@ namespace Fishing
         }
         public void AddDeep()
         {
-            for (int x = 0; x < 51; x++)
+            for (int x = 0; x < Widgth; x++)
             {
-                for (int y = 0; y < 18; y++)
+                for (int y = 0; y < Height; y++)
                 {
                     this.Deeparr[x, y] = new Label()
                     {
                         Left = 5 + x * 20,
-                        Top = 350 + y * 20,
+                        Top = LabelStartY + y * 20,
                         Height = 20,
                         TextAlign = ContentAlignment.MiddleCenter,
                         Width = 20,

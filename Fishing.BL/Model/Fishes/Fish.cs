@@ -42,11 +42,11 @@ namespace Fishing
         {
             if (Weight / 1000 > 0)
             {
-                return Name + " масса " + Weight / 1000 + "кг " + Weight % 1000 + "г";
+                return Name + " " + Weight / 1000 + "кг " + Weight % 1000 + "г";
             }
             else
             {
-                return Name + " масса " + Weight + "г";
+                return Name + " " + Weight + "г";
             }
         }
     }

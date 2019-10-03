@@ -110,6 +110,11 @@
     <Compile Include="Presenter\ShopPresenter.cs" />
     <Compile Include="Presenter\SounderPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Sounds\SoundsRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoundsRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="View\IAddAssembly.cs" />
     <Compile Include="View\ICurrentFishF.cs" />
     <Compile Include="View\IFPond.cs" />
@@ -147,6 +152,7 @@
     <Content Include="Resources\Circl-5113.png" />
     <Content Include="Resources\Colorado.png" />
     <None Include="Resources\deepvobler.png" />
+    <Content Include="Resources\data_a.png" />
     <Content Include="Resources\DRACO FD 1704.png" />
     <Content Include="Resources\fon11.wav" />
     <Content Include="Resources\fon8.wav" />
@@ -247,6 +253,10 @@
     <EmbeddedResource Include="Resources\Messages\Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Sounds\SoundsRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SoundsRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

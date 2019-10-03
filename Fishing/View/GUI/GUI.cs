@@ -20,7 +20,7 @@ namespace Fishing
 {
     public partial class GUI : Form, IGUI, IGUIPresenter, ISounder
     {
-        readonly GUIPresenter presenter;
+        GUIPresenter presenter;
         readonly SounderPresenter sound;
         public static GUI gui;
 
@@ -59,14 +59,8 @@ namespace Fishing
         {
             Ozero map = new Ozero();
             map.Show();
+            Ozero.ozero.Close();
         }
-
-        private void InventoryLabel_Click(object sender, EventArgs e)
-        {
-            Inventory inventory = new Inventory();
-            inventory.Show();
-        }
-
         private void MenuLabel_Click(object sender, EventArgs e)
         {
             GUI.gui.Close();
@@ -101,14 +95,29 @@ namespace Fishing
         private void SounderUpdater_Tick(object sender, EventArgs e)
         {
             SounderPanel.Refresh();
+        }    
+        private void InventoryBox_Click(object sender, EventArgs e)
+        {
+            Inventory inventory = new Inventory();
+            inventory.Show();
         }
 
+        private void StatsBox_Click(object sender, EventArgs e)
+        {
+            StatisticForm form = new StatisticForm();
+            form.Show();
+        }
         public void AddEventToBox(BaseEvent ev)
         {
 
             ListViewItem lvi = new ListViewItem();
             lvi.Text = ev.Text;
             lvi.ImageIndex = ev.Index;
+            if(ev is TrophyFishEvent)
+            {
+                lvi.ForeColor = Color.White;
+                lvi.BackColor = Color.Navy;
+            }
             eventsView.Items.Add(lvi);
         }
 
@@ -129,7 +138,7 @@ namespace Fishing
 
         public void CheckNeedsAndClearEventBox()
         {
-            if(EventBoxItemsCount > 5)
+            if (EventBoxItemsCount > 5)
             {
                 ClearEvents();
             }
@@ -144,12 +153,6 @@ namespace Fishing
                     Controls.Add(l[x, y]);
                 }
             }
-        }
-
-        private void StatisticLabel_Click(object sender, EventArgs e)
-        {
-            StatisticForm form = new StatisticForm();
-            form.Show();
         }
     }
 }

@@ -111,6 +111,7 @@ namespace Fishing
         private void OzeroForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             FormClose?.Invoke(this, EventArgs.Empty);
+            GUI.gui.Close();
         }
     }
 }

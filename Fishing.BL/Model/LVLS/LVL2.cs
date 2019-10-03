@@ -10,9 +10,12 @@ namespace Fishing
     public class LVL2 : LVL
     {
         private static LVL2 lvl;
+        
         private LVL2() : base(Images.ozerolvl2)
         {
-
+            Widgth = 51;
+            Height = 18;
+            LabelStartY = 350;
         }
         public static LVL2 GetLVL()
         {
@@ -84,9 +87,9 @@ namespace Fishing
 
         public override void SetDeep()
         {
-            for (int x = 0; x < 51; x++)
+            for (int x = 0; x < Widgth; x++)
             {
-                for (int y = 0; y < 18; y++)
+                for (int y = 0; y < Height; y++)
                 {
                 }
                 Deeparr[x, 0].Tag = 340;
