@@ -149,5 +149,14 @@ namespace Fishing.BL.Resources.Messages {
                 return ResourceManager.GetString("TROUT_DESCRIPTION", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине..
+        /// </summary>
+        internal static string ZANDER_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ZANDER_DESCRIPTION", resourceCulture);
+            }
+        }
     }
 }

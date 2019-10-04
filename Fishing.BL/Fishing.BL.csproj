@@ -48,9 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Fishes\SnakeHead.cs" />
+    <Compile Include="Model\Fishes\Zander.cs" />
     <Compile Include="Model\Game\Statistic.cs" />
     <Compile Include="Model\Lures\Jig.cs" />
     <Compile Include="Model\Lures\Pinwheel.cs" />
+    <Compile Include="Model\LVLS\LVL3.cs" />
     <Compile Include="Model\UserEvent\FishEvent.cs" />
     <Compile Include="Model\UserEvent\FLineTornEvent.cs" />
     <Compile Include="Model\UserEvent\GatheringEvent.cs" />
@@ -186,6 +188,7 @@
     <Content Include="Resources\lesh.jpg" />
     <Content Include="Resources\lesh.png" />
     <Content Include="Resources\lvl1.jpg" />
+    <None Include="Resources\lvl3.png" />
     <Content Include="Resources\map.jpg" />
     <Content Include="Resources\Marco-R1.png" />
     <Content Include="Resources\Marco-R5.png" />
@@ -231,6 +234,7 @@
     <Content Include="Resources\step2.png" />
     <Content Include="Resources\step3.png" />
     <Content Include="Resources\step7.png" />
+    <Content Include="Resources\sudak.jpg" />
     <Content Include="Resources\SuperFisher-950.jpg" />
     <Content Include="Resources\Syberia HD-1.png" />
     <Content Include="Resources\Syberia HD-3.png" />
@@ -245,6 +249,7 @@
     <Content Include="Resources\Vib-6008.png" />
     <Content Include="Resources\Vib-6012.png" />
     <Content Include="Resources\Vib-6016.png" />
+    <None Include="Resources\vibro.png" />
     <Content Include="Resources\Vob-3001.png" />
     <Content Include="Resources\Vob-3002.png" />
     <Content Include="Resources\Vob-3003.png" />

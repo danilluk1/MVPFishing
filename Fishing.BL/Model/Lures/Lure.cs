@@ -23,6 +23,7 @@ namespace Fishing
         Deep,
         Flying,
         Top,
+        Jig,
     }
     [Serializable]
     public class Lure : Item

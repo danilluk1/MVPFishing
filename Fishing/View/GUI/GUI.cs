@@ -30,6 +30,8 @@ namespace Fishing
         public GUI(LVL lvl)
         {
             InitializeComponent();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint |
+                                                                            ControlStyles.UserPaint, true);
             presenter = new GUIPresenter(this);
             sound = new SounderPresenter(this, lvl);
             try

@@ -147,4 +147,7 @@
   <data name="TROUT_DESCRIPTION" xml:space="preserve">
     <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине.</value>
   </data>
+  <data name="ZANDER_DESCRIPTION" xml:space="preserve">
+    <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине.</value>
+  </data>
 </root>

@@ -89,17 +89,22 @@ namespace Fishing.Presenter
                 if (player.IsFishAbleToGoIntoFpond())
                 {
                     int imageindex = 0;
-                    if (player.Assembly.Lure is Wobbler)
+                    Lure l = player.Assembly.Lure;
+                    if (l is Wobbler)
                     {
                         imageindex = 4;
                     }
-                    if (player.Assembly.Lure is Shaker)
+                    if (l is Shaker)
                     {
                         imageindex = 2;
                     }
-                    if (player.Assembly.Lure is Pinwheel)
+                    if (l is Pinwheel)
                     {
                         imageindex = 3;
+                    }
+                    if(l is Jig)
+                    {
+                        imageindex = 6;
                     }
                     gui.CheckNeedsAndClearEventBox();
                     if (!player.CFish.isTrophy())
@@ -139,6 +144,11 @@ namespace Fishing.Presenter
             if (player.isFishAttack)
             {
                 player.CFish.Power = fishMoving.Next(-player.CFish.Power, Math.Abs(player.CFish.Power));
+                if(player.CFish.Power == 0)
+                {
+                    player.CFish.Power = fishMoving.Next(-player.CFish.Power, Math.Abs(player.CFish.Power));
+                }
+
             }
         }
 
@@ -293,6 +303,7 @@ namespace Fishing.Presenter
             {
                 Player player = Player.GetPlayer();
                 player.IsBaitMoving = false;
+                Player.GetPlayer().IsJigging = false;
                 SoundPlayer sp = new SoundPlayer();
                 if (!player.isFishAttack && player.Assembly != null)
                 {
@@ -385,6 +396,10 @@ namespace Fishing.Presenter
                     break;
                 case DeepType.Top:
                     Player.GetPlayer().CurrentDeep = 20;
+                    break;
+                case DeepType.Jig:
+                    Player.GetPlayer().CurrentDeep -= 80;
+                    Player.GetPlayer().IsJigging = true;
                     break;
             }
             Player.GetPlayer().CurPoint.Y += Player.GetPlayer().WindingSpeed;

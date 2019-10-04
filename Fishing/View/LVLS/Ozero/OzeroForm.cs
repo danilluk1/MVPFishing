@@ -27,6 +27,7 @@ namespace Fishing
                     ControlStyles.UserPaint, true);
 
             UpdateStyles();
+            Player.GetPlayer().Assembly = Player.GetPlayer().Assemblies[0];
         }
         public Point CurPoint { get => PointToClient(Cursor.Position); set => throw new ArgumentException(); }
 
@@ -114,6 +115,8 @@ namespace Fishing
         {
             FormClose?.Invoke(this, EventArgs.Empty);
             GUI.gui.Close();
+            Player.GetPlayer().CurPoint = Point.Empty;
+            Player.GetPlayer().Assembly = null;
         }
 
         private void SoundPlayerTimer_Tick(object sender, EventArgs e)

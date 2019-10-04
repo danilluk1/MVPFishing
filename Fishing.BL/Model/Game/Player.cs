@@ -28,6 +28,7 @@ namespace Fishing
         public Statistic Statistic { get; set; } = new Statistic();
 
         public bool IsBaitMoving = false;
+        public bool IsJigging = false;
         public Point LastCastPoint;
         public int RoadX = 0;
         public int RoadY = 470;

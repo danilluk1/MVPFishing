@@ -1,5 +1,6 @@
 ﻿using Fishing.BL;
 using Fishing.BL.Model;
+using Fishing.BL.Model.LVLS;
 using Fishing.BL.Resources.Images;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,12 @@ namespace Fishing
 
         private void Label3_Click(object sender, EventArgs e)
         {
+            GUI.gui = new GUI(LVL3.GetLVL());
+            ozero = new OzeroForm(LVL3.GetLVL());
+            ozero.BackgroundImage = LVL3.GetLVL().Image;
+            this.Close();
+            ozero.Show();
+            GUI.gui.Show();
         }
 
         private void Ozero_Load(object sender, EventArgs e)

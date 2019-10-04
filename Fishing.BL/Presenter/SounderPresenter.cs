@@ -45,7 +45,8 @@ namespace Fishing.BL.Presenter
         private void drawPoint(Graphics g)
         {
             Player player = Player.GetPlayer();
-            g.DrawEllipse(new Pen(Color.Black), Sounder.GetSounder().Column * 10, Player.GetPlayer().CurrentDeep / 10, 4, 4);
+            int x = Math.Abs(player.CurPoint.Y - (int)CurLVL.Deeparr[0, 0].Location.Y) / 2;
+            g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().CurrentDeep / 10 - 2, 4, 4);
         }
     }
 }

@@ -36,6 +36,7 @@ namespace Fishing
             this.TextDeepLabel = new System.Windows.Forms.Label();
             this.SounderUpdater = new System.Windows.Forms.Timer(this.components);
             this.SounderPanel = new System.Windows.Forms.Panel();
+            this.LureDeep = new System.Windows.Forms.Label();
             this.SpeedBar = new System.Windows.Forms.TrackBar();
             this.FpondBox = new System.Windows.Forms.PictureBox();
             this.LowerPanel = new System.Windows.Forms.Panel();
@@ -53,7 +54,6 @@ namespace Fishing
             this.SettingLabel = new System.Windows.Forms.Label();
             this.MapLabel = new System.Windows.Forms.Label();
             this.sounderBack = new System.Windows.Forms.Panel();
-            this.LureDeep = new System.Windows.Forms.Label();
             this.SounderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FpondBox)).BeginInit();
@@ -79,9 +79,10 @@ namespace Fishing
             // TextDeepLabel
             // 
             this.TextDeepLabel.AutoSize = true;
-            this.TextDeepLabel.Location = new System.Drawing.Point(76, 104);
+            this.TextDeepLabel.Font = new System.Drawing.Font("Segoe Script", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextDeepLabel.Location = new System.Drawing.Point(67, 100);
             this.TextDeepLabel.Name = "TextDeepLabel";
-            this.TextDeepLabel.Size = new System.Drawing.Size(51, 13);
+            this.TextDeepLabel.Size = new System.Drawing.Size(60, 17);
             this.TextDeepLabel.TabIndex = 21;
             this.TextDeepLabel.Text = "Глубина:";
             // 
@@ -103,6 +104,17 @@ namespace Fishing
             this.SounderPanel.Size = new System.Drawing.Size(171, 120);
             this.SounderPanel.TabIndex = 22;
             this.SounderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SounderPanel_Paint);
+            // 
+            // LureDeep
+            // 
+            this.LureDeep.AutoSize = true;
+            this.LureDeep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LureDeep.ForeColor = System.Drawing.Color.Red;
+            this.LureDeep.Location = new System.Drawing.Point(3, 99);
+            this.LureDeep.Name = "LureDeep";
+            this.LureDeep.Size = new System.Drawing.Size(19, 20);
+            this.LureDeep.TabIndex = 22;
+            this.LureDeep.Text = "0";
             // 
             // SpeedBar
             // 
@@ -172,11 +184,13 @@ namespace Fishing
             // 
             // eventsView
             // 
+            this.eventsView.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.eventsView.BackColor = System.Drawing.Color.Wheat;
+            this.eventsView.Font = new System.Drawing.Font("Segoe Script", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.eventsView.Location = new System.Drawing.Point(657, 3);
             this.eventsView.Name = "eventsView";
             this.eventsView.Scrollable = false;
-            this.eventsView.Size = new System.Drawing.Size(297, 117);
+            this.eventsView.Size = new System.Drawing.Size(384, 117);
             this.eventsView.SmallImageList = this.eventsList;
             this.eventsView.StateImageList = this.eventsList;
             this.eventsView.TabIndex = 23;
@@ -193,6 +207,7 @@ namespace Fishing
             this.eventsList.Images.SetKeyName(3, "vert.png");
             this.eventsList.Images.SetKeyName(4, "deepvobler.png");
             this.eventsList.Images.SetKeyName(5, "sriv.png");
+            this.eventsList.Images.SetKeyName(6, "vibro.png");
             // 
             // ReelBar
             // 
@@ -244,10 +259,10 @@ namespace Fishing
             // 
             this.MenuLabel.AutoSize = true;
             this.MenuLabel.BackColor = System.Drawing.Color.Transparent;
-            this.MenuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MenuLabel.Location = new System.Drawing.Point(101, 9);
+            this.MenuLabel.Font = new System.Drawing.Font("Segoe Script", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MenuLabel.Location = new System.Drawing.Point(101, 7);
             this.MenuLabel.Name = "MenuLabel";
-            this.MenuLabel.Size = new System.Drawing.Size(74, 25);
+            this.MenuLabel.Size = new System.Drawing.Size(77, 34);
             this.MenuLabel.TabIndex = 15;
             this.MenuLabel.Text = "Меню";
             this.MenuLabel.Click += new System.EventHandler(this.MenuLabel_Click);
@@ -275,10 +290,10 @@ namespace Fishing
             // 
             this.SettingLabel.AutoSize = true;
             this.SettingLabel.BackColor = System.Drawing.Color.Transparent;
-            this.SettingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SettingLabel.Font = new System.Drawing.Font("Segoe Script", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SettingLabel.Location = new System.Drawing.Point(181, 9);
             this.SettingLabel.Name = "SettingLabel";
-            this.SettingLabel.Size = new System.Drawing.Size(128, 25);
+            this.SettingLabel.Size = new System.Drawing.Size(147, 34);
             this.SettingLabel.TabIndex = 12;
             this.SettingLabel.Text = "Настройки";
             this.SettingLabel.Click += new System.EventHandler(this.SettingLabel_Click);
@@ -287,10 +302,10 @@ namespace Fishing
             // 
             this.MapLabel.AutoSize = true;
             this.MapLabel.BackColor = System.Drawing.Color.Transparent;
-            this.MapLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MapLabel.Location = new System.Drawing.Point(12, 9);
+            this.MapLabel.Font = new System.Drawing.Font("Segoe Script", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MapLabel.Location = new System.Drawing.Point(3, 5);
             this.MapLabel.Name = "MapLabel";
-            this.MapLabel.Size = new System.Drawing.Size(77, 25);
+            this.MapLabel.Size = new System.Drawing.Size(96, 34);
             this.MapLabel.TabIndex = 11;
             this.MapLabel.Text = "Карта";
             this.MapLabel.Click += new System.EventHandler(this.MapLabel_Click);
@@ -304,17 +319,6 @@ namespace Fishing
             this.sounderBack.Name = "sounderBack";
             this.sounderBack.Size = new System.Drawing.Size(179, 126);
             this.sounderBack.TabIndex = 24;
-            // 
-            // LureDeep
-            // 
-            this.LureDeep.AutoSize = true;
-            this.LureDeep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LureDeep.ForeColor = System.Drawing.Color.Red;
-            this.LureDeep.Location = new System.Drawing.Point(3, 99);
-            this.LureDeep.Name = "LureDeep";
-            this.LureDeep.Size = new System.Drawing.Size(19, 20);
-            this.LureDeep.TabIndex = 22;
-            this.LureDeep.Text = "0";
             // 
             // GUI
             // 

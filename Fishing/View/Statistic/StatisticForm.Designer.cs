@@ -174,6 +174,7 @@
             this.eventsList.Images.SetKeyName(3, "vert.png");
             this.eventsList.Images.SetKeyName(4, "deepvobler.png");
             this.eventsList.Images.SetKeyName(5, "sriv.png");
+            this.eventsList.Images.SetKeyName(6, "vibro.png");
             // 
             // StatisticForm
             // 
