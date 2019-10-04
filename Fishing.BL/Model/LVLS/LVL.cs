@@ -55,8 +55,7 @@ namespace Fishing
                         Height = 20,
                         TextAlign = ContentAlignment.MiddleCenter,
                         Width = 20,
-                        Visible = true,
-                        Text = "1"
+                        Visible = false,
                     };
                 }
             }

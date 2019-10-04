@@ -54,6 +54,7 @@ namespace Fishing
             this.SettingLabel = new System.Windows.Forms.Label();
             this.MapLabel = new System.Windows.Forms.Label();
             this.sounderBack = new System.Windows.Forms.Panel();
+            this.WiringTypeLabel = new System.Windows.Forms.Label();
             this.SounderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FpondBox)).BeginInit();
@@ -146,6 +147,7 @@ namespace Fishing
             this.LowerPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.LowerPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LowerPanel.BackgroundImage")));
             this.LowerPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.LowerPanel.Controls.Add(this.WiringTypeLabel);
             this.LowerPanel.Controls.Add(this.StatsBox);
             this.LowerPanel.Controls.Add(this.InventoryBox);
             this.LowerPanel.Controls.Add(this.eventsView);
@@ -190,7 +192,7 @@ namespace Fishing
             this.eventsView.Location = new System.Drawing.Point(657, 3);
             this.eventsView.Name = "eventsView";
             this.eventsView.Scrollable = false;
-            this.eventsView.Size = new System.Drawing.Size(384, 117);
+            this.eventsView.Size = new System.Drawing.Size(340, 117);
             this.eventsView.SmallImageList = this.eventsList;
             this.eventsView.StateImageList = this.eventsList;
             this.eventsView.TabIndex = 23;
@@ -320,6 +322,18 @@ namespace Fishing
             this.sounderBack.Size = new System.Drawing.Size(179, 126);
             this.sounderBack.TabIndex = 24;
             // 
+            // WiringTypeLabel
+            // 
+            this.WiringTypeLabel.AutoSize = true;
+            this.WiringTypeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WiringTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.WiringTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.WiringTypeLabel.Location = new System.Drawing.Point(118, 95);
+            this.WiringTypeLabel.Name = "WiringTypeLabel";
+            this.WiringTypeLabel.Size = new System.Drawing.Size(19, 20);
+            this.WiringTypeLabel.TabIndex = 25;
+            this.WiringTypeLabel.Text = "0";
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +359,7 @@ namespace Fishing
             ((System.ComponentModel.ISupportInitialize)(this.SpeedBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FpondBox)).EndInit();
             this.LowerPanel.ResumeLayout(false);
+            this.LowerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatsBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InventoryBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BaitsPicture)).EndInit();
@@ -380,5 +395,6 @@ namespace Fishing
         private System.Windows.Forms.PictureBox InventoryBox;
         private System.Windows.Forms.PictureBox StatsBox;
         protected internal System.Windows.Forms.Label LureDeep;
+        protected internal System.Windows.Forms.Label WiringTypeLabel;
     }
 }

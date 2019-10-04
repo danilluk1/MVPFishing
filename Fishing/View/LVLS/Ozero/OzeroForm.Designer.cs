@@ -38,7 +38,7 @@
             // 
             // baitTimer
             // 
-            this.baitTimer.Interval = 500;
+            this.baitTimer.Interval = 8000;
             this.baitTimer.Tick += new System.EventHandler(this.BaitTimer_Tick);
             // 
             // mainTaskstimer

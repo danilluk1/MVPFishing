@@ -16,11 +16,10 @@ namespace Fishing.View.GUI
         int DeepValue { get; set; }
         int RoadBarValue { get; set; }
         int FLineBarValue { get; set; }
-
         int MoneyLValue { get; set; }
         int EventBoxItemsCount { get; set; }
-
         int LureDeepValue { get; set; }
+        string WiringType { get; set; }
 
         void AddEventToBox(BaseEvent ev);
         void ClearEvents();

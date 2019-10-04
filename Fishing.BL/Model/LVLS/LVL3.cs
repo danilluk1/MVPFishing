@@ -54,7 +54,7 @@ namespace Fishing.BL.Model.LVLS
                 if (Player.GetPlayer().CurPoint.Y > lvl.Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
                 {
                     Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
-                    if (IsFishAttackAbble(Player.GetPlayer().CFish) && Player.GetPlayer().IsBaitMoving)
+                    if (IsFishAttackAbble(Player.GetPlayer().CFish) && Player.GetPlayer().IsJigging)
                     {
                         Player.GetPlayer().isFishAttack = true;
                         Player.GetPlayer().IncValue = Player.GetPlayer().CFish.Weight * 20 / (Player.GetPlayer().Assembly.Proad.Power);

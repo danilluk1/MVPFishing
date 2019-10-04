@@ -1,6 +1,7 @@
 ﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Model.Lures;
 using Fishing.BL.Model.UserEvent;
+using Fishing.BL.Model.Wiring;
 using Fishing.BL.Resources.Messages;
 using Fishing.BL.Resources.Sounds;
 using Fishing.View.GUI;
@@ -17,6 +18,7 @@ namespace Fishing.Presenter
     {
         readonly ILVL view;
         readonly IGUIPresenter gui;
+        private JigWiring jig;
         public LVL CurLVL { get; set; }
 
         public event EventHandler StartBaitTimer;
@@ -68,6 +70,14 @@ namespace Fishing.Presenter
         {
             try
             {
+                if(Player.GetPlayer().CurrentDeep == gui.DeepValue)
+                {
+                    jig.IsBottomTouched = true;                 
+                }
+                if (Player.GetPlayer().IsJigging)
+                    gui.WiringType = "Джиг";
+                else
+                    gui.WiringType = "-";
                 Player player = Player.GetPlayer();
                 gui.LureDeepValue = player.CurrentDeep;
                 SetRightDeepByType(player.Assembly.Lure.DeepType);
@@ -224,7 +234,7 @@ namespace Fishing.Presenter
                 case Keys.G:
                     Player.GetPlayer().IsBaitMoving = false;
                     Player.GetPlayer().WindingSpeed = 0;
-                    Player.GetPlayer().RoadY -= 7;
+                    Player.GetPlayer().RoadY -= 7;                
                     break;
                 case Keys.H:
 
@@ -382,7 +392,6 @@ namespace Fishing.Presenter
             switch (type)
             {
                 case DeepType.Deep:
-                    Player.GetPlayer().CurrentDeep -= 80;
                     break;
                 case DeepType.Flying:
                     if (Player.GetPlayer().isFishAttack)
@@ -398,8 +407,15 @@ namespace Fishing.Presenter
                     Player.GetPlayer().CurrentDeep = 20;
                     break;
                 case DeepType.Jig:
-                    Player.GetPlayer().CurrentDeep -= 80;
-                    Player.GetPlayer().IsJigging = true;
+                    if (Player.GetPlayer().CurrentDeep == gui.DeepValue)
+                    {
+                        jig = new JigWiring(80, true);                       
+                    }
+                    else
+                    {
+                        jig = new JigWiring(80, false);
+                    }
+                    jig.DoWiring();
                     break;
             }
             Player.GetPlayer().CurPoint.Y += Player.GetPlayer().WindingSpeed;
@@ -423,6 +439,12 @@ namespace Fishing.Presenter
                     break;
                 case DeepType.Top:
                     Player.GetPlayer().CurrentDeep = 20;
+                    break;
+                case DeepType.Jig:
+                    if (Player.GetPlayer().CurrentDeep < gui.DeepValue && !Player.GetPlayer().IsBaitMoving)
+                    {
+                        Player.GetPlayer().CurrentDeep += 5;
+                    }
                     break;
             }
         }

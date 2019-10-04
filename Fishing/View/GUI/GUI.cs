@@ -51,6 +51,7 @@ namespace Fishing
         public int EventBoxItemsCount { get => eventsView.Items.Count; set => throw new NotImplementedException(); }
         public int MoneyLValue { get => Convert.ToInt32(MoneyLabel.Text); set => MoneyLabel.Text = value.ToString(); }
         public int LureDeepValue { get => Convert.ToInt32(LureDeep.Text); set => LureDeep.Text = value.ToString(); }
+        public string WiringType { get => WiringTypeLabel.Text; set => WiringTypeLabel.Text = value; }
 
         public event EventHandler MapButtonClick;
         public event EventHandler InventoryButtonClick;

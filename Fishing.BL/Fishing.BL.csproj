@@ -59,6 +59,8 @@
     <Compile Include="Model\UserEvent\RoadBrokenEvent.cs" />
     <Compile Include="Model\UserEvent\TrophyFishEvent.cs" />
     <Compile Include="Model\UserEvent\BaseEvent.cs" />
+    <Compile Include="Model\Wiring\JigWiring.cs" />
+    <Compile Include="Model\Wiring\Wiring.cs" />
     <Compile Include="Presenter\StatisticPresenter.cs" />
     <Compile Include="Resources\Images\Images.Designer.cs">
       <AutoGen>True</AutoGen>

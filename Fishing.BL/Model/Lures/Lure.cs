@@ -50,6 +50,6 @@ namespace Fishing
         public static Shaker jelezo1 = new Shaker("Колебалка 1", Size.XL, DeepType.Deep, 500, Images.Vib_6000);
         public static Shaker jelezo2 = new Shaker("Колебалка 2", Size.Large, DeepType.Deep, 500, Images.Vib_6012);
 
-        public static Jig jig1 = new Jig("Виброхвост 1", Size.Small, DeepType.Deep, 500, Images.Tvis_103);
+        public static Jig jig1 = new Jig("Виброхвост 1", Size.Small, DeepType.Jig, 500, Images.Tvis_103);
     }
 }
