@@ -51,11 +51,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VerticalProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="View\Assembly\AddAssembly.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Assembly\AddAssembly.Designer.cs">
       <DependentUpon>AddAssembly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FoodInventory\FoodInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FoodInventory\FoodInventory.Designer.cs">
+      <DependentUpon>FoodInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="View\GUI\GUI.cs">
       <SubType>Form</SubType>
@@ -127,6 +136,9 @@
     </Compile>
     <EmbeddedResource Include="View\Assembly\AddAssembly.resx">
       <DependentUpon>AddAssembly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FoodInventory\FoodInventory.resx">
+      <DependentUpon>FoodInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GUI\GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>

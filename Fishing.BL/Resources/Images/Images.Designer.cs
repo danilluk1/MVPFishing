@@ -113,6 +113,16 @@ namespace Fishing.BL.Resources.Images {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap apelsin {
+            get {
+                object obj = ResourceManager.GetObject("apelsin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Atlantic {
             get {
                 object obj = ResourceManager.GetObject("Atlantic", resourceCulture);
@@ -146,6 +156,16 @@ namespace Fishing.BL.Resources.Images {
         public static System.Drawing.Bitmap beluga {
             get {
                 object obj = ResourceManager.GetObject("beluga", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap black {
+            get {
+                object obj = ResourceManager.GetObject("black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,6 +313,16 @@ namespace Fishing.BL.Resources.Images {
         public static System.Drawing.Bitmap gorbusha {
             get {
                 object obj = ResourceManager.GetObject("gorbusha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap hleb {
+            get {
+                object obj = ResourceManager.GetObject("hleb", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -740,6 +770,16 @@ namespace Fishing.BL.Resources.Images {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap red {
+            get {
+                object obj = ResourceManager.GetObject("red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ribec {
             get {
                 object obj = ResourceManager.GetObject("ribec", resourceCulture);
@@ -842,6 +882,16 @@ namespace Fishing.BL.Resources.Images {
         public static System.Drawing.Bitmap shop_but11 {
             get {
                 object obj = ResourceManager.GetObject("shop_but11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap sir {
+            get {
+                object obj = ResourceManager.GetObject("sir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -992,6 +1042,16 @@ namespace Fishing.BL.Resources.Images {
         public static System.Drawing.Bitmap Tvis_103 {
             get {
                 object obj = ResourceManager.GetObject("Tvis_103", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap var {
+            get {
+                object obj = ResourceManager.GetObject("var", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

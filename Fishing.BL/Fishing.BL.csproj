@@ -47,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Eating\BaseFood.cs" />
+    <Compile Include="Model\Eating\BlackCaviar.cs" />
+    <Compile Include="Model\Eating\Bread.cs" />
+    <Compile Include="Model\Eating\Caviar.cs" />
+    <Compile Include="Model\Eating\Cheese.cs" />
     <Compile Include="Model\Fishes\SnakeHead.cs" />
     <Compile Include="Model\Fishes\Zander.cs" />
     <Compile Include="Model\Game\Statistic.cs" />
@@ -61,6 +66,7 @@
     <Compile Include="Model\UserEvent\BaseEvent.cs" />
     <Compile Include="Model\Wiring\JigWiring.cs" />
     <Compile Include="Model\Wiring\Wiring.cs" />
+    <Compile Include="Presenter\FoodPresenter.cs" />
     <Compile Include="Presenter\StatisticPresenter.cs" />
     <Compile Include="Resources\Images\Images.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -121,6 +127,7 @@
     </Compile>
     <Compile Include="View\IAddAssembly.cs" />
     <Compile Include="View\ICurrentFishF.cs" />
+    <Compile Include="View\IFoodInventory.cs" />
     <Compile Include="View\IFPond.cs" />
     <Compile Include="View\IGUI.cs" />
     <Compile Include="View\IGUIPresenter.cs" />
@@ -143,10 +150,12 @@
     <Content Include="Resources\2030.png" />
     <Content Include="Resources\85.wav" />
     <Content Include="Resources\Achilles 233.jpg" />
+    <None Include="Resources\apelsin.png" />
     <Content Include="Resources\Atlantic.png" />
     <Content Include="Resources\barah_but01.png" />
     <Content Include="Resources\barah_but03.png" />
     <Content Include="Resources\beluga.jpg" />
+    <None Include="Resources\black.png" />
     <Content Include="Resources\boil.png" />
     <Content Include="Resources\brake5.wav" />
     <None Include="Resources\break.png" />
@@ -170,12 +179,14 @@
     <None Include="Resources\day10.wav" />
     <None Include="Resources\day11.wav" />
     <Content Include="Resources\DRACO FD 1704.png" />
+    <Content Include="Resources\eat.wav" />
     <Content Include="Resources\fon11.wav" />
     <Content Include="Resources\fon8.wav" />
     <Content Include="Resources\frog.png" />
     <Content Include="Resources\golec.png" />
     <Content Include="Resources\gorbusha.jpg" />
     <None Include="Resources\hvastun.png" />
+    <Content Include="Resources\Images\hleb.png" />
     <Content Include="Resources\HYDRA 1711.png" />
     <Content Include="Resources\Hydra.png" />
     <Content Include="Resources\image011.jpg" />
@@ -189,6 +200,7 @@
     <Content Include="Resources\layer6.jpg" />
     <Content Include="Resources\lesh.jpg" />
     <Content Include="Resources\lesh.png" />
+    <Content Include="Resources\leskaobr.wav" />
     <Content Include="Resources\lvl1.jpg" />
     <None Include="Resources\lvl3.png" />
     <Content Include="Resources\map.jpg" />
@@ -220,6 +232,7 @@
     <Content Include="Resources\Quest Fishers.png" />
     <Content Include="Resources\Quest Reel.png" />
     <Content Include="Resources\rak.jpg" />
+    <None Include="Resources\red.png" />
     <Content Include="Resources\ribec.jpg" />
     <Content Include="Resources\ribec.png" />
     <Content Include="Resources\ring.wav" />
@@ -229,15 +242,21 @@
     <Content Include="Resources\rm_zhivec.png" />
     <Content Include="Resources\road.png" />
     <Content Include="Resources\road2.png" />
+    <Content Include="Resources\sellfish.wav" />
     <Content Include="Resources\shop_but11.png" />
+    <None Include="Resources\sir.png" />
     <Content Include="Resources\Sounder.png" />
     <None Include="Resources\sriv.png" />
     <None Include="Resources\spoon.png" />
+    <Content Include="Resources\splash3.wav" />
+    <Content Include="Resources\splash4.wav" />
+    <Content Include="Resources\splash5.wav" />
     <Content Include="Resources\step2.png" />
     <Content Include="Resources\step3.png" />
     <Content Include="Resources\step7.png" />
     <Content Include="Resources\sudak.jpg" />
     <Content Include="Resources\SuperFisher-950.jpg" />
+    <Content Include="Resources\sxod.wav" />
     <Content Include="Resources\Syberia HD-1.png" />
     <Content Include="Resources\Syberia HD-3.png" />
     <Content Include="Resources\Syberia HD-4.png" />
@@ -246,6 +265,7 @@
     <Content Include="Resources\Titanium.jpg" />
     <None Include="Resources\vert.png" />
     <Content Include="Resources\Tvis-103.png" />
+    <None Include="Resources\var.png" />
     <Content Include="Resources\Vesta 276.jpg" />
     <Content Include="Resources\Vib-6000.png" />
     <Content Include="Resources\Vib-6008.png" />

@@ -1,6 +1,8 @@
 ﻿using Fishing.BL;
+using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
+using Fishing.BL.Model.Wiring;
 using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
@@ -8,12 +10,15 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace Fishing
 {
     [Serializable]
     public sealed class Player
     {
+        private const int SATIETY_MAX_VALUE = 100;
+        private const int SATIETY_MIN_VALUE = 100;
         private static Player player;
 
         public Assembly Assembly { get; set; }
@@ -23,9 +28,15 @@ namespace Fishing
         public BindingList<Reel> ReelInv { get; set; }
         public BindingList<FLine> FLineInv { get; set; }
         public BindingList<Lure> LureInv { get; set; }
+        public BindingList<BaseFood> FoodInv { get; set; }
         public Stack<BaseEvent> EventHistory { get; set; }
-
+        public int Satiety { get; set; } = 100;
+        public Wiring CurrentWiring { get; set; }
         public Statistic Statistic { get; set; } = new Statistic();
+        public int Money { get; set; } = 10000000;
+        public int WindingSpeed { get; set; }
+        public Fish CFish { get; set; }
+        public string NickName { get; set; } = "Рыболов";
 
         public bool IsBaitMoving = false;
         public bool IsJigging = false;
@@ -37,14 +48,10 @@ namespace Fishing
         public Point CurPoint;
         public int IncValue;
         public Netting Netting = new Netting();
-        public int Money { get; set; } = 10000000;
-
-        public int WindingSpeed;
-        public Fish CFish { get; set; }
-        public string NickName { get; set; } = "Рыболов";
 
         private Player()
         {
+
         }
         public static Player GetPlayer()                           
         {
@@ -54,6 +61,15 @@ namespace Fishing
             }
 
             return player;              
+        }
+
+        public bool IsPlayerAbleToFishing()
+        {
+            if(Assembly != null && Netting != null && Satiety > 0 && Assembly.Lure != null)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void SetAssembly(Assembly ass)
@@ -67,11 +83,6 @@ namespace Fishing
             {
                 Fishlist.Add(f);
             }
-        }
-
-        public BindingList<Fish> GetFishList()
-        {
-            return Fishlist;
         }
 
         public Fish GetFishByIndex(int index)
@@ -140,6 +151,27 @@ namespace Fishing
             player.Assembly.Lure = null;
             player.Statistic.GatheringCount++;
             player.AddNewMessage(new GatheringEvent());
+        }
+
+        public void DecSatiety(int value)
+        {
+            if(Satiety - value <= SATIETY_MIN_VALUE)
+            {
+                Satiety -= value;
+            }
+        }
+
+        public void Eat(BaseFood food)
+        {
+            if (Satiety + food.Productivity <= SATIETY_MAX_VALUE && food != null)
+            {
+                Satiety += food.Productivity;
+                FoodInv.Remove(food);
+            }
+            else
+            {
+                MessageBox.Show("Игрок не достаточно голоден, чтобы съесть это");
+            }
         }
     }
 }

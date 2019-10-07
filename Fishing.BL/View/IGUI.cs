@@ -15,5 +15,6 @@ namespace Fishing.View.GUI
         event EventHandler SettingsButtonClick;
         event EventHandler FPondClick;
         event EventHandler BaitPicClick;
+        event EventHandler EventBarClick;
     }
 }

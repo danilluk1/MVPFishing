@@ -22,7 +22,14 @@ namespace Fishing.Presenter
             view.MapButtonClick += View_MapButtonClick;
             view.MenuButtonClick += View_MenuButtonClick;
             view.SettingsButtonClick += View_SettingsButtonClick;
+            view.EventBarClick += View_EventBarClick;
            
+        }
+
+        private void View_EventBarClick(object sender, EventArgs e)
+        {
+            //FoodInventory inv = new FoodInventory();
+            //inv.Show();
         }
 
         private void View_SettingsButtonClick(object sender, EventArgs e)

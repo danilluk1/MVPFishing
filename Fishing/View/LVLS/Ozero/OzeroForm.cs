@@ -40,6 +40,7 @@ namespace Fishing
         public event EventHandler MainTimerTick;
         public event EventHandler BaitTimerTick;
         public event EventHandler FormClose;
+        public event EventHandler DecSacietyTimerTick;
 
         private void Presenter_CreateCurrentFishF(object sender, EventArgs e)
         {
@@ -115,8 +116,6 @@ namespace Fishing
         {
             FormClose?.Invoke(this, EventArgs.Empty);
             GUI.gui.Close();
-            Player.GetPlayer().CurPoint = Point.Empty;
-            Player.GetPlayer().Assembly = null;
         }
 
         private void SoundPlayerTimer_Tick(object sender, EventArgs e)
@@ -125,6 +124,10 @@ namespace Fishing
             string name = "day" + r.Next(1, 9).ToString();
             SoundPlayer player = new SoundPlayer(SoundsRes.ResourceManager.GetStream(name));
             player.Play();
+        }
+        private void DecrementSatiety_Tick(object sender, EventArgs e)
+        {
+            DecSacietyTimerTick?.Invoke(this, EventArgs.Empty);
         }
     }
 }

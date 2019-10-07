@@ -31,6 +31,7 @@ namespace Fishing
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shop));
             this.itemBox = new System.Windows.Forms.PictureBox();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.powerBox = new System.Windows.Forms.TextBox();
@@ -43,15 +44,18 @@ namespace Fishing
             this.baitsList = new System.Windows.Forms.ListBox();
             this.shopTab = new System.Windows.Forms.TabControl();
             this.RoadPage = new System.Windows.Forms.TabPage();
+            this.RoadsList = new System.Windows.Forms.ListBox();
             this.FLinePage = new System.Windows.Forms.TabPage();
             this.ReelsPage = new System.Windows.Forms.TabPage();
             this.closeButton = new System.Windows.Forms.Button();
-            this.RoadsList = new System.Windows.Forms.ListBox();
+            this.productPage = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.itemBox)).BeginInit();
             this.shopTab.SuspendLayout();
             this.RoadPage.SuspendLayout();
             this.FLinePage.SuspendLayout();
             this.ReelsPage.SuspendLayout();
+            this.productPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // itemBox
@@ -145,6 +149,7 @@ namespace Fishing
             this.shopTab.Controls.Add(this.RoadPage);
             this.shopTab.Controls.Add(this.FLinePage);
             this.shopTab.Controls.Add(this.ReelsPage);
+            this.shopTab.Controls.Add(this.productPage);
             this.shopTab.Location = new System.Drawing.Point(53, 37);
             this.shopTab.Name = "shopTab";
             this.shopTab.SelectedIndex = 0;
@@ -161,6 +166,16 @@ namespace Fishing
             this.RoadPage.TabIndex = 0;
             this.RoadPage.Text = "Удочки";
             this.RoadPage.UseVisualStyleBackColor = true;
+            // 
+            // RoadsList
+            // 
+            this.RoadsList.FormattingEnabled = true;
+            this.RoadsList.Location = new System.Drawing.Point(0, 0);
+            this.RoadsList.Name = "RoadsList";
+            this.RoadsList.Size = new System.Drawing.Size(454, 420);
+            this.RoadsList.TabIndex = 0;
+            this.RoadsList.SelectedIndexChanged += new System.EventHandler(this.RoadsList_SelectedIndexChanged_1);
+            this.RoadsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.RoadsList_MouseDoubleClick_1);
             // 
             // FLinePage
             // 
@@ -194,21 +209,30 @@ namespace Fishing
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // RoadsList
+            // productPage
             // 
-            this.RoadsList.FormattingEnabled = true;
-            this.RoadsList.Location = new System.Drawing.Point(0, 0);
-            this.RoadsList.Name = "RoadsList";
-            this.RoadsList.Size = new System.Drawing.Size(454, 420);
-            this.RoadsList.TabIndex = 0;
-            this.RoadsList.SelectedIndexChanged += new System.EventHandler(this.RoadsList_SelectedIndexChanged_1);
-            this.RoadsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.RoadsList_MouseDoubleClick_1);
+            this.productPage.Controls.Add(this.listView1);
+            this.productPage.Location = new System.Drawing.Point(4, 22);
+            this.productPage.Name = "productPage";
+            this.productPage.Padding = new System.Windows.Forms.Padding(3);
+            this.productPage.Size = new System.Drawing.Size(457, 425);
+            this.productPage.TabIndex = 3;
+            this.productPage.Text = "tabPage1";
+            this.productPage.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(4, 0);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(450, 425);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = Images.layer10;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 612);
             this.Controls.Add(this.closeButton);
@@ -224,7 +248,7 @@ namespace Fishing
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Shop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Shop";
+            this.Text = "Продукты";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Shop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemBox)).EndInit();
@@ -232,6 +256,7 @@ namespace Fishing
             this.RoadPage.ResumeLayout(false);
             this.FLinePage.ResumeLayout(false);
             this.ReelsPage.ResumeLayout(false);
+            this.productPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +279,7 @@ namespace Fishing
         protected internal System.Windows.Forms.Button closeButton;
         protected internal System.Windows.Forms.Label label1;
         protected internal System.Windows.Forms.ListBox RoadsList;
+        private System.Windows.Forms.TabPage productPage;
+        private System.Windows.Forms.ListView listView1;
     }
 }

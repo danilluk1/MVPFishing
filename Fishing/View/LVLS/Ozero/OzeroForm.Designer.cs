@@ -30,22 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.baitTimer = new System.Windows.Forms.Timer(this.components);
-            this.mainTaskstimer = new System.Windows.Forms.Timer(this.components);
+            this.mainTimerTick = new System.Windows.Forms.Timer(this.components);
             this.fishMovestimer = new System.Windows.Forms.Timer(this.components);
             this.GatheringTimer = new System.Windows.Forms.Timer(this.components);
             this.soundPlayerTimer = new System.Windows.Forms.Timer(this.components);
+            this.refreshTimer = new System.Windows.Forms.Timer(this.components);
+            this.decrementSatiety = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // baitTimer
             // 
-            this.baitTimer.Interval = 8000;
+            this.baitTimer.Interval = 500;
             this.baitTimer.Tick += new System.EventHandler(this.BaitTimer_Tick);
             // 
-            // mainTaskstimer
+            // mainTimerTick
             // 
-            this.mainTaskstimer.Enabled = true;
-            this.mainTaskstimer.Interval = 25;
-            this.mainTaskstimer.Tick += new System.EventHandler(this.MainTaskstimer_Tick);
+            this.mainTimerTick.Enabled = true;
+            this.mainTimerTick.Interval = 25;
+            this.mainTimerTick.Tick += new System.EventHandler(this.MainTaskstimer_Tick);
             // 
             // fishMovestimer
             // 
@@ -63,6 +65,17 @@
             this.soundPlayerTimer.Enabled = true;
             this.soundPlayerTimer.Interval = 30000;
             this.soundPlayerTimer.Tick += new System.EventHandler(this.SoundPlayerTimer_Tick);
+            // 
+            // refreshTimer
+            // 
+            this.refreshTimer.Enabled = true;
+            this.refreshTimer.Interval = 25;
+            // 
+            // decrementSatiety
+            // 
+            this.decrementSatiety.Enabled = true;
+            this.decrementSatiety.Interval = 5000;
+            this.decrementSatiety.Tick += new System.EventHandler(this.DecrementSatiety_Tick);
             // 
             // OzeroForm
             // 
@@ -87,11 +100,13 @@
         }
 
         #endregion
-        protected internal System.Windows.Forms.Timer mainTaskstimer;
+        protected internal System.Windows.Forms.Timer mainTimerTick;
         protected internal System.Windows.Forms.Timer fishMovestimer;
         protected internal System.Windows.Forms.Timer baitTimer;
         protected internal System.Windows.Forms.Timer GatheringTimer;
         private System.Windows.Forms.Timer soundPlayerTimer;
+        private System.Windows.Forms.Timer refreshTimer;
+        private System.Windows.Forms.Timer decrementSatiety;
     }
 }
 

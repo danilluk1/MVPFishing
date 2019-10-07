@@ -15,14 +15,13 @@ namespace Fishing.BL.Model.Wiring
         {
             Interval = 5000,
         };
-        public JigWiring(int height, bool bottom) : base(height, bottom)
+        public JigWiring(int height, bool bottom) : base(height, 5, bottom)
         {
             JigTimer = new Timer()
             {
                 Interval = 3000
             };
             JigTimer.Tick += JigTimer_Tick;
-
             MaxPauseTimer.Tick += MaxPauseTimer_Tick;
         }
 

@@ -4,6 +4,7 @@ using Fishing.BL.Presenter;
 using Fishing.BL.Resources.Sounds;
 using Fishing.BL.View;
 using Fishing.Presenter;
+using Fishing.View.FoodInventory;
 using Fishing.View.GUI;
 using Fishing.View.LureSelector;
 using Fishing.View.Statistic;
@@ -23,15 +24,17 @@ namespace Fishing
     public partial class GUI : Form, IGUI, IGUIPresenter, ISounder
     {
         GUIPresenter presenter;
+        private LVL lvl;
         readonly SounderPresenter sound;
         public static GUI gui;
         private SoundPlayer sp = new SoundPlayer();
 
         public GUI(LVL lvl)
-        {
+        {          
             InitializeComponent();
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint |
                                                                             ControlStyles.UserPaint, true);
+            eatingBar.Value = Player.GetPlayer().Satiety;
             presenter = new GUIPresenter(this);
             sound = new SounderPresenter(this, lvl);
             try
@@ -40,11 +43,19 @@ namespace Fishing
             }
             catch (NullReferenceException) { }
             MoneyLValue = Player.GetPlayer().Money;
+            this.lvl = lvl;
+            for (int x = 0; x < lvl.Widgth; x++)
+            {
+                for (int y = 0; y < lvl.Height; y++)
+                {
+                    Controls.Add(lvl.Deeparr[x, y]);
+                }
+            }
 
         }
 
         public int SpeedValue { get => SpeedBar.Value; set => throw new NotImplementedException(); }
-        public Bitmap BaitPicture { get => (Bitmap)BaitsPicture.Image; set => BaitsPicture.Image = value; }
+        public Bitmap BaitPicture { get => (Bitmap)BaitsPicture.BackgroundImage; set => BaitsPicture.BackgroundImage = value; }
         public int DeepValue { get => Convert.ToInt32(DeepLabel.Text); set => DeepLabel.Text = value.ToString(); }
         public int RoadBarValue { get => ReelBar.Value; set => ReelBar.Value = value; }
         public int FLineBarValue { get => FLineBar.Value; set => FLineBar.Value = value; }
@@ -52,6 +63,7 @@ namespace Fishing
         public int MoneyLValue { get => Convert.ToInt32(MoneyLabel.Text); set => MoneyLabel.Text = value.ToString(); }
         public int LureDeepValue { get => Convert.ToInt32(LureDeep.Text); set => LureDeep.Text = value.ToString(); }
         public string WiringType { get => WiringTypeLabel.Text; set => WiringTypeLabel.Text = value; }
+        public int EatingBarValue { get => eatingBar.Value; set => eatingBar.Value = value; }
 
         public event EventHandler MapButtonClick;
         public event EventHandler InventoryButtonClick;
@@ -61,6 +73,7 @@ namespace Fishing
         public event EventHandler BaitPicClick;
         public event PaintEventHandler SounderPaint;
         public event EventHandler RefreshSounder;
+        public event EventHandler EventBarClick;
 
         private void MapLabel_Click(object sender, EventArgs e)
         {
@@ -163,15 +176,11 @@ namespace Fishing
             }
         }
 
-        public void AddLabels(Label[,] l)
+        private void EatingBar_Click(object sender, EventArgs e)
         {
-            for (int x = 0; x < 51; x++)
-            {
-                for (int y = 0; y < 18; y++)
-                {
-                    Controls.Add(l[x, y]);
-                }
-            }
+            FoodInventory inv = new FoodInventory();
+            inv.Show();
+            EventBarClick?.Invoke(this, EventArgs.Empty);
         }
     }
 }

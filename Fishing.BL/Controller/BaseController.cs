@@ -1,4 +1,5 @@
 ﻿using Fishing;
+using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Resources.Paths;
@@ -40,6 +41,8 @@ namespace Saver.BL.Controller
             Player.GetPlayer().Money = Convert.ToInt32(saver.Load<string>(ConfigPaths.MONEY_DIR) ?? "1000000");
             Player.GetPlayer().EventHistory = saver.Load<Stack<BaseEvent>>(ConfigPaths.EVENTHSTR_DIR) ?? new Stack<BaseEvent>();
             Player.GetPlayer().Statistic = saver.Load<Statistic>(ConfigPaths.STATS_DIR) ?? new Statistic();
+            Player.GetPlayer().Satiety = Convert.ToInt32(saver.Load<string>(ConfigPaths.SATIETY_DIR) ?? "100");
+            Player.GetPlayer().FoodInv = saver.Load<BindingList<BaseFood>>(ConfigPaths.FOODS_DIR) ?? new BindingList<BaseFood>();
         }
 
         public void SavePlayer()
@@ -54,6 +57,8 @@ namespace Saver.BL.Controller
             saver.Save(ConfigPaths.NAME_DIR, Player.GetPlayer().NickName);
             saver.Save(ConfigPaths.EVENTHSTR_DIR, Player.GetPlayer().EventHistory);
             saver.Save(ConfigPaths.STATS_DIR, Player.GetPlayer().Statistic);
+            saver.Save(ConfigPaths.FOODS_DIR, Player.GetPlayer().FoodInv);
+            saver.Save(ConfigPaths.SATIETY_DIR, Player.GetPlayer().Satiety.ToString());
         }
     }
 }

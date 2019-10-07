@@ -19,6 +19,8 @@ namespace Fishing.Presenter
         readonly ILVL view;
         readonly IGUIPresenter gui;
         private JigWiring jig;
+        private Player player;
+        private SoundPlayer sp;
         public LVL CurLVL { get; set; }
 
         public event EventHandler StartBaitTimer;
@@ -32,9 +34,10 @@ namespace Fishing.Presenter
             this.CurLVL = curLVL;
             this.view = view;
             this.gui = v;
+            player = Player.GetPlayer();
+            sp = new SoundPlayer();
 
             CurLVL.AddDeep();
-            gui.AddLabels(LVL2.GetLVL().Deeparr);
             CurLVL.SetDeep();
             CurLVL.AddFishes();
             CurLVL.GatheringisTrue += View_CountGathering;
@@ -49,11 +52,19 @@ namespace Fishing.Presenter
             view.MainTimerTick += View_MainTimerTick;
             view.BaitTimerTick += View_BaitTimerTick;
             view.FormClose += View_FormClose;
+            view.DecSacietyTimerTick += View_DecSacietyTimerTick;
         }
 
+        private void View_DecSacietyTimerTick(object sender, EventArgs e)
+        {
+            player.DecSatiety(5);
+            gui.EatingBarValue = player.Satiety;
+        }
         private void View_FormClose(object sender, EventArgs e)
         {
             BaseController.GetController().SavePlayer();
+            Player.GetPlayer().CurPoint = Point.Empty;
+            Player.GetPlayer().Assembly = null;
         }
 
         private void View_BaitTimerTick(object sender, EventArgs e)
@@ -70,17 +81,16 @@ namespace Fishing.Presenter
         {
             try
             {
-                if(Player.GetPlayer().CurrentDeep == gui.DeepValue)
+                if (player.CurrentDeep == gui.DeepValue)
                 {
                     jig.IsBottomTouched = true;                 
                 }
-                if (Player.GetPlayer().IsJigging)
+                if (player.IsJigging && player.IsPlayerAbleToFishing())
                     gui.WiringType = "Джиг";
                 else
                     gui.WiringType = "-";
-                Player player = Player.GetPlayer();
-                gui.LureDeepValue = player.CurrentDeep;
                 SetRightDeepByType(player.Assembly.Lure.DeepType);
+                gui.LureDeepValue = player.CurrentDeep;               
                 player.CheckXBorders();
                 AutoDecBarValues();
                 if (gui.FLineBarValue > 98)
@@ -88,6 +98,8 @@ namespace Fishing.Presenter
                     player.AddNewMessage(new FLineTornEvent());
                     gui.AddEventToBox(new FLineTornEvent());
                     player.TornFLine();
+                    sp.Stream = SoundsRes.leskaobr;
+                    sp.Play();
                 }
                 if (gui.RoadBarValue > 98)
                 {
@@ -144,6 +156,8 @@ namespace Fishing.Presenter
                 gui.AddEventToBox(new GatheringEvent());
                 Player.GetPlayer().isFishAttack = false;
                 Player.GetPlayer().Statistic.GatheringCount++;
+                sp.Stream = SoundsRes.sxod;
+                sp.Play();
             }
         }
 
@@ -164,7 +178,6 @@ namespace Fishing.Presenter
 
         private void View_KeyDOWN(object sender, KeyEventArgs e)
         {
-            SoundPlayer sp = new SoundPlayer();
             Player player = Player.GetPlayer();
             for(int y = 0; y < CurLVL.Height; y++)
             {
@@ -182,49 +195,62 @@ namespace Fishing.Presenter
                     player.CurrentDeep = gui.DeepValue;
                 }
             }
-            switch (e.KeyCode)
+            try
             {
-                case Keys.G:
-                    DoWiring(Player.GetPlayer().Assembly.Lure.DeepType);
-                    if (player.RoadY < 477)
-                        player.RoadY += 7;
-                    if (player.isFishAttack)
-                    {
-                        if (gui.FLineBarValue < 100)
+                switch (e.KeyCode)
+                {
+                    case Keys.G:
+                        Player.GetPlayer().IsBaitMoving = true;
+                        if (Player.GetPlayer().isFishAttack)
                         {
-                            gui.IncrementFLineBarValue(Player.GetPlayer().IncValue);
+                            Player.GetPlayer().WindingSpeed = Player.GetPlayer().Assembly.Reel.Power;
                         }
-                        if (gui.RoadBarValue > 0)
+                        else
                         {
-                            gui.IncrementRoadBarValue(-(Player.GetPlayer().IncValue));
+                            Player.GetPlayer().WindingSpeed = gui.SpeedValue;
                         }
-                    }
-                    break;
-                case Keys.H:
-                    if (player.isFishAttack)
-                    {
-                        if (gui.RoadBarValue < 100)
+                        DoWiring(Player.GetPlayer().Assembly.Lure.DeepType);
+                        if (player.RoadY < 477)
+                            player.RoadY += 7;
+                        if (player.isFishAttack)
                         {
-                            gui.IncrementRoadBarValue(Player.GetPlayer().IncValue);
+                            if (gui.FLineBarValue < 100)
+                            {
+                                gui.IncrementFLineBarValue(Player.GetPlayer().IncValue);
+                            }
+                            if (gui.RoadBarValue > 0)
+                            {
+                                gui.IncrementRoadBarValue(-(Player.GetPlayer().IncValue));
+                            }
                         }
-                        if (gui.FLineBarValue > 0)
+                        break;
+                    case Keys.H:
+                        if (player.isFishAttack)
                         {
-                            gui.IncrementFLineBarValue(-(Player.GetPlayer().IncValue));
+                            if (gui.RoadBarValue < 100)
+                            {
+                                gui.IncrementRoadBarValue(Player.GetPlayer().IncValue);
+                            }
+                            if (gui.FLineBarValue > 0)
+                            {
+                                gui.IncrementFLineBarValue(-(Player.GetPlayer().IncValue));
+                            }
                         }
-                    }
-                    break;
-                case Keys.Space:
-                    if (player.CurPoint.Y > 620)
-                    {
-                        player.Netting.ShowNetting();
-                    }
-                    break;
-                case Keys.T:
-                    player.CurPoint = player.isFishAttack == false ? player.LastCastPoint : Point.Empty;
-                    player.LastCastPoint = player.CurPoint;
-                    MakeCast(player.LastCastPoint);
-                    break;
+                        break;
+                    case Keys.Space:
+                        if (player.CurPoint.Y > 620)
+                        {
+                            player.Netting.ShowNetting();
+                        }
+                        break;
+                    case Keys.T:
+                        player.CurPoint = player.isFishAttack == false ? player.LastCastPoint : Point.Empty;
+                        player.LastCastPoint = player.CurPoint;
+                        MakeCast(player.LastCastPoint);
+                        break;
+                }
             }
+            catch (NullReferenceException) { }
         }
 
         private void View_KeyUP(object sender, KeyEventArgs e)
@@ -311,84 +337,81 @@ namespace Fishing.Presenter
         {
             try
             {
-                Player player = Player.GetPlayer();
-                player.IsBaitMoving = false;
-                Player.GetPlayer().IsJigging = false;
-                SoundPlayer sp = new SoundPlayer();
-                if (!player.isFishAttack && player.Assembly != null)
+                if (player.IsPlayerAbleToFishing())
                 {
-                    if (point.Y >= CurLVL.Deeparr[0, 0].Location.Y)
+                    player.CurrentWiring = jig;
+                    player.IsBaitMoving = false;
+                    Player.GetPlayer().IsJigging = false;
+                    if (!player.isFishAttack && player.Assembly != null)
                     {
-                        player.CurPoint = point;
-                    }
-                    else
-                    {
-                        player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 1;
-                        player.CurPoint.X = point.X;
-                    }
-                    player.LastCastPoint = point;
-                    sp.Stream = SoundsRes.zabr;
-                    sp.Play();
-                }
-                for (int y = 0; y < CurLVL.Height; y++)
-                {
-                    for (int x = 0; x < CurLVL.Widgth; x++)
-                    {
-                        Point between = new Point(point.X - CurLVL.Deeparr[x, y].Location.X,
-                                                    point.Y - CurLVL.Deeparr[x, y].Location.Y);
-                        float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
-                        if (distance <= 20)
+                        if (point.Y >= CurLVL.Deeparr[0, 0].Location.Y)
                         {
-                            gui.DeepValue = Convert.ToInt32(CurLVL.Deeparr[x, y].Tag);
-                            Sounder.GetSounder().Column = y;
-                            Sounder.GetSounder().Row = x;
+                            player.CurPoint = point;
+                        }
+                        else
+                        {
+                            player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 1;
+                            player.CurPoint.X = point.X;
+                        }
+                        player.LastCastPoint = point;
+                        sp.Stream = SoundsRes.zabr;
+                        sp.Play();
+                    }
+                    for (int y = 0; y < CurLVL.Height; y++)
+                    {
+                        for (int x = 0; x < CurLVL.Widgth; x++)
+                        {
+                            Point between = new Point(point.X - CurLVL.Deeparr[x, y].Location.X,
+                                                        point.Y - CurLVL.Deeparr[x, y].Location.Y);
+                            float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
+                            if (distance <= 20)
+                            {
+                                gui.DeepValue = Convert.ToInt32(CurLVL.Deeparr[x, y].Tag);
+                                Sounder.GetSounder().Column = y;
+                                Sounder.GetSounder().Row = x;
+                            }
                         }
                     }
-                }
-                if (!player.isFishAttack)
-                {
-                    if (player.Assembly.Proad != null)
+                    if (!player.isFishAttack)
                     {
-                        StartBaitTimer?.Invoke(this, EventArgs.Empty);
-                        player.RoadY = 470;
-                        gui.FLineBarValue = 0;
-                        gui.RoadBarValue = 0;
-                        player.WindingSpeed = 0;
-                    }
-                    if (!(player.Assembly.Lure is null))
-                    {
-                        StartBaitTimer?.Invoke(this, EventArgs.Empty);
-                    }
-                    try
-                    {
-                        if (player.Assembly.Lure is null && player.Assembly.Proad.Type == ROAD_TYPE.Spinning)
+                        if (player.Assembly.Proad != null)
+                        {
+                            StartBaitTimer?.Invoke(this, EventArgs.Empty);
+                            player.RoadY = 470;
+                            gui.FLineBarValue = 0;
+                            gui.RoadBarValue = 0;
+                            player.WindingSpeed = 0;
+                        }
+                        if (!(player.Assembly.Lure is null))
+                        {
+                            StartBaitTimer?.Invoke(this, EventArgs.Empty);
+                        }
+                        try
+                        {
+                            if (player.Assembly.Lure is null && player.Assembly.Proad.Type == ROAD_TYPE.Spinning)
+                            {
+                                player.CurPoint.Y = 0;
+                                MessageBox.Show(Messages.NO_LURE_EQUIPED);
+                            }
+                        }
+                        catch (NullReferenceException)
                         {
                             player.CurPoint.Y = 0;
-                            MessageBox.Show(Messages.NO_LURE_EQUIPED);
                         }
-                    }
-                    catch (NullReferenceException)
-                    {
-                        player.CurPoint.Y = 0;
-                    }
 
+                    }
+                    player.CurrentDeep = 0;
                 }
-                player.CurrentDeep = 0;
+                else
+                {
+                    MessageBox.Show("Игрок не готов к рыбалке");
+                }
             }
             catch (NullReferenceException) { }
         }
 
         void DoWiring(DeepType type)
         {
-            Player.GetPlayer().IsBaitMoving = true;
-            if (Player.GetPlayer().isFishAttack)
-            {
-                Player.GetPlayer().WindingSpeed = Player.GetPlayer().Assembly.Reel.Power;
-            }
-            else
-            {
-                Player.GetPlayer().WindingSpeed = gui.SpeedValue;
-            }
             switch (type)
             {
                 case DeepType.Deep:
@@ -432,7 +455,7 @@ namespace Fishing.Presenter
                     }
                     break;
                 case DeepType.Flying:
-                    if(Player.GetPlayer().CurrentDeep < gui.DeepValue / 2 && !Player.GetPlayer().IsBaitMoving)
+                    if (Player.GetPlayer().CurrentDeep < gui.DeepValue / 2 && !Player.GetPlayer().IsBaitMoving)
                     {
                         Player.GetPlayer().CurrentDeep += 10;
                     }
@@ -443,7 +466,7 @@ namespace Fishing.Presenter
                 case DeepType.Jig:
                     if (Player.GetPlayer().CurrentDeep < gui.DeepValue && !Player.GetPlayer().IsBaitMoving)
                     {
-                        Player.GetPlayer().CurrentDeep += 5;
+                        Player.GetPlayer().CurrentDeep += 10;
                     }
                     break;
             }

@@ -10,6 +10,7 @@ namespace Fishing.BL.Model.UserEvent
     {
         public TrophyFishEvent(Fish f, int i) : base("Трофей! " + Player.GetPlayer().NickName + " поймал " + f.ToString(), i)
         {
+            
         }
     }
 }

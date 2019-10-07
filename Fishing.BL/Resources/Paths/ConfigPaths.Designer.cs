@@ -97,6 +97,15 @@ namespace Fishing.BL.Resources.Paths {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на config/foods.dat.
+        /// </summary>
+        internal static string FOODS_DIR {
+            get {
+                return ResourceManager.GetString("FOODS_DIR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на config/lures.dat.
         /// </summary>
         internal static string LURES_DIR {
@@ -138,6 +147,15 @@ namespace Fishing.BL.Resources.Paths {
         internal static string ROADS_DIR {
             get {
                 return ResourceManager.GetString("ROADS_DIR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на config/satiety.dat.
+        /// </summary>
+        internal static string SATIETY_DIR {
+            get {
+                return ResourceManager.GetString("SATIETY_DIR", resourceCulture);
             }
         }
         

@@ -20,14 +20,13 @@ namespace Fishing.View.GUI
         int EventBoxItemsCount { get; set; }
         int LureDeepValue { get; set; }
         string WiringType { get; set; }
+        int EatingBarValue { get; set; }
+        
 
         void AddEventToBox(BaseEvent ev);
         void ClearEvents();
         void IncrementRoadBarValue(int value);
         void IncrementFLineBarValue(int value);
         void CheckNeedsAndClearEventBox();
-        void AddLabels(Label[,] l);
-
-
     }
 }

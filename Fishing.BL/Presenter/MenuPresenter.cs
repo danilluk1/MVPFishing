@@ -1,4 +1,5 @@
-﻿using Fishing.View;
+﻿using Fishing.BL.Model.Eating;
+using Fishing.View;
 using Fishing.View.Menu;
 using Saver.BL.Controller;
 using System;
@@ -84,6 +85,10 @@ namespace Fishing.Presenter
             Player.GetPlayer().LureInv.Add(Lure.jelezo1);
             Player.GetPlayer().LureInv.Add(Lure.jelezo2);
             Player.GetPlayer().LureInv.Add(Lure.jig1);
+            Player.GetPlayer().FoodInv.Add(BaseFood.bread);
+            Player.GetPlayer().FoodInv.Add(BaseFood.caviar);
+            Player.GetPlayer().FoodInv.Add(BaseFood.blackcaviar);
+            Player.GetPlayer().FoodInv.Add(BaseFood.cheese);
         }
 
     }
