@@ -15,7 +15,7 @@ namespace Fishing.BL.Model
         {
             Widgth = 51;
             Height = 18;
-            LabelStartY = 370;
+            LabelStartY = 330;
         }
         public static LVL1 GetLVL()
         {

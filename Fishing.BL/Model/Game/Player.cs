@@ -42,7 +42,7 @@ namespace Fishing
         public bool IsJigging = false;
         public Point LastCastPoint;
         public int RoadX = 0;
-        public int RoadY = 470;
+        public int RoadY = 395;
         public bool isFishAttack = false;
         public int CurrentDeep;
         public Point CurPoint;
@@ -121,7 +121,7 @@ namespace Fishing
 
         public bool IsFishAbleToGoIntoFpond()
         {
-            if(player.Netting.Y == 550 && player.isFishAttack && player.CurPoint.Y > 600)
+            if(player.Netting.Y == 550 && player.isFishAttack && player.CurPoint.Y > 430)
             {
                 return true;
             }
@@ -161,16 +161,18 @@ namespace Fishing
             }
         }
 
-        public void Eat(BaseFood food)
+        public bool Eat(BaseFood food)
         {
             if (Satiety + food.Productivity <= SATIETY_MAX_VALUE && food != null)
             {
                 Satiety += food.Productivity;
                 FoodInv.Remove(food);
+                return true;
             }
             else
             {
                 MessageBox.Show("Игрок не достаточно голоден, чтобы съесть это");
+                return false;
             }
         }
     }

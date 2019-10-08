@@ -13,6 +13,9 @@ namespace Fishing.View.GUI
     {
         int SpeedValue { get; set; }
         Bitmap BaitPicture { get; set; }
+        Image RoadPicture { get; set; }
+        Image ReelPicture { get; set; }
+        Image FLinePicture { get; set; }
         int DeepValue { get; set; }
         int RoadBarValue { get; set; }
         int FLineBarValue { get; set; }

@@ -14,8 +14,8 @@ namespace Fishing
         private LVL2() : base(Images.ozerolvl2)
         {
             Widgth = 51;
-            Height = 18;
-            LabelStartY = 350;
+            Height = 16;
+            LabelStartY = 330;
         }
         public static LVL2 GetLVL()
         {
@@ -108,9 +108,6 @@ namespace Fishing
                 Deeparr[x, 13].Tag = 320;
                 Deeparr[x, 14].Tag = 250;
                 Deeparr[x, 15].Tag = 200;
-                Deeparr[x, 16].Tag = 150;
-                Deeparr[x, 17].Tag = 150;
-
             }
         }
 

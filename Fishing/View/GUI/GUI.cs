@@ -40,6 +40,9 @@ namespace Fishing
             try
             {
                 BaitsPicture.Image = Player.GetPlayer().Assembly.Lure.Pict;
+                roadBox.Image = Player.GetPlayer().Assembly.Proad.Pict;
+                reelBox.Image = Player.GetPlayer().Assembly.Reel.Pict;
+                flineBox.Image = Player.GetPlayer().Assembly.FLine.Pict;
             }
             catch (NullReferenceException) { }
             MoneyLValue = Player.GetPlayer().Money;
@@ -51,7 +54,13 @@ namespace Fishing
                     Controls.Add(lvl.Deeparr[x, y]);
                 }
             }
+            Game.GetGame().HoursInc += GUI_HoursInc;
+            timeLabel.Text = Game.GetGame().Time.ToString();
+        }
 
+        private void GUI_HoursInc(object sender, EventArgs e)
+        {
+            timeLabel.Text = Game.GetGame().Time.ToString();
         }
 
         public int SpeedValue { get => SpeedBar.Value; set => throw new NotImplementedException(); }
@@ -64,6 +73,9 @@ namespace Fishing
         public int LureDeepValue { get => Convert.ToInt32(LureDeep.Text); set => LureDeep.Text = value.ToString(); }
         public string WiringType { get => WiringTypeLabel.Text; set => WiringTypeLabel.Text = value; }
         public int EatingBarValue { get => eatingBar.Value; set => eatingBar.Value = value; }
+        public Image RoadPicture { get => roadBox.BackgroundImage; set => roadBox.BackgroundImage = value; }
+        public Image ReelPicture { get => reelBox.BackgroundImage; set => reelBox.BackgroundImage = value; }
+        public Image FLinePicture { get => flineBox.BackgroundImage; set => flineBox.BackgroundImage = value; }
 
         public event EventHandler MapButtonClick;
         public event EventHandler InventoryButtonClick;
@@ -170,7 +182,7 @@ namespace Fishing
 
         public void CheckNeedsAndClearEventBox()
         {
-            if (EventBoxItemsCount > 5)
+            if (EventBoxItemsCount >= 9)
             {
                 ClearEvents();
             }

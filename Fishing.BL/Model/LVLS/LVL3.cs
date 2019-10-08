@@ -14,8 +14,8 @@ namespace Fishing.BL.Model.LVLS
         private LVL3() : base(Images.lvl3)
         {
             Widgth = 51;
-            Height = 18;
-            LabelStartY = 385;
+            Height = 16;
+            LabelStartY = 355;
         }
         public static LVL3 GetLVL()
         {
@@ -73,7 +73,7 @@ namespace Fishing.BL.Model.LVLS
         {
             for (int x = 0; x < 51; x++)
             {
-                for (int y = 0; y < 18; y++)
+                for (int y = 0; y < 16; y++)
                 {
                 }
                 Deeparr[x, 0].Tag = 400;
@@ -92,8 +92,6 @@ namespace Fishing.BL.Model.LVLS
                 Deeparr[x, 13].Tag = 550;
                 Deeparr[x, 14].Tag = 500;
                 Deeparr[x, 15].Tag = 450;
-                Deeparr[x, 16].Tag = 400;
-                Deeparr[x, 17].Tag = 400;
 
             }
         }

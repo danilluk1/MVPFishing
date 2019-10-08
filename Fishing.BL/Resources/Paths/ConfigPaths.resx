@@ -153,4 +153,7 @@
   <data name="STATS_DIR" xml:space="preserve">
     <value>config/stats.dat</value>
   </data>
+  <data name="TIME_DIR" xml:space="preserve">
+    <value>config/time.dat</value>
+  </data>
 </root>

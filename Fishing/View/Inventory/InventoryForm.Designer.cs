@@ -31,6 +31,7 @@ namespace Fishing
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.BaitBox = new System.Windows.Forms.PictureBox();
             this.FLineBox = new System.Windows.Forms.PictureBox();
             this.ReelBox = new System.Windows.Forms.PictureBox();
@@ -87,7 +88,7 @@ namespace Fishing
             // 
             // FLineBox
             // 
-            this.FLineBox.BackgroundImage = Images.not_scaf;
+            this.FLineBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FLineBox.BackgroundImage")));
             this.FLineBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FLineBox.Location = new System.Drawing.Point(185, 220);
             this.FLineBox.Name = "FLineBox";
@@ -97,9 +98,9 @@ namespace Fishing
             // 
             // ReelBox
             // 
-            this.ReelBox.BackgroundImage = Images.not_reel;
+            this.ReelBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReelBox.BackgroundImage")));
             this.ReelBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ReelBox.InitialImage = Images.not_reel;
+            this.ReelBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("ReelBox.InitialImage")));
             this.ReelBox.Location = new System.Drawing.Point(0, 390);
             this.ReelBox.Name = "ReelBox";
             this.ReelBox.Size = new System.Drawing.Size(179, 111);
@@ -287,7 +288,7 @@ namespace Fishing
             this.RoadsList.FormattingEnabled = true;
             this.RoadsList.Location = new System.Drawing.Point(0, 0);
             this.RoadsList.Name = "RoadsList";
-            this.RoadsList.Size = new System.Drawing.Size(342, 498);
+            this.RoadsList.Size = new System.Drawing.Size(342, 511);
             this.RoadsList.TabIndex = 4;
             this.RoadsList.SelectedIndexChanged += new System.EventHandler(this.RoadsList_SelectedIndexChanged);
             this.RoadsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.RoadsList_MouseDoubleClick);
@@ -402,7 +403,7 @@ namespace Fishing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = Images.layer10;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(715, 620);
             this.Controls.Add(this.makeOutButton);

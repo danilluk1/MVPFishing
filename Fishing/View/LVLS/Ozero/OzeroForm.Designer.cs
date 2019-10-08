@@ -74,7 +74,7 @@
             // decrementSatiety
             // 
             this.decrementSatiety.Enabled = true;
-            this.decrementSatiety.Interval = 5000;
+            this.decrementSatiety.Interval = 30000;
             this.decrementSatiety.Tick += new System.EventHandler(this.DecrementSatiety_Tick);
             // 
             // OzeroForm
@@ -83,7 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Olive;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1033, 716);
+            this.ClientSize = new System.Drawing.Size(1033, 650);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OzeroForm";
             this.ShowInTaskbar = false;

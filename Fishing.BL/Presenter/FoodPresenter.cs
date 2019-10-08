@@ -39,8 +39,10 @@ namespace Fishing.BL.Presenter
         {
             try
             {
-                player.Eat(player.FoodInv[view.SelectedIndex]);
-                sp.Play();
+                if (player.Eat(player.FoodInv[view.SelectedIndex]))
+                {
+                    sp.Play();
+                }
             }
             catch (NullReferenceException) { }
         }

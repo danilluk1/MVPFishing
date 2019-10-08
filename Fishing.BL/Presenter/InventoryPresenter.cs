@@ -66,8 +66,12 @@ namespace Fishing.Presenter
             try
             {
                 gui.BaitPicture = view.Assembly_P.Lure.Pict;
+                gui.RoadPicture = view.Assembly_P.Proad.Pict;
+                gui.ReelPicture = view.Assembly_P.Reel.Pict;
+                gui.FLinePicture = view.Assembly_P.FLine.Pict;
             }
             catch (NullReferenceException) { }
+            
         }
 
         private void View_AddButtonClick(object sender, EventArgs e)

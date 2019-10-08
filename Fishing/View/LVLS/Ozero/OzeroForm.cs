@@ -27,7 +27,6 @@ namespace Fishing
                     ControlStyles.UserPaint, true);
 
             UpdateStyles();
-            Player.GetPlayer().Assembly = Player.GetPlayer().Assemblies[0];
         }
         public Point CurPoint { get => PointToClient(Cursor.Position); set => throw new ArgumentException(); }
 

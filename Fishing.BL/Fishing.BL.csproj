@@ -54,7 +54,9 @@
     <Compile Include="Model\Eating\Cheese.cs" />
     <Compile Include="Model\Fishes\SnakeHead.cs" />
     <Compile Include="Model\Fishes\Zander.cs" />
+    <Compile Include="Model\Game\Game.cs" />
     <Compile Include="Model\Game\Statistic.cs" />
+    <Compile Include="Model\Game\Time.cs" />
     <Compile Include="Model\Lures\Jig.cs" />
     <Compile Include="Model\Lures\Pinwheel.cs" />
     <Compile Include="Model\LVLS\LVL3.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Model\UserEvent\RoadBrokenEvent.cs" />
     <Compile Include="Model\UserEvent\TrophyFishEvent.cs" />
     <Compile Include="Model\UserEvent\BaseEvent.cs" />
+    <Compile Include="Model\Wiring\DeepWiring.cs" />
     <Compile Include="Model\Wiring\JigWiring.cs" />
     <Compile Include="Model\Wiring\Wiring.cs" />
     <Compile Include="Presenter\FoodPresenter.cs" />

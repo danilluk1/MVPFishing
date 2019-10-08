@@ -210,7 +210,7 @@ namespace Fishing.Presenter
                             Player.GetPlayer().WindingSpeed = gui.SpeedValue;
                         }
                         DoWiring(Player.GetPlayer().Assembly.Lure.DeepType);
-                        if (player.RoadY < 477)
+                        if (player.RoadY < 402)
                             player.RoadY += 7;
                         if (player.isFishAttack)
                         {
@@ -377,7 +377,7 @@ namespace Fishing.Presenter
                         if (player.Assembly.Proad != null)
                         {
                             StartBaitTimer?.Invoke(this, EventArgs.Empty);
-                            player.RoadY = 470;
+                            player.RoadY = 395;
                             gui.FLineBarValue = 0;
                             gui.RoadBarValue = 0;
                             player.WindingSpeed = 0;
@@ -412,19 +412,21 @@ namespace Fishing.Presenter
 
         void DoWiring(DeepType type)
         {
+            if (Player.GetPlayer().isFishAttack)
+            {
+                Player.GetPlayer().WindingSpeed = Player.GetPlayer().Assembly.Reel.Power;
+            }
+            else
+            {
+                Player.GetPlayer().WindingSpeed = gui.SpeedValue;
+            }
             switch (type)
             {
                 case DeepType.Deep:
+                    DeepWiring dw = new DeepWiring(80);
+                    dw.DoWiring();
                     break;
                 case DeepType.Flying:
-                    if (Player.GetPlayer().isFishAttack)
-                    {
-                        Player.GetPlayer().WindingSpeed = Player.GetPlayer().Assembly.Reel.Power;
-                    }
-                    else
-                    {
-                        Player.GetPlayer().WindingSpeed = gui.SpeedValue;
-                    }
                     break;
                 case DeepType.Top:
                     Player.GetPlayer().CurrentDeep = 20;

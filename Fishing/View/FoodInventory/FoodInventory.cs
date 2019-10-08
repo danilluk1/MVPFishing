@@ -24,8 +24,8 @@ namespace Fishing.View.FoodInventory
         }
 
         public int SelectedIndex { get => foodsBox.SelectedIndex; set => throw new NotImplementedException(); }
-        public Image FoodImage { get => FoodBox.Image; set => FoodBox.Image = value; }
-        public string FoodProductivityTextBox { get => foodProductBox.Text; set => foodProductBox.Text = value; }
+        public Image FoodImage { get => FoodBox.BackgroundImage; set => FoodBox.BackgroundImage = value; }
+        public string FoodProductivityTextBox { get => foodProductBox.Text; set => foodProductBox.Text = "Восполняет: %" + value; }
 
         public event EventHandler ListSelectedIndexChanged;
         public event EventHandler ListDoubleClick;

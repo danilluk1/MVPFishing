@@ -22,6 +22,18 @@ namespace Fishing.Presenter
             view.FLineDoubleClick += View_FLineDoubleClick;
             view.ReelDoubleClick += View_ReelDoubleClick;
             view.RoadDoubleClick += View_RoadDoubleClick;
+            view.ProductDoubleClick += View_ProductDoubleClick;
+        }
+
+        private void View_ProductDoubleClick(object sender, EventArgs e)
+        {
+            if (isPlayerAbleToBuyItem(view.Road_P))
+            {
+                Player.GetPlayer().FoodInv.Add(view.Food_P);
+                Player.GetPlayer().Money -= view.Food_P.Price;
+                view.MoneyL = Player.GetPlayer().Money.ToString();
+                view.LowerL = "Куплено...";
+            }
         }
 
         private void View_RoadDoubleClick(object sender, EventArgs e)
@@ -31,6 +43,7 @@ namespace Fishing.Presenter
                 Player.GetPlayer().RoadInv.Add(view.Road_P);
                 Player.GetPlayer().Money -= view.Road_P.Price;
                 view.MoneyL = Player.GetPlayer().Money.ToString();
+                view.LowerL = "Куплено...";
             }
         }
 
@@ -41,6 +54,7 @@ namespace Fishing.Presenter
                 Player.GetPlayer().ReelInv.Add(view.Reel_P);
                 Player.GetPlayer().Money -= view.Reel_P.Price;
                 view.MoneyL = Player.GetPlayer().Money.ToString();
+                view.LowerL = "Куплено...";
             }
         }
 
@@ -51,6 +65,7 @@ namespace Fishing.Presenter
                 Player.GetPlayer().FLineInv.Add(view.FLine_P);
                 Player.GetPlayer().Money -= view.FLine_P.Price;
                 view.MoneyL = Player.GetPlayer().Money.ToString();
+                view.LowerL = "Куплено...";
             }
         }
 

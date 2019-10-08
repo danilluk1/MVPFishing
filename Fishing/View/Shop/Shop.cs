@@ -1,4 +1,5 @@
-﻿using Fishing.Presenter;
+﻿using Fishing.BL.Model.Eating;
+using Fishing.Presenter;
 using Fishing.View.Shop;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,16 @@ namespace Fishing
                     this.itemBox.Image = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Power.ToString();
+                    this.priceBox.Text = r.Price.ToString();
+                    this.typeBox.Text = " ";
+                    this.label1.Text = " ";
+                }
+                if (Item.selectItemType(i) is BaseFood)
+                {
+                    BaseFood r = (BaseFood)i;
+                    this.itemBox.Image = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.Productivity.ToString();
                     this.priceBox.Text = r.Price.ToString();
                     this.typeBox.Text = " ";
                     this.label1.Text = " ";
@@ -109,8 +120,25 @@ namespace Fishing
 
             }
         }
+        public BaseFood Food_P
+        {
+            get
+            {
+                try
+                {
+                    return BaseFood.FoodShop[foodsBox.SelectedIndex];
+                }
+                catch (ArgumentOutOfRangeException) { }
 
+                return null;
+            }
+            set
+            {
+
+            }
+        }
         public string MoneyL { get => moneyBox.Text; set => moneyBox.Text = value; }
+        public string LowerL { get => label1.Text; set => label1.Text = value; }
 
         public event EventHandler FLineSelectedIndexChanged;
         public event EventHandler RoadSelectedIndexChanged;
@@ -119,6 +147,8 @@ namespace Fishing
         public event EventHandler RoadDoubleClick;
         public event EventHandler ReelDoubleClick;
         public event EventHandler CloseButtonClick;
+        public event EventHandler ProductSelectedIndexChanged;
+        public event EventHandler ProductDoubleClick;
 
         private void RoadsList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -162,7 +192,18 @@ namespace Fishing
             RoadsList.DataSource = Item.RoadShop;
             ReelsList.DataSource = Item.ReelShop;
             FLineList.DataSource = Item.LeskaShop;
+            foodsBox.DataSource = BaseFood.FoodShop;
             moneyBox.Text = Player.GetPlayer().Money.ToString();
+        }
+
+        private void FoodsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addItemtoRightView(Food_P);
+        }
+
+        private void FoodsBox_DoubleClick(object sender, EventArgs e)
+        {
+            ProductDoubleClick?.Invoke(this, EventArgs.Empty);
         }
     }
 }

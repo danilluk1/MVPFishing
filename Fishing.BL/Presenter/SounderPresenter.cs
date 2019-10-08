@@ -30,9 +30,9 @@ namespace Fishing.BL.Presenter
             {
                 int drawX = 0;
                 int drawX2;
-                for (int i = 0; i < 17; i++)
+                for (int i = 0; i < CurLVL.Height - 1; i++)
                 {
-                    drawX2 = drawX + 10;
+                    drawX2 = drawX + 12;
                     g.DrawLine(new Pen(Color.White, 2), drawX, (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i].Tag / 10, drawX2,
                                                                                 (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i + 1].Tag / 10);
                     drawX = drawX2;
@@ -45,7 +45,7 @@ namespace Fishing.BL.Presenter
         private void drawPoint(Graphics g)
         {
             Player player = Player.GetPlayer();
-            int x = Math.Abs(player.CurPoint.Y - (int)CurLVL.Deeparr[0, 0].Location.Y) / 2;
+            int x = Convert.ToInt32((Math.Abs(player.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y)) / 1.7);
             g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().CurrentDeep / 10 - 2, 4, 4);
         }
     }

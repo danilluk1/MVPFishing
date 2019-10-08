@@ -77,6 +77,10 @@ namespace Fishing.Presenter
             Item.ReelShop.Add(Reel.Zymix);
             Item.ReelShop.Add(Reel.Syberia_1);
             Item.ReelShop.Add(Reel.TBR_4000);
+            BaseFood.FoodShop.Add(BaseFood.blackcaviar);
+            BaseFood.FoodShop.Add(BaseFood.caviar);
+            BaseFood.FoodShop.Add(BaseFood.bread);
+            BaseFood.FoodShop.Add(BaseFood.cheese);
             Player.GetPlayer().LureInv.Add(Lure.vob1);
             Player.GetPlayer().LureInv.Add(Lure.vob3);
             Player.GetPlayer().LureInv.Add(Lure.vob2);

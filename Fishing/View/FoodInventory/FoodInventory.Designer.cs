@@ -37,7 +37,6 @@
             // 
             // foodsBox
             // 
-            this.foodsBox.FormattingEnabled = true;
             this.foodsBox.Location = new System.Drawing.Point(25, 13);
             this.foodsBox.Name = "foodsBox";
             this.foodsBox.Size = new System.Drawing.Size(213, 290);

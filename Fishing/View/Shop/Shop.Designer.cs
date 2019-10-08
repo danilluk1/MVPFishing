@@ -47,9 +47,9 @@ namespace Fishing
             this.RoadsList = new System.Windows.Forms.ListBox();
             this.FLinePage = new System.Windows.Forms.TabPage();
             this.ReelsPage = new System.Windows.Forms.TabPage();
-            this.closeButton = new System.Windows.Forms.Button();
             this.productPage = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.foodsBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemBox)).BeginInit();
             this.shopTab.SuspendLayout();
             this.RoadPage.SuspendLayout();
@@ -199,6 +199,17 @@ namespace Fishing
             this.ReelsPage.Text = "Катушки";
             this.ReelsPage.UseVisualStyleBackColor = true;
             // 
+            // productPage
+            // 
+            this.productPage.Controls.Add(this.foodsBox);
+            this.productPage.Location = new System.Drawing.Point(4, 22);
+            this.productPage.Name = "productPage";
+            this.productPage.Padding = new System.Windows.Forms.Padding(3);
+            this.productPage.Size = new System.Drawing.Size(457, 425);
+            this.productPage.TabIndex = 3;
+            this.productPage.Text = "Продукты";
+            this.productPage.UseVisualStyleBackColor = true;
+            // 
             // closeButton
             // 
             this.closeButton.Location = new System.Drawing.Point(723, 26);
@@ -209,24 +220,15 @@ namespace Fishing
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // productPage
+            // foodsBox
             // 
-            this.productPage.Controls.Add(this.listView1);
-            this.productPage.Location = new System.Drawing.Point(4, 22);
-            this.productPage.Name = "productPage";
-            this.productPage.Padding = new System.Windows.Forms.Padding(3);
-            this.productPage.Size = new System.Drawing.Size(457, 425);
-            this.productPage.TabIndex = 3;
-            this.productPage.Text = "tabPage1";
-            this.productPage.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(4, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(450, 425);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.foodsBox.FormattingEnabled = true;
+            this.foodsBox.Location = new System.Drawing.Point(0, 0);
+            this.foodsBox.Name = "foodsBox";
+            this.foodsBox.Size = new System.Drawing.Size(457, 420);
+            this.foodsBox.TabIndex = 0;
+            this.foodsBox.SelectedIndexChanged += new System.EventHandler(this.FoodsBox_SelectedIndexChanged);
+            this.foodsBox.DoubleClick += new System.EventHandler(this.FoodsBox_DoubleClick);
             // 
             // Shop
             // 
@@ -280,6 +282,6 @@ namespace Fishing
         protected internal System.Windows.Forms.Label label1;
         protected internal System.Windows.Forms.ListBox RoadsList;
         private System.Windows.Forms.TabPage productPage;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListBox foodsBox;
     }
 }
