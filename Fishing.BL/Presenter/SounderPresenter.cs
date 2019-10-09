@@ -13,6 +13,7 @@ namespace Fishing.BL.Presenter
 {
     public class SounderPresenter
     {
+        private const float SOUNDERWIDTH = 380f;
         private readonly ISounder view;
         public LVL CurLVL { get; set; }
 
@@ -28,11 +29,11 @@ namespace Fishing.BL.Presenter
             Graphics g = e.Graphics;
             try
             {
-                int drawX = 0;
-                int drawX2;
+                float drawX = 0;
+                float drawX2;
                 for (int i = 0; i < CurLVL.Height - 1; i++)
                 {
-                    drawX2 = drawX + 12;
+                    drawX2 = drawX + (SOUNDERWIDTH / (CurLVL.Height - 1));
                     g.DrawLine(new Pen(Color.White, 2), drawX, (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i].Tag / 10, drawX2,
                                                                                 (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i + 1].Tag / 10);
                     drawX = drawX2;
@@ -45,8 +46,9 @@ namespace Fishing.BL.Presenter
         private void drawPoint(Graphics g)
         {
             Player player = Player.GetPlayer();
-            int x = Convert.ToInt32((Math.Abs(player.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y)) / 1.7);
-            g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().CurrentDeep / 10 - 2, 4, 4);
+            float coef = (CurLVL.Height - 2) * 15 / SOUNDERWIDTH;
+            float x = (player.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y) / coef;
+            g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().CurrentDeep / 10 - 4, 4, 4);
         }
     }
 }

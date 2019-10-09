@@ -70,6 +70,15 @@ namespace Fishing.BL.Resources.Messages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине. Клюёт в основном ночью, и утром..
+        /// </summary>
+        internal static string BURBOT_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("BURBOT_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Хищник. Предпочитает мелкие и средние приманки. Обитает на любой глубине..
         /// </summary>
         internal static string GRAYLING_DESCRIPTION {

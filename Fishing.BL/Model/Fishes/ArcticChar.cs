@@ -7,6 +7,7 @@ using System.Drawing;
 using Fishing.BL;
 using Fishing.BL.Resources.Messages;
 using Fishing.BL.Resources.Images;
+using Fishing.BL.Model.Game;
 
 namespace Fishing
 {
@@ -18,6 +19,12 @@ namespace Fishing
             Size.Small,
             Size.Large,
         };
+        private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
+        {
+            PartsOfDay.Evening,
+            PartsOfDay.Morning,
+            PartsOfDay.Night
+        };
         private readonly static int power = 6;
         private readonly static string name = "Арктич. Голец";
         private readonly static int price = 2;
@@ -25,8 +32,12 @@ namespace Fishing
         private readonly static string description = Messages.ARCTICCHAR_DESCRIPTION;
         private readonly static Bitmap bit = Images.golec;
 
-        public ArcticChar() : base(name, randWigth.Next(200, 20000), power, price, trophyWeight, lures, description, bit)
+        public ArcticChar(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(200, 20000), power, price, trophyWeight, lures, activParts, description, bit)
         {
+            MinDeep = minD;
+            MaxDeep = maxD;
+            MaxSizeCoef = maxSizeCoef;
+            WorkingLures = lu;
         }
     }
 }

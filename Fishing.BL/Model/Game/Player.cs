@@ -2,7 +2,6 @@
 using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
-using Fishing.BL.Model.Wiring;
 using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
@@ -31,7 +30,6 @@ namespace Fishing
         public BindingList<BaseFood> FoodInv { get; set; }
         public Stack<BaseEvent> EventHistory { get; set; }
         public int Satiety { get; set; } = 100;
-        public Wiring CurrentWiring { get; set; }
         public Statistic Statistic { get; set; } = new Statistic();
         public int Money { get; set; } = 10000000;
         public int WindingSpeed { get; set; }

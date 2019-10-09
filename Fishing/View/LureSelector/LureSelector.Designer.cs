@@ -30,8 +30,8 @@
         {
             this.lureList = new System.Windows.Forms.ListBox();
             this.lureImage = new System.Windows.Forms.PictureBox();
-            this.nameBox = new System.Windows.Forms.TextBox();
-            this.typeBox = new System.Windows.Forms.TextBox();
+            this.deepBox = new System.Windows.Forms.TextBox();
+            this.sizeBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lureImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,27 +53,27 @@
             this.lureImage.TabIndex = 1;
             this.lureImage.TabStop = false;
             // 
-            // nameBox
+            // deepBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(159, 97);
-            this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(122, 20);
-            this.nameBox.TabIndex = 2;
+            this.deepBox.Location = new System.Drawing.Point(159, 97);
+            this.deepBox.Name = "deepBox";
+            this.deepBox.Size = new System.Drawing.Size(122, 20);
+            this.deepBox.TabIndex = 2;
             // 
-            // typeBox
+            // sizeBox
             // 
-            this.typeBox.Location = new System.Drawing.Point(159, 124);
-            this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(122, 20);
-            this.typeBox.TabIndex = 3;
+            this.sizeBox.Location = new System.Drawing.Point(159, 124);
+            this.sizeBox.Name = "sizeBox";
+            this.sizeBox.Size = new System.Drawing.Size(122, 20);
+            this.sizeBox.TabIndex = 3;
             // 
             // LureSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(289, 181);
-            this.Controls.Add(this.typeBox);
-            this.Controls.Add(this.nameBox);
+            this.Controls.Add(this.sizeBox);
+            this.Controls.Add(this.deepBox);
             this.Controls.Add(this.lureImage);
             this.Controls.Add(this.lureList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -92,7 +92,7 @@
 
         private System.Windows.Forms.ListBox lureList;
         private System.Windows.Forms.PictureBox lureImage;
-        private System.Windows.Forms.TextBox nameBox;
-        private System.Windows.Forms.TextBox typeBox;
+        private System.Windows.Forms.TextBox deepBox;
+        private System.Windows.Forms.TextBox sizeBox;
     }
 }

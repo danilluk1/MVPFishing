@@ -14,7 +14,7 @@ namespace Fishing
         private LVL2() : base(Images.ozerolvl2)
         {
             Widgth = 51;
-            Height = 16;
+            Height = 21;
             LabelStartY = 330;
         }
         public static LVL2 GetLVL()
@@ -32,31 +32,31 @@ namespace Fishing
             {
                 if(i < 250)
                 {
-                    Fishes.Add(new Pike());
+                    Fishes.Add(new Pike(100, 400, 1, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
                 if (i > 250 && i < 450)
                 {
-                    Fishes.Add(new Perch());
+                    Fishes.Add(new Perch(100, 600, 1, new HashSet<Lure>() {Lure.vert1, Lure.vert2 }));
                 }
                 if (i > 450 && i < 600)
                 {
-                    Fishes.Add(new ArcticChar());
+                    Fishes.Add(new ArcticChar(350, 600, 1, new HashSet<Lure>() {Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6 , Lure.vob1}));
                 }
                 if(i > 600 && i < 700)
                 {
-                    Fishes.Add(new Trout());
+                    Fishes.Add(new Trout(350, 600, 1, new HashSet<Lure>() { Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
                 if (i > 700 && i < 800)
                 {
-                    Fishes.Add(new PinkSalmon());
+                    Fishes.Add(new PinkSalmon(350, 600, 0.5, new HashSet<Lure>() { Lure.jelezo2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
                 if (i > 800 && i < 900)
                 {
-                    Fishes.Add(new Grayling());
+                    Fishes.Add(new Grayling(350, 600, 0.7, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i > 900 && i < 1000)
                 {
-                    Fishes.Add(new Salmon());
+                    Fishes.Add(new Salmon(350, 600, 0.3, new HashSet<Lure>() { Lure.jelezo2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
             }
         }
@@ -89,9 +89,6 @@ namespace Fishing
         {
             for (int x = 0; x < Widgth; x++)
             {
-                for (int y = 0; y < Height; y++)
-                {
-                }
                 Deeparr[x, 0].Tag = 340;
                 Deeparr[x, 1].Tag = 340;
                 Deeparr[x, 2].Tag = 360;
@@ -106,8 +103,13 @@ namespace Fishing
                 Deeparr[x, 11].Tag = 440;
                 Deeparr[x, 12].Tag = 370;
                 Deeparr[x, 13].Tag = 320;
-                Deeparr[x, 14].Tag = 250;
-                Deeparr[x, 15].Tag = 200;
+                Deeparr[x, 14].Tag = 300;
+                Deeparr[x, 15].Tag = 250;
+                Deeparr[x, 16].Tag = 200;
+                Deeparr[x, 17].Tag = 200;
+                Deeparr[x, 18].Tag = 220;
+                Deeparr[x, 19].Tag = 230;
+                Deeparr[x, 20].Tag = 240;
             }
         }
 

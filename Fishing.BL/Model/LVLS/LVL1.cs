@@ -14,7 +14,7 @@ namespace Fishing.BL.Model
         private LVL1() : base(Images.lvl1)
         {
             Widgth = 51;
-            Height = 18;
+            Height = 21;
             LabelStartY = 330;
         }
         public static LVL1 GetLVL()
@@ -32,15 +32,15 @@ namespace Fishing.BL.Model
             {
                 if (i < 350)
                 {
-                    Fishes.Add(new Pike());
+                    Fishes.Add(new Pike(0, 200, 0.4, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
                 if (i > 350 && i < 750)
                 {
-                    Fishes.Add(new Perch());
+                    Fishes.Add(new Perch(0, 200, 0.3, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i > 750 && i < 1000)
                 {
-                    Fishes.Add(new SnakeHead());
+                    Fishes.Add(new SnakeHead(0, 200, 1.5, new HashSet<Lure>() { Lure.jig4 }));
                 }
             }
         }
@@ -73,9 +73,6 @@ namespace Fishing.BL.Model
         {
             for (int x = 0; x < 51; x++)
             {
-                for (int y = 0; y < 18; y++)
-                {
-                }
                 Deeparr[x, 0].Tag = 120;
                 Deeparr[x, 1].Tag = 100;
                 Deeparr[x, 2].Tag = 100;
@@ -90,11 +87,13 @@ namespace Fishing.BL.Model
                 Deeparr[x, 11].Tag = 140;
                 Deeparr[x, 12].Tag = 130;
                 Deeparr[x, 13].Tag = 130;
-                Deeparr[x, 14].Tag = 100;
-                Deeparr[x, 15].Tag = 100;
-                Deeparr[x, 16].Tag = 100;
+                Deeparr[x, 14].Tag = 140;
+                Deeparr[x, 15].Tag = 120;
+                Deeparr[x, 16].Tag = 110;
                 Deeparr[x, 17].Tag = 100;
-
+                Deeparr[x, 18].Tag = 100;
+                Deeparr[x, 19].Tag = 100;
+                Deeparr[x, 20].Tag = 100;
             }
         }
     }

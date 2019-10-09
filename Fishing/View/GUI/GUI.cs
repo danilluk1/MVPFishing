@@ -47,13 +47,6 @@ namespace Fishing
             catch (NullReferenceException) { }
             MoneyLValue = Player.GetPlayer().Money;
             this.lvl = lvl;
-            for (int x = 0; x < lvl.Widgth; x++)
-            {
-                for (int y = 0; y < lvl.Height; y++)
-                {
-                    Controls.Add(lvl.Deeparr[x, y]);
-                }
-            }
             Game.GetGame().HoursInc += GUI_HoursInc;
             timeLabel.Text = Game.GetGame().Time.ToString();
         }
@@ -120,10 +113,13 @@ namespace Fishing
 
         private void BaitsPicture_Click(object sender, EventArgs e)
         {
-            LureSelector selector = new LureSelector();
-            selector.Show();
-            sp.Stream = SoundsRes.open_items;
-            sp.Play();
+            if (Player.GetPlayer().Assembly != null)
+            {
+                LureSelector selector = new LureSelector();
+                selector.Show();
+                sp.Stream = SoundsRes.open_items;
+                sp.Play();
+            }
         }
 
 

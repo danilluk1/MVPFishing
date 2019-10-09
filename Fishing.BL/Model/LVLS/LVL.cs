@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 using Fishing.BL;
+using Fishing.BL.Model.Game;
 
 namespace Fishing
 {
@@ -14,8 +15,8 @@ namespace Fishing
         public Bitmap Image { get; set; }
         public EventHandler StopBaitTimer;
         public EventHandler GatheringisTrue;
-        public int Widgth = 51;
-        public int Height = 18;
+        public int Widgth = 100;
+        public int Height = 25;
         public int LabelStartY = 350;
 
         public LVL(Bitmap img)
@@ -36,11 +37,20 @@ namespace Fishing
         {
             try
             {
-                var bait = fish.Lures.Single(b => b == Player.GetPlayer().Assembly.Lure.Size);
-                bool ba = bait.ToString() == null ? false : true;
-                return ba;
+                bool ba = false;
+                bool pa = false;
+                if (fish.MinDeep <= Player.GetPlayer().CurrentDeep && fish.MaxDeep >= Player.GetPlayer().CurrentDeep)
+                {
+                    var part = fish.ActivityParts.Single(p => p == Game.GetGame().Time.Part);
+                    var l = fish.WorkingLures.First(b => b.Name.Equals(Player.GetPlayer().Assembly.Lure.Name));
+                    ba = l.Name == null ? false : true;
+                    pa = part.ToString() == null ? false : true;
+                }
+                return ba && pa;
             }
-            catch (InvalidOperationException){ return false; }
+            catch (InvalidOperationException){              
+                return false;
+            }
         }
         public void AddDeep()
         {
@@ -51,11 +61,13 @@ namespace Fishing
                     this.Deeparr[x, y] = new Label()
                     {
                         Left = 5 + x * 20,
-                        Top = LabelStartY + y * 20,
-                        Height = 20,
-                        TextAlign = ContentAlignment.MiddleCenter,
+                        Top = LabelStartY + y * 15,
+                        Height = 15,
+                        TextAlign = ContentAlignment.MiddleLeft,
                         Width = 20,
-                        Visible = false,
+                        Visible = true,
+                        Font = new Font("Arial", 6, FontStyle.Regular),
+                        BorderStyle = BorderStyle.FixedSingle
                     };
                 }
             }

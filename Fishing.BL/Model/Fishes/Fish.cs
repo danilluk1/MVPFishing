@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Fishing.BL.Model.Game;
 
 namespace Fishing
 {
@@ -16,21 +17,27 @@ namespace Fishing
         public int Power { get; set; }
         public double Price { get; set; }
         public int TrophyWeight { get; set; }
-        public HashSet<Size> Lures { get; set; }
+        public HashSet<Size> LuresSize { get; set; }
+        public HashSet<PartsOfDay> ActivityParts { get; set; }
+        public HashSet<Lure> WorkingLures { get; set; }
         public string Description { get; set; }
         public Bitmap Bitmap { get; set; }
+        public int MaxDeep { get; set; }
+        public int MinDeep { get; set; }
+        public double MaxSizeCoef { get; set; }
         
 
-        public Fish(string name, int weight, int power, double price, int trophyWeight, HashSet<Size> lures, string description, Bitmap bit)
+        public Fish(string name, int weight, int power, double price, int trophyWeight, HashSet<Size> lures, HashSet<PartsOfDay> activParts, string description, Bitmap bit)
         {
             this.Name = name;
             this.Weight = weight;
             this.Power = power;
             this.Price = price;
             this.TrophyWeight = trophyWeight;
-            this.Lures = lures;
+            this.LuresSize = lures;
             this.Description = description;
             this.Bitmap = bit;
+            this.ActivityParts = activParts;
         }
 
         public bool isTrophy()

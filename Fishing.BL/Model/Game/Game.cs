@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Saver.BL.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,7 +54,7 @@ namespace Fishing.BL.Model.Game
             {
                 Time.Hours = 0;
                 Time.Day++;
-                
+                BaseController.GetController().SavePlayer();
             }
 
             if(Time.Hours >= 0 && Time.Hours <= 4)

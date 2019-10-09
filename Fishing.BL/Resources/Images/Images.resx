@@ -148,6 +148,9 @@
   <data name="broken" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\broken.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="catfish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\catfish.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -162,6 +165,12 @@
   </data>
   <data name="deepvobler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\deepvobler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Deep_112" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Deep-112.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Deep_115" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Deep-115.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DRACO_FD_1704" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\DRACO FD 1704.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -252,6 +261,9 @@
   </data>
   <data name="menuu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\menuu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nalim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\nalim.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="not_bait" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\not_bait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -367,6 +379,9 @@
   <data name="sriv" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\sriv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ssp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ssp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="step2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\step2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -400,8 +415,20 @@
   <data name="Titanium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Titanium.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Tvis_102" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tvis-102.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Tvis_103" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\tvis-103.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tvis_104" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tvis-104.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tvis_105" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tvis-105.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tvis_119" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tvis-119.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="var" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\var.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

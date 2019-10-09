@@ -11,8 +11,8 @@ namespace Fishing.View.LureSelector.View
     {
         Lure Lure { get; set; }
         Image Picture { get; set; }
-        string NameBoxText { get; set; }
-        string TypeBoxText { get; set; }
+        string DeepBoxText { get; set; }
+        string SizeBoxText { get; set; }
 
         event EventHandler LureListIndexChanged;
         event EventHandler LureListDoubleClick;

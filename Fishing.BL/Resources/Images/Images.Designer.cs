@@ -202,6 +202,16 @@ namespace Fishing.BL.Resources.Images {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap btn {
+            get {
+                object obj = ResourceManager.GetObject("btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap catfish {
             get {
                 object obj = ResourceManager.GetObject("catfish", resourceCulture);
@@ -235,6 +245,26 @@ namespace Fishing.BL.Resources.Images {
         public static System.Drawing.Bitmap Colorado {
             get {
                 object obj = ResourceManager.GetObject("Colorado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Deep_112 {
+            get {
+                object obj = ResourceManager.GetObject("Deep_112", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Deep_115 {
+            get {
+                object obj = ResourceManager.GetObject("Deep_115", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -543,6 +573,16 @@ namespace Fishing.BL.Resources.Images {
         public static System.Drawing.Bitmap menuu {
             get {
                 object obj = ResourceManager.GetObject("menuu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap nalim {
+            get {
+                object obj = ResourceManager.GetObject("nalim", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -929,6 +969,16 @@ namespace Fishing.BL.Resources.Images {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ssp {
+            get {
+                object obj = ResourceManager.GetObject("ssp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap step2 {
             get {
                 object obj = ResourceManager.GetObject("step2", resourceCulture);
@@ -1039,9 +1089,49 @@ namespace Fishing.BL.Resources.Images {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Tvis_102 {
+            get {
+                object obj = ResourceManager.GetObject("Tvis_102", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Tvis_103 {
             get {
                 object obj = ResourceManager.GetObject("Tvis_103", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Tvis_104 {
+            get {
+                object obj = ResourceManager.GetObject("Tvis_104", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Tvis_105 {
+            get {
+                object obj = ResourceManager.GetObject("Tvis_105", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Tvis_119 {
+            get {
+                object obj = ResourceManager.GetObject("Tvis_119", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

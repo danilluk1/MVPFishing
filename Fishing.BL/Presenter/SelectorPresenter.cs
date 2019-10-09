@@ -30,8 +30,8 @@ namespace Fishing.View.LureSelector.Presenter
         private void View_LureListIndexChanged(object sender, EventArgs e)
         {
             view.Picture = view.Lure.Pict;
-            view.NameBoxText = view.Lure.Name;
-            view.TypeBoxText = view.Lure.Size.ToString();
+            view.DeepBoxText = view.Lure.DeepType.ToString();
+            view.SizeBoxText = view.Lure.Size.ToString();
         }
 
         private void View_LureListDoubleClick(object sender, EventArgs e)

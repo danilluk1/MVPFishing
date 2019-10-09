@@ -10,6 +10,7 @@ namespace Fishing
         public static Bitmap netting = new Bitmap(Images.podsak1);
         public static Bitmap road = Images.road;
         public static Bitmap roadMaxBend = Images.road2;
-       
+        public static Bitmap trigon = Images.ssp;
+
     }
 }

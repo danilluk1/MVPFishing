@@ -17,8 +17,8 @@ namespace Fishing.View.LureSelector
 
         public Lure Lure { get => Player.GetPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
         public Image Picture { get => lureImage.Image; set => lureImage.Image = Lure.Pict; }
-        public string NameBoxText { get => nameBox.Text; set => nameBox.Text = value; }
-        public string TypeBoxText { get => typeBox.Text; set => typeBox.Text = value; }
+        public string DeepBoxText { get => deepBox.Text; set => deepBox.Text = value; }
+        public string SizeBoxText { get => sizeBox.Text; set => sizeBox.Text = value; }
 
         public event EventHandler LureListIndexChanged;
         public event EventHandler LureListDoubleClick;

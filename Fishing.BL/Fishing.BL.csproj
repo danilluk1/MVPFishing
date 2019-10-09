@@ -52,6 +52,7 @@
     <Compile Include="Model\Eating\Bread.cs" />
     <Compile Include="Model\Eating\Caviar.cs" />
     <Compile Include="Model\Eating\Cheese.cs" />
+    <Compile Include="Model\Fishes\Burbot.cs" />
     <Compile Include="Model\Fishes\SnakeHead.cs" />
     <Compile Include="Model\Fishes\Zander.cs" />
     <Compile Include="Model\Game\Game.cs" />
@@ -66,9 +67,6 @@
     <Compile Include="Model\UserEvent\RoadBrokenEvent.cs" />
     <Compile Include="Model\UserEvent\TrophyFishEvent.cs" />
     <Compile Include="Model\UserEvent\BaseEvent.cs" />
-    <Compile Include="Model\Wiring\DeepWiring.cs" />
-    <Compile Include="Model\Wiring\JigWiring.cs" />
-    <Compile Include="Model\Wiring\Wiring.cs" />
     <Compile Include="Presenter\FoodPresenter.cs" />
     <Compile Include="Presenter\StatisticPresenter.cs" />
     <Compile Include="Resources\Images\Images.Designer.cs">
@@ -163,6 +161,7 @@
     <Content Include="Resources\brake5.wav" />
     <None Include="Resources\break.png" />
     <Content Include="Resources\broken.png" />
+    <Content Include="Resources\btn.png" />
     <Content Include="Resources\catfish.jpg" />
     <Content Include="Resources\Circl-5103.png" />
     <Content Include="Resources\Circl-5113.png" />
@@ -181,6 +180,8 @@
     <None Include="Resources\day9.wav" />
     <None Include="Resources\day10.wav" />
     <None Include="Resources\day11.wav" />
+    <None Include="Resources\Deep-115.png" />
+    <None Include="Resources\Deep-112.png" />
     <Content Include="Resources\DRACO FD 1704.png" />
     <Content Include="Resources\eat.wav" />
     <Content Include="Resources\fon11.wav" />
@@ -212,6 +213,7 @@
     <Content Include="Resources\Marco-R6.png" />
     <Content Include="Resources\menu.jpg" />
     <Content Include="Resources\menuu.jpg" />
+    <None Include="Resources\nalim.jpg" />
     <Content Include="Resources\not_bait.png" />
     <Content Include="Resources\not_hook.png" />
     <Content Include="Resources\not_reel.png" />
@@ -254,6 +256,7 @@
     <Content Include="Resources\splash3.wav" />
     <Content Include="Resources\splash4.wav" />
     <Content Include="Resources\splash5.wav" />
+    <Content Include="Resources\ssp.png" />
     <Content Include="Resources\step2.png" />
     <Content Include="Resources\step3.png" />
     <Content Include="Resources\step7.png" />
@@ -267,8 +270,13 @@
     <Content Include="Resources\TBR-4000.png" />
     <Content Include="Resources\Titanium.jpg" />
     <None Include="Resources\vert.png" />
+    <None Include="Resources\Tvis-102.png" />
     <Content Include="Resources\Tvis-103.png" />
     <None Include="Resources\var.png" />
+    <None Include="Resources\Tvis-105.png" />
+    <None Include="Resources\Tvis-104.png" />
+    <Content Include="Resources\Tvis-107.png" />
+    <None Include="Resources\Tvis-119.png" />
     <Content Include="Resources\Vesta 276.jpg" />
     <Content Include="Resources\Vib-6000.png" />
     <Content Include="Resources\Vib-6008.png" />

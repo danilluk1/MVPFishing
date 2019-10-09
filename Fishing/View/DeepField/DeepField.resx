@@ -117,40 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ARCTICCHAR_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине.</value>
-  </data>
-  <data name="BURBOT_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине. Клюёт в основном ночью, и утром.</value>
-  </data>
-  <data name="GRAYLING_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на любой глубине.</value>
-  </data>
-  <data name="NO_BAIT_EQUIPED" xml:space="preserve">
-    <value>Не назначена наживка</value>
-  </data>
-  <data name="NO_LURE_EQUIPED" xml:space="preserve">
-    <value>Не назначена приманка</value>
-  </data>
-  <data name="PERCH_DESCRIPTION" xml:space="preserve">
-    <value>Хищиник. Предпочитает мелкие и средние приманки. Обитает на любой глубине.</value>
-  </data>
-  <data name="PIKE_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает большие и средние приманки. Обитает на любой глубине.</value>
-  </data>
-  <data name="PINKSALMON_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает большие и средние приманки. Обитает на предпочтительно большой глубине.</value>
-  </data>
-  <data name="SALMON_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает большие и средние приманки. Обитает на предпочтительно большой глубине.</value>
-  </data>
-  <data name="SNAKEHEAD_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает большие и средние приманки. Обитает на маленькой глубине.</value>
-  </data>
-  <data name="TROUT_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине.</value>
-  </data>
-  <data name="ZANDER_DESCRIPTION" xml:space="preserve">
-    <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине.</value>
-  </data>
+  <metadata name="SounderUpdater.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

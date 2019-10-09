@@ -2,6 +2,7 @@
 using Fishing.BL.Model;
 using Fishing.BL.Model.LVLS;
 using Fishing.BL.Resources.Images;
+using Fishing.View.DeepField;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,9 @@ namespace Fishing
             GUI.gui = new GUI(LVL1.GetLVL());
             ozero = new OzeroForm(LVL1.GetLVL());
             ozero.BackgroundImage = LVL1.GetLVL().Image;
+            DeepField field = new DeepField(LVL1.GetLVL());
             this.Close();
+            field.Show();
             ozero.Show();
             GUI.gui.Show();
         }
@@ -38,7 +41,9 @@ namespace Fishing
             GUI.gui = new GUI(LVL2.GetLVL());
             ozero = new OzeroForm(LVL2.GetLVL());
             ozero.BackgroundImage = LVL2.GetLVL().Image;
+            DeepField field = new DeepField(LVL2.GetLVL());
             this.Close();
+            field.Show();
             ozero.Show();
             GUI.gui.Show();
         }
@@ -48,6 +53,7 @@ namespace Fishing
             GUI.gui = new GUI(LVL3.GetLVL());
             ozero = new OzeroForm(LVL3.GetLVL());
             ozero.BackgroundImage = LVL3.GetLVL().Image;
+            DeepField field = new DeepField(LVL3.GetLVL());
             this.Close();
             ozero.Show();
             GUI.gui.Show();
