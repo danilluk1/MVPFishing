@@ -173,6 +173,16 @@ namespace Fishing.BL.Resources.Images {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap blackkrug {
+            get {
+                object obj = ResourceManager.GetObject("blackkrug", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap boil {
             get {
                 object obj = ResourceManager.GetObject("boil", resourceCulture);
@@ -573,6 +583,26 @@ namespace Fishing.BL.Resources.Images {
         public static System.Drawing.Bitmap menuu {
             get {
                 object obj = ResourceManager.GetObject("menuu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MesheraLVL1 {
+            get {
+                object obj = ResourceManager.GetObject("MesheraLVL1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MesheraMap {
+            get {
+                object obj = ResourceManager.GetObject("MesheraMap", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fishing;
+using Fishing.BL.View;
 
 namespace Fishing.View.LVLS.Ozero
 {
@@ -21,7 +23,5 @@ namespace Fishing.View.LVLS.Ozero
         event EventHandler BaitTimerTick;
         event EventHandler FormClose;
         event EventHandler DecSacietyTimerTick;
-
-
     }
 }

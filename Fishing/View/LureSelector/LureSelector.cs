@@ -12,7 +12,7 @@ namespace Fishing.View.LureSelector
         public LureSelector()
         {
             InitializeComponent();
-            presenter = new SelectorPresenter(this, Fishing.GUI.gui);           
+            presenter = new SelectorPresenter(this, Fishing.UI.gui);           
         }
 
         public Lure Lure { get => Player.GetPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
@@ -39,7 +39,7 @@ namespace Fishing.View.LureSelector
             Player.GetPlayer().Assembly.Lure = Lure;
             Player.GetPlayer().SetAssembly(Player.GetPlayer().Assembly);
             this.Close();
-            Fishing.GUI.gui.BaitPicture = Player.GetPlayer().Assembly.Lure.Pict;
+            Fishing.UI.gui.BaitPicture = Player.GetPlayer().Assembly.Lure.Pict;
         }
     }
 }

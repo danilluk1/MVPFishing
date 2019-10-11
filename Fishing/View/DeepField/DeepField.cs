@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Fishing.View.DeepField
 {
-    public partial class DeepField : Form
+    public partial class DeepField : Form, IDeepField
     {
         private LVL lvl;
         public DeepField(LVL lvl)
@@ -26,6 +26,16 @@ namespace Fishing.View.DeepField
                     Controls.Add(lvl.Deeparr[x, y]);
                 }
             }
+        }
+
+        public void Down()
+        {
+            this.Close();
+        }
+
+        public void Open(LVL lvl)
+        {
+            DeepField df = new DeepField(lvl);
         }
 
         private void DeepField_Load(object sender, EventArgs e)

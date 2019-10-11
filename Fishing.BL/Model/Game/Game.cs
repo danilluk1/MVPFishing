@@ -1,6 +1,8 @@
-﻿using Saver.BL.Controller;
+﻿using Fishing.BL.Model.Waters;
+using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +21,15 @@ namespace Fishing.BL.Model.Game
     public class Game
     {
         private static Game game;
+        public BindingList<Water> Waters = new BindingList<Water>();
         public event EventHandler HoursInc;
-        public Timer HoursTimer { get; set; }
-        public Time Time;
-        public Player player;
 
-        private Game(Player player)
+        public Timer HoursTimer { get; set; }
+        public Water CurrentWater { get; set; } = Meshera.GetWater();
+        public Time Time;
+
+        private Game()
         {
-            this.player = player;
             Time = new Time();
             HoursTimer = new Timer()
             {
@@ -34,13 +37,15 @@ namespace Fishing.BL.Model.Game
             };
             HoursTimer.Tick += HoursTimer_Tick;
             HoursTimer.Start();
+            Waters.Add(Ozero.GetWater());
+            Waters.Add(Meshera.GetWater());
         }
 
         public static Game GetGame()
         {
             if(game == null)
             {
-                game = new Game(Player.GetPlayer());
+                game = new Game();
             }
             return game;
         }

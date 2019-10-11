@@ -139,6 +139,9 @@
   <data name="black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="blackkrug" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\blackkrug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="boil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\boil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -261,6 +264,12 @@
   </data>
   <data name="menuu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\menuu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MesheraLVL1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\lvl4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MesheraMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\MesheraMap.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="nalim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\nalim.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

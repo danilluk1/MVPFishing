@@ -1,6 +1,6 @@
 ﻿namespace Fishing
 {
-    partial class OzeroForm
+    partial class GameForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -77,7 +77,7 @@
             this.decrementSatiety.Interval = 30000;
             this.decrementSatiety.Tick += new System.EventHandler(this.DecrementSatiety_Tick);
             // 
-            // OzeroForm
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -85,7 +85,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1033, 650);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "OzeroForm";
+            this.Name = "GameForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fishing";

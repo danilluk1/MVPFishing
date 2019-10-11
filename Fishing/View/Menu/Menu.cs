@@ -1,6 +1,9 @@
-﻿using Fishing.Presenter;
+﻿using Fishing.BL.Model.Game;
+using Fishing.BL.Model.MapFactory;
+using Fishing.Presenter;
 using Fishing.View;
 using Fishing.View.Menu;
+using Fishing.View.Trip;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,8 +43,8 @@ namespace Fishing
 
         private void MapButton_Click(object sender, EventArgs e)
         {
-            Ozero map = new Ozero();
-            map.Show();
+            MFactory f = new MFactory(Game.GetGame().CurrentWater);
+            f.CreateMap();
         }
 
         private void ShopButton_Click(object sender, EventArgs e)
@@ -68,6 +71,12 @@ namespace Fishing
 
         private void Label2_Click(object sender, EventArgs e)
         {
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            TripForm form = new TripForm();
+            form.Show();
         }
     }
 }

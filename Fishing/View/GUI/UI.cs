@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Game;
+using Fishing.BL.Model.MapFactory;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Presenter;
 using Fishing.BL.Resources.Sounds;
@@ -21,15 +22,14 @@ using System.Windows.Forms;
 
 namespace Fishing
 {
-    public partial class GUI : Form, IGUI, IGUIPresenter, ISounder
+    public partial class UI : Form, IGUI, IGUIPresenter, ISounder
     {
         GUIPresenter presenter;
-        private LVL lvl;
         readonly SounderPresenter sound;
-        public static GUI gui;
+        public static UI gui;
         private SoundPlayer sp = new SoundPlayer();
 
-        public GUI(LVL lvl)
+        public UI(LVL lvl)
         {          
             InitializeComponent();
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint |
@@ -46,7 +46,6 @@ namespace Fishing
             }
             catch (NullReferenceException) { }
             MoneyLValue = Player.GetPlayer().Money;
-            this.lvl = lvl;
             Game.GetGame().HoursInc += GUI_HoursInc;
             timeLabel.Text = Game.GetGame().Time.ToString();
         }
@@ -82,16 +81,15 @@ namespace Fishing
 
         private void MapLabel_Click(object sender, EventArgs e)
         {
-            Ozero map = new Ozero();
-            map.Show();
-            Ozero.ozero.Close();
+            MFactory f = new MFactory(Game.GetGame().CurrentWater);
+            f.CreateMap();
             sp.Stream = SoundsRes.open_items;
             sp.Play();
         }
         private void MenuLabel_Click(object sender, EventArgs e)
         {
-            GUI.gui.Close();
-            Ozero.ozero.Close();
+            UI.gui.Close();
+            Map.ozero.Close();
             Menu menu = new Menu();
             menu.Show();
             sp.Stream = SoundsRes.open_items;

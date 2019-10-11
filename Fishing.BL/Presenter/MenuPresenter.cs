@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Eating;
+using Fishing.BL.Model.Game;
 using Fishing.View;
 using Fishing.View.Menu;
 using Saver.BL.Controller;
@@ -61,7 +62,7 @@ namespace Fishing.Presenter
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            view.lowerLValue += "Игрок: " + Player.GetPlayer().NickName + "                              " + Player.GetPlayer().Money;
+            view.lowerLValue = Player.GetPlayer().NickName + " " + Player.GetPlayer().Money + "рублей.";
             Item.RoadShop.Add(Road.Titanium);
             Item.RoadShop.Add(Road.Achilles);
             Item.RoadShop.Add(Road.YSuperCarp);
@@ -81,20 +82,6 @@ namespace Fishing.Presenter
             BaseFood.FoodShop.Add(BaseFood.caviar);
             BaseFood.FoodShop.Add(BaseFood.bread);
             BaseFood.FoodShop.Add(BaseFood.cheese);
-            //Player.GetPlayer().LureInv.Add(Lure.vob1);
-            //Player.GetPlayer().LureInv.Add(Lure.vob3);
-            //Player.GetPlayer().LureInv.Add(Lure.vob2);
-            //Player.GetPlayer().LureInv.Add(Lure.vob4);
-            //Player.GetPlayer().LureInv.Add(Lure.vob5);
-            //Player.GetPlayer().LureInv.Add(Lure.vob6);
-            //Player.GetPlayer().LureInv.Add(Lure.vert1);
-            //Player.GetPlayer().LureInv.Add(Lure.vert2);
-            //Player.GetPlayer().LureInv.Add(Lure.jelezo1);
-            //Player.GetPlayer().LureInv.Add(Lure.jelezo2);
-            //Player.GetPlayer().LureInv.Add(Lure.jig1);
-            //Player.GetPlayer().LureInv.Add(Lure.jig2);
-            //Player.GetPlayer().LureInv.Add(Lure.jig3);
-            //Player.GetPlayer().LureInv.Add(Lure.jig4);
             Player.GetPlayer().FoodInv.Add(BaseFood.bread);
             Player.GetPlayer().FoodInv.Add(BaseFood.caviar);
             Player.GetPlayer().FoodInv.Add(BaseFood.blackcaviar);

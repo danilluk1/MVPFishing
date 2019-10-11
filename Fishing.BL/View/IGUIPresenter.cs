@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.UserEvent;
+using Fishing.BL.View;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

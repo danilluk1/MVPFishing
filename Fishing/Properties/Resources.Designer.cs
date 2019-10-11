@@ -63,6 +63,16 @@ namespace Fishing.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blackkrug {
+            get {
+                object obj = ResourceManager.GetObject("blackkrug", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap data_a {
             get {
                 object obj = ResourceManager.GetObject("data_a", resourceCulture);
@@ -76,6 +86,26 @@ namespace Fishing.Properties {
         internal static System.Drawing.Bitmap layer10 {
             get {
                 object obj = ResourceManager.GetObject("layer10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MesheraMap {
+            get {
+                object obj = ResourceManager.GetObject("MesheraMap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ozero1f {
+            get {
+                object obj = ResourceManager.GetObject("ozero1f", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

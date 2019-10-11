@@ -24,7 +24,7 @@ namespace Fishing
         {
             InitializeComponent();
             FishList.DataSource = Player.GetPlayer().Fishlist;
-            presenter = new FPondPresenter(this, GUI.gui);
+            presenter = new FPondPresenter(this, UI.gui);
         }
 
         public event EventHandler SelectedIndexChanged;

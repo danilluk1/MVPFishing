@@ -20,7 +20,7 @@ namespace Fishing
         public Inventory()
         {
             InitializeComponent();
-            presenter = new InventoryPresenter(this, GUI.gui);
+            presenter = new InventoryPresenter(this, UI.gui);
 
             if (Player.GetPlayer().Assemblies.Count == 0)
             {

@@ -2,7 +2,7 @@
 
 namespace Fishing
 {
-    partial class GUI
+    partial class UI
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace Fishing
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UI));
             this.SounderUpdater = new System.Windows.Forms.Timer(this.components);
             this.SpeedBar = new System.Windows.Forms.TrackBar();
             this.eventsList = new System.Windows.Forms.ImageList(this.components);

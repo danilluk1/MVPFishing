@@ -60,13 +60,21 @@
     <Compile Include="Model\Game\Time.cs" />
     <Compile Include="Model\Lures\Jig.cs" />
     <Compile Include="Model\Lures\Pinwheel.cs" />
-    <Compile Include="Model\LVLS\LVL3.cs" />
+    <Compile Include="Model\LVLS\Meshera\LVL1.cs" />
+    <Compile Include="Model\LVLS\Meshera\LVL2.cs" />
+    <Compile Include="Model\LVLS\Meshera\LVL3.cs" />
+    <Compile Include="Model\LVLS\Meshera\LVL4.cs" />
+    <Compile Include="Model\LVLS\Ozero\LVL3.cs" />
+    <Compile Include="Model\Trip\TripToWater.cs" />
     <Compile Include="Model\UserEvent\FishEvent.cs" />
     <Compile Include="Model\UserEvent\FLineTornEvent.cs" />
     <Compile Include="Model\UserEvent\GatheringEvent.cs" />
     <Compile Include="Model\UserEvent\RoadBrokenEvent.cs" />
     <Compile Include="Model\UserEvent\TrophyFishEvent.cs" />
     <Compile Include="Model\UserEvent\BaseEvent.cs" />
+    <Compile Include="Model\Waters\Meshera.cs" />
+    <Compile Include="Model\Waters\Ozero.cs" />
+    <Compile Include="Model\Waters\Water.cs" />
     <Compile Include="Presenter\FoodPresenter.cs" />
     <Compile Include="Presenter\StatisticPresenter.cs" />
     <Compile Include="Resources\Images\Images.Designer.cs">
@@ -108,8 +116,8 @@
     <Compile Include="Model\Lures\Lure.cs" />
     <Compile Include="Model\Lures\Wobbler.cs" />
     <Compile Include="Model\LVLS\LVL.cs" />
-    <Compile Include="Model\LVLS\LVL1.cs" />
-    <Compile Include="Model\LVLS\LVL2.cs" />
+    <Compile Include="Model\LVLS\Ozero\LVL1.cs" />
+    <Compile Include="Model\LVLS\Ozero\LVL2.cs" />
     <Compile Include="Presenter\AssemblyPresenter.cs" />
     <Compile Include="Presenter\CurrentFishPresenter.cs" />
     <Compile Include="Presenter\FPondPresenter.cs" />
@@ -128,18 +136,21 @@
     </Compile>
     <Compile Include="View\IAddAssembly.cs" />
     <Compile Include="View\ICurrentFishF.cs" />
+    <Compile Include="View\IDeepField.cs" />
     <Compile Include="View\IFoodInventory.cs" />
     <Compile Include="View\IFPond.cs" />
     <Compile Include="View\IGUI.cs" />
     <Compile Include="View\IGUIPresenter.cs" />
     <Compile Include="View\IInventory.cs" />
     <Compile Include="View\ILVL.cs" />
+    <Compile Include="View\IMap.cs" />
     <Compile Include="View\IMenu.cs" />
     <Compile Include="View\ISelector.cs" />
     <Compile Include="View\IShop.cs" />
     <Compile Include="Presenter\SelectorPresenter.cs" />
     <Compile Include="View\ISounder.cs" />
     <Compile Include="View\IStatistic.cs" />
+    <Compile Include="View\IView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\1014.png" />
@@ -157,6 +168,7 @@
     <Content Include="Resources\barah_but03.png" />
     <Content Include="Resources\beluga.jpg" />
     <None Include="Resources\black.png" />
+    <Content Include="Resources\blackkrug.png" />
     <Content Include="Resources\boil.png" />
     <Content Include="Resources\brake5.wav" />
     <None Include="Resources\break.png" />
@@ -207,6 +219,7 @@
     <Content Include="Resources\leskaobr.wav" />
     <Content Include="Resources\lvl1.jpg" />
     <None Include="Resources\lvl3.png" />
+    <None Include="Resources\lvl4.jpg" />
     <Content Include="Resources\map.jpg" />
     <Content Include="Resources\Marco-R1.png" />
     <Content Include="Resources\Marco-R5.png" />
@@ -214,6 +227,7 @@
     <Content Include="Resources\menu.jpg" />
     <Content Include="Resources\menuu.jpg" />
     <None Include="Resources\nalim.jpg" />
+    <None Include="Resources\MesheraMap.PNG" />
     <Content Include="Resources\not_bait.png" />
     <Content Include="Resources\not_hook.png" />
     <Content Include="Resources\not_reel.png" />
@@ -313,5 +327,6 @@
       <LastGenOutput>SoundsRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,16 +7,17 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using Fishing.BL.Resources.Sounds;
+using Fishing.View.DeepField;
 
 namespace Fishing
 {
-    public partial class OzeroForm : Form, ILVL
+    public partial class GameForm : Form, ILVL
     {
         LVLPresenter presenter;
-        public OzeroForm(LVL curLVL)
+        public GameForm(LVL lvl)
         {
             InitializeComponent();
-            presenter = new LVLPresenter(this, GUI.gui, curLVL);
+            presenter = new LVLPresenter(this, UI.gui, lvl);
             presenter.StartBaitTimer += Presenter_StartBaitTimer;
             presenter.StopBaitTimer += Presenter_StopBaitTimer;
             presenter.StopGatheringTimer += Presenter_StopGatheringTimer;
@@ -114,7 +115,7 @@ namespace Fishing
         private void OzeroForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             FormClose?.Invoke(this, EventArgs.Empty);
-            GUI.gui.Close();
+            UI.gui.Close();
         }
 
         private void SoundPlayerTimer_Tick(object sender, EventArgs e)
@@ -128,5 +129,6 @@ namespace Fishing
         {
             DecSacietyTimerTick?.Invoke(this, EventArgs.Empty);
         }
+
     }
 }

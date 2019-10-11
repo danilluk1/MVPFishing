@@ -6,26 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fishing.BL.Model.LVLS
+namespace Fishing.BL.Model.LVLS.Ozero
 {
     public class LVL3 : LVL
     {
-        private static LVL3 lvl;
-        private LVL3() : base(Images.lvl3)
+        public LVL3() : base(Images.lvl3)
         {
             Widgth = 51;
             Height = 20;
             LabelStartY = 350;
-        }
-        public static LVL3 GetLVL()
-        {
-            if (lvl == null)
-            {
-                lvl = new LVL3();
-            }
-
-            return lvl;
-        }
+        }       
         public override void AddFishes()
         {
             for (int i = 0; i < 1000; i++)
@@ -55,7 +45,7 @@ namespace Fishing.BL.Model.LVLS
             Random randomFish = new Random();
             if (Player.GetPlayer().Assembly.Lure is Lure)
             {
-                if (Player.GetPlayer().CurPoint.Y > lvl.Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
+                if (Player.GetPlayer().CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
                 {
                     Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
                     if (IsFishAttackAbble(Player.GetPlayer().CFish))

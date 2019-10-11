@@ -34,7 +34,7 @@ namespace Fishing
                     if (PriceButton.Text.Length > 0)
                     {
                         Player.GetPlayer().SellFish(Player.GetPlayer().CFish);
-                        GUI.gui.MoneyLabel.Text = Player.GetPlayer().Money.ToString();
+                        UI.gui.MoneyLabel.Text = Player.GetPlayer().Money.ToString();
                         MessageBox.Show("Продано");
                         this.Close();
                     }

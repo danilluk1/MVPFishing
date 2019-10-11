@@ -31,6 +31,7 @@ namespace Fishing
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MapButton = new System.Windows.Forms.Button();
             this.ShopButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@ namespace Fishing
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.InventoryButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MapButton
@@ -113,13 +115,24 @@ namespace Fishing
             this.InventoryButton.UseVisualStyleBackColor = true;
             this.InventoryButton.Click += new System.EventHandler(this.InventoryButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(575, 262);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 32);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Путешествия";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = Images.menu;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(680, 480);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.InventoryButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -145,5 +158,6 @@ namespace Fishing
         protected internal System.Windows.Forms.Button CloseButton;
         protected internal System.Windows.Forms.Button InventoryButton;
         protected internal System.Windows.Forms.Button SettingButton;
+        private System.Windows.Forms.Button button1;
     }
 }
