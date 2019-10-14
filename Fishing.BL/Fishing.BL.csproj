@@ -52,7 +52,9 @@
     <Compile Include="Model\Eating\Bread.cs" />
     <Compile Include="Model\Eating\Caviar.cs" />
     <Compile Include="Model\Eating\Cheese.cs" />
+    <Compile Include="Model\Fishes\Asp.cs" />
     <Compile Include="Model\Fishes\Burbot.cs" />
+    <Compile Include="Model\Fishes\Chub.cs" />
     <Compile Include="Model\Fishes\SnakeHead.cs" />
     <Compile Include="Model\Fishes\Zander.cs" />
     <Compile Include="Model\Game\Game.cs" />
@@ -199,6 +201,7 @@
     <Content Include="Resources\fon11.wav" />
     <Content Include="Resources\fon8.wav" />
     <Content Include="Resources\frog.png" />
+    <None Include="Resources\golavl.png" />
     <Content Include="Resources\golec.png" />
     <Content Include="Resources\gorbusha.jpg" />
     <None Include="Resources\hvastun.png" />
@@ -220,6 +223,7 @@
     <Content Include="Resources\lvl1.jpg" />
     <None Include="Resources\lvl3.png" />
     <None Include="Resources\lvl4.jpg" />
+    <None Include="Resources\lvl5.jpg" />
     <Content Include="Resources\map.jpg" />
     <Content Include="Resources\Marco-R1.png" />
     <Content Include="Resources\Marco-R5.png" />
@@ -307,6 +311,7 @@
     <Content Include="Resources\zabr.wav" />
     <None Include="Resources\zmeegolov.jpg" />
     <Content Include="Resources\zabros.wav" />
+    <None Include="Resources\zhereh.png" />
     <Content Include="Resources\Zymix.png" />
   </ItemGroup>
   <ItemGroup>

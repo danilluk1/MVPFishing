@@ -89,7 +89,6 @@ namespace Fishing
         private void MenuLabel_Click(object sender, EventArgs e)
         {
             UI.gui.Close();
-            Map.ozero.Close();
             Menu menu = new Menu();
             menu.Show();
             sp.Stream = SoundsRes.open_items;
@@ -176,7 +175,7 @@ namespace Fishing
 
         public void CheckNeedsAndClearEventBox()
         {
-            if (EventBoxItemsCount >= 9)
+            if (EventBoxItemsCount >= 5)
             {
                 ClearEvents();
             }

@@ -18,6 +18,9 @@ namespace Fishing
         public int Widgth = 100;
         public int Height = 25;
         public int LabelStartY = 350;
+        public int LabelStartX = 0;
+        public int MinDeep;
+        public int MaxDeep;
 
         public LVL(Bitmap img)
         {
@@ -60,7 +63,7 @@ namespace Fishing
                 {
                     this.Deeparr[x, y] = new Label()
                     {
-                        Left = 5 + x * 20,
+                        Left = LabelStartX + 5 + x * 20,
                         Top = LabelStartY + y * 15,
                         Height = 15,
                         TextAlign = ContentAlignment.MiddleLeft,

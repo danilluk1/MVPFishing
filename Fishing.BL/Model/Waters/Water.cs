@@ -15,9 +15,7 @@ namespace Fishing.BL.Model.Waters
         public int DailyPrice { get; set; }
         public int KmFromNearestStation { get; set; }
         public string Name { get; set; }
-        public List<Label> Labels { get; set; }
         
-
         public Water(string name, Image mi, int dp, int km)
         {
             MapImage = mi;

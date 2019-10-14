@@ -67,6 +67,7 @@ namespace Fishing
             DeepField field = new DeepField(lvl);
             ozero.Show();
             UI.gui.Show();
+            this.Close();
         }
     }
 

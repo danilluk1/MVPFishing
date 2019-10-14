@@ -86,6 +86,7 @@ namespace Fishing.Presenter
             Player.GetPlayer().FoodInv.Add(BaseFood.caviar);
             Player.GetPlayer().FoodInv.Add(BaseFood.blackcaviar);
             Player.GetPlayer().FoodInv.Add(BaseFood.cheese);
+
         }
 
     }

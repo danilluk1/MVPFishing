@@ -43,6 +43,12 @@ namespace Fishing
             DeepField field = new DeepField(lvl);
             ozero.Show();
             UI.gui.Show();
+            this.Close();
+        }
+
+        private void Lvl2Box_Click(object sender, EventArgs e)
+        {
+            Create(new LVL2());
         }
     }
 

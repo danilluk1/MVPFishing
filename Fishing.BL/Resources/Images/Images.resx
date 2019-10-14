@@ -190,6 +190,9 @@
   <data name="frog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\frog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="golavl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\golavl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="golec" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\golec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -267,6 +270,9 @@
   </data>
   <data name="MesheraLVL1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\lvl4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MesheraLVL2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\lvl5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MesheraMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\MesheraMap.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -490,20 +496,14 @@
   <data name="zabros" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\zabros.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="zhereh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\zhereh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="zmeegolov" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\zmeegolov.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Zymix" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Zymix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1014" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1089" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1089.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_2030" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\2030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_break" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\break.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

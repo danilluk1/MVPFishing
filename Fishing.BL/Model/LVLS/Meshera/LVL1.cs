@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Fishing.BL.Model.LVLS.Meshera
 {
@@ -14,7 +15,7 @@ namespace Fishing.BL.Model.LVLS.Meshera
             Widgth = 51;
             Height = 21;
             LabelStartY = 330;
-
+            LabelStartX = 0;
         }
         public override void AddFishes()
         {

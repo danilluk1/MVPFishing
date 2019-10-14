@@ -15,47 +15,7 @@ namespace Fishing.BL.Model.Waters
         private static Meshera water;
 
         private Meshera() : base("Мещёра", Images.MesheraMap, 1200, 1600)
-        {
-            Labels = new List<Label>();
-            Labels.Add
-            (
-                new Label()
-                {
-                    Image = Images.blackkrug,
-                    Top = 500,
-                    Left = 800,
-                    Width = 28,
-                    Height = 29,
-                    BackColor = Color.Transparent,
-                    Tag = "LVL2"
-                }
-            );
-            Labels.Add
-            (
-                new Label()
-                {
-                    Image = Images.blackkrug,
-                    Top = 700,
-                    Left = 220,
-                    Width = 28,
-                    Height = 29,
-                    BackColor = Color.Transparent,
-                    Tag = "LVL2"
-                }
-            );
-            Labels.Add //LVL2
-            (
-                new Label()
-                {
-                    Image = Images.blackkrug,
-                    Top = 450,
-                    Left = 350,
-                    Width = 28,
-                    Height = 29,
-                    BackColor = Color.Transparent,
-                    Tag = "LVL2"
-                }
-            );
+        {          
         }
 
         public static Meshera GetWater()

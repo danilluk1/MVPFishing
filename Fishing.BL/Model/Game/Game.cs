@@ -51,33 +51,7 @@ namespace Fishing.BL.Model.Game
         }
         private void HoursTimer_Tick(object sender, EventArgs e)
         {
-            if(Time.Hours <= 23)
-            {
-                Time.Hours++;
-            }
-            else if(Time.Hours == 24)
-            {
-                Time.Hours = 0;
-                Time.Day++;
-                BaseController.GetController().SavePlayer();
-            }
-
-            if(Time.Hours >= 0 && Time.Hours <= 4)
-            {
-                Time.Part = PartsOfDay.Night;
-            }
-            if (Time.Hours > 4 && Time.Hours <= 10)
-            {
-                Time.Part = PartsOfDay.Morning;
-            }
-            if (Time.Hours > 10 && Time.Hours <= 16)
-            {
-                Time.Part = PartsOfDay.Day;
-            }
-            if (Time.Hours > 16 && Time.Hours <= 24)
-            {
-                Time.Part = PartsOfDay.Evening;
-            }
+            Time.IncHours(1);
             HoursInc?.Invoke(this, EventArgs.Empty);
         }
     }

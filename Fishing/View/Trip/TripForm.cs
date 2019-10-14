@@ -85,8 +85,18 @@ namespace Fishing.View.Trip
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            Game.GetGame().CurrentWater = trip.TripWater;
-            Game.GetGame().Time.Hours += trip.DaysCount;
+            if (Game.GetGame().CurrentWater != trip.TripWater)
+            {
+                Game.GetGame().CurrentWater = trip.TripWater;
+                Game.GetGame().Time.IncHours(trip.HoursInTrip);
+                Player.GetPlayer().Money -= trip.Price;
+                timeLabel.Text = Game.GetGame().Time.ToString();
+                moneyLabel.Text = Player.GetPlayer().Money.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Вы уже находитесь на текущем водоёме");
+            }
         }
     }
 }

@@ -322,13 +322,21 @@ namespace Fishing.Presenter
                     {
                         if (point.Y >= CurLVL.Deeparr[0, 0].Location.Y)
                         {
-                            player.CurPoint = point;
+                            player.CurPoint.Y = point.Y;
                         }
                         else
                         {
-                            player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 3;
+                            player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 3;                           
+                        }
+                        if(point.X >= CurLVL.Deeparr[0, 0].Location.X)
+                        {
                             player.CurPoint.X = point.X;
                         }
+                        else
+                        {
+                            player.CurPoint.X = CurLVL.Deeparr[0, 0].Location.X + 5;
+                        }
+
                         player.LastCastPoint = point;
                         sp.Stream = SoundsRes.zabr;
                         sp.Play();

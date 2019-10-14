@@ -19,7 +19,7 @@ namespace Fishing.BL.Model.Trip
         public int DaysCount { get; set; } = 1;
         public Transport TripTransport { get; set; } = Transport.Plane;
         public int Price { get; set; }
-        public int HoursInTrip { get; set; }
+        public int HoursInTrip { get; set; } = 0;
 
         public void CountPrice()
         {
