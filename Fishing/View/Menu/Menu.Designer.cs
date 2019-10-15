@@ -103,7 +103,6 @@ namespace Fishing
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 24);
             this.label2.TabIndex = 5;
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // InventoryButton
             // 

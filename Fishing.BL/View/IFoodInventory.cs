@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fishing.BL.View
 {
-    public interface IFoodInventory
+    public interface IFoodInventory : IView
     {
         int SelectedIndex { get; set; }
         Image FoodImage { get; set; }

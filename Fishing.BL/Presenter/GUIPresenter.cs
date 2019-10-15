@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Fishing.Presenter
 {
-    public class GUIPresenter : Presenter
+    public class GUIPresenter : BasePresenter
     {
         IGUI view;
         public GUIPresenter(IGUI view)
@@ -28,8 +28,7 @@ namespace Fishing.Presenter
 
         private void View_EventBarClick(object sender, EventArgs e)
         {
-            //FoodInventory inv = new FoodInventory();
-            //inv.Show();
+           
         }
 
         private void View_SettingsButtonClick(object sender, EventArgs e)
@@ -56,16 +55,14 @@ namespace Fishing.Presenter
         {
         }
 
-        public void Close()
+        public override void Load()
         {
             throw new NotImplementedException();
         }
 
-        public void Load()
+        public override void Close()
         {
             throw new NotImplementedException();
         }
-
-       
     }
 }

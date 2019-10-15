@@ -11,5 +11,6 @@ namespace Fishing.BL.View
     {
         void Open();
         void Down();
+        Fishing.Presenter.BasePresenter Presenter { set; }
     }
 }

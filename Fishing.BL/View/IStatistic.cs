@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Fishing.BL.View
 {
-    public interface IStatistic
+    public interface IStatistic : IView
     {
         event EventHandler LoadForm;
         string NameLText { get; set; }

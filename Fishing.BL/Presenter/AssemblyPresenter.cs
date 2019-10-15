@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Fishing.Presenter
 {
-    public class AssemblyPresenter : Presenter
+    public class AssemblyPresenter : BasePresenter
     {
         private readonly IAddAssembly view;
         public event EventHandler CloseForm;
@@ -25,12 +25,13 @@ namespace Fishing.Presenter
             Player.GetPlayer().Assemblies.Add(new Assembly(name));
             CloseForm?.Invoke(this, EventArgs.Empty);
         }
-        public void Close()
+
+        public override void Load()
         {
             throw new NotImplementedException();
         }
 
-        public void Load()
+        public override void Close()
         {
             throw new NotImplementedException();
         }

@@ -12,15 +12,37 @@ using Fishing.View.LureSelector;
 
 namespace Fishing.Presenter
 {
-    public class InventoryPresenter : Presenter
+    public class InventoryPresenter : BasePresenter
     {
 
         IInventory view;
         IGUIPresenter gui;
+        public InventoryPresenter(IInventory view)
+        {
+            this.view = view;
+            view.Presenter = this;
+            view.Open();
+            view.LureDoubleClick += View_LureDoubleClick;
+            view.LureSelectedIndexChanged += View_LureSelectedIndexChanged;
+            view.ReelDoubleClick += View_ReelDoubleClick;
+            view.ReelSelectedIndexChanged += View_ReelSelectedIndexChanged;
+            view.RoadDoubleClick += View_RoadDoubleClick;
+            view.RoadSelectedIndexChanged += View_RoadSelectedIndexChanged;
+            view.FLineDoubleClick += View_FLineDoubleClick;
+            view.FLineSelectedIndexChanged += View_FLineSelectedIndexChanged;
+            view.CloseButtonClick += View_CloseButtonClick;
+            view.FetchButtonClick += View_FetchButtonClick;
+            view.AddButtonClick += View_AddButtonClick;
+            view.AssemblyDoubleClick += View_AssemblyDoubleClick;
+            view.MakeOutClick += View_MakeOutClick;
+            view.BaitPicClick += View_BaitPicClick;
+        }
         public InventoryPresenter(IInventory view, IGUIPresenter gui)
         {
-            this.gui = gui;
             this.view = view;
+            this.gui = gui;            
+            view.Presenter = this;
+            view.Open();
             view.LureDoubleClick += View_LureDoubleClick;
             view.LureSelectedIndexChanged += View_LureSelectedIndexChanged;
             view.ReelDoubleClick += View_ReelDoubleClick;
@@ -71,7 +93,6 @@ namespace Fishing.Presenter
                 gui.FLinePicture = view.Assembly_P.FLine.Pict;
             }
             catch (NullReferenceException) { }
-            
         }
 
         private void View_AddButtonClick(object sender, EventArgs e)
@@ -144,12 +165,12 @@ namespace Fishing.Presenter
             view.LureText = view.Lure_P.Name;
         }
 
-        public void Load()
+        public override void Load()
         {
             throw new NotImplementedException();
         }
 
-        public void Close()
+        public override void Close()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Eating;
+using Fishing.BL.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,8 @@ using System.Threading.Tasks;
 
 namespace Fishing.View.Shop
 {
-    public interface IShop
+    public interface IShop : IView
     {
-        event EventHandler FLineSelectedIndexChanged;
-        event EventHandler RoadSelectedIndexChanged;
-        event EventHandler ReelSelectedIndexChanged;
-        event EventHandler ProductSelectedIndexChanged;
-
         event EventHandler FLineDoubleClick;
         event EventHandler RoadDoubleClick;
         event EventHandler ReelDoubleClick;

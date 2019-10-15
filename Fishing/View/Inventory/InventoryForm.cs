@@ -16,11 +16,10 @@ namespace Fishing
 {
     public partial class Inventory : Form, IInventory
     {
-        InventoryPresenter presenter;
         public Inventory()
         {
             InitializeComponent();
-            presenter = new InventoryPresenter(this, UI.gui);
+            
 
             if (Player.GetPlayer().Assemblies.Count == 0)
             {
@@ -138,6 +137,7 @@ namespace Fishing
         public string ReelText { get => reelTextBox.Text; set => reelTextBox.Text = value; }
         public string FLineText { get => flineTextBox.Text; set => flineTextBox.Text = value; }
         public string LureText { get => lureTextBox.Text; set => lureTextBox.Text = value; }
+        public BasePresenter Presenter { private get; set; }
 
         public event EventHandler FLineSelectedIndexChanged;
         public event EventHandler RoadSelectedIndexChanged;
@@ -270,6 +270,16 @@ namespace Fishing
         {
             LureSelector selector = new LureSelector();
             selector.Show();
+        }
+
+        public void Open()
+        {
+            this.Show();
+        }
+
+        public void Down()
+        {
+            this.Close();
         }
     }
 }

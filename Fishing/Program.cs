@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Game;
+using Fishing.Presenter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,10 @@ namespace Fishing
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Menu());
+            var MenuView = new Menu();
+
+            var presenter = new MenuPresenter(MenuView);
+            Application.Run(MenuView);
         }
     }
 }

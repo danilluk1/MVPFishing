@@ -69,30 +69,25 @@ namespace Fishing
         public Image ReelPicture { get => reelBox.BackgroundImage; set => reelBox.BackgroundImage = value; }
         public Image FLinePicture { get => flineBox.BackgroundImage; set => flineBox.BackgroundImage = value; }
 
+        public event EventHandler SettingsButtonClick;
+        public event PaintEventHandler SounderPaint;
+        public event EventHandler EventBarClick;
         public event EventHandler MapButtonClick;
         public event EventHandler InventoryButtonClick;
         public event EventHandler MenuButtonClick;
-        public event EventHandler SettingsButtonClick;
         public event EventHandler FPondClick;
         public event EventHandler BaitPicClick;
-        public event PaintEventHandler SounderPaint;
         public event EventHandler RefreshSounder;
-        public event EventHandler EventBarClick;
 
         private void MapLabel_Click(object sender, EventArgs e)
         {
             MFactory f = new MFactory(Game.GetGame().CurrentWater);
             f.CreateMap();
-            sp.Stream = SoundsRes.open_items;
-            sp.Play();
         }
         private void MenuLabel_Click(object sender, EventArgs e)
         {
             UI.gui.Close();
-            Menu menu = new Menu();
-            menu.Show();
-            sp.Stream = SoundsRes.open_items;
-            sp.Play();
+            MenuPresenter presenter = new MenuPresenter(new Menu());
         }
 
         private void SettingLabel_Click(object sender, EventArgs e)
@@ -104,8 +99,6 @@ namespace Fishing
         {
             fishesForm form = new fishesForm();
             form.Show();
-            sp.Stream = SoundsRes.open_items;
-            sp.Play();
         }
 
         private void BaitsPicture_Click(object sender, EventArgs e)
@@ -114,9 +107,11 @@ namespace Fishing
             {
                 LureSelector selector = new LureSelector();
                 selector.Show();
-                sp.Stream = SoundsRes.open_items;
-                sp.Play();
             }
+        }
+        private void EatingBar_Click(object sender, EventArgs e)
+        {
+            FoodPresenter presenter = new FoodPresenter(new FoodInventory());
         }
 
 
@@ -131,18 +126,12 @@ namespace Fishing
         }    
         private void InventoryBox_Click(object sender, EventArgs e)
         {
-            Inventory inventory = new Inventory();
-            inventory.Show();
-            sp.Stream = SoundsRes.open_items;
-            sp.Play();
+            InventoryPresenter presenter = new InventoryPresenter(new Inventory(), gui);
         }
 
         private void StatsBox_Click(object sender, EventArgs e)
         {
-            StatisticForm form = new StatisticForm();
-            form.Show();
-            sp.Stream = SoundsRes.open_corf;
-            sp.Play();
+            StatisticPresenter presenter = new StatisticPresenter(new StatisticForm());
         }
         public void AddEventToBox(BaseEvent ev)
         {
@@ -181,11 +170,5 @@ namespace Fishing
             }
         }
 
-        private void EatingBar_Click(object sender, EventArgs e)
-        {
-            FoodInventory inv = new FoodInventory();
-            inv.Show();
-            EventBarClick?.Invoke(this, EventArgs.Empty);
-        }
     }
 }

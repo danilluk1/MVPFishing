@@ -15,25 +15,20 @@ namespace Fishing.View.FoodInventory
 {
     public partial class FoodInventory : Form, IFoodInventory
     {
-        private readonly FoodPresenter presenter;
         public FoodInventory()
         {
             InitializeComponent();
             foodsBox.DataSource = Player.GetPlayer().FoodInv;
-            presenter = new FoodPresenter(this);
+            
         }
 
         public int SelectedIndex { get => foodsBox.SelectedIndex; set => throw new NotImplementedException(); }
         public Image FoodImage { get => FoodBox.BackgroundImage; set => FoodBox.BackgroundImage = value; }
         public string FoodProductivityTextBox { get => foodProductBox.Text; set => foodProductBox.Text = "Восполняет: %" + value; }
+        public BasePresenter Presenter { private get; set; }
 
         public event EventHandler ListSelectedIndexChanged;
         public event EventHandler ListDoubleClick;
-
-        private void FoodInventory_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void FoodsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -46,6 +41,16 @@ namespace Fishing.View.FoodInventory
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Down();
+        }
+
+        public void Open()
+        {
+            this.Show();
+        }
+
+        public void Down()
         {
             this.Close();
         }

@@ -13,23 +13,18 @@ namespace Fishing
 {
     public partial class GameForm : Form, ILVL
     {
-        LVLPresenter presenter;
-        public GameForm(LVL lvl)
+
+        public GameForm()
         {
             InitializeComponent();
-            presenter = new LVLPresenter(this, UI.gui, lvl);
-            presenter.StartBaitTimer += Presenter_StartBaitTimer;
-            presenter.StopBaitTimer += Presenter_StopBaitTimer;
-            presenter.StopGatheringTimer += Presenter_StopGatheringTimer;
-            presenter.RefreshForm += Presenter_RefreshForm;
-            presenter.CreateCurrentFishF += Presenter_CreateCurrentFishF;
-            
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint, true);
-
             UpdateStyles();
         }
         public Point CurPoint { get => PointToClient(Cursor.Position); set => throw new ArgumentException(); }
+        public BasePresenter Presenter { private get;  set; }
+        public Image BackImage { get => BackgroundImage; set => BackgroundImage = value; }
+        public LVLPresenter LVLPresenter { private get; set; }
 
         public event EventHandler MouseLeftClick;
         public event EventHandler CountGathering;
@@ -130,5 +125,23 @@ namespace Fishing
             DecSacietyTimerTick?.Invoke(this, EventArgs.Empty);
         }
 
+        public void Open()
+        {
+            this.Show();
+        }
+
+        public void Down()
+        {
+            this.Close();
+        }
+
+        public void AddPresenterSounders()
+        {
+            LVLPresenter.StartBaitTimer += Presenter_StartBaitTimer;
+            LVLPresenter.StopBaitTimer += Presenter_StopBaitTimer;
+            LVLPresenter.StopGatheringTimer += Presenter_StopGatheringTimer;
+            LVLPresenter.RefreshForm += Presenter_RefreshForm;
+            LVLPresenter.CreateCurrentFishF += Presenter_CreateCurrentFishF;
+        }
     }
 }

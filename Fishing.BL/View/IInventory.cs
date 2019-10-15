@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fishing;
+using Fishing.BL.View;
 
 namespace Fishing.View.Inventory
 {
-    public interface IInventory
+    public interface IInventory : IView
     {
         event EventHandler FLineSelectedIndexChanged;
         event EventHandler RoadSelectedIndexChanged;

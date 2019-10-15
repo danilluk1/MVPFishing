@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace Fishing.Presenter
 {
-    public interface Presenter
+    public abstract class BasePresenter
     {
-        void Load();
-        void Close();
+        public abstract void Load();
+        public abstract void Close();
     }
 }

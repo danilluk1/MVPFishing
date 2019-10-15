@@ -85,7 +85,6 @@
             this.Name = "FoodInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FoodInventory";
-            this.Load += new System.EventHandler(this.FoodInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FoodBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

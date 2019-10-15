@@ -252,7 +252,6 @@ namespace Fishing
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Продукты";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Shop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemBox)).EndInit();
             this.shopTab.ResumeLayout(false);
             this.RoadPage.ResumeLayout(false);

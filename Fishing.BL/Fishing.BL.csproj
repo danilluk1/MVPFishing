@@ -127,7 +127,7 @@
     <Compile Include="Presenter\InventoryPresenter.cs" />
     <Compile Include="Presenter\LVLPresenter.cs" />
     <Compile Include="Presenter\MenuPresenter.cs" />
-    <Compile Include="Presenter\Presenter.cs" />
+    <Compile Include="Presenter\BasePresenter.cs" />
     <Compile Include="Presenter\ShopPresenter.cs" />
     <Compile Include="Presenter\SounderPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

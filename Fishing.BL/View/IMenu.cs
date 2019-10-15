@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fishing.BL.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fishing.View.Menu
 {
-    public interface IMenu
+    public interface IMenu : IView
     {
         event EventHandler SettingsButtonClick;
         event EventHandler InventoryButtonClick;

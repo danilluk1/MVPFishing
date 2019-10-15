@@ -13,51 +13,23 @@ using System.Windows.Forms;
 
 namespace Fishing.Presenter
 {
-    public class MenuPresenter : Presenter
+    public class MenuPresenter : BasePresenter
     {
         private readonly IMenu view;
         public MenuPresenter(IMenu view)
         {
             
             this.view = view;
-            view.InventoryButtonClick += View_InventoryButtonClick;
-            view.SettingsButtonClick += View_SettingsButtonClick;
-            view.ShopButtonClick += View_ShopButtonClick;
+            view.Presenter = this;
             view.ExitButtonClick += View_ExitButtonClick;
-            view.MapButtonClick += View_MapButtonClick;
             view.MenuLoad += Menu_Load;
             BaseController.GetController().Initiallize();
-        }
-
-        private void View_MapButtonClick(object sender, EventArgs e)
-        {
         }
 
         private void View_ExitButtonClick(object sender, EventArgs e)
         {
             BaseController.GetController().SavePlayer();
             Application.Exit();
-        }
-
-        private void View_ShopButtonClick(object sender, EventArgs e)
-        {
-        }
-
-        private void View_SettingsButtonClick(object sender, EventArgs e)
-        {
-        }
-
-        private void View_InventoryButtonClick(object sender, EventArgs e)
-        {
-        }
-
-        public void Load()
-        {          
-        }
-
-        public void Close()
-        {
-            
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -89,5 +61,14 @@ namespace Fishing.Presenter
 
         }
 
+        public override void Load()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Close()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

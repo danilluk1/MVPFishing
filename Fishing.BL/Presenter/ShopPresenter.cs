@@ -9,16 +9,14 @@ using Fishing.View.Shop;
 
 namespace Fishing.Presenter
 {
-    public class ShopPresenter
+    public class ShopPresenter : BasePresenter
     {
         IShop view;
         public ShopPresenter(IShop view)
         {
             this.view = view;
-            view.CloseButtonClick += CloseButton_Click;
-            view.FLineSelectedIndexChanged += FLineList_SelectedIndexChanged;
-            view.ReelSelectedIndexChanged += ReelsList_SelectedIndexChanged;
-            view.RoadSelectedIndexChanged += RoadsList_SelectedIndexChanged;
+            view.Presenter = this;
+            view.Open();
             view.FLineDoubleClick += View_FLineDoubleClick;
             view.ReelDoubleClick += View_ReelDoubleClick;
             view.RoadDoubleClick += View_RoadDoubleClick;
@@ -77,27 +75,15 @@ namespace Fishing.Presenter
             result = item.Price <= Player.GetPlayer().Money ? true : false;
 
             return result;
-        }
-       
-
-        private void RoadsList_SelectedIndexChanged(object sender, EventArgs e)
-        {         
-            
-        }
-
-        private void ReelsList_SelectedIndexChanged(object sender, EventArgs e)
+        }    
+        public override void Load()
         {
-            
+            throw new NotImplementedException();
         }
 
-        private void FLineList_SelectedIndexChanged(object sender, EventArgs e)
+        public override void Close()
         {
-            
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-           
+            throw new NotImplementedException();
         }
     }
 }

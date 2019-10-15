@@ -15,59 +15,24 @@ namespace Fishing
 {
     public partial class Shop : Form, IShop
     {
-        ShopPresenter presenter;
         public Shop()
         {
             InitializeComponent();
-            presenter = new ShopPresenter(this);
+            RoadsList.DataSource = Item.RoadShop;
+            ReelsList.DataSource = Item.ReelShop;
+            FLineList.DataSource = Item.LeskaShop;
+            foodsBox.DataSource = BaseFood.FoodShop;
+            moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
-        public void addItemtoRightView(Item i)
-        {
-            try
-            {
-                if (Item.selectItemType(i) is Road)
-                {
-                    Road r = (Road)i;
-                    this.itemBox.Image = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = r.Type.ToString();
-                    this.label1.Text = " ";
-                }
-                if (Item.selectItemType(i) is Reel)
-                {
-                    Reel r = (Reel)i;
-                    this.itemBox.Image = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
-                }
-                if (Item.selectItemType(i) is FLine)
-                {
-                    FLine r = (FLine)i;
-                    this.itemBox.Image = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
-                }
-                if (Item.selectItemType(i) is BaseFood)
-                {
-                    BaseFood r = (BaseFood)i;
-                    this.itemBox.Image = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Productivity.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
-                }
-            }
-            catch (ArgumentOutOfRangeException) { }
-        }
+        public string MoneyL { get => moneyBox.Text; set => moneyBox.Text = value; }
+        public string LowerL { get => label1.Text; set => label1.Text = value; }
+        public BasePresenter Presenter { private get; set; }
+
+        public event EventHandler FLineDoubleClick;
+        public event EventHandler RoadDoubleClick;
+        public event EventHandler ReelDoubleClick;
+        public event EventHandler CloseButtonClick;
+        public event EventHandler ProductDoubleClick;       
 
         public Road Road_P
         {
@@ -137,33 +102,17 @@ namespace Fishing
 
             }
         }
-        public string MoneyL { get => moneyBox.Text; set => moneyBox.Text = value; }
-        public string LowerL { get => label1.Text; set => label1.Text = value; }
-
-        public event EventHandler FLineSelectedIndexChanged;
-        public event EventHandler RoadSelectedIndexChanged;
-        public event EventHandler ReelSelectedIndexChanged;
-        public event EventHandler FLineDoubleClick;
-        public event EventHandler RoadDoubleClick;
-        public event EventHandler ReelDoubleClick;
-        public event EventHandler CloseButtonClick;
-        public event EventHandler ProductSelectedIndexChanged;
-        public event EventHandler ProductDoubleClick;
-
         private void RoadsList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            RoadSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
             addItemtoRightView(Road_P);
         }
         private void FLineList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FLineSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
             addItemtoRightView(FLine_P);
         }
 
         private void ReelsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReelSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
             addItemtoRightView(Reel_P);
         }
 
@@ -187,15 +136,6 @@ namespace Fishing
             RoadDoubleClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void Shop_Load(object sender, EventArgs e)
-        {
-            RoadsList.DataSource = Item.RoadShop;
-            ReelsList.DataSource = Item.ReelShop;
-            FLineList.DataSource = Item.LeskaShop;
-            foodsBox.DataSource = BaseFood.FoodShop;
-            moneyBox.Text = Player.GetPlayer().Money.ToString();
-        }
-
         private void FoodsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             addItemtoRightView(Food_P);
@@ -204,6 +144,63 @@ namespace Fishing
         private void FoodsBox_DoubleClick(object sender, EventArgs e)
         {
             ProductDoubleClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void Open()
+        {
+            this.Show();
+        }
+
+        public void Down()
+        {
+            this.Close();
+        }
+        public void addItemtoRightView(Item i)
+        {
+            try
+            {
+                if (Item.selectItemType(i) is Road)
+                {
+                    Road r = (Road)i;
+                    this.itemBox.Image = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.Power.ToString();
+                    this.priceBox.Text = r.Price.ToString();
+                    this.typeBox.Text = r.Type.ToString();
+                    this.label1.Text = " ";
+                }
+                if (Item.selectItemType(i) is Reel)
+                {
+                    Reel r = (Reel)i;
+                    this.itemBox.Image = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.Power.ToString();
+                    this.priceBox.Text = r.Price.ToString();
+                    this.typeBox.Text = " ";
+                    this.label1.Text = " ";
+                }
+                if (Item.selectItemType(i) is FLine)
+                {
+                    FLine r = (FLine)i;
+                    this.itemBox.Image = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.Power.ToString();
+                    this.priceBox.Text = r.Price.ToString();
+                    this.typeBox.Text = " ";
+                    this.label1.Text = " ";
+                }
+                if (Item.selectItemType(i) is BaseFood)
+                {
+                    BaseFood r = (BaseFood)i;
+                    this.itemBox.Image = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.Productivity.ToString();
+                    this.priceBox.Text = r.Price.ToString();
+                    this.typeBox.Text = " ";
+                    this.label1.Text = " ";
+                }
+            }
+            catch (ArgumentOutOfRangeException) { }
         }
     }
 }

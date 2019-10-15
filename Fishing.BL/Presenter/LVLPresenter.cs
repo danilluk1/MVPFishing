@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Fishing.Presenter
 {
-    public class LVLPresenter : Presenter
+    public class LVLPresenter : BasePresenter
     {
         readonly ILVL view;
         readonly IGUIPresenter gui;
@@ -32,6 +32,10 @@ namespace Fishing.Presenter
             this.CurLVL = curLVL;
             this.view = view;
             this.gui = v;
+            view.LVLPresenter = this;
+            view.AddPresenterSounders();
+            view.BackImage = CurLVL.Image;
+            view.Open();      
             player = Player.GetPlayer();
             sp = new SoundPlayer();
 
@@ -276,15 +280,6 @@ namespace Fishing.Presenter
             catch (NullReferenceException) { }
 
         }
-        public void Close()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Load()
-        {
-            throw new NotImplementedException();
-        }
 
         private void AutoDecBarValues()
         {
@@ -392,5 +387,14 @@ namespace Fishing.Presenter
             Player.GetPlayer().CurPoint.Y += Player.GetPlayer().WindingSpeed;
         }
 
+        public override void Load()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Close()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

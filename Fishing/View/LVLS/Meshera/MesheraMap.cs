@@ -38,7 +38,7 @@ namespace Fishing
         public void Create(LVL lvl)
         {
             UI.gui = new UI(lvl);
-            GameForm ozero = new GameForm(lvl);
+            GameForm ozero = new GameForm();
             ozero.BackgroundImage = lvl.Image;
             DeepField field = new DeepField(lvl);
             ozero.Show();

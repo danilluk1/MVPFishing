@@ -21,12 +21,11 @@ namespace Fishing
         public Menu()
         {
             InitializeComponent();
-            presenter = new MenuPresenter(this);
         }
-        MenuPresenter presenter;
 
         public string NickNameL { get => label2.Text; set => label2.Text = value; }
         public string lowerLValue { get => label2.Text; set => label2.Text = value; }
+        public BasePresenter Presenter { private get; set; }
 
         public event EventHandler SettingsButtonClick;
         public event EventHandler InventoryButtonClick;
@@ -49,14 +48,12 @@ namespace Fishing
 
         private void ShopButton_Click(object sender, EventArgs e)
         {
-            Shop shop = new Shop();
-            shop.Show();
+            ShopPresenter presenter = new ShopPresenter(new Shop());
         }
 
         private void InventoryButton_Click(object sender, EventArgs e)
         {
-            Inventory inventory = new Inventory();
-            inventory.Show();
+            InventoryPresenter presenter = new InventoryPresenter(new Inventory());
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -68,15 +65,20 @@ namespace Fishing
         {
             MenuLoad?.Invoke(this, EventArgs.Empty);
         }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-        }
-
         private void Button1_Click(object sender, EventArgs e)
         {
             TripForm form = new TripForm();
             form.Show();
+        }
+
+        public void Open()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Down()
+        {
+            throw new NotImplementedException();
         }
     }
 }
