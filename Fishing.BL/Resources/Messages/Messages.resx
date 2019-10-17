@@ -120,8 +120,14 @@
   <data name="ARCTICCHAR_DESCRIPTION" xml:space="preserve">
     <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине.</value>
   </data>
+  <data name="ASP_DESCRIPTION" xml:space="preserve">
+    <value>Хищник. Предпочитает мелкие и средние приманки.Кренки и вертушки. Обитает на предпочтительно на поверхности.</value>
+  </data>
   <data name="BURBOT_DESCRIPTION" xml:space="preserve">
     <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине. Клюёт в основном ночью, и утром.</value>
+  </data>
+  <data name="CHUB_DESCRIPTION" xml:space="preserve">
+    <value>Хищник. Предпочитает мелкие и средние приманки.Кренки и вертушки. Обитает на предпочтительно на поверхности. </value>
   </data>
   <data name="GRAYLING_DESCRIPTION" xml:space="preserve">
     <value>Хищник. Предпочитает мелкие и средние приманки. Обитает на любой глубине.</value>

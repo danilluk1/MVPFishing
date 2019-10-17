@@ -21,11 +21,23 @@ namespace Fishing.Presenter
             view.ReelDoubleClick += View_ReelDoubleClick;
             view.RoadDoubleClick += View_RoadDoubleClick;
             view.ProductDoubleClick += View_ProductDoubleClick;
+            view.LureDoubleClick += View_LureDoubleClick;
+        }
+
+        private void View_LureDoubleClick(object sender, EventArgs e)
+        {
+            if (IsPlayerAbleToBuyItem(view.Lure_P))
+            {
+                Player.GetPlayer().LureInv.Add(view.Lure_P);
+                Player.GetPlayer().Money -= view.Lure_P.Price;
+                view.MoneyL = Player.GetPlayer().Money.ToString();
+                view.LowerL = "Куплено...";
+            }
         }
 
         private void View_ProductDoubleClick(object sender, EventArgs e)
         {
-            if (isPlayerAbleToBuyItem(view.Road_P))
+            if (IsPlayerAbleToBuyItem(view.Road_P))
             {
                 Player.GetPlayer().FoodInv.Add(view.Food_P);
                 Player.GetPlayer().Money -= view.Food_P.Price;
@@ -36,7 +48,7 @@ namespace Fishing.Presenter
 
         private void View_RoadDoubleClick(object sender, EventArgs e)
         {
-            if (isPlayerAbleToBuyItem(view.Road_P))
+            if (IsPlayerAbleToBuyItem(view.Road_P))
             {
                 Player.GetPlayer().RoadInv.Add(view.Road_P);
                 Player.GetPlayer().Money -= view.Road_P.Price;
@@ -47,7 +59,7 @@ namespace Fishing.Presenter
 
         private void View_ReelDoubleClick(object sender, EventArgs e)
         {
-            if (isPlayerAbleToBuyItem(view.Reel_P))
+            if (IsPlayerAbleToBuyItem(view.Reel_P))
             {
                 Player.GetPlayer().ReelInv.Add(view.Reel_P);
                 Player.GetPlayer().Money -= view.Reel_P.Price;
@@ -58,7 +70,7 @@ namespace Fishing.Presenter
 
         private void View_FLineDoubleClick(object sender, EventArgs e)
         {
-            if (isPlayerAbleToBuyItem(view.FLine_P))
+            if (IsPlayerAbleToBuyItem(view.FLine_P))
             {
                 Player.GetPlayer().FLineInv.Add(view.FLine_P);
                 Player.GetPlayer().Money -= view.FLine_P.Price;
@@ -69,7 +81,7 @@ namespace Fishing.Presenter
 
         
 
-        private bool isPlayerAbleToBuyItem(Item item)
+        private bool IsPlayerAbleToBuyItem(Item item)
         {
             bool result;
             result = item.Price <= Player.GetPlayer().Money ? true : false;

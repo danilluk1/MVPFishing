@@ -44,7 +44,8 @@ namespace Fishing.BL.Model.LVLS.Meshera
                     if (IsFishAttackAbble(Player.GetPlayer().CFish) && Player.GetPlayer().IsBaitMoving)
                     {
                         Player.GetPlayer().isFishAttack = true;
-                        Player.GetPlayer().IncValue = Player.GetPlayer().CFish.Weight * 20 / (Player.GetPlayer().Assembly.Proad.Power);
+                        Player.GetPlayer().RoadIncValue = Player.GetPlayer().CFish.Weight * 20 / (Player.GetPlayer().Assembly.Proad.Power);
+                        Player.GetPlayer().FLineIncValue = Player.GetPlayer().CFish.Weight * 20 / (Player.GetPlayer().Assembly.FLine.Power);
                         StopBaitTimer?.Invoke(this, EventArgs.Empty);
                         int Gathering = randomGathering.Next(1, 100);
                         if (Gathering <= 5)

@@ -28,7 +28,7 @@ namespace Fishing.BL.Model.Fishes
         private readonly static string name = "Голавль";
         private readonly static int price = 4;
         private readonly static int trophyWeight = 3000;
-        private readonly static string description = Messages.ARCTICCHAR_DESCRIPTION;
+        private readonly static string description = Messages.CHUB_DESCRIPTION;
         private readonly static Bitmap bit = Images.golavl;
 
         public Chub(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(200, Convert.ToInt32(4000 * maxSizeCoef)), power, price, trophyWeight, lures, activParts, description, bit)

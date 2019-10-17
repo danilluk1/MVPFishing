@@ -22,16 +22,16 @@ namespace Fishing.BL.Model.Fishes
         {
             PartsOfDay.Evening,
             PartsOfDay.Morning,
-            PartsOfDay.Night
+            PartsOfDay.Day
         };
         private readonly static int power = 6;
         private readonly static string name = "Жерех";
         private readonly static int price = 4;
         private readonly static int trophyWeight = 7000;
-        private readonly static string description = Messages.ARCTICCHAR_DESCRIPTION;
+        private readonly static string description = Messages.ASP_DESCRIPTION;
         private readonly static Bitmap bit = Images.zhereh;
 
-        public Asp(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(200, Convert.ToInt32(10000 * maxSizeCoef)), power, price, trophyWeight, lures, activParts, description, bit)
+        public Asp(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(200, Convert.ToInt32(7000 * maxSizeCoef)), power, price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

@@ -44,7 +44,8 @@ namespace Fishing
         public bool isFishAttack = false;
         public int CurrentDeep;
         public Point CurPoint;
-        public int IncValue;
+        public int RoadIncValue;
+        public int FLineIncValue;
         public Netting Netting = new Netting();
 
         private Player()

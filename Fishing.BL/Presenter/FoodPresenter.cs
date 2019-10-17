@@ -12,7 +12,7 @@ namespace Fishing.BL.Presenter
 {
     public class FoodPresenter : BasePresenter
     {
-        private readonly IFoodInventory view;
+        private IFoodInventory view;
         private readonly Player player;
         private SoundPlayer sp;
         public FoodPresenter(IFoodInventory view)

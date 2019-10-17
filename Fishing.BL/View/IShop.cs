@@ -14,6 +14,7 @@ namespace Fishing.View.Shop
         event EventHandler RoadDoubleClick;
         event EventHandler ReelDoubleClick;
         event EventHandler ProductDoubleClick;
+        event EventHandler LureDoubleClick;
 
         event EventHandler CloseButtonClick;
 
@@ -21,6 +22,7 @@ namespace Fishing.View.Shop
         Reel Reel_P { get; set; }
         FLine FLine_P { get; set; }
         BaseFood Food_P { get; set; }
+        Lure Lure_P { get; set; }
         string MoneyL { get; set; }
         string LowerL { get; set; }
 

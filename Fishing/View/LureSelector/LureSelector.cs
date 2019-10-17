@@ -36,10 +36,17 @@ namespace Fishing.View.LureSelector
 
         private void LureList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Player.GetPlayer().Assembly.Lure = Lure;
-            Player.GetPlayer().SetAssembly(Player.GetPlayer().Assembly);
-            this.Close();
-            Fishing.UI.gui.BaitPicture = Player.GetPlayer().Assembly.Lure.Pict;
+            try
+            {
+                Player.GetPlayer().Assembly.Lure = Lure;
+                Player.GetPlayer().SetAssembly(Player.GetPlayer().Assembly);
+                this.Close();
+                Fishing.UI.gui.BaitPicture = Player.GetPlayer().Assembly.Lure.Pict;
+            }
+            catch (NullReferenceException)
+            {
+
+            }
         }
     }
 }

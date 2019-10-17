@@ -54,11 +54,18 @@ namespace Fishing.Presenter
             BaseFood.FoodShop.Add(BaseFood.caviar);
             BaseFood.FoodShop.Add(BaseFood.bread);
             BaseFood.FoodShop.Add(BaseFood.cheese);
-            Player.GetPlayer().FoodInv.Add(BaseFood.bread);
-            Player.GetPlayer().FoodInv.Add(BaseFood.caviar);
-            Player.GetPlayer().FoodInv.Add(BaseFood.blackcaviar);
-            Player.GetPlayer().FoodInv.Add(BaseFood.cheese);
-
+            Item.LureShop.Add(Lure.vob1);
+            Item.LureShop.Add(Lure.vob2);
+            Item.LureShop.Add(Lure.vob3);
+            Item.LureShop.Add(Lure.vob4);
+            Item.LureShop.Add(Lure.vob5);
+            Item.LureShop.Add(Lure.vob6);
+            Item.LureShop.Add(Lure.jelezo1);
+            Item.LureShop.Add(Lure.jelezo2);
+            Item.LureShop.Add(Lure.jig1);
+            Item.LureShop.Add(Lure.jig2);
+            Item.LureShop.Add(Lure.jig3);
+            Item.LureShop.Add(Lure.jig4);
         }
 
         public override void Load()

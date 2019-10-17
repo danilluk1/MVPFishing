@@ -70,11 +70,29 @@ namespace Fishing.BL.Resources.Messages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Хищник. Предпочитает мелкие и средние приманки.Кренки и вертушки. Обитает на предпочтительно на поверхности..
+        /// </summary>
+        internal static string ASP_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ASP_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Хищник. Предпочитает мелкие и средние приманки. Обитает на предпочтительно большой  глубине. Клюёт в основном ночью, и утром..
         /// </summary>
         internal static string BURBOT_DESCRIPTION {
             get {
                 return ResourceManager.GetString("BURBOT_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Хищник. Предпочитает мелкие и средние приманки.Кренки и вертушки. Обитает на предпочтительно на поверхности. .
+        /// </summary>
+        internal static string CHUB_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("CHUB_DESCRIPTION", resourceCulture);
             }
         }
         

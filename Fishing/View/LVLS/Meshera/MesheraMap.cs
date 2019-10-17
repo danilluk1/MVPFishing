@@ -1,5 +1,6 @@
 ﻿using Fishing.BL.Model.LVLS.Meshera;
 using Fishing.BL.View;
+using Fishing.Presenter;
 using Fishing.View.DeepField;
 using System;
 using System.Drawing;
@@ -38,10 +39,8 @@ namespace Fishing
         public void Create(LVL lvl)
         {
             UI.gui = new UI(lvl);
-            GameForm ozero = new GameForm();
-            ozero.BackgroundImage = lvl.Image;
+            LVLPresenter presenter = new LVLPresenter(new GameForm(), UI.gui, lvl);
             DeepField field = new DeepField(lvl);
-            ozero.Show();
             UI.gui.Show();
             this.Close();
         }

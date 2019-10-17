@@ -15,9 +15,9 @@ namespace Fishing
         public static BindingList<Reel> ReelShop = new BindingList<Reel>();
         public static BindingList<FLine> LeskaShop = new BindingList<FLine>();
         public static BindingList<Lure> LureShop = new BindingList<Lure>();
-        public string Name;
-        public int Price;
-        public Bitmap Pict;
+        public string Name { get; }
+        public int Price { get; }
+        public Bitmap Pict { get; }
 
         public Item(string name, int price, Bitmap pict)
         {
@@ -44,7 +44,7 @@ namespace Fishing
             }
         }
 
-        public static Item selectItemType(Item item)
+        public static Item SelectItemType(Item item)
         {
             if (item is Road)
             {

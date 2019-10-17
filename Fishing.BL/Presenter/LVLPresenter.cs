@@ -55,6 +55,7 @@ namespace Fishing.Presenter
             view.BaitTimerTick += View_BaitTimerTick;
             view.FormClose += View_FormClose;
             view.DecSacietyTimerTick += View_DecSacietyTimerTick;
+            
         }
 
         private void View_DecSacietyTimerTick(object sender, EventArgs e)
@@ -86,7 +87,7 @@ namespace Fishing.Presenter
                 gui.LureDeepValue = player.CurrentDeep;               
                 player.CheckXBorders();
                 AutoDecBarValues();
-                if (gui.FLineBarValue > 98)
+                if (gui.FLineBarValue > 980)
                 {
                     player.AddNewMessage(new FLineTornEvent());
                     gui.AddEventToBox(new FLineTornEvent());
@@ -94,7 +95,7 @@ namespace Fishing.Presenter
                     sp.Stream = SoundsRes.leskaobr;
                     sp.Play();
                 }
-                if (gui.RoadBarValue > 98)
+                if (gui.RoadBarValue > 980)
                 {
                     player.AddNewMessage(new RoadBrokenEvent());
                     gui.AddEventToBox(new RoadBrokenEvent());
@@ -176,9 +177,24 @@ namespace Fishing.Presenter
                 {
                     case Keys.G:
                         Player.GetPlayer().IsBaitMoving = true;
+                        if (Player.GetPlayer().RoadY < 403)
+                        {
+                            Player.GetPlayer().RoadY += 7;
+                        }
                         if (Player.GetPlayer().isFishAttack)
                         {
                             Player.GetPlayer().WindingSpeed = Player.GetPlayer().Assembly.Reel.Power;
+                            if (player.isFishAttack)
+                            {
+                                if (gui.RoadBarValue > 0)
+                                {
+                                    gui.IncrementRoadBarValue(-(player.RoadIncValue));
+                                }
+                                if (gui.FLineBarValue < 1000)
+                                {
+                                    gui.IncrementFLineBarValue(player.FLineIncValue);
+                                }
+                            }
                         }
                         else
                         {
@@ -190,13 +206,13 @@ namespace Fishing.Presenter
                     case Keys.H:
                         if (player.isFishAttack)
                         {
-                            if (gui.RoadBarValue < 100)
+                            if (gui.RoadBarValue < 1000)
                             {
-                                gui.IncrementRoadBarValue(Player.GetPlayer().IncValue);
+                                gui.IncrementRoadBarValue(player.RoadIncValue);
                             }
                             if (gui.FLineBarValue > 0)
                             {
-                                gui.IncrementFLineBarValue(-(Player.GetPlayer().IncValue));
+                                gui.IncrementFLineBarValue(-(player.FLineIncValue));
                             }
                         }
                         break;
@@ -223,7 +239,7 @@ namespace Fishing.Presenter
                 case Keys.G:
                     Player.GetPlayer().IsBaitMoving = false;
                     Player.GetPlayer().WindingSpeed = 0;
-                    Player.GetPlayer().RoadY -= 7;                
+                    Player.GetPlayer().RoadY -= 7;
                     break;
                 case Keys.H:
 
@@ -284,9 +300,9 @@ namespace Fishing.Presenter
         private void AutoDecBarValues()
         {
             if (gui.FLineBarValue > 0)
-                gui.IncrementFLineBarValue(-1);
+                gui.IncrementFLineBarValue(-10);
             if (gui.RoadBarValue > 0)
-                gui.IncrementRoadBarValue(-1);
+                gui.IncrementRoadBarValue(-10);
         }
 
         private void MakeCast(Point point)

@@ -170,5 +170,9 @@ namespace Fishing
             }
         }
 
+        private void eatingBar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

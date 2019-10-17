@@ -256,20 +256,20 @@ namespace Fishing
             // 
             this.ReelBar.Location = new System.Drawing.Point(433, 8);
             this.ReelBar.MarqueeAnimationSpeed = 1;
+            this.ReelBar.Maximum = 1000;
             this.ReelBar.Name = "ReelBar";
             this.ReelBar.Size = new System.Drawing.Size(226, 15);
             this.ReelBar.Step = 1;
-            this.ReelBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.ReelBar.TabIndex = 14;
             // 
             // FLineBar
             // 
             this.FLineBar.Location = new System.Drawing.Point(433, 25);
             this.FLineBar.MarqueeAnimationSpeed = 1;
+            this.FLineBar.Maximum = 1000;
             this.FLineBar.Name = "FLineBar";
             this.FLineBar.Size = new System.Drawing.Size(226, 15);
             this.FLineBar.Step = 1;
-            this.FLineBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.FLineBar.TabIndex = 15;
             // 
             // BaitsPicture
@@ -388,6 +388,7 @@ namespace Fishing
             this.eatingBar.Style = VerticalProgressBar.Styles.Solid;
             this.eatingBar.TabIndex = 27;
             this.eatingBar.Value = 0;
+            this.eatingBar.Load += new System.EventHandler(this.eatingBar_Load);
             this.eatingBar.Click += new System.EventHandler(this.EatingBar_Click);
             // 
             // UI

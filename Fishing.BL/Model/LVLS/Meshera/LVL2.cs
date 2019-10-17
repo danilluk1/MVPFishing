@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Fishing.BL.Model.LVLS.Meshera
 {
@@ -23,19 +24,19 @@ namespace Fishing.BL.Model.LVLS.Meshera
             {
                 if (i < 250)
                 {
-                    Fishes.Add(new Pike(180, 359, 0.9, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
+                    Fishes.Add(new Pike(180, 359, 0.8, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
                 if (i >= 250 && i < 500)
                 {
-                    Fishes.Add(new Chub(180, 359, 0.5, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Chub(180, 359, 0.3, new HashSet<Lure>() { Lure.vert1, Lure.vert2, Lure.vob3 }));
                 }
                 if (i >= 500 && i <= 750)
                 {
-                    Fishes.Add(new Perch(180, 350, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Perch(180, 350, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2}));
                 }
                 if (i > 750 && i <= 1000)
                 {
-                    Fishes.Add(new Asp(180, 350, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Asp(180, 350, 0.3, new HashSet<Lure>() { Lure.vert1, Lure.vert2, Lure.vob3 }));
                 }
             }
         }
@@ -49,10 +50,13 @@ namespace Fishing.BL.Model.LVLS.Meshera
                 if (Player.GetPlayer().CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
                 {
                     Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
-                    if (IsFishAttackAbble(Player.GetPlayer().CFish) && Player.GetPlayer().IsBaitMoving)
+                    if (IsFishAttackAbble(Player.GetPlayer().CFish))
                     {
-                        Player.GetPlayer().isFishAttack = true;
-                        Player.GetPlayer().IncValue = Player.GetPlayer().CFish.Weight * 20 / (Player.GetPlayer().Assembly.Proad.Power);
+                        Player.GetPlayer().isFishAttack = true;                       
+                        double roadCoef = (double)Player.GetPlayer().CFish.Weight / (double)Player.GetPlayer().Assembly.Proad.Power;
+                        double flineCoef = (double)Player.GetPlayer().CFish.Weight / (double)Player.GetPlayer().Assembly.FLine.Power;
+                        Player.GetPlayer().RoadIncValue = Convert.ToInt32(roadCoef * 100);
+                        Player.GetPlayer().FLineIncValue = Convert.ToInt32(flineCoef * 100);                        
                         StopBaitTimer?.Invoke(this, EventArgs.Empty);
                         int Gathering = randomGathering.Next(1, 100);
                         if (Gathering <= 5)

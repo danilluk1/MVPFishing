@@ -40,10 +40,10 @@ namespace Fishing
         {
             return this.Name;
         }
-        public static Wobbler vob1 = new Wobbler("Составник", Size.Large, DeepType.Flying, 3000, Images.Vob_3001);
+        public static Wobbler vob1 = new Wobbler("Составник", Size.Large, DeepType.Flying, 3000, Images.Vob_3015);
         public static Wobbler vob2 = new Wobbler("Воблер 2", Size.XL, DeepType.Flying, 3000, Images.Vob_3002);
         public static Wobbler vob3 = new Wobbler("Воблер 3", Size.Small, DeepType.Top, 3000, Images.Vob_3003);
-        public static Wobbler vob4 = new Wobbler("Воблер 4", Size.Large, DeepType.Deep, 3000, Images.Vob_3015);
+        public static Wobbler vob4 = new Wobbler("Воблер 4", Size.Large, DeepType.Deep, 3000, Images.Vob_3001);
         public static Wobbler vob5 = new Wobbler("Воблер 1 Дип", Size.Large, DeepType.Deep, 3000, Images.Deep_112);
         public static Wobbler vob6 = new Wobbler("Воблер 2 Дип", Size.Large, DeepType.Deep, 3000, Images.Deep_115);
 

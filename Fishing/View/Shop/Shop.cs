@@ -22,6 +22,7 @@ namespace Fishing
             ReelsList.DataSource = Item.ReelShop;
             FLineList.DataSource = Item.LeskaShop;
             foodsBox.DataSource = BaseFood.FoodShop;
+            lureBox.DataSource = Item.LureShop;
             moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
         public string MoneyL { get => moneyBox.Text; set => moneyBox.Text = value; }
@@ -32,7 +33,8 @@ namespace Fishing
         public event EventHandler RoadDoubleClick;
         public event EventHandler ReelDoubleClick;
         public event EventHandler CloseButtonClick;
-        public event EventHandler ProductDoubleClick;       
+        public event EventHandler ProductDoubleClick;
+        public event EventHandler LureDoubleClick;
 
         public Road Road_P
         {
@@ -102,6 +104,25 @@ namespace Fishing
 
             }
         }
+
+        public Lure Lure_P
+        {
+            get
+            {
+                try
+                {
+                    return Item.LureShop[lureBox.SelectedIndex];
+                }
+                catch (ArgumentOutOfRangeException) { }
+
+                return null;
+            }
+            set
+            {
+
+            }
+        }
+
         private void RoadsList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             addItemtoRightView(Road_P);
@@ -159,48 +180,68 @@ namespace Fishing
         {
             try
             {
-                if (Item.selectItemType(i) is Road)
+                if (Item.SelectItemType(i) is Road)
                 {
                     Road r = (Road)i;
-                    this.itemBox.Image = r.Pict;
+                    this.itemBox.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Power.ToString();
                     this.priceBox.Text = r.Price.ToString();
                     this.typeBox.Text = r.Type.ToString();
                     this.label1.Text = " ";
                 }
-                if (Item.selectItemType(i) is Reel)
+                if (Item.SelectItemType(i) is Reel)
                 {
                     Reel r = (Reel)i;
-                    this.itemBox.Image = r.Pict;
+                    this.itemBox.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Power.ToString();
                     this.priceBox.Text = r.Price.ToString();
                     this.typeBox.Text = " ";
                     this.label1.Text = " ";
                 }
-                if (Item.selectItemType(i) is FLine)
+                if (Item.SelectItemType(i) is FLine)
                 {
                     FLine r = (FLine)i;
-                    this.itemBox.Image = r.Pict;
+                    this.itemBox.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Power.ToString();
                     this.priceBox.Text = r.Price.ToString();
                     this.typeBox.Text = " ";
                     this.label1.Text = " ";
                 }
-                if (Item.selectItemType(i) is BaseFood)
+                if (Item.SelectItemType(i) is BaseFood)
                 {
                     BaseFood r = (BaseFood)i;
-                    this.itemBox.Image = r.Pict;
+                    this.itemBox.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Productivity.ToString();
                     this.priceBox.Text = r.Price.ToString();
                     this.typeBox.Text = " ";
                     this.label1.Text = " ";
                 }
+                if (Item.SelectItemType(i) is Lure)
+                {
+                    Lure r = (Lure)i;
+                    this.itemBox.BackgroundImage = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.DeepType.ToString();
+                    this.priceBox.Text = r.Price.ToString();
+                    this.typeBox.Text = r.Size.ToString();
+                    this.label1.Text = " ";
+                }
             }
             catch (ArgumentOutOfRangeException) { }
+        }
+
+        private void lureBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addItemtoRightView(Lure_P);
+        }
+
+        private void lureBox_DoubleClick(object sender, EventArgs e)
+        {
+            LureDoubleClick?.Invoke(this, EventArgs.Empty);
         }
     }
 }

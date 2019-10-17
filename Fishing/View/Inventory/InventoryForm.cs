@@ -224,7 +224,7 @@ namespace Fishing
         {
             try
             {
-                if (Item.selectItemType(item) is Road)
+                if (Item.SelectItemType(item) is Road)
                 {
                     Road r = (Road)item;
                     this.pictureBox5.BackgroundImage = r.Pict;
@@ -232,7 +232,7 @@ namespace Fishing
                     this.powerBox.Text = r.Power.ToString();
                     this.typeBox.Text = r.Type.ToString();
                 }
-                if (Item.selectItemType(item) is Reel)
+                if (Item.SelectItemType(item) is Reel)
                 {
                     Reel r = (Reel)item;
                     this.pictureBox5.Image = r.Pict;
@@ -240,7 +240,7 @@ namespace Fishing
                     this.powerBox.Text = r.Power.ToString();
                     this.typeBox.Text = " ";
                 }
-                if (Item.selectItemType(item) is FLine)
+                if (Item.SelectItemType(item) is FLine)
                 {
                     FLine r = (FLine)item;
                     this.pictureBox5.Image = r.Pict;
@@ -248,7 +248,7 @@ namespace Fishing
                     this.powerBox.Text = r.Power.ToString();
                     this.typeBox.Text = " ";
                 }
-                if (Item.selectItemType(item) is Lure)
+                if (Item.SelectItemType(item) is Lure)
                 {
 
                     Lure r = (Lure)item;
