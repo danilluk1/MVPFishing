@@ -11,6 +11,7 @@ namespace Fishing
         public static Bitmap road = Images.road;
         public static Bitmap roadMaxBend = Images.road2;
         public static Bitmap trigon = Images.ssp;
+        public static Image izgRoad = Images.road;
 
     }
 }

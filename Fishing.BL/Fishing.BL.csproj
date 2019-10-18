@@ -84,6 +84,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Images.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Images\Roads.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Roads.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Paths\ConfigPaths.Designer.cs">
       <DependentUpon>ConfigPaths.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -212,7 +217,16 @@
     <Content Include="Resources\image011.jpg" />
     <Content Include="Resources\indiana.png" />
     <Content Include="Resources\inventory.jpg" />
-    <Content Include="Resources\izg1.png" />
+    <None Include="Resources\izg1.png" />
+    <None Include="Resources\izg1h.png" />
+    <None Include="Resources\izg2.png" />
+    <None Include="Resources\izg2h.png" />
+    <None Include="Resources\izg3.png" />
+    <None Include="Resources\izg3h.png" />
+    <None Include="Resources\izg4.png" />
+    <None Include="Resources\izg4h.png" />
+    <None Include="Resources\izg5.png" />
+    <None Include="Resources\izg5h.png" />
     <Content Include="Resources\karass.jpg" />
     <Content Include="Resources\key.png" />
     <Content Include="Resources\layer10.jpg" />
@@ -264,7 +278,7 @@
     <Content Include="Resources\rm_mollusk.png" />
     <Content Include="Resources\rm_topy.png" />
     <Content Include="Resources\rm_zhivec.png" />
-    <Content Include="Resources\road.png" />
+    <None Include="Resources\road.png" />
     <Content Include="Resources\road2.png" />
     <Content Include="Resources\sellfish.wav" />
     <Content Include="Resources\shop_but11.png" />
@@ -319,6 +333,10 @@
     <EmbeddedResource Include="Resources\Images\Images.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\Roads.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Roads.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Paths\ConfigPaths.resx">
       <Generator>ResXFileCodeGenerator</Generator>

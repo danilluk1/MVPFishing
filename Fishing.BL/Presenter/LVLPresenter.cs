@@ -176,7 +176,7 @@ namespace Fishing.Presenter
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.G:
+                    case Keys.G:                      
                         Player.GetPlayer().IsBaitMoving = true;
                         if (Player.GetPlayer().RoadY < 403)
                         {
@@ -187,6 +187,7 @@ namespace Fishing.Presenter
                             Player.GetPlayer().WindingSpeed = Player.GetPlayer().Assembly.Reel.Power;
                             if (player.isFishAttack)
                             {
+                                SetRoadBend(player.Assembly.Proad, player.CFish.Weight, false, e);
                                 Pictures.roadMaxBend = Images.road2;
                                 if (gui.RoadBarValue > 0)
                                 {
@@ -205,10 +206,10 @@ namespace Fishing.Presenter
                         DoWiring();
  
                         break;
-                    case Keys.H:
+                    case Keys.H:                       
                         if (player.isFishAttack)
                         {
-                            Pictures.roadMaxBend = Images.HRoad;
+                            SetRoadBend(player.Assembly.Proad, player.CFish.Weight, false, e);
                             if (gui.RoadBarValue < 1000)
                             {
                                 gui.IncrementRoadBarValue(player.RoadIncValue);
@@ -240,12 +241,19 @@ namespace Fishing.Presenter
             switch (e.KeyCode)
             {
                 case Keys.G:
+                    if (player.isFishAttack)
+                    {
+                        SetRoadBend(player.Assembly.Proad, player.CFish.Weight, true, e);
+                    }
                     Player.GetPlayer().IsBaitMoving = false;
                     Player.GetPlayer().WindingSpeed = 0;
                     Player.GetPlayer().RoadY -= 7;
                     break;
                 case Keys.H:
-
+                    if (player.isFishAttack)
+                    {
+                        SetRoadBend(player.Assembly.Proad, player.CFish.Weight, true, e);
+                    }
                     break;
             }
         }
@@ -260,8 +268,8 @@ namespace Fishing.Presenter
             try
             {
                 Player player = Player.GetPlayer();
-                Rectangle NormalRoad = new Rectangle(player.CurPoint.X, player.RoadY, 33, 257);
-                Rectangle BrokenRoad = new Rectangle(player.RoadX - 10, player.RoadY, 87, 257);
+                Rectangle NormalRoad = new Rectangle(player.CurPoint.X, player.RoadY, Pictures.road.Width, 257);
+                Rectangle BrokenRoad = new Rectangle(player.RoadX - 10, player.RoadY, Pictures.izgRoad.Width, 257);
                 Rectangle Netting = new Rectangle(player.CurPoint.X, -300, 60, 200);
                 Rectangle RTrigon = new Rectangle(player.RoadX + 12, 633, 18, 18);
                 Graphics g = e.Graphics;
@@ -281,7 +289,7 @@ namespace Fishing.Presenter
                 }
                 if (player.isFishAttack && player.Assembly.Proad != null)
                 {
-                    g.DrawImage(Pictures.roadMaxBend, BrokenRoad);
+                    g.DrawImage(Pictures.izgRoad, BrokenRoad);
                 }
                 if (player.CurPoint.Y >= CurLVL.Deeparr[0, 0].Location.Y && player.Assembly.Proad != null)
                 {
@@ -299,7 +307,109 @@ namespace Fishing.Presenter
             catch (NullReferenceException) { }
 
         }
-
+        private void SetRoadBend(Road road, int weight,bool reverse, KeyEventArgs e)
+        {
+            if (Player.GetPlayer().isFishAttack && !reverse)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.G:
+                        if (road.Power / weight <= 15)
+                        {
+                            Pictures.izgRoad = Roads.izg1;
+                        }
+                        if (road.Power / weight < 12)
+                        {
+                            Pictures.izgRoad = Roads.izg2;
+                        }
+                        if (road.Power / weight < 9)
+                        {
+                            Pictures.izgRoad = Roads.izg3;
+                        }
+                        if (road.Power / weight < 6)
+                        {
+                            Pictures.izgRoad = Roads.izg4;
+                        }
+                        if (road.Power / weight < 3)
+                        {
+                            Pictures.izgRoad = Roads.izg5;
+                        }
+                        break;
+                    case Keys.H:
+                        if (road.Power / weight <= 15)
+                        {
+                            Pictures.izgRoad = Roads.izg1H;
+                        }
+                        if (road.Power / weight < 12)
+                        {
+                            Pictures.izgRoad = Roads.izg2H;
+                        }
+                        if (road.Power / weight < 9)
+                        {
+                            Pictures.izgRoad = Roads.izg3H;
+                        }
+                        if (road.Power / weight < 6)
+                        {
+                            Pictures.izgRoad = Roads.izg4H;
+                        }
+                        if (road.Power / weight < 3)
+                        {
+                            Pictures.izgRoad = Roads.izg5H;
+                        }
+                        break;
+                }
+            }
+            else if(Player.GetPlayer().isFishAttack && reverse)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.H:
+                        if (road.Power / weight <= 15)
+                        {
+                            Pictures.izgRoad = Roads.izg1;
+                        }
+                        if (road.Power / weight < 12)
+                        {
+                            Pictures.izgRoad = Roads.izg2;
+                        }
+                        if (road.Power / weight < 9)
+                        {
+                            Pictures.izgRoad = Roads.izg3;
+                        }
+                        if (road.Power / weight < 6)
+                        {
+                            Pictures.izgRoad = Roads.izg4;
+                        }
+                        if (road.Power / weight < 3)
+                        {
+                            Pictures.izgRoad = Roads.izg5;
+                        }
+                        break;
+                    case Keys.G:
+                        if (road.Power / weight <= 15)
+                        {
+                            Pictures.izgRoad = Roads.izg1H;
+                        }
+                        if (road.Power / weight < 12)
+                        {
+                            Pictures.izgRoad = Roads.izg2H;
+                        }
+                        if (road.Power / weight < 9)
+                        {
+                            Pictures.izgRoad = Roads.izg3H;
+                        }
+                        if (road.Power / weight < 6)
+                        {
+                            Pictures.izgRoad = Roads.izg4H;
+                        }
+                        if (road.Power / weight < 3)
+                        {
+                            Pictures.izgRoad = Roads.izg5H;
+                        }
+                        break;
+                }
+            }
+        }
         private void AutoDecBarValues()
         {
             if (gui.FLineBarValue > 0)
