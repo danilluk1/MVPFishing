@@ -32,31 +32,6 @@ namespace Fishing.BL.Model.LVLS.Meshera
             }
         }
 
-        public override void GetFish()
-        {
-            Random randomGathering = new Random();
-            Random randomFish = new Random();
-            if (Player.GetPlayer().Assembly.Lure is Lure)
-            {
-                if (Player.GetPlayer().CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
-                {
-                    Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
-                    if (IsFishAttackAbble(Player.GetPlayer().CFish) && Player.GetPlayer().IsBaitMoving)
-                    {
-                        Player.GetPlayer().isFishAttack = true;
-                        Player.GetPlayer().RoadIncValue = Player.GetPlayer().CFish.Weight * 20 / (Player.GetPlayer().Assembly.Proad.Power);
-                        Player.GetPlayer().FLineIncValue = Player.GetPlayer().CFish.Weight * 20 / (Player.GetPlayer().Assembly.FLine.Power);
-                        StopBaitTimer?.Invoke(this, EventArgs.Empty);
-                        int Gathering = randomGathering.Next(1, 100);
-                        if (Gathering <= 5)
-                        {
-                            GatheringisTrue?.Invoke(this, EventArgs.Empty);
-                        }
-                    }
-                }
-            }
-        }
-
         public override void SetDeep()
         {
             for (int x = 0; x < 51; x++)

@@ -24,7 +24,7 @@ namespace Fishing.BL.Model.Fishes
             PartsOfDay.Morning,
             PartsOfDay.Day
         };
-        private readonly static int power = 6;
+        private readonly static int power = 4;
         private readonly static string name = "Жерех";
         private readonly static int price = 4;
         private readonly static int trophyWeight = 7000;

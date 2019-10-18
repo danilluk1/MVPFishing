@@ -50,34 +50,6 @@ namespace Fishing.BL.Model.LVLS.Ozero
             }
         }
 
-
-        public override void GetFish()
-        {
-            Random randomGathering = new Random();
-            Random randomFish = new Random();
-            if (Player.GetPlayer().Assembly.Lure is Lure)
-            {
-                if (Player.GetPlayer().CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
-                {
-                    Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
-                    if (IsFishAttackAbble(Player.GetPlayer().CFish))
-                    {
-                        Player.GetPlayer().isFishAttack = true;
-                        double roadCoef = (double)Player.GetPlayer().CFish.Weight / (double)Player.GetPlayer().Assembly.Proad.Power;
-                        double flineCoef = (double)Player.GetPlayer().CFish.Weight / (double)Player.GetPlayer().Assembly.FLine.Power;
-                        Player.GetPlayer().RoadIncValue = Convert.ToInt32(roadCoef * 100);
-                        Player.GetPlayer().FLineIncValue = Convert.ToInt32(flineCoef * 100);
-                        StopBaitTimer?.Invoke(this, EventArgs.Empty);
-                        int Gathering = randomGathering.Next(1, 100);
-                        if (Gathering <= 5)
-                        {
-                            GatheringisTrue?.Invoke(this, EventArgs.Empty);
-                        }
-                    }
-                }
-            }
-        }
-
         public override void SetDeep()
         {
             for (int x = 0; x < Widgth; x++)

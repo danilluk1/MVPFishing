@@ -90,6 +90,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CurrentFish";
+            this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Yellow;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CurrentFish_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.FishImage)).EndInit();

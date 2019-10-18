@@ -1,6 +1,7 @@
 ﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Model.Lures;
 using Fishing.BL.Model.UserEvent;
+using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using Fishing.BL.Resources.Sounds;
 using Fishing.View.GUI;
@@ -186,6 +187,7 @@ namespace Fishing.Presenter
                             Player.GetPlayer().WindingSpeed = Player.GetPlayer().Assembly.Reel.Power;
                             if (player.isFishAttack)
                             {
+                                Pictures.roadMaxBend = Images.road2;
                                 if (gui.RoadBarValue > 0)
                                 {
                                     gui.IncrementRoadBarValue(-(player.RoadIncValue));
@@ -206,6 +208,7 @@ namespace Fishing.Presenter
                     case Keys.H:
                         if (player.isFishAttack)
                         {
+                            Pictures.roadMaxBend = Images.HRoad;
                             if (gui.RoadBarValue < 1000)
                             {
                                 gui.IncrementRoadBarValue(player.RoadIncValue);
@@ -300,9 +303,9 @@ namespace Fishing.Presenter
         private void AutoDecBarValues()
         {
             if (gui.FLineBarValue > 0)
-                gui.IncrementFLineBarValue(-10);
+                gui.IncrementFLineBarValue(-3);
             if (gui.RoadBarValue > 0)
-                gui.IncrementRoadBarValue(-10);
+                gui.IncrementRoadBarValue(-3);
         }
 
         private void MakeCast(Point point)

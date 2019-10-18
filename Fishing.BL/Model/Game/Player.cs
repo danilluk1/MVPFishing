@@ -114,7 +114,7 @@ namespace Fishing
 
         public void CheckXBorders()
         {
-            if (player.CurPoint.X > 1049) player.CurPoint.X = 1048;
+            if (player.CurPoint.X > 1045) player.CurPoint.X = 1043;
             if (player.CurPoint.X < 0) player.CurPoint.X = 1;
         }
 

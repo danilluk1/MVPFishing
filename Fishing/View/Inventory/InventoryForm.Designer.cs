@@ -427,6 +427,7 @@ namespace Fishing
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BaitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FLineBox)).EndInit();

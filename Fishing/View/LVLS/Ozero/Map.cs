@@ -1,5 +1,6 @@
 ﻿using Fishing.BL;
 using Fishing.BL.Model;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Model.LVLS;
 using Fishing.BL.Model.LVLS.Ozero;
 using Fishing.BL.Model.Waters;
@@ -63,7 +64,8 @@ namespace Fishing
         public void Create(LVL lvl)
         {
             UI.gui = new UI(lvl);
-            LVLPresenter presenter = new LVLPresenter(new GameForm(), UI.gui, lvl);
+            Game.GetGame().View = new GameForm();
+            LVLPresenter presenter = new LVLPresenter(Game.GetGame().View, UI.gui, lvl);
             DeepField field = new DeepField(lvl);
             UI.gui.Show();
             this.Close();

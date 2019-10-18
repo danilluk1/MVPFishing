@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Waters;
+using Fishing.View.LVLS.Ozero;
 using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace Fishing.BL.Model.Game
         private static Game game;
         public BindingList<Water> Waters = new BindingList<Water>();
         public event EventHandler HoursInc;
+        public ILVL View { get; set; }
 
         public Timer HoursTimer { get; set; }
         public Water CurrentWater { get; set; } = Meshera.GetWater();

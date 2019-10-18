@@ -82,11 +82,13 @@ namespace Fishing
         private void MapLabel_Click(object sender, EventArgs e)
         {
             MFactory f = new MFactory(Game.GetGame().CurrentWater);
+            Game.GetGame().View.Down();
             f.CreateMap();
         }
         private void MenuLabel_Click(object sender, EventArgs e)
         {
             UI.gui.Close();
+            Game.GetGame().View.Down();
             MenuPresenter presenter = new MenuPresenter(new Menu());
         }
 

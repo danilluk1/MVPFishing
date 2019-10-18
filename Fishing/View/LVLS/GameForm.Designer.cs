@@ -46,7 +46,7 @@
             // mainTimerTick
             // 
             this.mainTimerTick.Enabled = true;
-            this.mainTimerTick.Interval = 25;
+            this.mainTimerTick.Interval = 15;
             this.mainTimerTick.Tick += new System.EventHandler(this.MainTaskstimer_Tick);
             // 
             // fishMovestimer
@@ -69,7 +69,7 @@
             // refreshTimer
             // 
             this.refreshTimer.Enabled = true;
-            this.refreshTimer.Interval = 25;
+            this.refreshTimer.Interval = 45;
             // 
             // decrementSatiety
             // 

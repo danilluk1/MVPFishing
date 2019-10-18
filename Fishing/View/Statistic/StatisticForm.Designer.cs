@@ -49,7 +49,7 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(582, 0);
+            this.CloseButton.Location = new System.Drawing.Point(552, 12);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(24, 23);
             this.CloseButton.TabIndex = 0;
@@ -61,10 +61,10 @@
             // 
             this.StatisticControl.Controls.Add(this.PlayerStats);
             this.StatisticControl.Controls.Add(this.GameLogs);
-            this.StatisticControl.Location = new System.Drawing.Point(1, 0);
+            this.StatisticControl.Location = new System.Drawing.Point(30, 35);
             this.StatisticControl.Name = "StatisticControl";
             this.StatisticControl.SelectedIndex = 0;
-            this.StatisticControl.Size = new System.Drawing.Size(585, 526);
+            this.StatisticControl.Size = new System.Drawing.Size(546, 471);
             this.StatisticControl.TabIndex = 1;
             // 
             // PlayerStats
@@ -78,7 +78,7 @@
             this.PlayerStats.Location = new System.Drawing.Point(4, 22);
             this.PlayerStats.Name = "PlayerStats";
             this.PlayerStats.Padding = new System.Windows.Forms.Padding(3);
-            this.PlayerStats.Size = new System.Drawing.Size(577, 500);
+            this.PlayerStats.Size = new System.Drawing.Size(538, 445);
             this.PlayerStats.TabIndex = 0;
             this.PlayerStats.Text = "Статистика";
             this.PlayerStats.UseVisualStyleBackColor = true;
@@ -180,6 +180,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Fishing.Properties.Resources.layer10;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(606, 528);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.StatisticControl);
