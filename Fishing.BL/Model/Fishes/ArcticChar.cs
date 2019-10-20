@@ -25,14 +25,13 @@ namespace Fishing
             PartsOfDay.Morning,
             PartsOfDay.Night
         };
-        private readonly static int power = 6;
         private readonly static string name = "Арктич. Голец";
         private readonly static int price = 2;
         private readonly static int trophyWeight = 16000;
         private readonly static string description = Messages.ARCTICCHAR_DESCRIPTION;
         private readonly static Bitmap bit = Images.golec;
 
-        public ArcticChar(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(200, 20000), power, price, trophyWeight, lures, activParts, description, bit)
+        public ArcticChar(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(200, 20000), Power.SetPower(6, 2), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

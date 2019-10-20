@@ -24,14 +24,13 @@ namespace Fishing.BL.Model.Fishes
             PartsOfDay.Morning,
             PartsOfDay.Night,
         };
-        private readonly static int power = 6;
         private readonly static string name = "Судак";
         private readonly static int price = 5;
         private readonly static int trophyWeight = 8000;
         private readonly static string description = Messages.ZANDER_DESCRIPTION;
         private readonly static Bitmap bit = Images.sudak;
         public Zander(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu)
-            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), power, price, trophyWeight, lures, activParts, description, bit)
+            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(6, 2), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

@@ -31,7 +31,7 @@ namespace Fishing
         private readonly static int trophyWeight = 11000;
         private readonly static string description = Messages.TROUT_DESCRIPTION;
         private readonly static Bitmap bit = Images.forel;
-        public Trout(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(500, 15000), power, price, trophyWeight, lures, activParts, description, bit)
+        public Trout(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(500, 15000), Power.SetPower(4, 2), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

@@ -47,6 +47,7 @@
             // 
             // lureImage
             // 
+            this.lureImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.lureImage.Location = new System.Drawing.Point(159, 2);
             this.lureImage.Name = "lureImage";
             this.lureImage.Size = new System.Drawing.Size(122, 88);

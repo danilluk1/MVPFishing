@@ -20,13 +20,12 @@ namespace Fishing
             PartsOfDay.Morning,
             PartsOfDay.Day
         };
-        private readonly static int power = 3;
         private readonly static string name = "Окунь";
         private readonly static int price = 1;
         private readonly static string description = Messages.PERCH_DESCRIPTION;
         private readonly static Bitmap bit = Images.okyn;
         public Perch(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) 
-            : base(name, randWigth.Next(200, Convert.ToInt32(1700 * maxSizeCoef)), power, price, 1300, lures, activParts, description, bit)
+            : base(name, randWigth.Next(200, Convert.ToInt32(1700 * maxSizeCoef)), Power.SetPower(3, 1), price, 1300, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

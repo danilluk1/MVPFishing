@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fishing.BL.View;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fishing.View.LureSelector.View
 {
-    public interface ISelector
+    public interface ISelector : IView
     {
         Lure Lure { get; set; }
         Image Picture { get; set; }

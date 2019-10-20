@@ -26,13 +26,12 @@ namespace Fishing
             PartsOfDay.Morning,
             PartsOfDay.Night
         };
-        private readonly static int power = 4;
         private readonly static string name = "Хариус";
         private readonly static int price = 5;
         private readonly static int trophyWeight = 1600;
         private readonly static string description = Messages.GRAYLING_DESCRIPTION;
         private readonly static Bitmap bit = Images.xariys;
-        public Grayling(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(500, 2000), power, price, trophyWeight, lures, activParts, description, bit)
+        public Grayling(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(500, 2000), Power.SetPower(4, 2), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

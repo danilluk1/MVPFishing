@@ -44,7 +44,7 @@ namespace Fishing.Presenter
             CurLVL.SetDeep();
             CurLVL.AddFishes();
             CurLVL.GatheringisTrue += View_CountGathering;
-            CurLVL.StopBaitTimer += View_StopBaitTimer;
+            CurLVL.StopBaitTimer += View_StopBaitTimer; 
 
             view.RepaintScreen += View_RepaintScreen;
             view.MouseLeftClick += View_MouseLeftClick;
@@ -53,7 +53,7 @@ namespace Fishing.Presenter
             view.CountFishMoves += View_CountFishMoves;
             view.CountGathering += View_CountGathering;
             view.MainTimerTick += View_MainTimerTick;
-            view.BaitTimerTick += View_BaitTimerTick;
+            view.BaitTimerTick += View_BaitTimerTick;           
             view.FormClose += View_FormClose;
             view.DecSacietyTimerTick += View_DecSacietyTimerTick;
             
@@ -85,22 +85,30 @@ namespace Fishing.Presenter
         {
             try
             {
-                gui.LureDeepValue = player.CurrentDeep;               
-                player.CheckXBorders();
-                AutoDecBarValues();
-                if (gui.FLineBarValue > 980)
+                if (player.IsBaitInWater)
                 {
-                    player.AddNewMessage(new FLineTornEvent());
-                    gui.AddEventToBox(new FLineTornEvent());
-                    player.TornFLine();
-                    sp.Stream = SoundsRes.leskaobr;
-                    sp.Play();
+                    gui.LureDeepValue = player.CurrentDeep;
+                    player.CheckXBorders();
+                    AutoDecBarValues();
                 }
-                if (gui.RoadBarValue > 980)
+                if (player.isFishAttack)
                 {
-                    player.AddNewMessage(new RoadBrokenEvent());
-                    gui.AddEventToBox(new RoadBrokenEvent());
-                    player.BrokeRoad();
+                    if (gui.FLineBarValue > 980)
+                    {
+                        player.AddNewMessage(new FLineTornEvent());
+                        gui.AddEventToBox(new FLineTornEvent());
+                        gui.FLineBarValue = 0;
+                        player.TornFLine();
+                        sp.Stream = SoundsRes.leskaobr;
+                        sp.Play();
+                    }
+                    if (gui.RoadBarValue > 980)
+                    {
+                        player.AddNewMessage(new RoadBrokenEvent());
+                        gui.AddEventToBox(new RoadBrokenEvent());
+                        gui.RoadBarValue = 0;
+                        player.BrokeRoad();
+                    }
                 }
                 RefreshForm?.Invoke(this, EventArgs.Empty);
                 if (player.IsFishAbleToGoIntoFpond())
@@ -141,15 +149,13 @@ namespace Fishing.Presenter
         private void View_CountFishMoves(object sender, EventArgs e)
         {
             Player player = Player.GetPlayer();
-            Random fishMoving = new Random();
+            Random fishMovingX = new Random();
+            Random fishMovingY = new Random();
             if (player.isFishAttack)
             {
-                player.CFish.Power = fishMoving.Next(-player.CFish.Power, Math.Abs(player.CFish.Power));
-                if(player.CFish.Power == 0)
-                {
-                    player.CFish.Power = fishMoving.Next(-player.CFish.Power, Math.Abs(player.CFish.Power));
-                }
 
+                player.CFish.Power.X = fishMovingX.Next(-player.CFish.Power.X, Math.Abs(player.CFish.Power.X));
+                player.CFish.Power.Y = fishMovingY.Next(-player.CFish.Power.Y, 2);
             }
         }
 
@@ -276,10 +282,10 @@ namespace Fishing.Presenter
                 SolidBrush sbrush = new SolidBrush(Color.White);
                 if (player.isFishAttack == true)
                 {
-                    player.CurPoint.X += player.CFish.Power;
-                    player.CurPoint.Y += -player.CFish.Power;
+                    player.CurPoint.X += player.CFish.Power.X;
+                    player.CurPoint.Y += player.CFish.Power.Y;
                 }
-                if (player.CFish != null)
+                if (player.IsFishAbleToGoIntoFpond())
                     g.DrawImage(Pictures.netting, Netting);
 
                 if (!player.isFishAttack && player.Assembly.Proad != null)
@@ -388,23 +394,23 @@ namespace Fishing.Presenter
                     case Keys.G:
                         if (road.Power / weight <= 15)
                         {
-                            Pictures.izgRoad = Roads.izg1H;
+                            Pictures.izgRoad = Roads.izg1;
                         }
                         if (road.Power / weight < 12)
                         {
-                            Pictures.izgRoad = Roads.izg2H;
+                            Pictures.izgRoad = Roads.izg2;
                         }
                         if (road.Power / weight < 9)
                         {
-                            Pictures.izgRoad = Roads.izg3H;
+                            Pictures.izgRoad = Roads.izg3;
                         }
                         if (road.Power / weight < 6)
                         {
-                            Pictures.izgRoad = Roads.izg4H;
+                            Pictures.izgRoad = Roads.izg4;
                         }
                         if (road.Power / weight < 3)
                         {
-                            Pictures.izgRoad = Roads.izg5H;
+                            Pictures.izgRoad = Roads.izg5;
                         }
                         break;
                 }
@@ -439,6 +445,7 @@ namespace Fishing.Presenter
                             }
                         }
                     }
+                    player.IsBaitInWater = true;
                     player.CurrentDeep = gui.DeepValue;
                     player.IsBaitMoving = false;
                     Player.GetPlayer().IsJigging = false;

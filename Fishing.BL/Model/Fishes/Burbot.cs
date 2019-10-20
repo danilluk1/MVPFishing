@@ -23,14 +23,13 @@ namespace Fishing.BL.Model.Fishes
             PartsOfDay.Morning,
             PartsOfDay.Night,
         };
-        private readonly static int power = 5;
         private readonly static string name = "Налим";
         private readonly static int price = 6;
         private readonly static int trophyWeight = 8000;
         private readonly static string description = Messages.BURBOT_DESCRIPTION;
         private readonly static Bitmap bit = Images.nalim;
         public Burbot(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu)
-            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), power, price, trophyWeight, lures, activParts, description, bit)
+            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(5, 2), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

@@ -14,7 +14,7 @@ namespace Fishing
         protected static Random randWigth = new Random();
         public string Name { get; set; }
         public int Weight { get; set; }
-        public int Power { get; set; }
+        public Power Power;
         public double Price { get; set; }
         public int TrophyWeight { get; set; }
         public HashSet<Size> LuresSize { get; set; }
@@ -27,7 +27,7 @@ namespace Fishing
         public double MaxSizeCoef { get; set; }
         
 
-        public Fish(string name, int weight, int power, double price, int trophyWeight, HashSet<Size> lures, HashSet<PartsOfDay> activParts, string description, Bitmap bit)
+        public Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<Size> lures, HashSet<PartsOfDay> activParts, string description, Bitmap bit)
         {
             this.Name = name;
             this.Weight = weight;

@@ -58,6 +58,7 @@
     <Compile Include="Model\Fishes\SnakeHead.cs" />
     <Compile Include="Model\Fishes\Zander.cs" />
     <Compile Include="Model\Game\Game.cs" />
+    <Compile Include="Model\Game\Power.cs" />
     <Compile Include="Model\Game\Statistic.cs" />
     <Compile Include="Model\Game\Time.cs" />
     <Compile Include="Model\Lures\Jig.cs" />

@@ -22,13 +22,12 @@ namespace Fishing
             PartsOfDay.Morning,
             PartsOfDay.Night
         };
-        private readonly static int power = 7;
         private readonly static string name = "Сёмга";
         private readonly static int price = 6;
         private readonly static int trophyWeight = 25000;
         private readonly static string description = Messages.SALMON_DESCRIPTION;
         private readonly static Bitmap bit = Images.semga;
-        public Salmon(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(500, 30000), power, price, trophyWeight, lures, activParts, description,bit)
+        public Salmon(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(500, 30000), Power.SetPower(6, 2), price, trophyWeight, lures, activParts, description,bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

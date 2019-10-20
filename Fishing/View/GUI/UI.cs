@@ -8,6 +8,7 @@ using Fishing.Presenter;
 using Fishing.View.FoodInventory;
 using Fishing.View.GUI;
 using Fishing.View.LureSelector;
+using Fishing.View.LureSelector.Presenter;
 using Fishing.View.Statistic;
 using System;
 using System.Collections.Generic;
@@ -107,8 +108,7 @@ namespace Fishing
         {
             if (Player.GetPlayer().Assembly != null)
             {
-                LureSelector selector = new LureSelector();
-                selector.Show();
+                SelectorPresenter presenter = new SelectorPresenter(new LureSelector(), this);
             }
         }
         private void EatingBar_Click(object sender, EventArgs e)

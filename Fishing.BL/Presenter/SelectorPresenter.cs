@@ -1,4 +1,5 @@
-﻿using Fishing.View.GUI;
+﻿using Fishing.Presenter;
+using Fishing.View.GUI;
 using Fishing.View.Inventory;
 using Fishing.View.LureSelector.View;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Fishing.View.LureSelector.Presenter
 {
-    public class SelectorPresenter
+    public class SelectorPresenter : BasePresenter
     {
         ISelector view;
         IGUIPresenter gui;
@@ -17,6 +18,8 @@ namespace Fishing.View.LureSelector.Presenter
         {
             this.view = view;
             this.gui = gui;
+            view.Presenter = this;
+            view.Open();
             view.LureListDoubleClick += View_LureListDoubleClick;
             view.LureListIndexChanged += View_LureListIndexChanged;
             
@@ -36,6 +39,27 @@ namespace Fishing.View.LureSelector.Presenter
 
         private void View_LureListDoubleClick(object sender, EventArgs e)
         {
+            try
+            {
+                Player.GetPlayer().Assembly.Lure = view.Lure;
+                Player.GetPlayer().SetAssembly(Player.GetPlayer().Assembly);
+                gui.BaitPicture = Player.GetPlayer().Assembly.Lure.Pict;
+                view.Down();
+            }
+            catch (NullReferenceException)
+            {
+
+            }
+        }
+
+        public override void Load()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Close()
+        {
+            throw new NotImplementedException();
         }
     }
 }

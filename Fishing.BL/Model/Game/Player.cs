@@ -37,6 +37,7 @@ namespace Fishing
         public string NickName { get; set; } = "Рыболов";
 
         public bool IsBaitMoving = false;
+        public bool IsBaitInWater = false;
         public bool IsJigging = false;
         public Point LastCastPoint;
         public int RoadX = 0;
@@ -114,7 +115,7 @@ namespace Fishing
 
         public void CheckXBorders()
         {
-            if (player.CurPoint.X > 1045) player.CurPoint.X = 1043;
+            if (player.CurPoint.X > 1028) player.CurPoint.X = 1025;
             if (player.CurPoint.X < 0) player.CurPoint.X = 1;
         }
 
