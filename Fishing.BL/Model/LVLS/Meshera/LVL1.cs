@@ -12,10 +12,10 @@ namespace Fishing.BL.Model.LVLS.Meshera
     {
         public LVL1() : base(Images.MesheraLVL1)
         {
-            Widgth = 51;
-            Height = 21;
-            LabelStartY = 330;
-            LabelStartX = 0;
+            Widgth = 49;
+            Height = 18;
+            LabelStartY = 310;
+            LabelStartX = 10;
         }
         public override void AddFishes()
         {
@@ -34,7 +34,7 @@ namespace Fishing.BL.Model.LVLS.Meshera
 
         public override void SetDeep()
         {
-            for (int x = 0; x < 51; x++)
+            for (int x = 0; x < 49; x++)
             {
                 Deeparr[x, 0].Tag = 250;
                 Deeparr[x, 1].Tag = 270;
@@ -54,9 +54,7 @@ namespace Fishing.BL.Model.LVLS.Meshera
                 Deeparr[x, 15].Tag = 120;
                 Deeparr[x, 16].Tag = 110;
                 Deeparr[x, 17].Tag = 100;
-                Deeparr[x, 18].Tag = 100;
-                Deeparr[x, 19].Tag = 100;
-                Deeparr[x, 20].Tag = 100;
+
             }
         }
     }

@@ -175,7 +175,7 @@ namespace Fishing.Presenter
                         Sounder.GetSounder().Column = y;
                         Sounder.GetSounder().Row = x;
                     }
-                    player.CurrentDeep = gui.DeepValue - gui.SpeedValue * 10;
+                    player.CurrentDeep = gui.DeepValue - 1 * 10;
                 }
             }
             try
@@ -184,7 +184,7 @@ namespace Fishing.Presenter
                 {
                     case Keys.G:                      
                         Player.GetPlayer().IsBaitMoving = true;
-                        if (Player.GetPlayer().RoadY < 403)
+                        if (Player.GetPlayer().RoadY != 357)
                         {
                             Player.GetPlayer().RoadY += 7;
                         }
@@ -207,7 +207,7 @@ namespace Fishing.Presenter
                         }
                         else
                         {
-                            Player.GetPlayer().WindingSpeed = gui.SpeedValue;
+                            Player.GetPlayer().WindingSpeed = 1;
                         }
                         DoWiring();
  
@@ -216,6 +216,8 @@ namespace Fishing.Presenter
                         if (player.isFishAttack)
                         {
                             SetRoadBend(player.Assembly.Proad, player.CFish.Weight, false, e);
+                            player.WindingSpeed = 2;
+                            player.CurPoint.Y += player.WindingSpeed;
                             if (gui.RoadBarValue < 1000)
                             {
                                 gui.IncrementRoadBarValue(player.RoadIncValue);
@@ -227,7 +229,7 @@ namespace Fishing.Presenter
                         }
                         break;
                     case Keys.Space:
-                        if (player.CurPoint.Y > 620)
+                        if (player.CurPoint.Y > 570)
                         {
                             player.Netting.ShowNetting();
                         }
@@ -277,7 +279,7 @@ namespace Fishing.Presenter
                 Rectangle NormalRoad = new Rectangle(player.CurPoint.X, player.RoadY, Pictures.road.Width, 257);
                 Rectangle BrokenRoad = new Rectangle(player.RoadX - 10, player.RoadY, Pictures.izgRoad.Width, 257);
                 Rectangle Netting = new Rectangle(player.CurPoint.X, -300, 60, 200);
-                Rectangle RTrigon = new Rectangle(player.RoadX + 12, 633, 18, 18);
+                Rectangle RTrigon = new Rectangle(player.RoadX + 12, 585, 18, 18);
                 Graphics g = e.Graphics;
                 SolidBrush sbrush = new SolidBrush(Color.White);
                 if (player.isFishAttack == true)
@@ -478,7 +480,7 @@ namespace Fishing.Presenter
                         if (player.Assembly.Proad != null)
                         {
                             StartBaitTimer?.Invoke(this, EventArgs.Empty);
-                            player.RoadY = 395;
+                            player.RoadY = 350;
                             gui.FLineBarValue = 0;
                             gui.RoadBarValue = 0;
                             player.WindingSpeed = 0;
@@ -518,7 +520,7 @@ namespace Fishing.Presenter
             }
             else
             {
-                Player.GetPlayer().WindingSpeed = gui.SpeedValue;
+                Player.GetPlayer().WindingSpeed = 1;
             }      
             Player.GetPlayer().CurPoint.Y += Player.GetPlayer().WindingSpeed;
         }

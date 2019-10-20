@@ -56,7 +56,6 @@ namespace Fishing
             timeLabel.Text = Game.GetGame().Time.ToString();
         }
 
-        public int SpeedValue { get => SpeedBar.Value; set => throw new NotImplementedException(); }
         public Bitmap BaitPicture { get => (Bitmap)BaitsPicture.BackgroundImage; set => BaitsPicture.BackgroundImage = value; }
         public int DeepValue { get => Convert.ToInt32(DeepLabel.Text); set => DeepLabel.Text = value.ToString(); }
         public int RoadBarValue { get => ReelBar.Value; set => ReelBar.Value = value; }

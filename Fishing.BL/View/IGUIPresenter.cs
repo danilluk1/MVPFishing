@@ -12,7 +12,6 @@ namespace Fishing.View.GUI
 {
     public interface IGUIPresenter
     {
-        int SpeedValue { get; set; }
         Bitmap BaitPicture { get; set; }
         Image RoadPicture { get; set; }
         Image ReelPicture { get; set; }

@@ -12,9 +12,9 @@ namespace Fishing.BL.Model.LVLS.Ozero
     {
         public LVL1() : base(Images.lvl1)
         {
-            Widgth = 51;
-            Height = 21;
-            LabelStartY = 330;
+            Widgth = 50;
+            Height = 19;
+            LabelStartY = 305;
 
         }
         public override void AddFishes()
@@ -38,7 +38,7 @@ namespace Fishing.BL.Model.LVLS.Ozero
 
         public override void SetDeep()
         {
-            for (int x = 0; x < 51; x++)
+            for (int x = 0; x < Widgth; x++)
             {
                 Deeparr[x, 0].Tag = 120;
                 Deeparr[x, 1].Tag = 100;
@@ -59,8 +59,6 @@ namespace Fishing.BL.Model.LVLS.Ozero
                 Deeparr[x, 16].Tag = 110;
                 Deeparr[x, 17].Tag = 100;
                 Deeparr[x, 18].Tag = 100;
-                Deeparr[x, 19].Tag = 100;
-                Deeparr[x, 20].Tag = 100;
             }
         }
     }

@@ -41,7 +41,7 @@ namespace Fishing
         public bool IsJigging = false;
         public Point LastCastPoint;
         public int RoadX = 0;
-        public int RoadY = 395;
+        public int RoadY = 350;
         public bool isFishAttack = false;
         public int CurrentDeep;
         public Point CurPoint;
@@ -115,13 +115,13 @@ namespace Fishing
 
         public void CheckXBorders()
         {
-            if (player.CurPoint.X > 1028) player.CurPoint.X = 1025;
+            if (player.CurPoint.X > 1020) player.CurPoint.X = 1019;
             if (player.CurPoint.X < 0) player.CurPoint.X = 1;
         }
 
         public bool IsFishAbleToGoIntoFpond()
         {
-            if(player.Netting.Y == 550 && player.isFishAttack && player.CurPoint.Y > 430)
+            if(player.Netting.Y == 550 && player.isFishAttack && player.CurPoint.Y > 550)
             {
                 return true;
             }

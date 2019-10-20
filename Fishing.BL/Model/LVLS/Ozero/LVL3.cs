@@ -12,9 +12,9 @@ namespace Fishing.BL.Model.LVLS.Ozero
     {
         public LVL3() : base(Images.lvl3)
         {
-            Widgth = 51;
-            Height = 20;
-            LabelStartY = 350;
+            Widgth = 50;
+            Height = 17;
+            LabelStartY = 340;
         }       
         public override void AddFishes()
         {
@@ -61,9 +61,6 @@ namespace Fishing.BL.Model.LVLS.Ozero
                 Deeparr[x, 14].Tag = 500;
                 Deeparr[x, 15].Tag = 500;
                 Deeparr[x, 16].Tag = 560;
-                Deeparr[x, 17].Tag = 590;
-                Deeparr[x, 18].Tag = 600;
-                Deeparr[x, 19].Tag = 600;
 
             }
         }
