@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Presenter;
+﻿using Fishing.BL.Model.UserEvent;
+using Fishing.BL.Presenter;
 using Fishing.BL.View;
 using Fishing.Presenter;
 using System;
@@ -45,7 +46,26 @@ namespace Fishing.View.Statistic
 
         private void StatisticForm_Load(object sender, EventArgs e)
         {
-            LoadForm?.Invoke(this, EventArgs.Empty);
+            NameLText = Player.GetPlayer().NickName;
+            MoneyLText = Player.GetPlayer().Money.ToString();
+            GatheringLText = Player.GetPlayer().Statistic.GatheringCount.ToString();
+            TakeFishesLText = Player.GetPlayer().Statistic.TakenFishesCount.ToString();
+            TornFLineLText = Player.GetPlayer().Statistic.TornsFLinesCount.ToString();
+            BrokenRoadsLText = Player.GetPlayer().Statistic.BrokensRoadsCount.ToString();
+
+            foreach (BaseEvent ev in Player.GetPlayer().EventHistory)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = ev.Text;
+                lvi.ImageIndex = ev.Index;
+                if (ev is TrophyFishEvent)
+                {
+                    lvi.ForeColor = System.Drawing.Color.White;
+                    lvi.BackColor = System.Drawing.Color.Navy;
+                }
+                addEventToView(lvi);
+            }
+
         }
     }
 }

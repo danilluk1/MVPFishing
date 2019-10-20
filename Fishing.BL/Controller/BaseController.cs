@@ -2,6 +2,7 @@
 using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
+using Fishing.BL.Model.Waters;
 using Fishing.BL.Resources.Paths;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,7 @@ namespace Saver.BL.Controller
             Player.GetPlayer().Satiety = Convert.ToInt32(saver.Load<string>(ConfigPaths.SATIETY_DIR) ?? "100");
             Player.GetPlayer().FoodInv = saver.Load<BindingList<BaseFood>>(ConfigPaths.FOODS_DIR) ?? new BindingList<BaseFood>();
             Game.GetGame().Time = saver.Load<Time>(ConfigPaths.TIME_DIR);
+            Game.GetGame().CurrentWater = saver.Load<Water>(ConfigPaths.WATER_DIR);
         }
 
         public void SavePlayer()
@@ -61,6 +63,7 @@ namespace Saver.BL.Controller
             saver.Save(ConfigPaths.FOODS_DIR, Player.GetPlayer().FoodInv);
             saver.Save(ConfigPaths.SATIETY_DIR, Player.GetPlayer().Satiety.ToString());
             saver.Save(ConfigPaths.TIME_DIR, Game.GetGame().Time);
+            saver.Save(ConfigPaths.WATER_DIR, Game.GetGame().CurrentWater);
         }
     }
 }

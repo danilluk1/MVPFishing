@@ -156,4 +156,7 @@
   <data name="TIME_DIR" xml:space="preserve">
     <value>config/time.dat</value>
   </data>
+  <data name="WATER_DIR" xml:space="preserve">
+    <value>config/water.dat</value>
+  </data>
 </root>

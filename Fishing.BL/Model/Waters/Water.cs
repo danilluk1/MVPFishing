@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Fishing.BL.Model.Waters
 {
+    [Serializable]
     public abstract class Water
     {
         public Image MapImage { get; set; }

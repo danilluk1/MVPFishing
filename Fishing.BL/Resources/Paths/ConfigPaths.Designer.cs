@@ -176,5 +176,14 @@ namespace Fishing.BL.Resources.Paths {
                 return ResourceManager.GetString("TIME_DIR", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на config/water.dat.
+        /// </summary>
+        internal static string WATER_DIR {
+            get {
+                return ResourceManager.GetString("WATER_DIR", resourceCulture);
+            }
+        }
     }
 }

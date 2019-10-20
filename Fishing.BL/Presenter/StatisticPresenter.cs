@@ -35,26 +35,7 @@ namespace Fishing.BL.Presenter
 
         private void View_Load(object sender, EventArgs e)
         {
-            view.NameLText = Player.GetPlayer().NickName;
-            view.MoneyLText = Player.GetPlayer().Money.ToString();
-            view.GatheringLText = Player.GetPlayer().Statistic.GatheringCount.ToString();
-            view.TakeFishesLText = Player.GetPlayer().Statistic.TakenFishesCount.ToString();
-            view.TornFLineLText = Player.GetPlayer().Statistic.TornsFLinesCount.ToString();
-            view.BrokenRoadsLText = Player.GetPlayer().Statistic.BrokensRoadsCount.ToString();
-
-            foreach(BaseEvent ev in Player.GetPlayer().EventHistory)
-            {
-                ListViewItem lvi = new ListViewItem();
-                lvi.Text = ev.Text;
-                lvi.ImageIndex = ev.Index;
-                if(ev is TrophyFishEvent)
-                {
-                    lvi.ForeColor = System.Drawing.Color.White;
-                    lvi.BackColor = System.Drawing.Color.Navy;
-                }
-                view.addEventToView(lvi);
-            }
-
+           
         }
     }
 }

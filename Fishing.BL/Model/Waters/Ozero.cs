@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Fishing.BL.Model.Waters
 {
+    [Serializable]
     public class Ozero : Water
     {
         private static Ozero water;

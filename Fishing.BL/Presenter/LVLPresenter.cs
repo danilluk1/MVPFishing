@@ -93,7 +93,7 @@ namespace Fishing.Presenter
                 }
                 if (player.isFishAttack)
                 {
-                    if (gui.FLineBarValue > 980)
+                    if (gui.FLineBarValue > 990)
                     {
                         player.AddNewMessage(new FLineTornEvent());
                         gui.AddEventToBox(new FLineTornEvent());
@@ -102,7 +102,7 @@ namespace Fishing.Presenter
                         sp.Stream = SoundsRes.leskaobr;
                         sp.Play();
                     }
-                    if (gui.RoadBarValue > 980)
+                    if (gui.RoadBarValue > 990)
                     {
                         player.AddNewMessage(new RoadBrokenEvent());
                         gui.AddEventToBox(new RoadBrokenEvent());
@@ -113,6 +113,7 @@ namespace Fishing.Presenter
                 RefreshForm?.Invoke(this, EventArgs.Empty);
                 if (player.IsFishAbleToGoIntoFpond())
                 {
+                    player.Netting.ShowNetting();
                     gui.CheckNeedsAndClearEventBox();
                     if (!player.CFish.isTrophy())
                     {

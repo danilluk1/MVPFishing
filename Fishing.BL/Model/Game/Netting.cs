@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 using Fishing.BL.Resources.Images;
 
 namespace Fishing.BL.Model.Game
