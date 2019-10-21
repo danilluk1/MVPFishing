@@ -2,6 +2,7 @@
 using Fishing.View.Assembly;
 using Fishing.View.Inventory;
 using Fishing.View.LureSelector;
+using Fishing.View.LureSelector.Presenter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -268,8 +269,10 @@ namespace Fishing
 
         private void BaitBox_Click(object sender, EventArgs e)
         {
-            LureSelector selector = new LureSelector();
-            selector.Show();
+            if (Player.GetPlayer().Assembly != null && !Player.GetPlayer().IsBaitInWater)
+            {
+                SelectorPresenter presenter = new SelectorPresenter(new LureSelector(), UI.gui);
+            }
         }
 
         public void Open()

@@ -69,14 +69,7 @@ namespace Fishing
         public Image ReelPicture { get => reelBox.BackgroundImage; set => reelBox.BackgroundImage = value; }
         public Image FLinePicture { get => flineBox.BackgroundImage; set => flineBox.BackgroundImage = value; }
 
-        public event EventHandler SettingsButtonClick;
         public event PaintEventHandler SounderPaint;
-        public event EventHandler EventBarClick;
-        public event EventHandler MapButtonClick;
-        public event EventHandler InventoryButtonClick;
-        public event EventHandler MenuButtonClick;
-        public event EventHandler FPondClick;
-        public event EventHandler BaitPicClick;
         public event EventHandler RefreshSounder;
 
         private void MapLabel_Click(object sender, EventArgs e)
@@ -94,7 +87,8 @@ namespace Fishing
 
         private void SettingLabel_Click(object sender, EventArgs e)
         {
-            SettingsButtonClick?.Invoke(this, e);
+            SettingsForm f = new SettingsForm();
+            f.Show();
         }
 
         private void FpondBox_Click(object sender, EventArgs e)
@@ -105,7 +99,7 @@ namespace Fishing
 
         private void BaitsPicture_Click(object sender, EventArgs e)
         {
-            if (Player.GetPlayer().Assembly != null)
+            if (Player.GetPlayer().Assembly != null && !Player.GetPlayer().IsBaitInWater)
             {
                 SelectorPresenter presenter = new SelectorPresenter(new LureSelector(), this);
             }

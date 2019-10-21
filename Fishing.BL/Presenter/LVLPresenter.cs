@@ -155,8 +155,8 @@ namespace Fishing.Presenter
             if (player.isFishAttack)
             {
 
-                player.CFish.Power.X = fishMovingX.Next(-player.CFish.Power.X, Math.Abs(player.CFish.Power.X));
-                player.CFish.Power.Y = fishMovingY.Next(-player.CFish.Power.Y, 2);
+                player.CFish.Power.X = fishMovingX.Next(-player.CFish.Power.X, Math.Abs(player.CFish.Power.X) + 1);
+                player.CFish.Power.Y = fishMovingY.Next(-Math.Abs(player.CFish.Power.Y), 2);
             }
         }
 
