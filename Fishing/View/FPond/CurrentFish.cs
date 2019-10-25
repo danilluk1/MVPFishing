@@ -1,6 +1,4 @@
-﻿using Fishing.BL;
-using Fishing.BL.Presenter;
-using Fishing.BL.Resources.Images;
+﻿using Fishing.BL.Presenter;
 using Fishing.BL.View;
 using System;
 using System.Windows.Forms;
@@ -9,7 +7,8 @@ namespace Fishing
 {
     public partial class CurrentFish : Form, ICurrentFishF
     {
-        readonly CurrentFishPresenter presenter;
+        private readonly CurrentFishPresenter presenter;
+
         public CurrentFish()
         {
             InitializeComponent();
@@ -39,7 +38,7 @@ namespace Fishing
                         this.Close();
                     }
                     break;
-            }           
+            }
         }
 
         public void SetCurrentFish(Fish fish)

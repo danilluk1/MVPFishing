@@ -1,5 +1,4 @@
 ﻿using Fishing.BL.Model.UserEvent;
-using Fishing.BL.Presenter;
 using Fishing.BL.View;
 using Fishing.Presenter;
 using System;
@@ -12,8 +11,8 @@ namespace Fishing.View.Statistic
         public StatisticForm()
         {
             InitializeComponent();
-            
         }
+
         public string NameLText { get => NameLabel.Text; set => NameLabel.Text = value; }
         public string MoneyLText { get => MoneyLabel.Text; set => MoneyLabel.Text += value; }
         public string GatheringLText { get => GatheringLabel.Text; set => GatheringLabel.Text += value; }
@@ -65,7 +64,6 @@ namespace Fishing.View.Statistic
                 }
                 addEventToView(lvi);
             }
-
         }
     }
 }

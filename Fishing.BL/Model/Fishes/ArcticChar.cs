@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using Fishing.BL;
-using Fishing.BL.Resources.Messages;
+﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Resources.Images;
-using Fishing.BL.Model.Game;
+using Fishing.BL.Resources.Messages;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace Fishing
 {
@@ -19,12 +15,14 @@ namespace Fishing
             Size.Small,
             Size.Large,
         };
+
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
             PartsOfDay.Morning,
             PartsOfDay.Night
         };
+
         private readonly static string name = "Арктич. Голец";
         private readonly static int price = 2;
         private readonly static int trophyWeight = 16000;

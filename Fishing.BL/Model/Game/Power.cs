@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.Game
 {
@@ -18,7 +14,7 @@ namespace Fishing.BL.Model.Game
             power.X = x;
             power.Y = y;
 
-            return power;            
+            return power;
         }
     }
 }

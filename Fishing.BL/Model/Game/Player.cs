@@ -1,5 +1,4 @@
-﻿using Fishing.BL;
-using Fishing.BL.Model.Eating;
+﻿using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
 using Saver.BL.Controller;
@@ -7,8 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
 namespace Fishing
@@ -51,21 +48,21 @@ namespace Fishing
 
         private Player()
         {
-
         }
-        public static Player GetPlayer()                           
+
+        public static Player GetPlayer()
         {
-            if(player == null)
+            if (player == null)
             {
                 player = new Player();
             }
 
-            return player;              
+            return player;
         }
 
         public bool IsPlayerAbleToFishing()
         {
-            if(Assembly != null && Netting != null && Satiety > 0 && Assembly.Lure != null)
+            if (Assembly != null && Netting != null && Satiety > 0 && Assembly.Lure != null)
             {
                 return true;
             }
@@ -121,7 +118,7 @@ namespace Fishing
 
         public bool IsFishAbleToGoIntoFpond()
         {
-            if(player.Netting.Y == 550 && player.isFishAttack && player.CurPoint.Y > 550)
+            if (player.Netting.Y == 550 && player.isFishAttack && player.CurPoint.Y > 550)
             {
                 return true;
             }
@@ -141,6 +138,7 @@ namespace Fishing
             player.Assembly.Proad = null;
             player.CurPoint.Y = 800;
             player.Statistic.BrokensRoadsCount++;
+            player.IsBaitInWater = false;
         }
 
         public void TornFLine()
@@ -151,11 +149,12 @@ namespace Fishing
             player.Assembly.Lure = null;
             player.Statistic.GatheringCount++;
             player.AddNewMessage(new GatheringEvent());
+            player.IsBaitMoving = false;
         }
 
         public void DecSatiety(int value)
         {
-            if(Satiety - value <= SATIETY_MIN_VALUE)
+            if (Satiety - value <= SATIETY_MIN_VALUE)
             {
                 Satiety -= value;
             }

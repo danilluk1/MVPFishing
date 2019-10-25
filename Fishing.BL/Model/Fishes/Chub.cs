@@ -4,9 +4,6 @@ using Fishing.BL.Resources.Messages;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.Fishes
 {
@@ -18,12 +15,14 @@ namespace Fishing.BL.Model.Fishes
             Size.Small,
             Size.Large,
         };
+
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
             PartsOfDay.Morning,
             PartsOfDay.Night
         };
+
         private readonly static string name = "Голавль";
         private readonly static int price = 4;
         private readonly static int trophyWeight = 3000;

@@ -1,14 +1,7 @@
-﻿using Fishing.BL.Presenter;
-using Fishing.BL.View;
+﻿using Fishing.BL.View;
 using Fishing.Presenter;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing.View.FoodInventory
@@ -19,7 +12,6 @@ namespace Fishing.View.FoodInventory
         {
             InitializeComponent();
             foodsBox.DataSource = Player.GetPlayer().FoodInv;
-            
         }
 
         public int SelectedIndex { get => foodsBox.SelectedIndex; set => throw new NotImplementedException(); }
@@ -28,6 +20,7 @@ namespace Fishing.View.FoodInventory
         public BasePresenter Presenter { private get; set; }
 
         public event EventHandler ListSelectedIndexChanged;
+
         public event EventHandler ListDoubleClick;
 
         private void FoodsBox_SelectedIndexChanged(object sender, EventArgs e)

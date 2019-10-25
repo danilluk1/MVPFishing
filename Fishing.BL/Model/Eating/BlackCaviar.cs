@@ -1,9 +1,5 @@
 ﻿using Fishing.BL.Resources.Images;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.Eating
 {
@@ -12,7 +8,6 @@ namespace Fishing.BL.Model.Eating
     {
         public BlackCaviar() : base("Икра Чёрная", 10000, 80, Images.black)
         {
-
         }
     }
 }

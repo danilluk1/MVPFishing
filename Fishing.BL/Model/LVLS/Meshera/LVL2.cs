@@ -1,11 +1,6 @@
 ﻿using Fishing.BL.Model.Fishes;
 using Fishing.BL.Resources.Images;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Fishing.BL.Model.LVLS.Meshera
 {
@@ -18,6 +13,7 @@ namespace Fishing.BL.Model.LVLS.Meshera
             LabelStartY = 345;
             LabelStartX = 240;
         }
+
         public override void AddFishes()
         {
             for (int i = 0; i < 1000; i++)
@@ -32,7 +28,7 @@ namespace Fishing.BL.Model.LVLS.Meshera
                 }
                 if (i >= 500 && i <= 750)
                 {
-                    Fishes.Add(new Perch(180, 350, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2}));
+                    Fishes.Add(new Perch(180, 350, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i > 750 && i <= 1000)
                 {

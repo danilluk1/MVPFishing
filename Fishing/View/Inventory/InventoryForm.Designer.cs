@@ -131,6 +131,7 @@ namespace Fishing
             this.nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nameBox.Location = new System.Drawing.Point(503, 273);
             this.nameBox.Name = "nameBox";
+            this.nameBox.ReadOnly = true;
             this.nameBox.Size = new System.Drawing.Size(155, 20);
             this.nameBox.TabIndex = 13;
             // 
@@ -139,6 +140,7 @@ namespace Fishing
             this.powerBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.powerBox.Location = new System.Drawing.Point(504, 328);
             this.powerBox.Name = "powerBox";
+            this.powerBox.ReadOnly = true;
             this.powerBox.Size = new System.Drawing.Size(155, 20);
             this.powerBox.TabIndex = 14;
             // 
@@ -147,6 +149,7 @@ namespace Fishing
             this.typeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.typeBox.Location = new System.Drawing.Point(504, 374);
             this.typeBox.Name = "typeBox";
+            this.typeBox.ReadOnly = true;
             this.typeBox.Size = new System.Drawing.Size(155, 20);
             this.typeBox.TabIndex = 16;
             // 
@@ -326,7 +329,7 @@ namespace Fishing
             this.powerLabel.BackColor = System.Drawing.Color.Transparent;
             this.powerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.powerLabel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.powerLabel.Location = new System.Drawing.Point(552, 302);
+            this.powerLabel.Location = new System.Drawing.Point(562, 305);
             this.powerLabel.Name = "powerLabel";
             this.powerLabel.Size = new System.Drawing.Size(96, 20);
             this.powerLabel.TabIndex = 26;

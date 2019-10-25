@@ -2,11 +2,7 @@
 using Fishing.BL.View;
 using Fishing.Presenter;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.BL.Presenter
 {
@@ -15,6 +11,7 @@ namespace Fishing.BL.Presenter
         private IFoodInventory view;
         private readonly Player player;
         private SoundPlayer sp;
+
         public FoodPresenter(IFoodInventory view)
         {
             this.view = view;
@@ -33,7 +30,7 @@ namespace Fishing.BL.Presenter
                 view.FoodImage = player.FoodInv[view.SelectedIndex].Pict;
                 view.FoodProductivityTextBox = player.FoodInv[view.SelectedIndex].Productivity.ToString();
             }
-            catch(NullReferenceException) { }
+            catch (NullReferenceException) { }
             catch (ArgumentOutOfRangeException) { }
         }
 

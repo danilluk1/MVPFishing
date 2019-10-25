@@ -10,14 +10,13 @@ using System.ComponentModel;
 
 namespace Saver.BL.Controller
 {
-    class BaseController
+    internal class BaseController
     {
         private static BaseController controller;
-        IDataSaver saver = new SerializeDataSaver();
+        private IDataSaver saver = new SerializeDataSaver();
 
         private BaseController()
         {
-
         }
 
         public static BaseController GetController()

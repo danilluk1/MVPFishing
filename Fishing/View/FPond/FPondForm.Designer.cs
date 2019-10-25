@@ -31,6 +31,7 @@ namespace Fishing
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fishesForm));
             this.FishList = new System.Windows.Forms.ListBox();
             this.FishImage = new System.Windows.Forms.PictureBox();
             this.SellButton = new System.Windows.Forms.Button();
@@ -42,10 +43,12 @@ namespace Fishing
             // FishList
             // 
             this.FishList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.FishList.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FishList.FormattingEnabled = true;
+            this.FishList.ItemHeight = 23;
             this.FishList.Location = new System.Drawing.Point(13, 52);
             this.FishList.Name = "FishList";
-            this.FishList.Size = new System.Drawing.Size(276, 420);
+            this.FishList.Size = new System.Drawing.Size(276, 418);
             this.FishList.TabIndex = 0;
             this.FishList.SelectedIndexChanged += new System.EventHandler(this.FishList_SelectedIndexChanged);
             // 
@@ -61,7 +64,7 @@ namespace Fishing
             // 
             // SellButton
             // 
-            this.SellButton.BackgroundImage = Images.layer2;
+            this.SellButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SellButton.BackgroundImage")));
             this.SellButton.Location = new System.Drawing.Point(305, 497);
             this.SellButton.Name = "SellButton";
             this.SellButton.Size = new System.Drawing.Size(157, 36);
@@ -72,7 +75,7 @@ namespace Fishing
             // 
             // CloseButton
             // 
-            this.CloseButton.BackgroundImage = Images.layer2;
+            this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
             this.CloseButton.Location = new System.Drawing.Point(581, 497);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(140, 36);
@@ -94,7 +97,7 @@ namespace Fishing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = Images.layer2;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(733, 545);
             this.Controls.Add(this.fishDescription);

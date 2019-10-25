@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Saver.BL.Controller
 {
-    class SerializeDataSaver : IDataSaver
+    internal class SerializeDataSaver : IDataSaver
     {
         public T Load<T>(string fileName)
         {

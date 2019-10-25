@@ -1,14 +1,10 @@
 ﻿using Fishing.BL.Resources.Images;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.LVLS.Ozero
 {
     public class LVL2 : LVL
-    {     
+    {
         public LVL2() : base(Images.ozerolvl2)
         {
             Widgth = 50;
@@ -16,23 +12,24 @@ namespace Fishing.BL.Model.LVLS.Ozero
             LabelStartY = 300;
             LabelStartX = 0;
         }
+
         public override void AddFishes()
-        {          
-            for(int i = 0; i < 1000; i++)
+        {
+            for (int i = 0; i < 1000; i++)
             {
-                if(i < 250)
+                if (i < 250)
                 {
                     Fishes.Add(new Pike(100, 400, 1, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
                 if (i > 250 && i < 450)
                 {
-                    Fishes.Add(new Perch(100, 600, 1, new HashSet<Lure>() {Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Perch(100, 600, 1, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i > 450 && i < 600)
                 {
-                    Fishes.Add(new ArcticChar(350, 600, 1, new HashSet<Lure>() {Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6 , Lure.vob1}));
+                    Fishes.Add(new ArcticChar(350, 600, 1, new HashSet<Lure>() { Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
-                if(i > 600 && i < 700)
+                if (i > 600 && i < 700)
                 {
                     Fishes.Add(new Trout(350, 600, 1, new HashSet<Lure>() { Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
@@ -76,6 +73,5 @@ namespace Fishing.BL.Model.LVLS.Ozero
                 Deeparr[x, 18].Tag = 220;
             }
         }
-
     }
 }

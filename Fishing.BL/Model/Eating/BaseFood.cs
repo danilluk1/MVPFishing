@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Fishing.BL.Model.Eating
 {
     [Serializable]
-    public abstract class BaseFood : Item 
+    public abstract class BaseFood : Item
     {
         public static BindingList<BaseFood> FoodShop = new BindingList<BaseFood>();
         public int Productivity { get; set; }
 
-        public BaseFood(string name, int price, int productivity, Bitmap bit) : base (name, price, bit)
+        public BaseFood(string name, int price, int productivity, Bitmap bit) : base(name, price, bit)
         {
             if (string.IsNullOrWhiteSpace(name))
             {

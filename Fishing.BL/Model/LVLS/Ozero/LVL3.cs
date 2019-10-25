@@ -1,10 +1,6 @@
 ﻿using Fishing.BL.Model.Fishes;
 using Fishing.BL.Resources.Images;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.LVLS.Ozero
 {
@@ -15,7 +11,8 @@ namespace Fishing.BL.Model.LVLS.Ozero
             Widgth = 50;
             Height = 17;
             LabelStartY = 340;
-        }       
+        }
+
         public override void AddFishes()
         {
             for (int i = 0; i < 1000; i++)
@@ -28,9 +25,9 @@ namespace Fishing.BL.Model.LVLS.Ozero
                 {
                     Fishes.Add(new Perch(100, 600, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
                 }
-                if(i >= 350 && i < 500)
+                if (i >= 350 && i < 500)
                 {
-                    Fishes.Add(new Burbot(500, 700, 1, new HashSet<Lure>(){ Lure.jig2, Lure.jig3, Lure.vob6 }));
+                    Fishes.Add(new Burbot(500, 700, 1, new HashSet<Lure>() { Lure.jig2, Lure.jig3, Lure.vob6 }));
                 }
                 if (i >= 500 && i <= 1000)
                 {
@@ -61,7 +58,6 @@ namespace Fishing.BL.Model.LVLS.Ozero
                 Deeparr[x, 14].Tag = 500;
                 Deeparr[x, 15].Tag = 500;
                 Deeparr[x, 16].Tag = 560;
-
             }
         }
     }

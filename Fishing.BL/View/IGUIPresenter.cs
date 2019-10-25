@@ -1,12 +1,5 @@
 ﻿using Fishing.BL.Model.UserEvent;
-using Fishing.BL.View;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Fishing.View.GUI
 {
@@ -24,12 +17,15 @@ namespace Fishing.View.GUI
         int LureDeepValue { get; set; }
         string WiringType { get; set; }
         int EatingBarValue { get; set; }
-        
 
         void AddEventToBox(BaseEvent ev);
+
         void ClearEvents();
+
         void IncrementRoadBarValue(int value);
+
         void IncrementFLineBarValue(int value);
+
         void CheckNeedsAndClearEventBox();
     }
 }

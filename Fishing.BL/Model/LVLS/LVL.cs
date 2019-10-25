@@ -1,12 +1,9 @@
-﻿using System;
+﻿using Fishing.BL.Model.Game;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
-using Fishing.BL;
-using Fishing.BL.Model.Game;
 
 namespace Fishing
 {
@@ -30,6 +27,7 @@ namespace Fishing
 
         public Label[,] Deeparr;
         protected List<Fish> Fishes = new List<Fish>(1000);
+
         public abstract void AddFishes();
 
         public void GetFish()
@@ -58,6 +56,7 @@ namespace Fishing
                 }
             }
         }
+
         public abstract void SetDeep();
 
         public static bool IsFishAttackAbble(Fish fish)
@@ -75,10 +74,12 @@ namespace Fishing
                 }
                 return ba && pa;
             }
-            catch (InvalidOperationException){              
+            catch (InvalidOperationException)
+            {
                 return false;
             }
         }
+
         public void AddDeep()
         {
             for (int x = 0; x < Widgth; x++)

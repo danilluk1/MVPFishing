@@ -37,6 +37,7 @@ namespace Fishing
         {
             Create(new LVL1());
         }
+
         public void Create(LVL lvl)
         {
             UI.gui = new UI(lvl);
@@ -52,5 +53,4 @@ namespace Fishing
             Create(new LVL2());
         }
     }
-
 }

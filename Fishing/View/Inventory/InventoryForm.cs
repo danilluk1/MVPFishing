@@ -4,13 +4,6 @@ using Fishing.View.Inventory;
 using Fishing.View.LureSelector;
 using Fishing.View.LureSelector.Presenter;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing
@@ -20,7 +13,6 @@ namespace Fishing
         public Inventory()
         {
             InitializeComponent();
-            
 
             if (Player.GetPlayer().Assemblies.Count == 0)
             {
@@ -47,8 +39,7 @@ namespace Fishing
                 catch (ArgumentOutOfRangeException) { }
                 catch (NullReferenceException) { }
             }
-            
-        }       
+        }
 
         public Road Road_P
         {
@@ -64,9 +55,9 @@ namespace Fishing
             }
             set
             {
-
             }
         }
+
         public Reel Reel_P
         {
             get
@@ -81,9 +72,9 @@ namespace Fishing
             }
             set
             {
-
             }
         }
+
         public FLine FLine_P
         {
             get
@@ -98,9 +89,9 @@ namespace Fishing
             }
             set
             {
-
             }
         }
+
         public Lure Lure_P
         {
             get
@@ -115,7 +106,6 @@ namespace Fishing
             }
             set
             {
-                
             }
         }
 
@@ -131,7 +121,7 @@ namespace Fishing
 
                 return null;
             }
-            set{}
+            set { }
         }
 
         public string RoadText { get => roadTextBox.Text; set => roadTextBox.Text = value; }
@@ -141,19 +131,33 @@ namespace Fishing
         public BasePresenter Presenter { private get; set; }
 
         public event EventHandler FLineSelectedIndexChanged;
+
         public event EventHandler RoadSelectedIndexChanged;
+
         public event EventHandler ReelSelectedIndexChanged;
+
         public event EventHandler LureSelectedIndexChanged;
+
         public event EventHandler FLineDoubleClick;
+
         public event EventHandler RoadDoubleClick;
+
         public event EventHandler ReelDoubleClick;
+
         public event EventHandler LureDoubleClick;
+
         public event EventHandler CloseButtonClick;
+
         public event EventHandler FetchButtonClick;
+
         public event EventHandler AddButtonClick;
+
         public event EventHandler AssemblyDoubleClick;
+
         public event EventHandler MakeOutClick;
+
         public event EventHandler BaitPicClick;
+
         private void RoadsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             RoadSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
@@ -168,10 +172,12 @@ namespace Fishing
         {
             ReelSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
         }
+
         private void LuresList_SelectedIndexChanged(object sender, EventArgs e)
         {
             LureSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
         }
+
         private void AssembliesBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             AssemblyDoubleClick?.Invoke(this, EventArgs.Empty);
@@ -208,7 +214,7 @@ namespace Fishing
             FLineList.DataSource = Player.GetPlayer().FLineInv;
             ReelsList.DataSource = Player.GetPlayer().ReelInv;
             RoadsList.DataSource = Player.GetPlayer().RoadInv;
-            assembliesBox.DataSource = Player.GetPlayer().Assemblies;        
+            assembliesBox.DataSource = Player.GetPlayer().Assemblies;
         }
 
         private void FetchButton_Click(object sender, EventArgs e)
@@ -221,6 +227,7 @@ namespace Fishing
             AddAssembly add = new AddAssembly();
             add.Show();
         }
+
         public void addItemToRightView(Item item)
         {
             try
@@ -251,7 +258,6 @@ namespace Fishing
                 }
                 if (Item.SelectItemType(item) is Lure)
                 {
-
                     Lure r = (Lure)item;
                     this.pictureBox5.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;

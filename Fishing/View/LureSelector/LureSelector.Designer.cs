@@ -81,6 +81,7 @@
             this.Name = "LureSelector";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LureSelector";
+            this.TopMost = true;
             this.TransparencyKey = System.Drawing.SystemColors.ActiveBorder;
             this.Load += new System.EventHandler(this.LureSelector_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lureImage)).EndInit();

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Fishing.BL.Resources.Images;
+using System;
 using System.Drawing;
-using Fishing.BL.Resources.Images;
 
 namespace Fishing
 {
@@ -11,6 +11,7 @@ namespace Fishing
         Feeder,
         Float,
     }
+
     [Serializable]
     public class Road : Item
     {
@@ -20,13 +21,15 @@ namespace Fishing
         public static Road SuperFisher = new Road("Hearty Rose Jigging", ROAD_TYPE.Spinning, 95000, 700000, Images.SuperFisher_950);
         public int Power { get; set; }
         public ROAD_TYPE Type { get; set; }
+
         public Road(string name, ROAD_TYPE type, int power, int price, Bitmap pic) : base(name, price, pic)
         {
             Power = power;
             Type = type;
         }
-        
-        public override string ToString() {
+
+        public override string ToString()
+        {
             return Name;
         }
     }

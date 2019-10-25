@@ -162,12 +162,12 @@ namespace Fishing
             this.LowerPanel.Controls.Add(this.SounderPanel);
             this.LowerPanel.Controls.Add(this.flineBox);
             this.LowerPanel.Controls.Add(this.reelBox);
+            this.LowerPanel.Controls.Add(this.ReelBar);
             this.LowerPanel.Controls.Add(this.roadBox);
             this.LowerPanel.Controls.Add(this.eatingBar);
             this.LowerPanel.Controls.Add(this.WiringTypeLabel);
             this.LowerPanel.Controls.Add(this.StatsBox);
             this.LowerPanel.Controls.Add(this.InventoryBox);
-            this.LowerPanel.Controls.Add(this.ReelBar);
             this.LowerPanel.Controls.Add(this.FLineBar);
             this.LowerPanel.Controls.Add(this.BaitsPicture);
             this.LowerPanel.Controls.Add(this.FpondBox);

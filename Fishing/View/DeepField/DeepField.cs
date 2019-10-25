@@ -1,13 +1,5 @@
-﻿using Fishing.BL.Presenter;
-using Fishing.BL.View;
+﻿using Fishing.BL.View;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing.View.DeepField
@@ -15,6 +7,7 @@ namespace Fishing.View.DeepField
     public partial class DeepField : Form, IDeepField
     {
         private LVL lvl;
+
         public DeepField(LVL lvl)
         {
             InitializeComponent();
@@ -40,7 +33,6 @@ namespace Fishing.View.DeepField
 
         private void DeepField_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

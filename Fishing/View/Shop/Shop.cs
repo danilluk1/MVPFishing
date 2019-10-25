@@ -2,13 +2,6 @@
 using Fishing.Presenter;
 using Fishing.View.Shop;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing
@@ -25,15 +18,21 @@ namespace Fishing
             lureBox.DataSource = Item.LureShop;
             moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
+
         public string MoneyL { get => moneyBox.Text; set => moneyBox.Text = value; }
         public string LowerL { get => label1.Text; set => label1.Text = value; }
         public BasePresenter Presenter { private get; set; }
 
         public event EventHandler FLineDoubleClick;
+
         public event EventHandler RoadDoubleClick;
+
         public event EventHandler ReelDoubleClick;
+
         public event EventHandler CloseButtonClick;
+
         public event EventHandler ProductDoubleClick;
+
         public event EventHandler LureDoubleClick;
 
         public Road Road_P
@@ -50,9 +49,9 @@ namespace Fishing
             }
             set
             {
-
             }
         }
+
         public Reel Reel_P
         {
             get
@@ -67,9 +66,9 @@ namespace Fishing
             }
             set
             {
-
             }
         }
+
         public FLine FLine_P
         {
             get
@@ -84,9 +83,9 @@ namespace Fishing
             }
             set
             {
-
             }
         }
+
         public BaseFood Food_P
         {
             get
@@ -101,7 +100,6 @@ namespace Fishing
             }
             set
             {
-
             }
         }
 
@@ -119,7 +117,6 @@ namespace Fishing
             }
             set
             {
-
             }
         }
 
@@ -127,6 +124,7 @@ namespace Fishing
         {
             addItemtoRightView(Road_P);
         }
+
         private void FLineList_SelectedIndexChanged(object sender, EventArgs e)
         {
             addItemtoRightView(FLine_P);
@@ -176,6 +174,7 @@ namespace Fishing
         {
             this.Close();
         }
+
         public void addItemtoRightView(Item i)
         {
             try

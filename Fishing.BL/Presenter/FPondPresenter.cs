@@ -1,5 +1,4 @@
-﻿using Fishing.BL.Resources.Images;
-using Fishing.View.FPond;
+﻿using Fishing.View.FPond;
 using Fishing.View.GUI;
 using System;
 
@@ -7,8 +6,9 @@ namespace Fishing.Presenter
 {
     public class FPondPresenter
     {
-        IFPond view;
-        IGUIPresenter gui;
+        private IFPond view;
+        private IGUIPresenter gui;
+
         public FPondPresenter(IFPond view, IGUIPresenter gui)
         {
             this.view = view;

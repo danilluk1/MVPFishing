@@ -1,10 +1,6 @@
 ﻿using Fishing.BL.Model.Fishes;
 using Fishing.BL.Resources.Images;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.LVLS.Ozero
 {
@@ -15,8 +11,8 @@ namespace Fishing.BL.Model.LVLS.Ozero
             Widgth = 50;
             Height = 19;
             LabelStartY = 305;
-
         }
+
         public override void AddFishes()
         {
             for (int i = 0; i < 1000; i++)

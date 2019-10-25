@@ -1,19 +1,19 @@
 ﻿using Fishing.BL.Model.Eating;
 using Fishing.BL.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.View.Shop
 {
     public interface IShop : IView
     {
         event EventHandler FLineDoubleClick;
+
         event EventHandler RoadDoubleClick;
+
         event EventHandler ReelDoubleClick;
+
         event EventHandler ProductDoubleClick;
+
         event EventHandler LureDoubleClick;
 
         event EventHandler CloseButtonClick;
@@ -25,6 +25,5 @@ namespace Fishing.View.Shop
         Lure Lure_P { get; set; }
         string MoneyL { get; set; }
         string LowerL { get; set; }
-
     }
 }

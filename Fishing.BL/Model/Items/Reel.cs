@@ -2,13 +2,13 @@
 using System;
 using System.Drawing;
 
-
 namespace Fishing
 {
     [Serializable]
     public class Reel : Item
     {
         public int Power;
+
         public Reel(string name, int power, int price, Bitmap pic) : base(name, price, pic)
         {
             Power = power;

@@ -1,5 +1,4 @@
 ﻿using Fishing.Presenter;
-using Fishing.View.LureSelector.Presenter;
 using Fishing.View.LureSelector.View;
 using System;
 using System.Drawing;
@@ -11,7 +10,7 @@ namespace Fishing.View.LureSelector
     {
         public LureSelector()
         {
-            InitializeComponent();       
+            InitializeComponent();
         }
 
         public Lure Lure { get => Player.GetPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
@@ -21,8 +20,8 @@ namespace Fishing.View.LureSelector
         public BasePresenter Presenter { private get; set; }
 
         public event EventHandler LureListIndexChanged;
-        public event EventHandler LureListDoubleClick;
 
+        public event EventHandler LureListDoubleClick;
 
         private void LureList_SelectedIndexChanged(object sender, EventArgs e)
         {

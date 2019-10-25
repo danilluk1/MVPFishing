@@ -1,14 +1,7 @@
 ﻿using Fishing.BL.Model.Eating;
-using Fishing.BL.Model.Game;
-using Fishing.View;
 using Fishing.View.Menu;
 using Saver.BL.Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing.Presenter
@@ -16,9 +9,9 @@ namespace Fishing.Presenter
     public class MenuPresenter : BasePresenter
     {
         private readonly IMenu view;
+
         public MenuPresenter(IMenu view)
         {
-            
             this.view = view;
             view.Presenter = this;
             view.ExitButtonClick += View_ExitButtonClick;

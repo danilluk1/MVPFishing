@@ -1,13 +1,4 @@
-﻿using Fishing.BL.View;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Fishing.BL.Model.Game
+﻿namespace Fishing.BL.Model.Game
 {
     public sealed class Sounder
     {
@@ -18,6 +9,7 @@ namespace Fishing.BL.Model.Game
         private Sounder()
         {
         }
+
         public static Sounder GetSounder()
         {
             if (sounder == null)

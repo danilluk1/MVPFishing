@@ -1,10 +1,6 @@
 ﻿using Fishing.BL.View;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.View.LureSelector.View
 {
@@ -16,6 +12,7 @@ namespace Fishing.View.LureSelector.View
         string SizeBoxText { get; set; }
 
         event EventHandler LureListIndexChanged;
+
         event EventHandler LureListDoubleClick;
     }
 }

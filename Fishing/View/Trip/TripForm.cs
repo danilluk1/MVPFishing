@@ -1,13 +1,6 @@
 ﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Model.Trip;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing.View.Trip
@@ -15,6 +8,7 @@ namespace Fishing.View.Trip
     public partial class TripForm : Form
     {
         private TripToWater trip;
+
         public TripForm()
         {
             InitializeComponent();
@@ -24,6 +18,7 @@ namespace Fishing.View.Trip
             trip.DaysCount = 1;
             moneyLabel.Text = "Деньги: " + Player.GetPlayer().Money;
         }
+
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -45,7 +40,6 @@ namespace Fishing.View.Trip
             trip.CountPrice();
             trip.CountTime();
             tripBox.Text = trip.ToString();
-
         }
 
         private void TrainButton_Click(object sender, EventArgs e)

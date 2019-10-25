@@ -1,6 +1,5 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using Fishing.BL.Resources.Images;
+﻿using Fishing.BL.Resources.Images;
+using System.Drawing;
 
 namespace Fishing.BL.Model.Game
 {
@@ -9,6 +8,7 @@ namespace Fishing.BL.Model.Game
         public Image Image { get; set; } = Images.podsak1;
         public int X { get; set; }
         public int Y { get; set; }
+
         public void HideNetting()
         {
             Y = 800;

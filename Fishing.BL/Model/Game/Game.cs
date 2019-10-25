@@ -1,12 +1,7 @@
 ﻿using Fishing.BL.Model.Waters;
 using Fishing.View.LVLS.Ozero;
-using Saver.BL.Controller;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing.BL.Model.Game
@@ -18,12 +13,15 @@ namespace Fishing.BL.Model.Game
         Evening,
         Night
     }
+
     [Serializable]
     public class Game
     {
         private static Game game;
         public BindingList<Water> Waters = new BindingList<Water>();
+
         public event EventHandler HoursInc;
+
         public ILVL View { get; set; }
 
         public Timer HoursTimer { get; set; }
@@ -45,12 +43,13 @@ namespace Fishing.BL.Model.Game
 
         public static Game GetGame()
         {
-            if(game == null)
+            if (game == null)
             {
                 game = new Game();
             }
             return game;
         }
+
         private void HoursTimer_Tick(object sender, EventArgs e)
         {
             Time.IncHours(1);

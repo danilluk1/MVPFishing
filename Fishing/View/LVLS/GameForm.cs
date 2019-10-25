@@ -1,19 +1,15 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Resources.Sounds;
 using Fishing.Presenter;
 using Fishing.View.LVLS.Ozero;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
-using Fishing.BL.Resources.Sounds;
-using Fishing.View.DeepField;
 
 namespace Fishing
 {
     public partial class GameForm : Form, ILVL
     {
-
         public GameForm()
         {
             InitializeComponent();
@@ -21,20 +17,30 @@ namespace Fishing
                     ControlStyles.UserPaint, true);
             UpdateStyles();
         }
+
         public Point CurPoint { get => PointToClient(Cursor.Position); set => throw new ArgumentException(); }
-        public BasePresenter Presenter { private get;  set; }
+        public BasePresenter Presenter { private get; set; }
         public Image BackImage { get => BackgroundImage; set => BackgroundImage = value; }
         public LVLPresenter LVLPresenter { private get; set; }
 
         public event EventHandler MouseLeftClick;
+
         public event EventHandler CountGathering;
+
         public event EventHandler CountFishMoves;
+
         public event PaintEventHandler RepaintScreen;
+
         public event KeyEventHandler KeyDOWN;
+
         public event KeyEventHandler KeyUP;
+
         public event EventHandler MainTimerTick;
+
         public event EventHandler BaitTimerTick;
+
         public event EventHandler FormClose;
+
         public event EventHandler DecSacietyTimerTick;
 
         private void Presenter_CreateCurrentFishF(object sender, EventArgs e)
@@ -69,7 +75,6 @@ namespace Fishing
         private void OzeroForm_MouseClick(object sender, MouseEventArgs e)
         {
             MouseLeftClick?.Invoke(this, EventArgs.Empty);
-
         }
 
         private void OzeroForm_Paint(object sender, PaintEventArgs e)
@@ -120,6 +125,7 @@ namespace Fishing
             SoundPlayer player = new SoundPlayer(SoundsRes.ResourceManager.GetStream(name));
             player.Play();
         }
+
         private void DecrementSatiety_Tick(object sender, EventArgs e)
         {
             DecSacietyTimerTick?.Invoke(this, EventArgs.Empty);

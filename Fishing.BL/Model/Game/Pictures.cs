@@ -1,10 +1,9 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using Fishing.BL.Resources.Images;
+﻿using Fishing.BL.Resources.Images;
+using System.Drawing;
 
 namespace Fishing
 {
-    static class Pictures
+    internal static class Pictures
     {
         public static Bitmap brokenRoad = new Bitmap(Images.broken);
         public static Bitmap netting = new Bitmap(Images.podsak1);
@@ -12,6 +11,5 @@ namespace Fishing
         public static Bitmap roadMaxBend = Images.road2;
         public static Bitmap trigon = Images.ssp;
         public static Image izgRoad = Images.road;
-
     }
 }

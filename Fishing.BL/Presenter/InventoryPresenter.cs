@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Fishing.Presenter;
-using Fishing.View.Assembly;
-using Fishing.View.GUI;
+﻿using Fishing.View.GUI;
 using Fishing.View.Inventory;
-using Fishing.View.LureSelector;
+using System;
+using System.Windows.Forms;
 
 namespace Fishing.Presenter
 {
     public class InventoryPresenter : BasePresenter
     {
+        private IInventory view;
+        private IGUIPresenter gui;
 
-        IInventory view;
-        IGUIPresenter gui;
         public InventoryPresenter(IInventory view)
         {
             this.view = view;
@@ -37,10 +30,11 @@ namespace Fishing.Presenter
             view.MakeOutClick += View_MakeOutClick;
             view.BaitPicClick += View_BaitPicClick;
         }
+
         public InventoryPresenter(IInventory view, IGUIPresenter gui)
         {
             this.view = view;
-            this.gui = gui;            
+            this.gui = gui;
             view.Presenter = this;
             view.Open();
             view.LureDoubleClick += View_LureDoubleClick;
@@ -101,7 +95,7 @@ namespace Fishing.Presenter
 
         private void View_FetchButtonClick(object sender, EventArgs e)
         {
-            if(view.FLine_P != null && view.Road_P != null && view.Reel_P != null && view.Lure_P != null)
+            if (view.FLine_P != null && view.Road_P != null && view.Reel_P != null && view.Lure_P != null)
             {
                 view.Assembly_P.Proad = view.Road_P;
                 Player.GetPlayer().RoadInv.Remove(view.Road_P);

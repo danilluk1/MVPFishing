@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using Fishing.BL;
+﻿using Fishing.BL.Model.Lures;
 using Fishing.BL.Resources.Images;
-using Fishing.BL.Model.Lures;
+using System;
+using System.Drawing;
 
 namespace Fishing
 {
@@ -17,6 +12,7 @@ namespace Fishing
         Small,
         Large,
     }
+
     [Serializable]
     public enum DeepType
     {
@@ -25,21 +21,24 @@ namespace Fishing
         Top,
         Jig,
     }
+
     [Serializable]
     public class Lure : Item
     {
         public Size Size { get; set; }
-        public DeepType DeepType{get; set; }
+        public DeepType DeepType { get; set; }
 
         public Lure(string name, Size size, DeepType dt, int price, Bitmap pic) : base(name, price, pic)
-        {           
+        {
             Size = size;
             DeepType = dt;
         }
+
         public override string ToString()
         {
             return this.Name;
         }
+
         public static Wobbler vob1 = new Wobbler("Составник", Size.Large, DeepType.Flying, 3000, Images.Vob_3015);
         public static Wobbler vob2 = new Wobbler("Воблер 2", Size.XL, DeepType.Flying, 3000, Images.Vob_3002);
         public static Wobbler vob3 = new Wobbler("Воблер 3", Size.Small, DeepType.Top, 3000, Images.Vob_3003);

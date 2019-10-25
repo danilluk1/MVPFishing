@@ -1,23 +1,10 @@
-﻿using Fishing.BL;
-using Fishing.BL.Model;
-using Fishing.BL.Model.Game;
-using Fishing.BL.Model.LVLS;
+﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Model.LVLS.Ozero;
-using Fishing.BL.Model.Waters;
-using Fishing.BL.Resources.Images;
 using Fishing.BL.View;
 using Fishing.Presenter;
 using Fishing.View.DeepField;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing
@@ -25,6 +12,7 @@ namespace Fishing
     public partial class Map : Form, IMap
     {
         public static GameForm ozero;
+
         public Map()
         {
             InitializeComponent();
@@ -36,6 +24,7 @@ namespace Fishing
         {
             Map map = new Map();
         }
+
         public void Down()
         {
             this.Close();
@@ -71,5 +60,4 @@ namespace Fishing
             this.Close();
         }
     }
-
 }

@@ -1,9 +1,5 @@
 ﻿using Fishing.BL.Model.Waters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.Trip
 {
@@ -13,8 +9,9 @@ namespace Fishing.BL.Model.Trip
         Train = 5000,
         Plane = 20000
     }
+
     public class TripToWater
-    { 
+    {
         public Water TripWater { get; set; }
         public int DaysCount { get; set; } = 1;
         public Transport TripTransport { get; set; } = Transport.Plane;
@@ -40,9 +37,11 @@ namespace Fishing.BL.Model.Trip
                 case Transport.Car:
                     HoursInTrip = TripWater.KmFromNearestStation / 80;
                     break;
+
                 case Transport.Train:
                     HoursInTrip = TripWater.KmFromNearestStation / 110;
                     break;
+
                 case Transport.Plane:
                     HoursInTrip = TripWater.KmFromNearestStation / 900;
                     break;
@@ -61,9 +60,6 @@ namespace Fishing.BL.Model.Trip
                 + TripTransport + Environment.NewLine
                 + "Время: "
                 + HoursInTrip + " ч.";
-                
         }
-
-
     }
 }

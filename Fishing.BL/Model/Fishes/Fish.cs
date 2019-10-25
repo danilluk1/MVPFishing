@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Fishing.BL.Model.Game;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using Fishing.BL.Model.Game;
 
 namespace Fishing
 {
@@ -25,7 +22,6 @@ namespace Fishing
         public int MaxDeep { get; set; }
         public int MinDeep { get; set; }
         public double MaxSizeCoef { get; set; }
-        
 
         public Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<Size> lures, HashSet<PartsOfDay> activParts, string description, Bitmap bit)
         {
@@ -45,6 +41,7 @@ namespace Fishing
             bool res = Weight < TrophyWeight ? false : true;
             return res;
         }
+
         public override string ToString()
         {
             if (Weight / 1000 > 0)

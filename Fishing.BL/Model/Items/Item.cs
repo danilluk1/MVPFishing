@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
 
 namespace Fishing
 {
@@ -25,6 +21,7 @@ namespace Fishing
             Price = price;
             Pict = pict;
         }
+
         public void selectAndAddItemToInv(int i)
         {
             if (this is Road)

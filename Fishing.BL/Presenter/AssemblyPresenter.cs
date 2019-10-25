@@ -1,18 +1,14 @@
-﻿using Fishing;
-using Fishing.View.Assembly;
+﻿using Fishing.View.Assembly;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Fishing.Presenter
 {
     public class AssemblyPresenter : BasePresenter
     {
         private readonly IAddAssembly view;
+
         public event EventHandler CloseForm;
+
         public AssemblyPresenter(IAddAssembly view)
         {
             this.view = view;

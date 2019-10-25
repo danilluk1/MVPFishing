@@ -1,10 +1,5 @@
 ﻿using Fishing.BL.Resources.Images;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Fishing.BL.Model.LVLS.Meshera
 {
@@ -17,6 +12,7 @@ namespace Fishing.BL.Model.LVLS.Meshera
             LabelStartY = 310;
             LabelStartX = 10;
         }
+
         public override void AddFishes()
         {
             for (int i = 0; i < 1000; i++)
@@ -54,7 +50,6 @@ namespace Fishing.BL.Model.LVLS.Meshera
                 Deeparr[x, 15].Tag = 120;
                 Deeparr[x, 16].Tag = 110;
                 Deeparr[x, 17].Tag = 100;
-
             }
         }
     }

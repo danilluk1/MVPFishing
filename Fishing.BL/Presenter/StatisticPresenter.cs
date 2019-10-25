@@ -1,13 +1,6 @@
-﻿using Fishing.BL.Model.Game;
-using Fishing.BL.Model.UserEvent;
-using Fishing.BL.View;
+﻿using Fishing.BL.View;
 using Fishing.Presenter;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Fishing.BL.Presenter
 {
@@ -35,7 +28,6 @@ namespace Fishing.BL.Presenter
 
         private void View_Load(object sender, EventArgs e)
         {
-           
         }
     }
 }

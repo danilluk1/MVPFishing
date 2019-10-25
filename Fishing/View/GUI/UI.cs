@@ -2,7 +2,6 @@
 using Fishing.BL.Model.MapFactory;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Presenter;
-using Fishing.BL.Resources.Sounds;
 using Fishing.BL.View;
 using Fishing.Presenter;
 using Fishing.View.FoodInventory;
@@ -11,27 +10,21 @@ using Fishing.View.LureSelector;
 using Fishing.View.LureSelector.Presenter;
 using Fishing.View.Statistic;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fishing
 {
     public partial class UI : Form, IGUI, IGUIPresenter, ISounder
     {
-        GUIPresenter presenter;
-        readonly SounderPresenter sound;
+        private GUIPresenter presenter;
+        private readonly SounderPresenter sound;
         public static UI gui;
         private SoundPlayer sp = new SoundPlayer();
 
         public UI(LVL lvl)
-        {          
+        {
             InitializeComponent();
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint |
                                                                             ControlStyles.UserPaint, true);
@@ -70,6 +63,7 @@ namespace Fishing
         public Image FLinePicture { get => flineBox.BackgroundImage; set => flineBox.BackgroundImage = value; }
 
         public event PaintEventHandler SounderPaint;
+
         public event EventHandler RefreshSounder;
 
         private void MapLabel_Click(object sender, EventArgs e)
@@ -78,6 +72,7 @@ namespace Fishing
             Game.GetGame().View.Down();
             f.CreateMap();
         }
+
         private void MenuLabel_Click(object sender, EventArgs e)
         {
             UI.gui.Close();
@@ -104,11 +99,11 @@ namespace Fishing
                 SelectorPresenter presenter = new SelectorPresenter(new LureSelector(), this);
             }
         }
+
         private void EatingBar_Click(object sender, EventArgs e)
         {
             FoodPresenter presenter = new FoodPresenter(new FoodInventory());
         }
-
 
         private void SounderPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -118,7 +113,8 @@ namespace Fishing
         private void SounderUpdater_Tick(object sender, EventArgs e)
         {
             SounderPanel.Refresh();
-        }    
+        }
+
         private void InventoryBox_Click(object sender, EventArgs e)
         {
             InventoryPresenter presenter = new InventoryPresenter(new Inventory(), gui);
@@ -128,13 +124,13 @@ namespace Fishing
         {
             StatisticPresenter presenter = new StatisticPresenter(new StatisticForm());
         }
+
         public void AddEventToBox(BaseEvent ev)
         {
-
             ListViewItem lvi = new ListViewItem();
             lvi.Text = ev.Text;
             lvi.ImageIndex = ev.Index;
-            if(ev is TrophyFishEvent)
+            if (ev is TrophyFishEvent)
             {
                 lvi.ForeColor = Color.White;
                 lvi.BackColor = Color.Navy;
@@ -167,7 +163,6 @@ namespace Fishing
 
         private void eatingBar_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

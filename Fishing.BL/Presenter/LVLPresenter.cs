@@ -1,5 +1,4 @@
 ﻿using Fishing.BL.Model.Game;
-using Fishing.BL.Model.Lures;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
@@ -16,16 +15,20 @@ namespace Fishing.Presenter
 {
     public class LVLPresenter : BasePresenter
     {
-        readonly ILVL view;
-        readonly IGUIPresenter gui;
+        private readonly ILVL view;
+        private readonly IGUIPresenter gui;
         private Player player;
         private SoundPlayer sp;
         public LVL CurLVL { get; set; }
 
         public event EventHandler StartBaitTimer;
+
         public event EventHandler StopBaitTimer;
+
         public event EventHandler StopGatheringTimer;
+
         public event EventHandler RefreshForm;
+
         public event EventHandler CreateCurrentFishF;
 
         public LVLPresenter(ILVL view, IGUIPresenter v, LVL curLVL)
@@ -36,7 +39,7 @@ namespace Fishing.Presenter
             view.LVLPresenter = this;
             view.AddPresenterSounders();
             view.BackImage = CurLVL.Image;
-            view.Open();      
+            view.Open();
             player = Player.GetPlayer();
             sp = new SoundPlayer();
 
@@ -44,7 +47,7 @@ namespace Fishing.Presenter
             CurLVL.SetDeep();
             CurLVL.AddFishes();
             CurLVL.GatheringisTrue += View_CountGathering;
-            CurLVL.StopBaitTimer += View_StopBaitTimer; 
+            CurLVL.StopBaitTimer += View_StopBaitTimer;
 
             view.RepaintScreen += View_RepaintScreen;
             view.MouseLeftClick += View_MouseLeftClick;
@@ -53,10 +56,9 @@ namespace Fishing.Presenter
             view.CountFishMoves += View_CountFishMoves;
             view.CountGathering += View_CountGathering;
             view.MainTimerTick += View_MainTimerTick;
-            view.BaitTimerTick += View_BaitTimerTick;           
+            view.BaitTimerTick += View_BaitTimerTick;
             view.FormClose += View_FormClose;
             view.DecSacietyTimerTick += View_DecSacietyTimerTick;
-            
         }
 
         private void View_DecSacietyTimerTick(object sender, EventArgs e)
@@ -64,6 +66,7 @@ namespace Fishing.Presenter
             player.DecSatiety(5);
             gui.EatingBarValue = player.Satiety;
         }
+
         private void View_FormClose(object sender, EventArgs e)
         {
             BaseController.GetController().SavePlayer();
@@ -110,10 +113,15 @@ namespace Fishing.Presenter
                         player.BrokeRoad();
                     }
                 }
+                if(player.CurPoint.Y > 570)
+                {
+                    player.IsBaitInWater = false;
+                }
                 RefreshForm?.Invoke(this, EventArgs.Empty);
                 if (player.IsFishAbleToGoIntoFpond())
                 {
                     player.Netting.ShowNetting();
+                    player.IsBaitInWater = false;
                     gui.CheckNeedsAndClearEventBox();
                     if (!player.CFish.isTrophy())
                     {
@@ -154,7 +162,6 @@ namespace Fishing.Presenter
             Random fishMovingY = new Random();
             if (player.isFishAttack)
             {
-
                 player.CFish.Power.X = fishMovingX.Next(-player.CFish.Power.X, Math.Abs(player.CFish.Power.X) + 1);
                 player.CFish.Power.Y = fishMovingY.Next(-Math.Abs(player.CFish.Power.Y), 2);
             }
@@ -163,7 +170,7 @@ namespace Fishing.Presenter
         private void View_KeyDOWN(object sender, KeyEventArgs e)
         {
             Player player = Player.GetPlayer();
-            for(int y = 0; y < CurLVL.Height; y++)
+            for (int y = 0; y < CurLVL.Height; y++)
             {
                 for (int x = 0; x < CurLVL.Widgth; x++)
                 {
@@ -183,7 +190,7 @@ namespace Fishing.Presenter
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.G:                      
+                    case Keys.G:
                         Player.GetPlayer().IsBaitMoving = true;
                         if (Player.GetPlayer().RoadY != 357)
                         {
@@ -211,9 +218,10 @@ namespace Fishing.Presenter
                             Player.GetPlayer().WindingSpeed = 1;
                         }
                         DoWiring();
- 
+
                         break;
-                    case Keys.H:                       
+
+                    case Keys.H:
                         if (player.isFishAttack)
                         {
                             SetRoadBend(player.Assembly.Proad, player.CFish.Weight, false, e);
@@ -229,12 +237,14 @@ namespace Fishing.Presenter
                             }
                         }
                         break;
+
                     case Keys.Space:
                         if (player.CurPoint.Y > 570)
                         {
                             player.Netting.ShowNetting();
                         }
                         break;
+
                     case Keys.T:
                         player.CurPoint = player.isFishAttack == false ? player.LastCastPoint : Point.Empty;
                         player.LastCastPoint = player.CurPoint;
@@ -258,6 +268,7 @@ namespace Fishing.Presenter
                     Player.GetPlayer().WindingSpeed = 0;
                     Player.GetPlayer().RoadY -= 7;
                     break;
+
                 case Keys.H:
                     if (player.isFishAttack)
                     {
@@ -314,104 +325,106 @@ namespace Fishing.Presenter
                 }
             }
             catch (NullReferenceException) { }
-
         }
-        private void SetRoadBend(Road road, int weight,bool reverse, KeyEventArgs e)
+
+        private void SetRoadBend(Road road, int weight, bool reverse, KeyEventArgs e)
         {
             if (Player.GetPlayer().isFishAttack && !reverse)
             {
                 switch (e.KeyCode)
                 {
                     case Keys.G:
-                        if (road.Power / weight <= 15)
+                        if (weight <= road.Power * 0.2)
                         {
                             Pictures.izgRoad = Roads.izg1;
                         }
-                        if (road.Power / weight < 12)
+                        else if (weight <= road.Power * 0.25)
                         {
                             Pictures.izgRoad = Roads.izg2;
                         }
-                        if (road.Power / weight < 9)
+                        else if (weight <= road.Power * 0.3)
                         {
                             Pictures.izgRoad = Roads.izg3;
                         }
-                        if (road.Power / weight < 6)
+                        else if (weight <= road.Power * 0.4)
                         {
                             Pictures.izgRoad = Roads.izg4;
                         }
-                        if (road.Power / weight < 3)
+                        else if (weight >= road.Power * 0.4)
                         {
                             Pictures.izgRoad = Roads.izg5;
                         }
                         break;
+
                     case Keys.H:
-                        if (road.Power / weight <= 15)
+                        if (weight <= road.Power * 0.2)
                         {
                             Pictures.izgRoad = Roads.izg1H;
                         }
-                        if (road.Power / weight < 12)
+                        else if (weight <= road.Power * 0.25)
                         {
                             Pictures.izgRoad = Roads.izg2H;
                         }
-                        if (road.Power / weight < 9)
+                        else if (weight <= road.Power * 0.3)
                         {
                             Pictures.izgRoad = Roads.izg3H;
                         }
-                        if (road.Power / weight < 6)
+                        else if (weight <= road.Power * 0.4)
                         {
                             Pictures.izgRoad = Roads.izg4H;
                         }
-                        if (road.Power / weight < 3)
+                        else if (weight >= road.Power * 0.4)
                         {
                             Pictures.izgRoad = Roads.izg5H;
                         }
                         break;
                 }
             }
-            else if(Player.GetPlayer().isFishAttack && reverse)
+            else if (Player.GetPlayer().isFishAttack && reverse)
             {
                 switch (e.KeyCode)
                 {
                     case Keys.H:
-                        if (road.Power / weight <= 15)
+                        if (weight <= road.Power * 0.2)
                         {
                             Pictures.izgRoad = Roads.izg1;
                         }
-                        if (road.Power / weight < 12)
+                        else if (weight <= road.Power * 0.25)
                         {
                             Pictures.izgRoad = Roads.izg2;
                         }
-                        if (road.Power / weight < 9)
+                        else if (weight <= road.Power * 0.3)
                         {
                             Pictures.izgRoad = Roads.izg3;
                         }
-                        if (road.Power / weight < 6)
+                        else if (weight <= road.Power * 0.4)
                         {
                             Pictures.izgRoad = Roads.izg4;
                         }
-                        if (road.Power / weight < 3)
+                        else if (weight >= road.Power * 0.4)
                         {
                             Pictures.izgRoad = Roads.izg5;
                         }
                         break;
+
                     case Keys.G:
-                        if (road.Power / weight <= 15)
+                        if (weight <= road.Power * 0.2)
                         {
                             Pictures.izgRoad = Roads.izg1;
                         }
-                        if (road.Power / weight < 12)
+                        else if (weight <= road.Power * 0.25)
                         {
                             Pictures.izgRoad = Roads.izg2;
                         }
-                        if (road.Power / weight < 9)
+                        else if (weight <= road.Power * 0.3)
                         {
                             Pictures.izgRoad = Roads.izg3;
                         }
-                        if (road.Power / weight < 6)
+                        else if (weight <= road.Power * 0.4)
                         {
                             Pictures.izgRoad = Roads.izg4;
                         }
-                        if (road.Power / weight < 3)
+                        else if (weight >= road.Power * 0.4)
                         {
                             Pictures.izgRoad = Roads.izg5;
                         }
@@ -419,6 +432,7 @@ namespace Fishing.Presenter
                 }
             }
         }
+
         private void AutoDecBarValues()
         {
             if (gui.FLineBarValue > 0)
@@ -460,9 +474,9 @@ namespace Fishing.Presenter
                         }
                         else
                         {
-                            player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 3;                           
+                            player.CurPoint.Y = CurLVL.Deeparr[0, 0].Location.Y + 3;
                         }
-                        if(point.X >= CurLVL.Deeparr[0, 0].Location.X)
+                        if (point.X >= CurLVL.Deeparr[0, 0].Location.X)
                         {
                             player.CurPoint.X = point.X;
                         }
@@ -475,7 +489,7 @@ namespace Fishing.Presenter
                         sp.Stream = SoundsRes.zabr;
                         sp.Play();
                     }
-                    
+
                     if (!player.isFishAttack)
                     {
                         if (player.Assembly.Proad != null)
@@ -502,7 +516,6 @@ namespace Fishing.Presenter
                         {
                             player.CurPoint.Y = 0;
                         }
-
                     }
                 }
                 else
@@ -513,7 +526,7 @@ namespace Fishing.Presenter
             catch (NullReferenceException) { }
         }
 
-        void DoWiring()
+        private void DoWiring()
         {
             if (Player.GetPlayer().isFishAttack)
             {
@@ -522,7 +535,7 @@ namespace Fishing.Presenter
             else
             {
                 Player.GetPlayer().WindingSpeed = 1;
-            }      
+            }
             Player.GetPlayer().CurPoint.Y += Player.GetPlayer().WindingSpeed;
         }
 

@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Fishing;
-using Fishing.View.Shop;
+﻿using Fishing.View.Shop;
+using System;
 
 namespace Fishing.Presenter
 {
     public class ShopPresenter : BasePresenter
     {
-        IShop view;
+        private IShop view;
+
         public ShopPresenter(IShop view)
         {
             this.view = view;
@@ -79,15 +74,14 @@ namespace Fishing.Presenter
             }
         }
 
-        
-
         private bool IsPlayerAbleToBuyItem(Item item)
         {
             bool result;
             result = item.Price <= Player.GetPlayer().Money ? true : false;
 
             return result;
-        }    
+        }
+
         public override void Load()
         {
             throw new NotImplementedException();

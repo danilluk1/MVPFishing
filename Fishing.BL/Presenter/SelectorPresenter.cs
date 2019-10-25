@@ -1,19 +1,15 @@
 ﻿using Fishing.Presenter;
 using Fishing.View.GUI;
-using Fishing.View.Inventory;
 using Fishing.View.LureSelector.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fishing.View.LureSelector.Presenter
 {
     public class SelectorPresenter : BasePresenter
     {
-        ISelector view;
-        IGUIPresenter gui;
+        private ISelector view;
+        private IGUIPresenter gui;
+
         public SelectorPresenter(ISelector view, IGUIPresenter gui)
         {
             this.view = view;
@@ -22,7 +18,6 @@ namespace Fishing.View.LureSelector.Presenter
             view.Open();
             view.LureListDoubleClick += View_LureListDoubleClick;
             view.LureListIndexChanged += View_LureListIndexChanged;
-            
         }
 
         private void Inv_BaitPicChanged(object sender, EventArgs e)
@@ -48,7 +43,6 @@ namespace Fishing.View.LureSelector.Presenter
             }
             catch (NullReferenceException)
             {
-
             }
         }
 
