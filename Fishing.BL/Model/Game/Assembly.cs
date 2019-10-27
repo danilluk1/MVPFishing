@@ -13,18 +13,38 @@ namespace Fishing
 
         public Assembly(string name, Road road, Reel reel, FLine fLine, Lure lure)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("message", nameof(name));
+            }
+
             Proad = road;
             Reel = reel;
             FLine = fLine;
             Lure = lure;
             Name = name;
-        }
-
+        }     
         public Assembly(string name)
         {
-            this.Name = name;
+            Name = name;
         }
-
+        public bool IsAssemblyFull()
+        {
+            if (Proad != null)
+            {
+                if (Reel != null)
+                {
+                    if (FLine != null)
+                    {
+                        if (Lure != null)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
         public override string ToString()
         {
             return Name;

@@ -27,7 +27,7 @@ namespace Fishing.Presenter
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            view.lowerLValue = Player.GetPlayer().NickName + " " + Player.GetPlayer().Money + "рублей.";
+            view.LowerLValue = Player.GetPlayer().NickName + " " + Player.GetPlayer().Money + "рублей.";
             Item.RoadShop.Add(Road.Titanium);
             Item.RoadShop.Add(Road.Achilles);
             Item.RoadShop.Add(Road.YSuperCarp);

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Fishing
 {
-    public partial class GameForm : Form, ILVL
+    public partial class GameForm : Form, IGameForm
     {
         public GameForm()
         {
@@ -42,36 +42,7 @@ namespace Fishing
         public event EventHandler FormClose;
 
         public event EventHandler DecSacietyTimerTick;
-
-        private void Presenter_CreateCurrentFishF(object sender, EventArgs e)
-        {
-            CurrentFish cf = new CurrentFish();
-        }
-
-        private void Presenter_StopBaitTimer(object sender, EventArgs e)
-        {
-            baitTimer.Stop();
-        }
-
-        private void Presenter_RefreshForm(object sender, EventArgs e)
-        {
-            this.Refresh();
-        }
-
-        private void Presenter_StopGatheringTimer(object sender, EventArgs e)
-        {
-            GatheringTimer.Stop();
-        }
-
-        private void Presenter_StartBaitTimer(object sender, EventArgs e)
-        {
-            baitTimer.Start();
-        }
-
-        private void OzeroForm_Load(object sender, EventArgs e)
-        {
-        }
-
+        
         private void OzeroForm_MouseClick(object sender, MouseEventArgs e)
         {
             MouseLeftClick?.Invoke(this, EventArgs.Empty);
@@ -118,6 +89,11 @@ namespace Fishing
             UI.gui.Close();
         }
 
+        private void DecrementSatiety_Tick(object sender, EventArgs e)
+        {
+            DecSacietyTimerTick?.Invoke(this, EventArgs.Empty);
+        }
+
         private void SoundPlayerTimer_Tick(object sender, EventArgs e)
         {
             Random r = new Random();
@@ -125,29 +101,53 @@ namespace Fishing
             SoundPlayer player = new SoundPlayer(SoundsRes.ResourceManager.GetStream(name));
             player.Play();
         }
-
-        private void DecrementSatiety_Tick(object sender, EventArgs e)
+        
+        public void UpdateForm()
         {
-            DecSacietyTimerTick?.Invoke(this, EventArgs.Empty);
+            this.Refresh();
+        }
+        public void StopBaitTimer()
+        {
+            baitTimer.Stop();
         }
 
+        public void StartBaitTimer()
+        {
+            baitTimer.Start();
+        }
+
+        public void StartGatheringTimer()
+        {
+            baitTimer.Start();
+        }
+
+        public void StopGatheringTimer()
+        {
+            baitTimer.Stop();
+        }
+
+        public void CreateCurrentFish()
+        {
+            var f = new CurrentFish();
+            f.Show();
+        }
         public void Open()
         {
             this.Show();
         }
-
         public void Down()
         {
             this.Close();
         }
 
-        public void AddPresenterSounders()
+        public void StopMainTimer()
         {
-            LVLPresenter.StartBaitTimer += Presenter_StartBaitTimer;
-            LVLPresenter.StopBaitTimer += Presenter_StopBaitTimer;
-            LVLPresenter.StopGatheringTimer += Presenter_StopGatheringTimer;
-            LVLPresenter.RefreshForm += Presenter_RefreshForm;
-            LVLPresenter.CreateCurrentFishF += Presenter_CreateCurrentFishF;
+            mainTimerTick.Stop();
+        }
+
+        public void StartMainTimer()
+        {
+            mainTimerTick.Start();
         }
     }
 }

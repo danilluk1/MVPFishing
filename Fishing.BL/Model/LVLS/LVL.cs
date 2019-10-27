@@ -36,12 +36,12 @@ namespace Fishing
             Random randomFish = new Random();
             if (Player.GetPlayer().Assembly.Lure is Lure)
             {
-                if (Player.GetPlayer().CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().isFishAttack)
+                if (Player.GetPlayer().CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().IsFishAttack)
                 {
                     Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
                     if (IsFishAttackAbble(Player.GetPlayer().CFish))
                     {
-                        Player.GetPlayer().isFishAttack = true;
+                        Player.GetPlayer().IsFishAttack = true;
                         double roadCoef = (double)Player.GetPlayer().CFish.Weight / (double)Player.GetPlayer().Assembly.Proad.Power;
                         double flineCoef = (double)Player.GetPlayer().CFish.Weight / (double)Player.GetPlayer().Assembly.FLine.Power;
                         Player.GetPlayer().RoadIncValue = Convert.ToInt32(roadCoef * 100);

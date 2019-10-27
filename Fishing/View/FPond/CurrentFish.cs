@@ -48,7 +48,7 @@ namespace Fishing
             this.WeightLabel.Text = fish.Weight.ToString();
             this.PriceButton.Text = (fish.Price * fish.Weight).ToString();
             this.Show();
-            Player.GetPlayer().isFishAttack = false;
+            Player.GetPlayer().IsFishAttack = false;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Fishing
 
         public void Open()
         {
-            Map map = new Map();
+            this.Show();
         }
 
         public void Down()
@@ -54,8 +54,8 @@ namespace Fishing
         {
             UI.gui = new UI(lvl);
             Game.GetGame().View = new GameForm();
-            LVLPresenter presenter = new LVLPresenter(Game.GetGame().View, UI.gui, lvl);
-            DeepField field = new DeepField(lvl);
+            var presenter = new LVLPresenter(Game.GetGame().View, UI.gui, lvl);
+            var field = new DeepField(lvl);
             UI.gui.Show();
             this.Close();
         }

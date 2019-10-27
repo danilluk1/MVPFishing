@@ -43,12 +43,13 @@ namespace Fishing
             // FishList
             // 
             this.FishList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.FishList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FishList.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FishList.FormattingEnabled = true;
             this.FishList.ItemHeight = 23;
-            this.FishList.Location = new System.Drawing.Point(13, 52);
+            this.FishList.Location = new System.Drawing.Point(36, 22);
             this.FishList.Name = "FishList";
-            this.FishList.Size = new System.Drawing.Size(276, 418);
+            this.FishList.Size = new System.Drawing.Size(263, 414);
             this.FishList.TabIndex = 0;
             this.FishList.SelectedIndexChanged += new System.EventHandler(this.FishList_SelectedIndexChanged);
             // 
@@ -56,16 +57,16 @@ namespace Fishing
             // 
             this.FishImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.FishImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FishImage.Location = new System.Drawing.Point(305, 52);
+            this.FishImage.Location = new System.Drawing.Point(305, 22);
             this.FishImage.Name = "FishImage";
-            this.FishImage.Size = new System.Drawing.Size(405, 209);
+            this.FishImage.Size = new System.Drawing.Size(392, 209);
             this.FishImage.TabIndex = 1;
             this.FishImage.TabStop = false;
             // 
             // SellButton
             // 
             this.SellButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SellButton.BackgroundImage")));
-            this.SellButton.Location = new System.Drawing.Point(305, 497);
+            this.SellButton.Location = new System.Drawing.Point(305, 442);
             this.SellButton.Name = "SellButton";
             this.SellButton.Size = new System.Drawing.Size(157, 36);
             this.SellButton.TabIndex = 2;
@@ -76,7 +77,7 @@ namespace Fishing
             // CloseButton
             // 
             this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
-            this.CloseButton.Location = new System.Drawing.Point(581, 497);
+            this.CloseButton.Location = new System.Drawing.Point(557, 442);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(140, 36);
             this.CloseButton.TabIndex = 3;
@@ -87,9 +88,10 @@ namespace Fishing
             // fishDescription
             // 
             this.fishDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.fishDescription.Location = new System.Drawing.Point(305, 268);
+            this.fishDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.fishDescription.Location = new System.Drawing.Point(305, 237);
             this.fishDescription.Name = "fishDescription";
-            this.fishDescription.Size = new System.Drawing.Size(405, 204);
+            this.fishDescription.Size = new System.Drawing.Size(392, 199);
             this.fishDescription.TabIndex = 4;
             this.fishDescription.Text = "";
             // 

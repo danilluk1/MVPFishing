@@ -15,6 +15,7 @@ namespace Fishing
     {
         private const int SATIETY_MAX_VALUE = 100;
         private const int SATIETY_MIN_VALUE = 100;
+
         private static Player player;
 
         public Assembly Assembly { get; set; }
@@ -33,18 +34,23 @@ namespace Fishing
         public Fish CFish { get; set; }
         public string NickName { get; set; } = "Рыболов";
 
-        public bool IsBaitMoving = false;
-        public bool IsBaitInWater = false;
-        public bool IsJigging = false;
+        public Netting Netting { get; set; } = new Netting();
+
+        public bool IsBaitMoving;
+        public bool IsBaitInWater;
+        public bool IsJigging;
+        public bool IsFishAttack;
+
         public Point LastCastPoint;
-        public int RoadX = 0;
-        public int RoadY = 350;
-        public bool isFishAttack = false;
-        public int CurrentDeep;
         public Point CurPoint;
+
+        public int RoadX;
+        public int RoadY;
+
+        public int CurrentDeep;
         public int RoadIncValue;
         public int FLineIncValue;
-        public Netting Netting = new Netting();
+
 
         private Player()
         {
@@ -62,18 +68,25 @@ namespace Fishing
 
         public bool IsPlayerAbleToFishing()
         {
-            if (Assembly != null && Netting != null && Satiety > 0 && Assembly.Lure != null)
+            if(Assembly != null)
             {
-                return true;
+                if(Assembly.Lure != null)
+                {
+                    if(Satiety > 0)
+                    {
+                        return true;
+                    }
+                }
             }
             return false;
         }
-
         public void SetAssembly(Assembly ass)
         {
-            Assembly = ass ?? null;
+            if (ass.IsAssemblyFull())
+            {
+                Assembly = ass ?? null;
+            }
         }
-
         public void AddFish(Fish f)
         {
             if (f != null)
@@ -97,7 +110,6 @@ namespace Fishing
         {
             if (f != null)
             {
-                Fishlist.Remove(f);
                 if (!f.isTrophy())
                 {
                     player.Money += (int)f.Price * f.Weight;
@@ -106,6 +118,7 @@ namespace Fishing
                 {
                     player.Money += (int)f.Price * 3 * f.Weight;
                 }
+                Fishlist.Remove(f);
                 BaseController.GetController().SavePlayer();
             }
         }
@@ -118,7 +131,7 @@ namespace Fishing
 
         public bool IsFishAbleToGoIntoFpond()
         {
-            if (player.Netting.Y == 550 && player.isFishAttack && player.CurPoint.Y > 550)
+            if (player.Netting.Y == 550 && player.IsFishAttack && player.CurPoint.Y > 550)
             {
                 return true;
             }
@@ -128,49 +141,61 @@ namespace Fishing
 
         public void AddNewMessage(BaseEvent ev)
         {
-            player.EventHistory.Push(ev);
+            if (ev != null)
+            {
+                player.EventHistory.Push(ev);
+            }
         }
 
         public void BrokeRoad()
         {
             Pictures.road = Pictures.brokenRoad;
-            player.isFishAttack = false;
-            player.Assembly.Proad = null;
-            player.CurPoint.Y = 800;
-            player.Statistic.BrokensRoadsCount++;
             player.IsBaitInWater = false;
+            player.IsFishAttack = false;
+            player.Assembly.Proad = null;
+            player.CurPoint = Point.Empty;
+            player.Statistic.BrokensRoadsCount++;
         }
 
         public void TornFLine()
         {
-            player.isFishAttack = false;
-            player.CurPoint.Y = 800;
-            player.Statistic.TornsFLinesCount++;
+            player.IsFishAttack = false;
             player.Assembly.Lure = null;
-            player.Statistic.GatheringCount++;
-            player.AddNewMessage(new GatheringEvent());
             player.IsBaitMoving = false;
+            player.CurPoint = Point.Empty;
+            player.Statistic.TornsFLinesCount++;
+            player.Statistic.GatheringCount++;
         }
 
         public void DecSatiety(int value)
         {
-            if (Satiety - value <= SATIETY_MIN_VALUE)
+            if (value >= 0)
             {
-                Satiety -= value;
+                if (Satiety - value <= SATIETY_MIN_VALUE)
+                {
+                    Satiety -= value;
+                }
             }
         }
 
         public bool Eat(BaseFood food)
         {
-            if (Satiety + food.Productivity <= SATIETY_MAX_VALUE && food != null)
+            if (food != null)
             {
-                Satiety += food.Productivity;
-                FoodInv.Remove(food);
-                return true;
+                if (Satiety + food.Productivity <= SATIETY_MAX_VALUE)
+                {
+                    Satiety += food.Productivity;
+                    FoodInv.Remove(food);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Игрок не достаточно голоден, чтобы съесть это");
+                    return false;
+                }
             }
             else
             {
-                MessageBox.Show("Игрок не достаточно голоден, чтобы съесть это");
                 return false;
             }
         }

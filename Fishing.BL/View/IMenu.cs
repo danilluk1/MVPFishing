@@ -11,6 +11,6 @@ namespace Fishing.View.Menu
 
         string NickNameL { get; set; }
 
-        string lowerLValue { get; set; }
+        string LowerLValue { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Fishing.View.LVLS.Ozero
 {
-    public interface ILVL : IView
+    public interface IGameForm : IView
     {
         Point CurPoint { get; set; }
         Image BackImage { get; set; }
@@ -32,7 +32,13 @@ namespace Fishing.View.LVLS.Ozero
         event EventHandler DecSacietyTimerTick;
 
         LVLPresenter LVLPresenter { set; }
-
-        void AddPresenterSounders();
+        void UpdateForm();
+        void StopBaitTimer();
+        void StartBaitTimer();
+        void StartGatheringTimer();
+        void StopGatheringTimer();
+        void CreateCurrentFish();
+        void StopMainTimer();
+        void StartMainTimer();
     }
 }

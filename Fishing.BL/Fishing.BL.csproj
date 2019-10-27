@@ -150,7 +150,7 @@
     <Compile Include="View\IGUI.cs" />
     <Compile Include="View\IGUIPresenter.cs" />
     <Compile Include="View\IInventory.cs" />
-    <Compile Include="View\ILVL.cs" />
+    <Compile Include="View\IGameForm.cs" />
     <Compile Include="View\IMap.cs" />
     <Compile Include="View\IMenu.cs" />
     <Compile Include="View\ISelector.cs" />
@@ -180,7 +180,7 @@
     <Content Include="Resources\boil.png" />
     <Content Include="Resources\brake5.wav" />
     <None Include="Resources\break.png" />
-    <Content Include="Resources\broken.png" />
+    <None Include="Resources\broken.png" />
     <Content Include="Resources\btn.png" />
     <Content Include="Resources\catfish.jpg" />
     <Content Include="Resources\Circl-5103.png" />
@@ -240,6 +240,7 @@
     <None Include="Resources\lvl3.png" />
     <None Include="Resources\lvl4.jpg" />
     <None Include="Resources\lvl5.jpg" />
+    <None Include="Resources\lvl2.bmp" />
     <Content Include="Resources\map.jpg" />
     <Content Include="Resources\Marco-R1.png" />
     <Content Include="Resources\Marco-R5.png" />
@@ -352,6 +353,16 @@
       <LastGenOutput>SoundsRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

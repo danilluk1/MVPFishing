@@ -22,11 +22,11 @@ namespace Fishing.BL.Model.Game
 
         public event EventHandler HoursInc;
 
-        public ILVL View { get; set; }
+        public IGameForm View { get; set; }
 
         public Timer HoursTimer { get; set; }
-        public Water CurrentWater { get; set; } = Meshera.GetWater();
-        public Time Time;
+        public Water CurrentWater { get; set; } = Ozero.GetWater();
+        public Time Time { get; set; }
 
         private Game()
         {
