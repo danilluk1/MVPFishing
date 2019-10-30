@@ -1,4 +1,6 @@
-﻿using Fishing.Presenter;
+﻿using Fishing.BL.Model.Lures;
+using Fishing.BL.Resources.Images;
+using Fishing.Presenter;
 using Fishing.View.Assembly;
 using Fishing.View.Inventory;
 using Fishing.View.LureSelector;
@@ -31,10 +33,48 @@ namespace Fishing
             {
                 tRoadButton.Enabled = true;
             }
-            LuresList.DataSource = Player.GetPlayer().LureInv;
             FLineList.DataSource = Player.GetPlayer().FLineInv;
             ReelsList.DataSource = Player.GetPlayer().ReelInv;
-            RoadsList.DataSource = Player.GetPlayer().RoadInv;
+            foreach (Road r in Player.GetPlayer().RoadInv)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = r.Name;
+                if (r.Type == ROAD_TYPE.Spinning)
+                {
+                    lvi.ImageIndex = roadsList.Images.IndexOfKey("shop_but02.png");
+                }
+                if(r.Type == ROAD_TYPE.Float)
+                {
+                    lvi.ImageIndex = roadsList.Images.IndexOfKey("shop_but01.png");
+                }
+                if (r.Type == ROAD_TYPE.Feeder)
+                {
+                    lvi.ImageIndex = roadsList.Images.IndexOfKey("rm_but01.png");
+                }
+                roadsView.Items.Add(lvi);
+            }
+            foreach (Lure l in Player.GetPlayer().LureInv)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = l.Name;
+                if (l is Shaker)
+                {
+                    lvi.ImageIndex = lureList.Images.IndexOfKey("spoon.png");
+                }
+                if (l is Pinwheel)
+                {
+                    lvi.ImageIndex = lureList.Images.IndexOfKey("vert.png");
+                }
+                if (l is Wobbler)
+                {
+                    lvi.ImageIndex = lureList.Images.IndexOfKey("vob.png");
+                }
+                if (l is Jig)
+                {
+                    lvi.ImageIndex = lureList.Images.IndexOfKey("vibro.png");
+                }
+                luresView.Items.Add(lvi);
+            }
             assembliesBox.DataSource = Player.GetPlayer().Assemblies;
         }
         public Road Road_P
@@ -43,7 +83,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.GetPlayer().RoadInv[RoadsList.SelectedIndex];
+                    return Player.GetPlayer().RoadInv[roadsView.SelectedIndices[0]];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -94,7 +134,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Player.GetPlayer().LureInv[LuresList.SelectedIndex];
+                    return Player.GetPlayer().LureInv[luresView.SelectedIndices[0]];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -125,6 +165,7 @@ namespace Fishing
         public string FLineText { get => flineTextBox.Text; set => flineTextBox.Text = value; }
         public string LureText { get => lureTextBox.Text; set => lureTextBox.Text = value; }
         public BasePresenter Presenter { private get; set; }
+        public string AssNumbText { get => assNumberLabel.Text; set => assNumberLabel.Text = value; }
 
         public event EventHandler FLineSelectedIndexChanged;
 
@@ -192,11 +233,6 @@ namespace Fishing
         private void FLineList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             FLineDoubleClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void RoadsList_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            RoadDoubleClick?.Invoke(this, EventArgs.Empty);
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -269,6 +305,18 @@ namespace Fishing
             {
                 try
                 {
+                    if(ass.Proad.Type == ROAD_TYPE.Spinning)
+                    {
+                        assemblyType.Text = "Спиннинг";
+                    }
+                    if(ass.Proad.Type == ROAD_TYPE.Feeder)
+                    {
+                        assemblyType.Text = "Фидер";
+                    }
+                    if (ass.Proad.Type == ROAD_TYPE.Float)
+                    {
+                        assemblyType.Text = "Поплавок";
+                    }
                     RoadBox.BackgroundImage = ass.Proad.Pict;
                     ReelBox.BackgroundImage = ass.Reel.Pict;
                     BaitBox.BackgroundImage = ass.Lure.Pict;
@@ -320,6 +368,26 @@ namespace Fishing
         private void tRoadButton_Click(object sender, EventArgs e)
         {
             TRoadButttonClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void roadsView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RoadSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void roadsView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            RoadDoubleClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void luresView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LureSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void luresView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            LureDoubleClick?.Invoke(this, EventArgs.Empty);
         }
     }
 }

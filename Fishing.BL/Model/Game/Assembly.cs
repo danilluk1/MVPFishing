@@ -11,6 +11,8 @@ namespace Fishing
         public Lure Lure { get; set; }
         public string Name { get; set; }
 
+        public bool IsEquiped;
+
         public Assembly(string name, Road road, Reel reel, FLine fLine, Lure lure)
         {
             if (string.IsNullOrWhiteSpace(name))

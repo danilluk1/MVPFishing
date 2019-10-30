@@ -31,8 +31,7 @@ namespace Fishing.View.LureSelector.Presenter
         {
             try
             {
-                Player.GetPlayer().EquipedRoad.Assembly.Lure = view.Lure;
-                Player.GetPlayer().SetAssembly(Player.GetPlayer().EquipedRoad.Assembly, 0);
+                Player.GetPlayer().EquipedRoad.Assembly.Lure = view.Lure;                
                 gui.BaitPicture = Player.GetPlayer().EquipedRoad.Assembly.Lure.Pict;
                 view.Down();
             }

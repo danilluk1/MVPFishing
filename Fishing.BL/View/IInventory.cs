@@ -43,6 +43,7 @@ namespace Fishing.View.Inventory
         string ReelText { get; set; }
         string FLineText { get; set; }
         string LureText { get; set; }
+        string AssNumbText { get; set; }
 
         void AddItemToRightView(Item item);
 

@@ -16,6 +16,8 @@ namespace Fishing.Presenter
             this.view = view;
             view.Presenter = this;
 
+            view.AssNumbText = index.ToString();
+
             view.LureDoubleClick += View_LureDoubleClick;
             view.LureSelectedIndexChanged += View_LureSelectedIndexChanged;
             view.ReelDoubleClick += View_ReelDoubleClick;
@@ -32,26 +34,26 @@ namespace Fishing.Presenter
             view.FRoadButttonClick += View_FRoadButttonClick;
             view.TRoadButttonClick += View_TRoadButttonClick;
 
-
             view.Open();
         }
 
         private void View_TRoadButttonClick(object sender, EventArgs e)
         {
-            Player.GetPlayer().EquipedRoad = Player.GetPlayer().ThirdRoad;
+            index = 3;
+            view.AssNumbText = index.ToString();
         }
 
         private void View_FRoadButttonClick(object sender, EventArgs e)
         {
-            Player.GetPlayer().EquipedRoad = Player.GetPlayer().FirstRoad;
-            
+            index = 1;
+            view.AssNumbText = index.ToString();
         }
 
         private void View_SRoadButttonClick(object sender, EventArgs e)
         {
-            Player.GetPlayer().EquipedRoad = Player.GetPlayer().SecondRoad;
+            index = 2;
+            view.AssNumbText = index.ToString();
         }
-
 
         public InventoryPresenter(IInventory view, IGUIPresenter gui)
         {
@@ -71,6 +73,9 @@ namespace Fishing.Presenter
             view.FetchButtonClick += View_FetchButtonClick;
             view.AssemblyDoubleClick += View_AssemblyDoubleClick;
             view.MakeOutClick += View_MakeOutClick;
+            view.SRoadButttonClick += View_SRoadButttonClick;
+            view.FRoadButttonClick += View_FRoadButttonClick;
+            view.TRoadButttonClick += View_TRoadButttonClick;
 
             view.Open();
         }
@@ -98,20 +103,18 @@ namespace Fishing.Presenter
             view.ShowAssembly(view.Assembly_P);
             try
             {
-                Player.GetPlayer().SetAssembly(view.Assembly_P,index);
-                view.SetButtonDisabled(index);
-                index++;
-                gui.BaitPicture = view.Assembly_P.Lure.Pict;
-                gui.RoadPicture = view.Assembly_P.Proad.Pict;
-                gui.ReelPicture = view.Assembly_P.Reel.Pict;
-                gui.FLinePicture = view.Assembly_P.FLine.Pict;
+
+                    Player.GetPlayer().SetGameRoad(view.Assembly_P, index);
+                    Player.GetPlayer().SetEquipedRoad(index);
+                    view.Assembly_P.IsEquiped = true;
+                    gui.BaitPicture = view.Assembly_P.Lure.Pict;
+                    gui.RoadPicture = view.Assembly_P.Proad.Pict;
+                    gui.ReelPicture = view.Assembly_P.Reel.Pict;
+                    gui.FLinePicture = view.Assembly_P.FLine.Pict;
             }
             catch (NullReferenceException) { }
-            if (index == 4)
-            {
-                index = 0;
-            }
         }
+
         private void View_FetchButtonClick(object sender, EventArgs e)
         {
             if (view.FLine_P != null && view.Road_P != null && view.Reel_P != null && view.Lure_P != null)
@@ -127,10 +130,6 @@ namespace Fishing.Presenter
 
                 view.Assembly_P.FLine = view.FLine_P;
                 Player.GetPlayer().FLineInv.Remove(view.FLine_P);
-            }
-            else
-            {
-                MessageBox.Show("Выберите все элементы");
             }
         }
 

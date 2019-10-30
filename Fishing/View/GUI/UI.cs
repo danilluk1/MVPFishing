@@ -117,7 +117,7 @@ namespace Fishing
 
         private void InventoryBox_Click(object sender, EventArgs e)
         {
-            InventoryPresenter presenter = new InventoryPresenter(new Inventory(), gui);
+            var presenter = new InventoryPresenter(new Inventory(), gui);
         }
 
         private void StatsBox_Click(object sender, EventArgs e)

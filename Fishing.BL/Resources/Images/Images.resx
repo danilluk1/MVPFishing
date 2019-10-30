@@ -133,6 +133,9 @@
   <data name="barah_but03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\barah_but03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="baseback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\baseback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="beluga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\beluga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -165,6 +168,12 @@
   </data>
   <data name="Colorado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Colorado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compass1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\compass1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\compass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="deepvobler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\deepvobler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -219,6 +228,15 @@
   </data>
   <data name="indiana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\indiana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info_rod_feed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\info_rod_feed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info_rod_popl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\info_rod_popl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info_rod_spin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\info_rod_spin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\inventory.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,6 +403,12 @@
   <data name="semga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\1039.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="shop1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\shop1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shop2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\shop2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="shop_but11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\shop_but11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -435,6 +459,12 @@
   </data>
   <data name="Titanium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Titanium.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="travel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\travel1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="travel2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\travel2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tvis_102" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Tvis-102.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

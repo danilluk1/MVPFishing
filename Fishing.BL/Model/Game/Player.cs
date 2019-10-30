@@ -32,7 +32,7 @@ namespace Fishing
         public Stack<BaseEvent> EventHistory { get; set; }
         public int Satiety { get; set; } = 100;
         public Statistic Statistic { get; set; } = new Statistic();
-        public int Money { get; set; } = 10000000;
+        public int Money { get; set; } = 99999999;
         public int WindingSpeed { get; set; }
         public Fish CFish { get; set; }
         public string NickName { get; set; } = "Рыболов";
@@ -67,7 +67,7 @@ namespace Fishing
             }
             return false;
         }
-        public void SetAssembly(Assembly ass, int index)
+        public void SetGameRoad(Assembly ass, int index)
         {
             if (ass.IsAssemblyFull())
             {
@@ -99,6 +99,22 @@ namespace Fishing
             else
             {
                 MessageBox.Show("Сборка не собрана");
+            }
+        }
+
+        public void SetEquipedRoad(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    EquipedRoad = FirstRoad;
+                    break;
+                case 2:
+                    EquipedRoad = SecondRoad;
+                    break;
+                case 3:
+                    EquipedRoad = ThirdRoad;
+                    break;
             }
         }
         public void AddFish(Fish f)

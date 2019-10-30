@@ -40,11 +40,12 @@
             // 
             // baitTimer
             // 
-            this.baitTimer.Interval = 50000;
+            this.baitTimer.Interval = 500;
             this.baitTimer.Tick += new System.EventHandler(this.BaitTimer_Tick);
             // 
             // mainTimerTick
             // 
+            this.mainTimerTick.Enabled = true;
             this.mainTimerTick.Interval = 15;
             this.mainTimerTick.Tick += new System.EventHandler(this.MainTaskstimer_Tick);
             // 

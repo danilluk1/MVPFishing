@@ -177,6 +177,7 @@
     <Content Include="Resources\Atlantic.png" />
     <Content Include="Resources\barah_but01.png" />
     <Content Include="Resources\barah_but03.png" />
+    <None Include="Resources\baseback.png" />
     <Content Include="Resources\beluga.jpg" />
     <None Include="Resources\black.png" />
     <Content Include="Resources\blackkrug.png" />
@@ -190,6 +191,8 @@
     <Content Include="Resources\Circl-5113.png" />
     <Content Include="Resources\Colorado.png" />
     <None Include="Resources\deepvobler.png" />
+    <None Include="Resources\compass2.png" />
+    <None Include="Resources\compass1.png" />
     <Content Include="Resources\data_a.png" />
     <None Include="Resources\day.wav" />
     <None Include="Resources\day1.wav" />
@@ -220,6 +223,9 @@
     <Content Include="Resources\Hydra.png" />
     <Content Include="Resources\image011.jpg" />
     <Content Include="Resources\indiana.png" />
+    <None Include="Resources\info_rod_popl.png" />
+    <None Include="Resources\info_rod_spin.png" />
+    <None Include="Resources\info_rod_feed.png" />
     <Content Include="Resources\inventory.jpg" />
     <None Include="Resources\izg1.png" />
     <None Include="Resources\izg1h.png" />
@@ -286,6 +292,8 @@
     <None Include="Resources\road.png" />
     <Content Include="Resources\road2.png" />
     <Content Include="Resources\sellfish.wav" />
+    <None Include="Resources\shop1.jpg" />
+    <None Include="Resources\shop2.jpg" />
     <Content Include="Resources\shop_but11.png" />
     <None Include="Resources\sir.png" />
     <Content Include="Resources\Sounder.png" />
@@ -309,6 +317,8 @@
     <Content Include="Resources\Titanium.jpg" />
     <None Include="Resources\vert.png" />
     <None Include="Resources\Tvis-102.png" />
+    <None Include="Resources\travel1.jpg" />
+    <None Include="Resources\travel2.jpg" />
     <Content Include="Resources\Tvis-103.png" />
     <None Include="Resources\var.png" />
     <None Include="Resources\Tvis-105.png" />
