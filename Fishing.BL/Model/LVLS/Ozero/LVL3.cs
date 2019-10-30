@@ -6,11 +6,8 @@ namespace Fishing.BL.Model.LVLS.Ozero
 {
     public class LVL3 : LVL
     {
-        public LVL3() : base(Images.lvl3)
+        public LVL3() : base(Images.lvl3, 50, 17, 0, 340)
         {
-            Widgth = 50;
-            Height = 17;
-            LabelStartY = 340;
         }
 
         public override void AddFishes()

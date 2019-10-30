@@ -63,6 +63,9 @@ namespace Fishing
             this.lureTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.makeOutButton = new System.Windows.Forms.Button();
+            this.fRoadButton = new System.Windows.Forms.Button();
+            this.sRoadButton = new System.Windows.Forms.Button();
+            this.tRoadButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BaitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FLineBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelBox)).BeginInit();
@@ -412,6 +415,42 @@ namespace Fishing
             this.makeOutButton.UseVisualStyleBackColor = true;
             this.makeOutButton.Click += new System.EventHandler(this.MakeOutButton_Click);
             // 
+            // fRoadButton
+            // 
+            this.fRoadButton.Enabled = false;
+            this.fRoadButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold);
+            this.fRoadButton.Location = new System.Drawing.Point(493, 569);
+            this.fRoadButton.Name = "fRoadButton";
+            this.fRoadButton.Size = new System.Drawing.Size(27, 23);
+            this.fRoadButton.TabIndex = 34;
+            this.fRoadButton.Text = "1";
+            this.fRoadButton.UseVisualStyleBackColor = true;
+            this.fRoadButton.Click += new System.EventHandler(this.fRoadButton_Click);
+            // 
+            // sRoadButton
+            // 
+            this.sRoadButton.Enabled = false;
+            this.sRoadButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold);
+            this.sRoadButton.Location = new System.Drawing.Point(526, 569);
+            this.sRoadButton.Name = "sRoadButton";
+            this.sRoadButton.Size = new System.Drawing.Size(27, 23);
+            this.sRoadButton.TabIndex = 35;
+            this.sRoadButton.Text = "2";
+            this.sRoadButton.UseVisualStyleBackColor = true;
+            this.sRoadButton.Click += new System.EventHandler(this.sRoadButton_Click);
+            // 
+            // tRoadButton
+            // 
+            this.tRoadButton.Enabled = false;
+            this.tRoadButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tRoadButton.Location = new System.Drawing.Point(559, 569);
+            this.tRoadButton.Name = "tRoadButton";
+            this.tRoadButton.Size = new System.Drawing.Size(27, 23);
+            this.tRoadButton.TabIndex = 36;
+            this.tRoadButton.Text = "3";
+            this.tRoadButton.UseVisualStyleBackColor = true;
+            this.tRoadButton.Click += new System.EventHandler(this.tRoadButton_Click);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,6 +458,9 @@ namespace Fishing
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(715, 620);
+            this.Controls.Add(this.tRoadButton);
+            this.Controls.Add(this.sRoadButton);
+            this.Controls.Add(this.fRoadButton);
             this.Controls.Add(this.makeOutButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.lureTextBox);
@@ -441,7 +483,6 @@ namespace Fishing
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BaitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FLineBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelBox)).EndInit();
@@ -491,5 +532,8 @@ namespace Fishing
         private System.Windows.Forms.Button AddButton;
         protected internal System.Windows.Forms.ListBox RoadsList;
         private System.Windows.Forms.Button makeOutButton;
+        private System.Windows.Forms.Button fRoadButton;
+        private System.Windows.Forms.Button sRoadButton;
+        private System.Windows.Forms.Button tRoadButton;
     }
 }

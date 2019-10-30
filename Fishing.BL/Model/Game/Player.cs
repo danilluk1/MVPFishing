@@ -18,7 +18,10 @@ namespace Fishing
 
         private static Player player;
 
-        public Assembly Assembly { get; set; }
+        public GameRoad FirstRoad { get; set; } = null;
+        public GameRoad SecondRoad { get; set; } = null;
+        public GameRoad ThirdRoad { get; set; } = null;
+        public GameRoad EquipedRoad { get; set; }
         public BindingList<Fish> Fishlist { get; set; }
         public BindingList<Assembly> Assemblies { get; set; }
         public BindingList<Road> RoadInv { get; set; }
@@ -36,22 +39,6 @@ namespace Fishing
 
         public Netting Netting { get; set; } = new Netting();
 
-        public bool IsBaitMoving;
-        public bool IsBaitInWater;
-        public bool IsJigging;
-        public bool IsFishAttack;
-
-        public Point LastCastPoint;
-        public Point CurPoint;
-
-        public int RoadX;
-        public int RoadY;
-
-        public int CurrentDeep;
-        public int RoadIncValue;
-        public int FLineIncValue;
-
-
         private Player()
         {
         }
@@ -68,9 +55,9 @@ namespace Fishing
 
         public bool IsPlayerAbleToFishing()
         {
-            if(Assembly != null)
+            if(EquipedRoad.Assembly != null)
             {
-                if(Assembly.Lure != null)
+                if(EquipedRoad.Assembly.Lure != null)
                 {
                     if(Satiety > 0)
                     {
@@ -80,11 +67,38 @@ namespace Fishing
             }
             return false;
         }
-        public void SetAssembly(Assembly ass)
+        public void SetAssembly(Assembly ass, int index)
         {
             if (ass.IsAssemblyFull())
             {
-                Assembly = ass ?? null;
+                switch (index)
+                {
+                    case 1:
+                        FirstRoad = new GameRoad(ass)
+                        {
+                            RoadX = 100,
+                            RoadY = 350
+                        };
+                        break;
+                    case 2:
+                        SecondRoad = new GameRoad(ass)
+                        {
+                            RoadX = 200,
+                            RoadY = 350
+                        };
+                        break;
+                    case 3:
+                        ThirdRoad = new GameRoad(ass)
+                        {
+                            RoadX = 300,
+                            RoadY = 350
+                        };
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Сборка не собрана");
             }
         }
         public void AddFish(Fish f)
@@ -123,46 +137,22 @@ namespace Fishing
             }
         }
 
-        public void CheckXBorders()
-        {
-            if (player.CurPoint.X > 1020) player.CurPoint.X = 1019;
-            if (player.CurPoint.X < 0) player.CurPoint.X = 1;
-        }
-
-        public bool IsFishAbleToGoIntoFpond()
-        {
-            if (player.Netting.Y == 550 && player.IsFishAttack && player.CurPoint.Y > 550)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public void AddNewMessage(BaseEvent ev)
-        {
-            if (ev != null)
-            {
-                player.EventHistory.Push(ev);
-            }
-        }
-
         public void BrokeRoad()
         {
             Pictures.road = Pictures.brokenRoad;
-            player.IsBaitInWater = false;
-            player.IsFishAttack = false;
-            player.Assembly.Proad = null;
-            player.CurPoint = Point.Empty;
+            player.EquipedRoad.IsBaitInWater = false;
+            player.EquipedRoad.IsFishAttack = false;
+            player.EquipedRoad.Assembly.Proad = null;
+            player.EquipedRoad.CurPoint = Point.Empty;
             player.Statistic.BrokensRoadsCount++;
         }
 
         public void TornFLine()
         {
-            player.IsFishAttack = false;
-            player.Assembly.Lure = null;
-            player.IsBaitMoving = false;
-            player.CurPoint = Point.Empty;
+            player.EquipedRoad.IsFishAttack = false;
+            player.EquipedRoad.Assembly.Lure = null;
+            player.EquipedRoad.IsBaitMoving = false;
+            player.EquipedRoad.CurPoint = Point.Empty;
             player.Statistic.TornsFLinesCount++;
             player.Statistic.GatheringCount++;
         }

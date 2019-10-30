@@ -11,7 +11,7 @@ namespace Fishing.View.LVLS.Ozero
         Point CurPoint { get; set; }
         Image BackImage { get; set; }
 
-        event EventHandler MouseLeftClick;
+        event MouseEventHandler MouseClick;
 
         event PaintEventHandler RepaintScreen;
 
@@ -37,8 +37,11 @@ namespace Fishing.View.LVLS.Ozero
         void StartBaitTimer();
         void StartGatheringTimer();
         void StopGatheringTimer();
-        void CreateCurrentFish();
+        void CreateCurrentFish(Fish fish);
         void StopMainTimer();
         void StartMainTimer();
+
+        void StartFishMovesTimer();
+        void StopFishMovesTimer();
     }
 }

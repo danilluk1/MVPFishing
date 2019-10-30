@@ -16,16 +16,6 @@ namespace Fishing.BL.Presenter
             view.LoadForm += View_Load;
         }
 
-        public override void Close()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Load()
-        {
-            throw new NotImplementedException();
-        }
-
         private void View_Load(object sender, EventArgs e)
         {
         }

@@ -33,10 +33,10 @@ namespace Fishing
             sound = new SounderPresenter(this, lvl);
             try
             {
-                BaitsPicture.Image = Player.GetPlayer().Assembly.Lure.Pict;
-                roadBox.Image = Player.GetPlayer().Assembly.Proad.Pict;
-                reelBox.Image = Player.GetPlayer().Assembly.Reel.Pict;
-                flineBox.Image = Player.GetPlayer().Assembly.FLine.Pict;
+                BaitsPicture.Image = Player.GetPlayer().EquipedRoad.Assembly.Lure.Pict;
+                roadBox.Image = Player.GetPlayer().EquipedRoad.Assembly.Proad.Pict;
+                reelBox.Image = Player.GetPlayer().EquipedRoad.Assembly.Reel.Pict;
+                flineBox.Image = Player.GetPlayer().EquipedRoad.Assembly.FLine.Pict;
             }
             catch (NullReferenceException) { }
             MoneyLValue = Player.GetPlayer().Money;
@@ -94,7 +94,7 @@ namespace Fishing
 
         private void BaitsPicture_Click(object sender, EventArgs e)
         {
-            if (Player.GetPlayer().Assembly != null && !Player.GetPlayer().IsBaitInWater)
+            if (Player.GetPlayer().EquipedRoad.Assembly != null && !Player.GetPlayer().EquipedRoad.IsBaitInWater)
             {
                 SelectorPresenter presenter = new SelectorPresenter(new LureSelector(), this);
             }

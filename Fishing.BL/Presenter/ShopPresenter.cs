@@ -81,15 +81,5 @@ namespace Fishing.Presenter
 
             return result;
         }
-
-        public override void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Close()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

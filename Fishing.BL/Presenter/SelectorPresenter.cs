@@ -20,11 +20,6 @@ namespace Fishing.View.LureSelector.Presenter
             view.LureListIndexChanged += View_LureListIndexChanged;
         }
 
-        private void Inv_BaitPicChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void View_LureListIndexChanged(object sender, EventArgs e)
         {
             view.Picture = view.Lure.Pict;
@@ -36,24 +31,14 @@ namespace Fishing.View.LureSelector.Presenter
         {
             try
             {
-                Player.GetPlayer().Assembly.Lure = view.Lure;
-                Player.GetPlayer().SetAssembly(Player.GetPlayer().Assembly);
-                gui.BaitPicture = Player.GetPlayer().Assembly.Lure.Pict;
+                Player.GetPlayer().EquipedRoad.Assembly.Lure = view.Lure;
+                Player.GetPlayer().SetAssembly(Player.GetPlayer().EquipedRoad.Assembly, 0);
+                gui.BaitPicture = Player.GetPlayer().EquipedRoad.Assembly.Lure.Pict;
                 view.Down();
             }
             catch (NullReferenceException)
             {
             }
-        }
-
-        public override void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Close()
-        {
-            throw new NotImplementedException();
         }
     }
 }

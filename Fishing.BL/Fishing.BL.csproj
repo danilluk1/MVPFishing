@@ -47,17 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Drawer\Drawer.cs" />
     <Compile Include="Model\Eating\BaseFood.cs" />
     <Compile Include="Model\Eating\BlackCaviar.cs" />
     <Compile Include="Model\Eating\Bread.cs" />
     <Compile Include="Model\Eating\Caviar.cs" />
     <Compile Include="Model\Eating\Cheese.cs" />
+    <Compile Include="Model\EventHelper\EventHelper.cs" />
     <Compile Include="Model\Fishes\Asp.cs" />
     <Compile Include="Model\Fishes\Burbot.cs" />
     <Compile Include="Model\Fishes\Chub.cs" />
     <Compile Include="Model\Fishes\SnakeHead.cs" />
     <Compile Include="Model\Fishes\Zander.cs" />
     <Compile Include="Model\Game\Game.cs" />
+    <Compile Include="Model\Game\GameRoad.cs" />
     <Compile Include="Model\Game\Power.cs" />
     <Compile Include="Model\Game\Statistic.cs" />
     <Compile Include="Model\Game\Time.cs" />

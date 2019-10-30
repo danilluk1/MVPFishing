@@ -6,12 +6,8 @@ namespace Fishing.BL.Model.LVLS.Meshera
 {
     public class LVL2 : LVL
     {
-        public LVL2() : base(Images.MesheraLVL2)
+        public LVL2() : base(Images.MesheraLVL2, 38, 16, 240, 345)
         {
-            Widgth = 38;
-            Height = 16;
-            LabelStartY = 345;
-            LabelStartX = 240;
         }
 
         public override void AddFishes()

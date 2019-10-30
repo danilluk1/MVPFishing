@@ -10,19 +10,21 @@ namespace Fishing
     public abstract class LVL
     {
         public Bitmap Image { get; set; }
-        public EventHandler StopBaitTimer;
-        public EventHandler GatheringisTrue;
-        public int Widgth = 100;
-        public int Height = 25;
-        public int LabelStartY = 350;
-        public int LabelStartX = 0;
+        public int Widgth;
+        public int Height;
+        public int LabelStartY;
+        public int LabelStartX;
         public int MinDeep;
         public int MaxDeep;
 
-        public LVL(Bitmap img)
+        public LVL(Bitmap img, int w, int h, int labelX, int labelY)
         {
             Image = img;
-            Deeparr = new Label[Widgth, Height];
+            Widgth = w;
+            Height = h;
+            LabelStartY = labelY;
+            LabelStartX = labelX;
+            Deeparr = new Label[w, h];
         }
 
         public Label[,] Deeparr;
@@ -30,31 +32,37 @@ namespace Fishing
 
         public abstract void AddFishes();
 
-        public void GetFish()
+        public (bool isFish, bool gathering) GetFish()
         {
-            Random randomGathering = new Random();
-            Random randomFish = new Random();
-            if (Player.GetPlayer().Assembly.Lure is Lure)
+            try
             {
-                if (Player.GetPlayer().CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().CurPoint.Y < 800 && !Player.GetPlayer().IsFishAttack)
+                Random randomGathering = new Random();
+                Random randomFish = new Random();
+                if (Player.GetPlayer().EquipedRoad.Assembly.Lure is Lure)
                 {
-                    Player.GetPlayer().CFish = Fishes[randomFish.Next(1, 994)];
-                    if (IsFishAttackAbble(Player.GetPlayer().CFish))
+                    if (Player.GetPlayer().EquipedRoad.CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().EquipedRoad.CurPoint.Y < 800 && !Player.GetPlayer().EquipedRoad.IsFishAttack)
                     {
-                        Player.GetPlayer().IsFishAttack = true;
-                        double roadCoef = (double)Player.GetPlayer().CFish.Weight / (double)Player.GetPlayer().Assembly.Proad.Power;
-                        double flineCoef = (double)Player.GetPlayer().CFish.Weight / (double)Player.GetPlayer().Assembly.FLine.Power;
-                        Player.GetPlayer().RoadIncValue = Convert.ToInt32(roadCoef * 100);
-                        Player.GetPlayer().FLineIncValue = Convert.ToInt32(flineCoef * 100);
-                        StopBaitTimer?.Invoke(this, EventArgs.Empty);
-                        int Gathering = randomGathering.Next(1, 100);
-                        if (Gathering <= 5)
+                        Player.GetPlayer().EquipedRoad.Fish = Fishes[randomFish.Next(1, 994)];
+                        if (IsFishAttackAbble(Player.GetPlayer().EquipedRoad.Fish))
                         {
-                            GatheringisTrue?.Invoke(this, EventArgs.Empty);
+                            Player.GetPlayer().EquipedRoad.IsFishAttack = true;
+                            double roadCoef = Player.GetPlayer().EquipedRoad.Fish.Weight / (double)Player.GetPlayer().EquipedRoad.Assembly.Proad.Power;
+                            double flineCoef = Player.GetPlayer().EquipedRoad.Fish.Weight / (double)Player.GetPlayer().EquipedRoad.Assembly.FLine.Power;
+                            Player.GetPlayer().EquipedRoad.RoadIncValue = Convert.ToInt32(roadCoef * 100);
+                            Player.GetPlayer().EquipedRoad.FLineIncValue = Convert.ToInt32(flineCoef * 100);
+                            int Gathering = randomGathering.Next(1, 100);
+                            if (Gathering <= 5)
+                            {
+                                return (true, true);
+                            }
+                            return (true, false);
                         }
                     }
                 }
             }
+            catch (NullReferenceException) { }
+
+            return (false, false);
         }
 
         public abstract void SetDeep();
@@ -65,10 +73,10 @@ namespace Fishing
             {
                 bool ba = false;
                 bool pa = false;
-                if (fish.MinDeep <= Player.GetPlayer().CurrentDeep && fish.MaxDeep >= Player.GetPlayer().CurrentDeep)
+                if (fish.MinDeep <= Player.GetPlayer().EquipedRoad.CurrentDeep && fish.MaxDeep >= Player.GetPlayer().EquipedRoad.CurrentDeep)
                 {
                     var part = fish.ActivityParts.Single(p => p == Game.GetGame().Time.Part);
-                    var l = fish.WorkingLures.First(b => b.Name.Equals(Player.GetPlayer().Assembly.Lure.Name));
+                    var l = fish.WorkingLures.First(b => b.Name.Equals(Player.GetPlayer().EquipedRoad.Assembly.Lure.Name));
                     ba = l.Name == null ? false : true;
                     pa = part.ToString() == null ? false : true;
                 }

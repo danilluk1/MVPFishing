@@ -45,15 +45,5 @@ namespace Fishing.BL.Presenter
             }
             catch (NullReferenceException) { }
         }
-
-        public override void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Close()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

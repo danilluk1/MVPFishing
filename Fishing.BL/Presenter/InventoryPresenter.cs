@@ -9,12 +9,13 @@ namespace Fishing.Presenter
     {
         private IInventory view;
         private IGUIPresenter gui;
+        private int index = 1;
 
         public InventoryPresenter(IInventory view)
         {
             this.view = view;
             view.Presenter = this;
-            view.Open();
+
             view.LureDoubleClick += View_LureDoubleClick;
             view.LureSelectedIndexChanged += View_LureSelectedIndexChanged;
             view.ReelDoubleClick += View_ReelDoubleClick;
@@ -25,18 +26,39 @@ namespace Fishing.Presenter
             view.FLineSelectedIndexChanged += View_FLineSelectedIndexChanged;
             view.CloseButtonClick += View_CloseButtonClick;
             view.FetchButtonClick += View_FetchButtonClick;
-            view.AddButtonClick += View_AddButtonClick;
             view.AssemblyDoubleClick += View_AssemblyDoubleClick;
             view.MakeOutClick += View_MakeOutClick;
-            view.BaitPicClick += View_BaitPicClick;
+            view.SRoadButttonClick += View_SRoadButttonClick;
+            view.FRoadButttonClick += View_FRoadButttonClick;
+            view.TRoadButttonClick += View_TRoadButttonClick;
+
+
+            view.Open();
         }
+
+        private void View_TRoadButttonClick(object sender, EventArgs e)
+        {
+            Player.GetPlayer().EquipedRoad = Player.GetPlayer().ThirdRoad;
+        }
+
+        private void View_FRoadButttonClick(object sender, EventArgs e)
+        {
+            Player.GetPlayer().EquipedRoad = Player.GetPlayer().FirstRoad;
+            
+        }
+
+        private void View_SRoadButttonClick(object sender, EventArgs e)
+        {
+            Player.GetPlayer().EquipedRoad = Player.GetPlayer().SecondRoad;
+        }
+
 
         public InventoryPresenter(IInventory view, IGUIPresenter gui)
         {
             this.view = view;
             this.gui = gui;
             view.Presenter = this;
-            view.Open();
+
             view.LureDoubleClick += View_LureDoubleClick;
             view.LureSelectedIndexChanged += View_LureSelectedIndexChanged;
             view.ReelDoubleClick += View_ReelDoubleClick;
@@ -47,27 +69,23 @@ namespace Fishing.Presenter
             view.FLineSelectedIndexChanged += View_FLineSelectedIndexChanged;
             view.CloseButtonClick += View_CloseButtonClick;
             view.FetchButtonClick += View_FetchButtonClick;
-            view.AddButtonClick += View_AddButtonClick;
             view.AssemblyDoubleClick += View_AssemblyDoubleClick;
             view.MakeOutClick += View_MakeOutClick;
-            view.BaitPicClick += View_BaitPicClick;
-        }
 
-        private void View_BaitPicClick(object sender, EventArgs e)
-        {
+            view.Open();
         }
 
         private void View_MakeOutClick(object sender, EventArgs e)
         {
             try
             {
-                if (Player.GetPlayer().Assembly.FLine != null)
+                if (Player.GetPlayer().EquipedRoad.Assembly.FLine != null)
                     Player.GetPlayer().FLineInv.Add(view.Assembly_P.FLine);
-                if (Player.GetPlayer().Assembly.Proad != null)
+                if (Player.GetPlayer().EquipedRoad.Assembly.Proad != null)
                     Player.GetPlayer().RoadInv.Add(view.Assembly_P.Proad);
-                if (Player.GetPlayer().Assembly.Lure != null)
+                if (Player.GetPlayer().EquipedRoad.Assembly.Lure != null)
                     Player.GetPlayer().LureInv.Add(view.Assembly_P.Lure);
-                if (Player.GetPlayer().Assembly.Reel != null)
+                if (Player.GetPlayer().EquipedRoad.Assembly.Reel != null)
                     Player.GetPlayer().ReelInv.Add(view.Assembly_P.Reel);
 
                 Player.GetPlayer().Assemblies.Remove(view.Assembly_P);
@@ -77,22 +95,23 @@ namespace Fishing.Presenter
 
         private void View_AssemblyDoubleClick(object sender, EventArgs e)
         {
-            view.showAssembly(view.Assembly_P);
-            Player.GetPlayer().SetAssembly(view.Assembly_P);
+            view.ShowAssembly(view.Assembly_P);
             try
             {
+                Player.GetPlayer().SetAssembly(view.Assembly_P,index);
+                view.SetButtonDisabled(index);
+                index++;
                 gui.BaitPicture = view.Assembly_P.Lure.Pict;
                 gui.RoadPicture = view.Assembly_P.Proad.Pict;
                 gui.ReelPicture = view.Assembly_P.Reel.Pict;
                 gui.FLinePicture = view.Assembly_P.FLine.Pict;
             }
             catch (NullReferenceException) { }
+            if (index == 4)
+            {
+                index = 0;
+            }
         }
-
-        private void View_AddButtonClick(object sender, EventArgs e)
-        {
-        }
-
         private void View_FetchButtonClick(object sender, EventArgs e)
         {
             if (view.FLine_P != null && view.Road_P != null && view.Reel_P != null && view.Lure_P != null)
@@ -117,11 +136,12 @@ namespace Fishing.Presenter
 
         private void View_CloseButtonClick(object sender, EventArgs e)
         {
+            view.Down();
         }
 
         private void View_FLineSelectedIndexChanged(object sender, EventArgs e)
         {
-            view.addItemToRightView(view.FLine_P);
+            view.AddItemToRightView(view.FLine_P);
         }
 
         private void View_FLineDoubleClick(object sender, EventArgs e)
@@ -131,7 +151,7 @@ namespace Fishing.Presenter
 
         private void View_RoadSelectedIndexChanged(object sender, EventArgs e)
         {
-            view.addItemToRightView(view.Road_P);
+            view.AddItemToRightView(view.Road_P);
         }
 
         private void View_RoadDoubleClick(object sender, EventArgs e)
@@ -141,7 +161,7 @@ namespace Fishing.Presenter
 
         private void View_ReelSelectedIndexChanged(object sender, EventArgs e)
         {
-            view.addItemToRightView(view.Reel_P);
+            view.AddItemToRightView(view.Reel_P);
         }
 
         private void View_ReelDoubleClick(object sender, EventArgs e)
@@ -151,22 +171,12 @@ namespace Fishing.Presenter
 
         private void View_LureSelectedIndexChanged(object sender, EventArgs e)
         {
-            view.addItemToRightView(view.Lure_P);
+            view.AddItemToRightView(view.Lure_P);
         }
 
         private void View_LureDoubleClick(object sender, EventArgs e)
         {
             view.LureText = view.Lure_P.Name;
-        }
-
-        public override void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Close()
-        {
-            throw new NotImplementedException();
         }
     }
 }

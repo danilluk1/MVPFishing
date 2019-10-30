@@ -17,7 +17,7 @@ namespace Fishing.BL.Model.Game
         public void ShowNetting()
         {
             Y = 550;
-            X = Player.GetPlayer().RoadX;
+            X = Player.GetPlayer().EquipedRoad.RoadX;
         }
     }
 }

@@ -21,9 +21,7 @@ namespace Fishing.BL.Model.Game
         public BindingList<Water> Waters = new BindingList<Water>();
 
         public event EventHandler HoursInc;
-
         public IGameForm View { get; set; }
-
         public Timer HoursTimer { get; set; }
         public Water CurrentWater { get; set; } = Ozero.GetWater();
         public Time Time { get; set; }

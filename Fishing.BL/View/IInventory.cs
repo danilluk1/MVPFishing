@@ -27,11 +27,11 @@ namespace Fishing.View.Inventory
 
         event EventHandler FetchButtonClick;
 
-        event EventHandler AddButtonClick;
-
         event EventHandler MakeOutClick;
 
-        event EventHandler BaitPicClick;
+        event EventHandler FRoadButttonClick;
+        event EventHandler SRoadButttonClick;
+        event EventHandler TRoadButttonClick;
 
         Road Road_P { get; set; }
         Reel Reel_P { get; set; }
@@ -44,8 +44,10 @@ namespace Fishing.View.Inventory
         string FLineText { get; set; }
         string LureText { get; set; }
 
-        void addItemToRightView(Item item);
+        void AddItemToRightView(Item item);
 
-        void showAssembly(Fishing.Assembly ass);
+        void ShowAssembly(Fishing.Assembly ass);
+
+        void SetButtonDisabled(int index);
     }
 }

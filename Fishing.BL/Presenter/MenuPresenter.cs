@@ -60,15 +60,5 @@ namespace Fishing.Presenter
             Item.LureShop.Add(Lure.jig3);
             Item.LureShop.Add(Lure.jig4);
         }
-
-        public override void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Close()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

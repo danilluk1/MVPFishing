@@ -8,7 +8,7 @@ namespace Fishing.BL.Presenter
 {
     public class SounderPresenter
     {
-        private const float SOUNDERWIDTH = 380f;
+        private const float SOUNDERWIDTH = 372f;
         private readonly ISounder view;
         public LVL CurLVL { get; set; }
 
@@ -41,9 +41,9 @@ namespace Fishing.BL.Presenter
         private void drawPoint(Graphics g)
         {
             Player player = Player.GetPlayer();
-            float coef = (CurLVL.Height - 2) * 15 / SOUNDERWIDTH;
-            float x = (player.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y) / coef;
-            g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().CurrentDeep / 10 - 4, 4, 4);
+            float coef = (CurLVL.Height - 3) * (SOUNDERWIDTH / (float)CurLVL.Height - 3) / SOUNDERWIDTH;
+            float x = (player.EquipedRoad.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y) / coef;
+            g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().EquipedRoad.CurrentDeep / 10 - 4, 4, 4);
         }
     }
 }

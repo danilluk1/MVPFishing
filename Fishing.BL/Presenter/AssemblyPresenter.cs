@@ -21,15 +21,5 @@ namespace Fishing.Presenter
             Player.GetPlayer().Assemblies.Add(new Assembly(name));
             CloseForm?.Invoke(this, EventArgs.Empty);
         }
-
-        public override void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Close()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

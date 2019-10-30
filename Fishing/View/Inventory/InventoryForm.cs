@@ -19,28 +19,24 @@ namespace Fishing
                 AddAssembly add = new AddAssembly();
                 add.Show();
             }
-        }
-
-        public void showAssembly(Assembly ass)
-        {
-            if (ass != null)
+            if(Player.GetPlayer().FirstRoad != null)
             {
-                try
-                {
-                    RoadBox.BackgroundImage = ass.Proad.Pict;
-                    ReelBox.BackgroundImage = ass.Reel.Pict;
-                    BaitBox.BackgroundImage = ass.Lure.Pict;
-                    FLineBox.BackgroundImage = ass.FLine.Pict;
-                    RoadText = ass.Proad.Name;
-                    ReelText = ass.Reel.Name;
-                    LureText = ass.Lure.Name;
-                    FLineText = ass.FLine.Name;
-                }
-                catch (ArgumentOutOfRangeException) { }
-                catch (NullReferenceException) { }
+                fRoadButton.Enabled = true;
             }
+            if (Player.GetPlayer().SecondRoad != null)
+            {
+                sRoadButton.Enabled = true;
+            }
+            if (Player.GetPlayer().ThirdRoad != null)
+            {
+                tRoadButton.Enabled = true;
+            }
+            LuresList.DataSource = Player.GetPlayer().LureInv;
+            FLineList.DataSource = Player.GetPlayer().FLineInv;
+            ReelsList.DataSource = Player.GetPlayer().ReelInv;
+            RoadsList.DataSource = Player.GetPlayer().RoadInv;
+            assembliesBox.DataSource = Player.GetPlayer().Assemblies;
         }
-
         public Road Road_P
         {
             get
@@ -150,13 +146,13 @@ namespace Fishing
 
         public event EventHandler FetchButtonClick;
 
-        public event EventHandler AddButtonClick;
-
         public event EventHandler AssemblyDoubleClick;
 
         public event EventHandler MakeOutClick;
 
-        public event EventHandler BaitPicClick;
+        public event EventHandler FRoadButttonClick;
+        public event EventHandler SRoadButttonClick;
+        public event EventHandler TRoadButttonClick;
 
         private void RoadsList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -205,30 +201,30 @@ namespace Fishing
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            CloseButtonClick?.Invoke(this, EventArgs.Empty);
         }
-
-        private void Inventory_Load(object sender, EventArgs e)
-        {
-            LuresList.DataSource = Player.GetPlayer().LureInv;
-            FLineList.DataSource = Player.GetPlayer().FLineInv;
-            ReelsList.DataSource = Player.GetPlayer().ReelInv;
-            RoadsList.DataSource = Player.GetPlayer().RoadInv;
-            assembliesBox.DataSource = Player.GetPlayer().Assemblies;
-        }
-
         private void FetchButton_Click(object sender, EventArgs e)
         {
             FetchButtonClick?.Invoke(this, EventArgs.Empty);
         }
-
+        private void MakeOutButton_Click(object sender, EventArgs e)
+        {
+            MakeOutClick?.Invoke(this, EventArgs.Empty);
+        }
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddAssembly add = new AddAssembly();
-            add.Show();
+            var addForm = new AddAssembly();
+            addForm.Show();
+        }
+        private void BaitBox_Click(object sender, EventArgs e)
+        {
+            if (Player.GetPlayer().EquipedRoad.Assembly != null && !Player.GetPlayer().EquipedRoad.IsBaitInWater)
+            {
+                var presenter = new SelectorPresenter(new LureSelector(), UI.gui);
+            }
         }
 
-        public void addItemToRightView(Item item)
+        public void AddItemToRightView(Item item)
         {
             try
             {
@@ -267,20 +263,40 @@ namespace Fishing
             }
             catch (ArgumentOutOfRangeException) { }
         }
-
-        private void MakeOutButton_Click(object sender, EventArgs e)
+        public void ShowAssembly(Assembly ass)
         {
-            MakeOutClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void BaitBox_Click(object sender, EventArgs e)
-        {
-            if (Player.GetPlayer().Assembly != null && !Player.GetPlayer().IsBaitInWater)
+            if (ass != null)
             {
-                SelectorPresenter presenter = new SelectorPresenter(new LureSelector(), UI.gui);
+                try
+                {
+                    RoadBox.BackgroundImage = ass.Proad.Pict;
+                    ReelBox.BackgroundImage = ass.Reel.Pict;
+                    BaitBox.BackgroundImage = ass.Lure.Pict;
+                    FLineBox.BackgroundImage = ass.FLine.Pict;
+                    RoadText = ass.Proad.Name;
+                    ReelText = ass.Reel.Name;
+                    LureText = ass.Lure.Name;
+                    FLineText = ass.FLine.Name;
+                }
+                catch (ArgumentOutOfRangeException) { }
+                catch (NullReferenceException) { }
             }
         }
-
+        public void SetButtonDisabled(int index)
+        {
+            switch (index) 
+            {
+                case 1:
+                    fRoadButton.Enabled = true;
+                    break;
+                case 2:
+                    sRoadButton.Enabled = true;
+                    break;
+                case 3:
+                    tRoadButton.Enabled = true;
+                    break;
+            }
+        }
         public void Open()
         {
             this.Show();
@@ -289,6 +305,21 @@ namespace Fishing
         public void Down()
         {
             this.Close();
+        }
+
+        private void fRoadButton_Click(object sender, EventArgs e)
+        {
+            FRoadButttonClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void sRoadButton_Click(object sender, EventArgs e)
+        {
+            SRoadButttonClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void tRoadButton_Click(object sender, EventArgs e)
+        {
+            TRoadButttonClick?.Invoke(this, EventArgs.Empty);
         }
     }
 }
