@@ -17,6 +17,18 @@ namespace Fishing.Presenter
             view.RoadDoubleClick += View_RoadDoubleClick;
             view.ProductDoubleClick += View_ProductDoubleClick;
             view.LureDoubleClick += View_LureDoubleClick;
+            view.BaitDoubleClick += View_BaitDoubleClick;
+        }
+
+        private void View_BaitDoubleClick(object sender, EventArgs e)
+        {
+            if (IsPlayerAbleToBuyItem(view.Bait_P))
+            {
+                Player.GetPlayer().BaitInv.Add(view.Bait_P);
+                Player.GetPlayer().Money -= view.Bait_P.Price;
+                view.MoneyL = Player.GetPlayer().Money.ToString();
+                view.LowerL = "Куплено...";
+            }
         }
 
         private void View_LureDoubleClick(object sender, EventArgs e)

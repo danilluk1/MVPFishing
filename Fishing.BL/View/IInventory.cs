@@ -1,4 +1,5 @@
-﻿using Fishing.BL.View;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.View;
 using System;
 
 namespace Fishing.View.Inventory
@@ -29,6 +30,9 @@ namespace Fishing.View.Inventory
 
         event EventHandler MakeOutClick;
 
+        event EventHandler BaitDoubleClick;
+        event EventHandler BaitSelectedIndexChanged;
+
         event EventHandler FRoadButttonClick;
         event EventHandler SRoadButttonClick;
         event EventHandler TRoadButttonClick;
@@ -37,6 +41,7 @@ namespace Fishing.View.Inventory
         Reel Reel_P { get; set; }
         FLine FLine_P { get; set; }
         Lure Lure_P { get; set; }
+        Bait Bait_P { get; set; }
         Fishing.Assembly Assembly_P { get; set; }
 
         string RoadText { get; set; }

@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Fishes;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Fishes;
 using Fishing.BL.Resources.Images;
 using System.Collections.Generic;
 
@@ -16,19 +17,19 @@ namespace Fishing.BL.Model.LVLS.Ozero
             {
                 if (i < 150)
                 {
-                    Fishes.Add(new Pike(100, 700, 0.5, new HashSet<Lure>() { Lure.jig4, Lure.vob2 }));
+                    Fishes.Add(new Pike(100, 700, 0.5, new HashSet<FishBait>() { Lure.jig4, Lure.vob2 }));
                 }
                 if (i >= 150 && i < 350)
                 {
-                    Fishes.Add(new Perch(100, 600, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Perch(100, 600, 0.8, new HashSet<FishBait>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i >= 350 && i < 500)
                 {
-                    Fishes.Add(new Burbot(500, 700, 1, new HashSet<Lure>() { Lure.jig2, Lure.jig3, Lure.vob6 }));
+                    Fishes.Add(new Burbot(500, 700, 1, new HashSet<FishBait>() { Lure.jig2, Lure.jig3, Lure.vob6 }));
                 }
                 if (i >= 500 && i <= 1000)
                 {
-                    Fishes.Add(new Zander(500, 700, 1, new HashSet<Lure>() { Lure.jig1, Lure.vob5, Lure.vob6 }));
+                    Fishes.Add(new Zander(500, 700, 1, new HashSet<FishBait>() { Lure.jig1, Lure.vob5, Lure.vob6 }));
                 }
             }
         }

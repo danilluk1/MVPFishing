@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using System;
@@ -27,7 +28,7 @@ namespace Fishing
         private readonly static string description = Messages.PERCH_DESCRIPTION;
         private readonly static Bitmap bit = Images.okyn;
 
-        public Perch(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu)
+        public Perch(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
             : base(name, randWigth.Next(200, Convert.ToInt32(1700 * maxSizeCoef)), Power.SetPower(3, 1), price, 1300, lures, activParts, description, bit)
         {
             MinDeep = minD;

@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,7 +17,7 @@ namespace Fishing
         public int TrophyWeight { get; set; }
         public HashSet<Size> LuresSize { get; set; }
         public HashSet<PartsOfDay> ActivityParts { get; set; }
-        public HashSet<Lure> WorkingLures { get; set; }
+        public HashSet<FishBait> WorkingLures { get; set; }
         public string Description { get; set; }
         public Bitmap Bitmap { get; set; }
         public int MaxDeep { get; set; }

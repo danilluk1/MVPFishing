@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Lures;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Lures;
 using Fishing.BL.Resources.Images;
 using Fishing.Presenter;
 using Fishing.View.Assembly;
@@ -35,6 +36,7 @@ namespace Fishing
             }
             FLineList.DataSource = Player.GetPlayer().FLineInv;
             ReelsList.DataSource = Player.GetPlayer().ReelInv;
+            baitsBox.DataSource = Player.GetPlayer().BaitInv;
             foreach (Road r in Player.GetPlayer().RoadInv)
             {
                 ListViewItem lvi = new ListViewItem();
@@ -159,6 +161,20 @@ namespace Fishing
             }
             set { }
         }
+        public Bait Bait_P
+        {
+            get
+            {
+                try
+                {
+                    return Player.GetPlayer().BaitInv[baitsBox.SelectedIndex];
+                }
+                catch (ArgumentOutOfRangeException) { }
+
+                return null;
+            }
+            set { }
+        }
 
         public string RoadText { get => roadTextBox.Text; set => roadTextBox.Text = value; }
         public string ReelText { get => reelTextBox.Text; set => reelTextBox.Text = value; }
@@ -194,6 +210,8 @@ namespace Fishing
         public event EventHandler FRoadButttonClick;
         public event EventHandler SRoadButttonClick;
         public event EventHandler TRoadButttonClick;
+        public event EventHandler BaitDoubleClick;
+        public event EventHandler BaitSelectedIndexChanged;
 
         private void RoadsList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -296,6 +314,14 @@ namespace Fishing
                     this.powerBox.Text = " ";
                     this.typeBox.Text = " ";
                 }
+                if (Item.SelectItemType(item) is Bait)
+                {
+                    Bait r = (Bait)item;
+                    this.pictureBox5.BackgroundImage = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.Count.ToString();
+                    this.typeBox.Text = " ";
+                }
             }
             catch (ArgumentOutOfRangeException) { }
         }
@@ -305,25 +331,25 @@ namespace Fishing
             {
                 try
                 {
-                    if(ass.Proad.Type == ROAD_TYPE.Spinning)
+                    if(ass.Road.Type == ROAD_TYPE.Spinning)
                     {
                         assemblyType.Text = "Спиннинг";
                     }
-                    if(ass.Proad.Type == ROAD_TYPE.Feeder)
+                    if(ass.Road.Type == ROAD_TYPE.Feeder)
                     {
                         assemblyType.Text = "Фидер";
                     }
-                    if (ass.Proad.Type == ROAD_TYPE.Float)
+                    if (ass.Road.Type == ROAD_TYPE.Float)
                     {
                         assemblyType.Text = "Поплавок";
                     }
-                    RoadBox.BackgroundImage = ass.Proad.Pict;
+                    RoadBox.BackgroundImage = ass.Road.Pict;
                     ReelBox.BackgroundImage = ass.Reel.Pict;
-                    BaitBox.BackgroundImage = ass.Lure.Pict;
+                    BaitBox.BackgroundImage = ass.FishBait.Pict;
                     FLineBox.BackgroundImage = ass.FLine.Pict;
-                    RoadText = ass.Proad.Name;
+                    RoadText = ass.Road.Name;
                     ReelText = ass.Reel.Name;
-                    LureText = ass.Lure.Name;
+                    LureText = ass.FishBait.Name;
                     FLineText = ass.FLine.Name;
                 }
                 catch (ArgumentOutOfRangeException) { }
@@ -388,6 +414,16 @@ namespace Fishing
         private void luresView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             LureDoubleClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void baitsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BaitSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void baitsBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            BaitDoubleClick?.Invoke(this, e);
         }
     }
 }

@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Baits\Bait.cs" />
+    <Compile Include="Model\Baits\FishBait.cs" />
+    <Compile Include="Model\Baits\Worm.cs" />
     <Compile Include="Model\Drawer\Drawer.cs" />
     <Compile Include="Model\Eating\BaseFood.cs" />
     <Compile Include="Model\Eating\BlackCaviar.cs" />
@@ -68,8 +70,8 @@
     <Compile Include="Model\Items\Feeder.cs" />
     <Compile Include="Model\Items\Float.cs" />
     <Compile Include="Model\Items\Spinning.cs" />
-    <Compile Include="Model\Lures\Jig.cs" />
-    <Compile Include="Model\Lures\Pinwheel.cs" />
+    <Compile Include="Model\Baits\Lures\Jig.cs" />
+    <Compile Include="Model\Baits\Lures\Pinwheel.cs" />
     <Compile Include="Model\LVLS\Meshera\LVL1.cs" />
     <Compile Include="Model\LVLS\Meshera\LVL2.cs" />
     <Compile Include="Model\LVLS\Meshera\LVL3.cs" />
@@ -127,9 +129,9 @@
     <Compile Include="Model\Items\Item.cs" />
     <Compile Include="Model\Items\Reel.cs" />
     <Compile Include="Model\Items\Road.cs" />
-    <Compile Include="Model\Lures\Shaker.cs" />
-    <Compile Include="Model\Lures\Lure.cs" />
-    <Compile Include="Model\Lures\Wobbler.cs" />
+    <Compile Include="Model\Baits\Lures\Shaker.cs" />
+    <Compile Include="Model\Baits\Lures\Lure.cs" />
+    <Compile Include="Model\Baits\Lures\Wobbler.cs" />
     <Compile Include="Model\LVLS\LVL.cs" />
     <Compile Include="Model\LVLS\Ozero\LVL1.cs" />
     <Compile Include="Model\LVLS\Ozero\LVL2.cs" />

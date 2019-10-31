@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.Baits
 {
-    class Bait : Item
+    [Serializable]
+    public class Bait : FishBait
     {
         public int Count;
 
@@ -20,5 +21,7 @@ namespace Fishing.BL.Model.Baits
         {
             return this.Name;
         }
+
+        public static Worm worm = new Worm();
     }
 }

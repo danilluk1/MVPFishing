@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Eating;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Eating;
 using Fishing.View.Menu;
 using Saver.BL.Controller;
 using System;
@@ -59,6 +60,7 @@ namespace Fishing.Presenter
             Item.LureShop.Add(Lure.jig2);
             Item.LureShop.Add(Lure.jig3);
             Item.LureShop.Add(Lure.jig4);
+            Item.BaitsShop.Add(Bait.worm);
         }
     }
 }

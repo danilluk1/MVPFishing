@@ -7,10 +7,10 @@ namespace Fishing.View.LureSelector.Presenter
 {
     public class SelectorPresenter : BasePresenter
     {
-        private ISelector view;
+        private ISelector<Lure> view;
         private IGUIPresenter gui;
 
-        public SelectorPresenter(ISelector view, IGUIPresenter gui)
+        public SelectorPresenter(ISelector<Lure> view, IGUIPresenter gui)
         {
             this.view = view;
             this.gui = gui;
@@ -31,8 +31,8 @@ namespace Fishing.View.LureSelector.Presenter
         {
             try
             {
-                Player.GetPlayer().EquipedRoad.Assembly.Lure = view.Lure;                
-                gui.BaitPicture = Player.GetPlayer().EquipedRoad.Assembly.Lure.Pict;
+                Player.GetPlayer().EquipedRoad.Assembly.FishBait = view.Lure;                
+                gui.BaitPicture = Player.GetPlayer().EquipedRoad.Assembly.FishBait.Pict;
                 view.Down();
             }
             catch (NullReferenceException)

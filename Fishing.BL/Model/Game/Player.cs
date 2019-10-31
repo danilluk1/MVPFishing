@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Eating;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Resources.Images;
@@ -30,6 +31,7 @@ namespace Fishing
         public BindingList<FLine> FLineInv { get; set; }
         public BindingList<Lure> LureInv { get; set; }
         public BindingList<BaseFood> FoodInv { get; set; }
+        public BindingList<Bait> BaitInv { get; set; }
         public Stack<BaseEvent> EventHistory { get; set; }
         public int Satiety { get; set; } = 100;
         public Statistic Statistic { get; set; } = new Statistic();
@@ -56,7 +58,7 @@ namespace Fishing
         {
             if(EquipedRoad.Assembly != null)
             {
-                if(EquipedRoad.Assembly.Lure != null)
+                if(EquipedRoad.Assembly.FishBait != null)
                 {
                     if(Satiety > 0)
                     {
@@ -173,14 +175,14 @@ namespace Fishing
             Pictures.road = Pictures.brokenRoad;
             player.EquipedRoad.IsBaitInWater = false;
             player.EquipedRoad.IsFishAttack = false;
-            player.EquipedRoad.Assembly.Proad = null;
+            player.EquipedRoad.Assembly.Road = null;
             player.EquipedRoad.CurPoint = Point.Empty;
             player.Statistic.BrokensRoadsCount++;
         }
         public void TornFLine()
         {
             player.EquipedRoad.IsFishAttack = false;
-            player.EquipedRoad.Assembly.Lure = null;
+            player.EquipedRoad.Assembly.FishBait = null;
             player.EquipedRoad.IsBaitMoving = false;
             player.EquipedRoad.CurPoint = Point.Empty;
             player.Statistic.TornsFLinesCount++;

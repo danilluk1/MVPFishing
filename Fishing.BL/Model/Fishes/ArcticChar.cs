@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using System;
@@ -29,7 +30,7 @@ namespace Fishing
         private readonly static string description = Messages.ARCTICCHAR_DESCRIPTION;
         private readonly static Bitmap bit = Images.golec;
 
-        public ArcticChar(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(200, 20000), Power.SetPower(6, 2), price, trophyWeight, lures, activParts, description, bit)
+        public ArcticChar(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(200, 20000), Power.SetPower(6, 2), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

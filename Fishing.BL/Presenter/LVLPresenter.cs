@@ -245,13 +245,13 @@ namespace Fishing.Presenter
                             if (!player.EquipedRoad.Fish.isTrophy())
                             {
                                 evHelper.AddEventToPlayer(new FishEvent(player.EquipedRoad.Fish,
-                                                                        player.EquipedRoad.Assembly.Lure));
+                                                                        player.EquipedRoad.Assembly.FishBait));
                                 evHelper.ShowLastEvent();
                             }
                             else
                             {
                                 evHelper.AddEventToPlayer(new TrophyFishEvent(player.EquipedRoad.Fish,
-                                                                              player.EquipedRoad.Assembly.Lure));
+                                                                              player.EquipedRoad.Assembly.FishBait));
                                 evHelper.ShowLastEvent();
                             }
                             view.CreateCurrentFish(player.EquipedRoad.Fish);
@@ -364,46 +364,46 @@ namespace Fishing.Presenter
                     switch (e.KeyCode)
                     {
                         case Keys.G:
-                            if (weight <= road.Assembly.Proad.Power * 0.2)
+                            if (weight <= road.Assembly.Road.Power * 0.2)
                             {
                                 road.Image = Roads.izg1;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.25)
+                            else if (weight <= road.Assembly.Road.Power * 0.25)
                             {
                                 road.Image = Roads.izg2;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.3)
+                            else if (weight <= road.Assembly.Road.Power * 0.3)
                             {
                                 road.Image = Roads.izg3;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.4)
+                            else if (weight <= road.Assembly.Road.Power * 0.4)
                             {
                                 road.Image = Roads.izg4;
                             }
-                            else if (weight >= road.Assembly.Proad.Power * 0.4)
+                            else if (weight >= road.Assembly.Road.Power * 0.4)
                             {
                                 road.Image = Roads.izg5;
                             }
                             break;
 
                         case Keys.H:
-                            if (weight <= road.Assembly.Proad.Power * 0.2)
+                            if (weight <= road.Assembly.Road.Power * 0.2)
                             {
                                 road.Image = Roads.izg1H;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.25)
+                            else if (weight <= road.Assembly.Road.Power * 0.25)
                             {
                                 road.Image = Roads.izg2H;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.3)
+                            else if (weight <= road.Assembly.Road.Power * 0.3)
                             {
                                 road.Image = Roads.izg3H;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.4)
+                            else if (weight <= road.Assembly.Road.Power * 0.4)
                             {
                                 road.Image = Roads.izg4H;
                             }
-                            else if (weight >= road.Assembly.Proad.Power * 0.4)
+                            else if (weight >= road.Assembly.Road.Power * 0.4)
                             {
                                 road.Image = Roads.izg5H;
                             }
@@ -426,46 +426,46 @@ namespace Fishing.Presenter
                     switch (e.KeyCode)
                     {
                         case Keys.H:
-                            if (weight <= road.Assembly.Proad.Power * 0.2)
+                            if (weight <= road.Assembly.Road.Power * 0.2)
                             {
                                 road.Image = Roads.izg1;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.25)
+                            else if (weight <= road.Assembly.Road.Power * 0.25)
                             {
                                 road.Image = Roads.izg2;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.3)
+                            else if (weight <= road.Assembly.Road.Power * 0.3)
                             {
                                 road.Image = Roads.izg3;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.4)
+                            else if (weight <= road.Assembly.Road.Power * 0.4)
                             {
                                 road.Image = Roads.izg4;
                             }
-                            else if (weight >= road.Assembly.Proad.Power * 0.4)
+                            else if (weight >= road.Assembly.Road.Power * 0.4)
                             {
                                 road.Image = Roads.izg5;
                             }
                             break;
 
                         case Keys.G:
-                            if (weight <= road.Assembly.Proad.Power * 0.2)
+                            if (weight <= road.Assembly.Road.Power * 0.2)
                             {
                                 road.Image = Roads.izg1;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.25)
+                            else if (weight <= road.Assembly.Road.Power * 0.25)
                             {
                                 road.Image = Roads.izg2;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.3)
+                            else if (weight <= road.Assembly.Road.Power * 0.3)
                             {
                                 road.Image = Roads.izg3;
                             }
-                            else if (weight <= road.Assembly.Proad.Power * 0.4)
+                            else if (weight <= road.Assembly.Road.Power * 0.4)
                             {
                                 road.Image = Roads.izg4;
                             }
-                            else if (weight >= road.Assembly.Proad.Power * 0.4)
+                            else if (weight >= road.Assembly.Road.Power * 0.4)
                             {
                                 road.Image = Roads.izg5;
                             }
@@ -505,7 +505,7 @@ namespace Fishing.Presenter
                     player.EquipedRoad.RoadY = 350;
                     try
                     {
-                        if (player.EquipedRoad.Assembly.Lure == null && player.EquipedRoad.Assembly.Proad.Type == ROAD_TYPE.Spinning)
+                        if (player.EquipedRoad.Assembly.FishBait == null && player.EquipedRoad.Assembly.Road.Type == ROAD_TYPE.Spinning)
                         {
                             player.EquipedRoad.CurPoint.Y = 0;
                             MessageBox.Show(Messages.NO_LURE_EQUIPED);
@@ -629,8 +629,8 @@ namespace Fishing.Presenter
             gui.RoadPicture = null;
             gui.ReelPicture = null;
             gui.FLinePicture = null;
-            gui.BaitPicture = player.EquipedRoad.Assembly.Lure.Pict;
-            gui.RoadPicture = player.EquipedRoad.Assembly.Proad.Pict;
+            gui.BaitPicture = player.EquipedRoad.Assembly.FishBait.Pict;
+            gui.RoadPicture = player.EquipedRoad.Assembly.Road.Pict;
             gui.ReelPicture = player.EquipedRoad.Assembly.Reel.Pict;
             gui.FLinePicture = player.EquipedRoad.Assembly.FLine.Pict;
             drawer.RTrigon.X = player.EquipedRoad.RoadX + 12;

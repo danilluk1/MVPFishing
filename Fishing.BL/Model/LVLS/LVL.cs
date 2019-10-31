@@ -41,7 +41,7 @@ namespace Fishing
                 Random randRoad = new Random();
                 Random randomGathering = new Random();
                 Random randomFish = new Random();
-                if (road.Assembly.Lure != null)
+                if (road.Assembly.FishBait != null)
                 {
                     if (!road.IsFishAttack)
                     {
@@ -49,7 +49,7 @@ namespace Fishing
                         if (IsFishAttackAbble(road.Fish, road))
                         {
                             road.IsFishAttack = true;
-                            double roadCoef = road.Fish.Weight / (double)road.Assembly.Proad.Power;
+                            double roadCoef = road.Fish.Weight / (double)road.Assembly.Road.Power;
                             double flineCoef = road.Fish.Weight / (double)road.Assembly.FLine.Power;
 
                             road.RoadIncValue = Convert.ToInt32(roadCoef * 100);
@@ -82,7 +82,7 @@ namespace Fishing
                 if (fish.MinDeep <= road.CurrentDeep && fish.MaxDeep >= road.CurrentDeep)
                 {
                     var part = fish.ActivityParts.First(p => p == Game.GetGame().Time.Part);
-                    var l = fish.WorkingLures.First(b => b.Equals(road.Assembly.Lure));
+                    var l = fish.WorkingLures.First(b => b.Name.Equals(road.Assembly.FishBait.Name));
                     ba = l == null ? false : true;
                     pa = part.ToString() == null ? false : true;
                 }

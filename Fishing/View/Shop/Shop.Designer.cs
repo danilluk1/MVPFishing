@@ -49,9 +49,10 @@ namespace Fishing
             this.ReelsPage = new System.Windows.Forms.TabPage();
             this.productPage = new System.Windows.Forms.TabPage();
             this.foodsBox = new System.Windows.Forms.ListBox();
-            this.closeButton = new System.Windows.Forms.Button();
             this.lurePage = new System.Windows.Forms.TabPage();
             this.lureBox = new System.Windows.Forms.ListBox();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.baitsPage = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.itemBox)).BeginInit();
             this.shopTab.SuspendLayout();
             this.RoadPage.SuspendLayout();
@@ -59,6 +60,7 @@ namespace Fishing
             this.ReelsPage.SuspendLayout();
             this.productPage.SuspendLayout();
             this.lurePage.SuspendLayout();
+            this.baitsPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // itemBox
@@ -142,10 +144,12 @@ namespace Fishing
             // baitsList
             // 
             this.baitsList.FormattingEnabled = true;
-            this.baitsList.Location = new System.Drawing.Point(156, 169);
+            this.baitsList.Location = new System.Drawing.Point(0, 0);
             this.baitsList.Name = "baitsList";
-            this.baitsList.Size = new System.Drawing.Size(162, 225);
+            this.baitsList.Size = new System.Drawing.Size(454, 420);
             this.baitsList.TabIndex = 21;
+            this.baitsList.SelectedIndexChanged += new System.EventHandler(this.baitsList_SelectedIndexChanged);
+            this.baitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.baitsList_MouseDoubleClick);
             // 
             // shopTab
             // 
@@ -154,6 +158,7 @@ namespace Fishing
             this.shopTab.Controls.Add(this.ReelsPage);
             this.shopTab.Controls.Add(this.productPage);
             this.shopTab.Controls.Add(this.lurePage);
+            this.shopTab.Controls.Add(this.baitsPage);
             this.shopTab.Location = new System.Drawing.Point(53, 37);
             this.shopTab.Name = "shopTab";
             this.shopTab.SelectedIndex = 0;
@@ -224,16 +229,6 @@ namespace Fishing
             this.foodsBox.SelectedIndexChanged += new System.EventHandler(this.FoodsBox_SelectedIndexChanged);
             this.foodsBox.DoubleClick += new System.EventHandler(this.FoodsBox_DoubleClick);
             // 
-            // closeButton
-            // 
-            this.closeButton.Location = new System.Drawing.Point(723, 26);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(33, 23);
-            this.closeButton.TabIndex = 23;
-            this.closeButton.Text = "X";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
             // lurePage
             // 
             this.lurePage.Controls.Add(this.lureBox);
@@ -255,6 +250,27 @@ namespace Fishing
             this.lureBox.SelectedIndexChanged += new System.EventHandler(this.lureBox_SelectedIndexChanged);
             this.lureBox.DoubleClick += new System.EventHandler(this.lureBox_DoubleClick);
             // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(723, 26);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(33, 23);
+            this.closeButton.TabIndex = 23;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // baitsPage
+            // 
+            this.baitsPage.Controls.Add(this.baitsList);
+            this.baitsPage.Location = new System.Drawing.Point(4, 22);
+            this.baitsPage.Name = "baitsPage";
+            this.baitsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.baitsPage.Size = new System.Drawing.Size(457, 425);
+            this.baitsPage.TabIndex = 5;
+            this.baitsPage.Text = "Наживка";
+            this.baitsPage.UseVisualStyleBackColor = true;
+            // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,7 +285,6 @@ namespace Fishing
             this.Controls.Add(this.powerBox);
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.itemBox);
-            this.Controls.Add(this.baitsList);
             this.Controls.Add(this.moneyBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -284,6 +299,7 @@ namespace Fishing
             this.ReelsPage.ResumeLayout(false);
             this.productPage.ResumeLayout(false);
             this.lurePage.ResumeLayout(false);
+            this.baitsPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +326,6 @@ namespace Fishing
         private System.Windows.Forms.ListBox foodsBox;
         private System.Windows.Forms.TabPage lurePage;
         private System.Windows.Forms.ListBox lureBox;
+        private System.Windows.Forms.TabPage baitsPage;
     }
 }

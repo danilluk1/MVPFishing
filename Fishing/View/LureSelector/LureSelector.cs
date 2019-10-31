@@ -1,4 +1,5 @@
-﻿using Fishing.Presenter;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.Presenter;
 using Fishing.View.LureSelector.View;
 using System;
 using System.Drawing;
@@ -6,18 +7,18 @@ using System.Windows.Forms;
 
 namespace Fishing.View.LureSelector
 {
-    public partial class LureSelector : Form, ISelector
+    public partial class LureSelector : Form, ISelector<Lure>
     {
         public LureSelector()
         {
             InitializeComponent();
         }
 
-        public Lure Lure { get => Player.GetPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
         public Image Picture { get => lureImage.BackgroundImage; set => lureImage.BackgroundImage = Lure.Pict; }
         public string DeepBoxText { get => deepBox.Text; set => deepBox.Text = value; }
         public string SizeBoxText { get => sizeBox.Text; set => sizeBox.Text = value; }
         public BasePresenter Presenter { private get; set; }
+        public Lure Lure { get => (Lure)Player.GetPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
 
         public event EventHandler LureListIndexChanged;
 

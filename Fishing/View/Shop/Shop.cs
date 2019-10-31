@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Eating;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Eating;
 using Fishing.Presenter;
 using Fishing.View.Shop;
 using System;
@@ -16,6 +17,7 @@ namespace Fishing
             FLineList.DataSource = Item.LeskaShop;
             foodsBox.DataSource = BaseFood.FoodShop;
             lureBox.DataSource = Item.LureShop;
+            baitsList.DataSource = Item.BaitsShop;
             moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
 
@@ -34,6 +36,7 @@ namespace Fishing
         public event EventHandler ProductDoubleClick;
 
         public event EventHandler LureDoubleClick;
+        public event EventHandler BaitDoubleClick;
 
         public Road Road_P
         {
@@ -110,6 +113,23 @@ namespace Fishing
                 try
                 {
                     return Item.LureShop[lureBox.SelectedIndex];
+                }
+                catch (ArgumentOutOfRangeException) { }
+
+                return null;
+            }
+            set
+            {
+            }
+        }
+
+        public Bait Bait_P
+        {
+            get
+            {
+                try
+                {
+                    return Item.BaitsShop[baitsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -229,6 +249,16 @@ namespace Fishing
                     this.typeBox.Text = r.Size.ToString();
                     this.label1.Text = " ";
                 }
+                if (Item.SelectItemType(i) is Bait)
+                {
+                    Bait r = (Bait)i;
+                    this.itemBox.BackgroundImage = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = "Кол-во: 30";
+                    this.priceBox.Text = r.Price.ToString();
+                    this.typeBox.Text = " ";
+                    this.label1.Text = " ";
+                }
             }
             catch (ArgumentOutOfRangeException) { }
         }
@@ -241,6 +271,16 @@ namespace Fishing
         private void lureBox_DoubleClick(object sender, EventArgs e)
         {
             LureDoubleClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void baitsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addItemtoRightView(Bait_P);
+        }
+
+        private void baitsList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            BaitDoubleClick?.Invoke(this, e);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Fishes;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Fishes;
 using Fishing.BL.Resources.Images;
 using System.Collections.Generic;
 
@@ -16,15 +17,15 @@ namespace Fishing.BL.Model.LVLS.Ozero
             {
                 if (i < 350)
                 {
-                    Fishes.Add(new Pike(0, 200, 0.4, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
+                    Fishes.Add(new Pike(0, 200, 0.4, new HashSet<FishBait>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
                 if (i >= 350 && i < 750)
                 {
-                    Fishes.Add(new Perch(0, 200, 0.3, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Perch(0, 200, 0.3, new HashSet<FishBait>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i >= 750 && i <= 1000)
                 {
-                    Fishes.Add(new SnakeHead(0, 200, 1.5, new HashSet<Lure>() { Lure.jig4 }));
+                    Fishes.Add(new SnakeHead(0, 200, 1.5, new HashSet<FishBait>() { Lure.jig4 }));
                 }
             }
         }

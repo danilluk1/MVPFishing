@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using System;
@@ -30,7 +31,7 @@ namespace Fishing
         private readonly static string description = Messages.PINKSALMON_DESCRIPTION;
         private readonly static Bitmap bit = Images.gorbusha;
 
-        public PinkSalmon(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(500, 20000), Power.SetPower(7, 4), price, trophyWeight, lures, activParts, description, bit)
+        public PinkSalmon(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, 20000), Power.SetPower(7, 4), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

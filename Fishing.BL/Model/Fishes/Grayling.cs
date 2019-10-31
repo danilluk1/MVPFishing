@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using System;
@@ -29,7 +30,7 @@ namespace Fishing
         private readonly static string description = Messages.GRAYLING_DESCRIPTION;
         private readonly static Bitmap bit = Images.xariys;
 
-        public Grayling(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu) : base(name, randWigth.Next(500, 2000), Power.SetPower(4, 2), price, trophyWeight, lures, activParts, description, bit)
+        public Grayling(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, 2000), Power.SetPower(4, 2), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

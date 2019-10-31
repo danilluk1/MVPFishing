@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fishing.BL.Model.Baits;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -11,6 +12,7 @@ namespace Fishing
         public static BindingList<Reel> ReelShop = new BindingList<Reel>();
         public static BindingList<FLine> LeskaShop = new BindingList<FLine>();
         public static BindingList<Lure> LureShop = new BindingList<Lure>();
+        public static BindingList<Bait> BaitsShop = new BindingList<Bait>();
         public string Name { get; }
         public int Price { get; }
         public Bitmap Pict { get; }

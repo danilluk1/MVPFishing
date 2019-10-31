@@ -70,6 +70,15 @@ namespace Fishing.BL.Resources.Paths {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на config/bait.dat.
+        /// </summary>
+        internal static string BAIT_DIR {
+            get {
+                return ResourceManager.GetString("BAIT_DIR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на config/history.dat.
         /// </summary>
         internal static string EVENTHSTR_DIR {

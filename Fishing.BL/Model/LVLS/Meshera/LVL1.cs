@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Resources.Images;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Resources.Images;
 using System.Collections.Generic;
 
 namespace Fishing.BL.Model.LVLS.Meshera
@@ -15,11 +16,11 @@ namespace Fishing.BL.Model.LVLS.Meshera
             {
                 if (i < 500)
                 {
-                    Fishes.Add(new Pike(170, 250, 0.9, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
+                    Fishes.Add(new Pike(170, 250, 0.9, new HashSet<FishBait>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
                 if (i >= 500 && i <= 1000)
                 {
-                    Fishes.Add(new Perch(100, 300, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Perch(100, 300, 0.8, new HashSet<FishBait>() { Lure.vert1, Lure.vert2 }));
                 }
             }
         }

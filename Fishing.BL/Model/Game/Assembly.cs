@@ -1,29 +1,30 @@
-﻿using System;
+﻿using Fishing.BL.Model.Baits;
+using System;
 
 namespace Fishing
 {
     [Serializable]
     public class Assembly
     {
-        public Road Proad { get; set; }
+        public Road Road { get; set; }
         public Reel Reel { get; set; }
         public FLine FLine { get; set; }
-        public Lure Lure { get; set; }
+        public FishBait FishBait { get; set; }
         public string Name { get; set; }
 
         public bool IsEquiped;
 
-        public Assembly(string name, Road road, Reel reel, FLine fLine, Lure lure)
+        public Assembly(string name, Road road, Reel reel, FLine fLine, FishBait fb)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ArgumentException("message", nameof(name));
             }
 
-            Proad = road;
+            Road = road;
             Reel = reel;
             FLine = fLine;
-            Lure = lure;
+            FishBait = fb;
             Name = name;
         }     
         public Assembly(string name)
@@ -32,13 +33,13 @@ namespace Fishing
         }
         public bool IsAssemblyFull()
         {
-            if (Proad != null)
+            if (Road != null)
             {
                 if (Reel != null)
                 {
                     if (FLine != null)
                     {
-                        if (Lure != null)
+                        if (FishBait != null)
                         {
                             return true;
                         }

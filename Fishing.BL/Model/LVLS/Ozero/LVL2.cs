@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Resources.Images;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Resources.Images;
 using System.Collections.Generic;
 
 namespace Fishing.BL.Model.LVLS.Ozero
@@ -15,31 +16,31 @@ namespace Fishing.BL.Model.LVLS.Ozero
             {
                 if (i < 250)
                 {
-                    Fishes.Add(new Pike(100, 400, 1, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
+                    Fishes.Add(new Pike(100, 400, 1, new HashSet<FishBait>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
                 if (i >= 250 && i < 450)
                 {
-                    Fishes.Add(new Perch(100, 600, 1, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Perch(100, 600, 1, new HashSet<FishBait>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i >= 450 && i < 600)
                 {
-                    Fishes.Add(new ArcticChar(350, 600, 1, new HashSet<Lure>() { Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6, Lure.vob1 }));
+                    Fishes.Add(new ArcticChar(350, 600, 1, new HashSet<FishBait>() { Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
                 if (i >= 600 && i < 700)
                 {
-                    Fishes.Add(new Trout(350, 600, 1, new HashSet<Lure>() { Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6, Lure.vob1 }));
+                    Fishes.Add(new Trout(350, 600, 1, new HashSet<FishBait>() { Lure.jelezo2, Lure.vert1, Lure.vert2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
                 if (i >= 700 && i < 800)
                 {
-                    Fishes.Add(new PinkSalmon(350, 600, 0.5, new HashSet<Lure>() { Lure.jelezo2, Lure.vob5, Lure.vob6, Lure.vob1 }));
+                    Fishes.Add(new PinkSalmon(350, 600, 0.5, new HashSet<FishBait>() { Lure.jelezo2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
                 if (i >= 800 && i < 900)
                 {
-                    Fishes.Add(new Grayling(350, 600, 0.7, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Grayling(350, 600, 0.7, new HashSet<FishBait>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i >= 900 && i <= 1000)
                 {
-                    Fishes.Add(new Salmon(350, 600, 0.3, new HashSet<Lure>() { Lure.jelezo2, Lure.vob5, Lure.vob6, Lure.vob1 }));
+                    Fishes.Add(new Salmon(350, 600, 0.3, new HashSet<FishBait>() { Lure.jelezo2, Lure.vob5, Lure.vob6, Lure.vob1 }));
                 }
             }
         }

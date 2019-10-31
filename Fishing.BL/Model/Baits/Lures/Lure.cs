@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Lures;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Lures;
 using Fishing.BL.Resources.Images;
 using System;
 using System.Drawing;
@@ -23,7 +24,7 @@ namespace Fishing
     }
 
     [Serializable]
-    public class Lure : Item
+    public class Lure : FishBait
     {
         public Size Size { get; set; }
         public DeepType DeepType { get; set; }
@@ -37,17 +38,6 @@ namespace Fishing
         public override string ToString()
         {
             return this.Name;
-        }
-
-        public override bool Equals(object obj)
-        {
-            Lure l = (Lure)obj;
-            if(this.Name.Equals(l.Name)
-                && this.Price == l.Price)
-            {
-                return true;
-            }
-            return false;
         }
 
         public static Wobbler vob1 = new Wobbler("Составник", Size.Large, DeepType.Flying, 3000, Images.Vob_3015);

@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Fishes;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Fishes;
 using Fishing.BL.Resources.Images;
 using System.Collections.Generic;
 
@@ -16,19 +17,19 @@ namespace Fishing.BL.Model.LVLS.Meshera
             {
                 if (i < 250)
                 {
-                    Fishes.Add(new Pike(180, 359, 0.8, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
+                    Fishes.Add(new Pike(180, 359, 0.8, new HashSet<FishBait>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
                 if (i >= 250 && i < 500)
                 {
-                    Fishes.Add(new Chub(180, 359, 0.3, new HashSet<Lure>() { Lure.vert1, Lure.vert2, Lure.vob3 }));
+                    Fishes.Add(new Chub(180, 359, 0.3, new HashSet<FishBait>() { Lure.vert1, Lure.vert2, Lure.vob3 }));
                 }
                 if (i >= 500 && i <= 750)
                 {
-                    Fishes.Add(new Perch(180, 350, 0.8, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
+                    Fishes.Add(new Perch(180, 350, 0.8, new HashSet<FishBait>() { Lure.vert1, Lure.vert2 }));
                 }
                 if (i > 750 && i <= 1000)
                 {
-                    Fishes.Add(new Asp(180, 350, 0.3, new HashSet<Lure>() { Lure.vert1, Lure.vert2, Lure.vob3 }));
+                    Fishes.Add(new Asp(180, 350, 0.3, new HashSet<FishBait>() { Lure.vert1, Lure.vert2, Lure.vob3 }));
                 }
             }
         }

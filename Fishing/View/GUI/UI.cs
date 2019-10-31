@@ -33,8 +33,8 @@ namespace Fishing
             sound = new SounderPresenter(this, lvl);
             try
             {
-                BaitsPicture.Image = Player.GetPlayer().EquipedRoad.Assembly.Lure.Pict;
-                roadBox.Image = Player.GetPlayer().EquipedRoad.Assembly.Proad.Pict;
+                BaitsPicture.Image = Player.GetPlayer().EquipedRoad.Assembly.FishBait.Pict;
+                roadBox.Image = Player.GetPlayer().EquipedRoad.Assembly.Road.Pict;
                 reelBox.Image = Player.GetPlayer().EquipedRoad.Assembly.Reel.Pict;
                 flineBox.Image = Player.GetPlayer().EquipedRoad.Assembly.FLine.Pict;
             }

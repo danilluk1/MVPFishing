@@ -120,6 +120,9 @@
   <data name="ASSEMBLIES_DIR" xml:space="preserve">
     <value>config/assemblies.dat</value>
   </data>
+  <data name="BAIT_DIR" xml:space="preserve">
+    <value>config/bait.dat</value>
+  </data>
   <data name="EVENTHSTR_DIR" xml:space="preserve">
     <value>config/history.dat</value>
   </data>

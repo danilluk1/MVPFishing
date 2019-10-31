@@ -46,6 +46,8 @@ namespace Fishing
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.assembliesBox = new System.Windows.Forms.ListBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.luresView = new System.Windows.Forms.ListView();
+            this.lureList = new System.Windows.Forms.ImageList(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.ReelsList = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -63,12 +65,12 @@ namespace Fishing
             this.fRoadButton = new System.Windows.Forms.Button();
             this.sRoadButton = new System.Windows.Forms.Button();
             this.tRoadButton = new System.Windows.Forms.Button();
-            this.lureList = new System.Windows.Forms.ImageList(this.components);
-            this.luresView = new System.Windows.Forms.ListView();
             this.assemblyPanel = new System.Windows.Forms.Panel();
+            this.assNumberLabel = new System.Windows.Forms.Label();
             this.assemblyType = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.assNumberLabel = new System.Windows.Forms.Label();
+            this.baitPage = new System.Windows.Forms.TabPage();
+            this.baitsBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.BaitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FLineBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelBox)).BeginInit();
@@ -81,6 +83,7 @@ namespace Fishing
             this.ItemsTab.SuspendLayout();
             this.assemblyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.baitPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // BaitBox
@@ -158,7 +161,7 @@ namespace Fishing
             // 
             this.countBox.Location = new System.Drawing.Point(255, 510);
             this.countBox.Name = "countBox";
-            this.countBox.Size = new System.Drawing.Size(68, 27);
+            this.countBox.Size = new System.Drawing.Size(68, 28);
             this.countBox.TabIndex = 18;
             // 
             // FetchButton
@@ -202,10 +205,10 @@ namespace Fishing
             this.assembliesBox.BackColor = System.Drawing.Color.Peru;
             this.assembliesBox.FormattingEnabled = true;
             this.assembliesBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.assembliesBox.ItemHeight = 19;
+            this.assembliesBox.ItemHeight = 22;
             this.assembliesBox.Location = new System.Drawing.Point(16, 15);
             this.assembliesBox.Name = "assembliesBox";
-            this.assembliesBox.Size = new System.Drawing.Size(307, 479);
+            this.assembliesBox.Size = new System.Drawing.Size(307, 466);
             this.assembliesBox.TabIndex = 21;
             this.assembliesBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AssembliesBox_MouseDoubleClick);
             // 
@@ -219,6 +222,30 @@ namespace Fishing
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Приманки";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // luresView
+            // 
+            this.luresView.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.luresView.Location = new System.Drawing.Point(0, 0);
+            this.luresView.MultiSelect = false;
+            this.luresView.Name = "luresView";
+            this.luresView.Size = new System.Drawing.Size(338, 498);
+            this.luresView.SmallImageList = this.lureList;
+            this.luresView.StateImageList = this.lureList;
+            this.luresView.TabIndex = 0;
+            this.luresView.UseCompatibleStateImageBehavior = false;
+            this.luresView.View = System.Windows.Forms.View.SmallIcon;
+            this.luresView.SelectedIndexChanged += new System.EventHandler(this.luresView_SelectedIndexChanged);
+            this.luresView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.luresView_MouseDoubleClick);
+            // 
+            // lureList
+            // 
+            this.lureList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("lureList.ImageStream")));
+            this.lureList.TransparentColor = System.Drawing.Color.Transparent;
+            this.lureList.Images.SetKeyName(0, "vob.png");
+            this.lureList.Images.SetKeyName(1, "vibro.png");
+            this.lureList.Images.SetKeyName(2, "vert.png");
+            this.lureList.Images.SetKeyName(3, "spoon.png");
             // 
             // tabPage3
             // 
@@ -235,10 +262,10 @@ namespace Fishing
             // 
             this.ReelsList.BackColor = System.Drawing.Color.SeaGreen;
             this.ReelsList.FormattingEnabled = true;
-            this.ReelsList.ItemHeight = 19;
+            this.ReelsList.ItemHeight = 22;
             this.ReelsList.Location = new System.Drawing.Point(-4, 0);
             this.ReelsList.Name = "ReelsList";
-            this.ReelsList.Size = new System.Drawing.Size(342, 498);
+            this.ReelsList.Size = new System.Drawing.Size(342, 488);
             this.ReelsList.TabIndex = 5;
             this.ReelsList.SelectedIndexChanged += new System.EventHandler(this.ReelsList_SelectedIndexChanged);
             this.ReelsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ReelsList_MouseDoubleClick);
@@ -306,7 +333,8 @@ namespace Fishing
             this.ItemsTab.Controls.Add(this.tabPage3);
             this.ItemsTab.Controls.Add(this.tabPage5);
             this.ItemsTab.Controls.Add(this.tabPage6);
-            this.ItemsTab.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ItemsTab.Controls.Add(this.baitPage);
+            this.ItemsTab.Font = new System.Drawing.Font("Gabriola", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ItemsTab.Location = new System.Drawing.Point(41, 27);
             this.ItemsTab.Name = "ItemsTab";
             this.ItemsTab.SelectedIndex = 0;
@@ -400,30 +428,6 @@ namespace Fishing
             this.tRoadButton.UseVisualStyleBackColor = true;
             this.tRoadButton.Click += new System.EventHandler(this.tRoadButton_Click);
             // 
-            // lureList
-            // 
-            this.lureList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("lureList.ImageStream")));
-            this.lureList.TransparentColor = System.Drawing.Color.Transparent;
-            this.lureList.Images.SetKeyName(0, "vob.png");
-            this.lureList.Images.SetKeyName(1, "vibro.png");
-            this.lureList.Images.SetKeyName(2, "vert.png");
-            this.lureList.Images.SetKeyName(3, "spoon.png");
-            // 
-            // luresView
-            // 
-            this.luresView.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.luresView.Location = new System.Drawing.Point(0, 0);
-            this.luresView.MultiSelect = false;
-            this.luresView.Name = "luresView";
-            this.luresView.Size = new System.Drawing.Size(338, 498);
-            this.luresView.SmallImageList = this.lureList;
-            this.luresView.StateImageList = this.lureList;
-            this.luresView.TabIndex = 0;
-            this.luresView.UseCompatibleStateImageBehavior = false;
-            this.luresView.View = System.Windows.Forms.View.SmallIcon;
-            this.luresView.SelectedIndexChanged += new System.EventHandler(this.luresView_SelectedIndexChanged);
-            this.luresView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.luresView_MouseDoubleClick);
-            // 
             // assemblyPanel
             // 
             this.assemblyPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("assemblyPanel.BackgroundImage")));
@@ -440,6 +444,16 @@ namespace Fishing
             this.assemblyPanel.Name = "assemblyPanel";
             this.assemblyPanel.Size = new System.Drawing.Size(266, 266);
             this.assemblyPanel.TabIndex = 37;
+            // 
+            // assNumberLabel
+            // 
+            this.assNumberLabel.AutoSize = true;
+            this.assNumberLabel.BackColor = System.Drawing.Color.Transparent;
+            this.assNumberLabel.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold);
+            this.assNumberLabel.Location = new System.Drawing.Point(112, 237);
+            this.assNumberLabel.Name = "assNumberLabel";
+            this.assNumberLabel.Size = new System.Drawing.Size(0, 19);
+            this.assNumberLabel.TabIndex = 31;
             // 
             // assemblyType
             // 
@@ -459,15 +473,28 @@ namespace Fishing
             this.pictureBox5.TabIndex = 12;
             this.pictureBox5.TabStop = false;
             // 
-            // assNumberLabel
+            // baitPage
             // 
-            this.assNumberLabel.AutoSize = true;
-            this.assNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            this.assNumberLabel.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold);
-            this.assNumberLabel.Location = new System.Drawing.Point(112, 237);
-            this.assNumberLabel.Name = "assNumberLabel";
-            this.assNumberLabel.Size = new System.Drawing.Size(0, 19);
-            this.assNumberLabel.TabIndex = 31;
+            this.baitPage.Controls.Add(this.baitsBox);
+            this.baitPage.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.baitPage.Location = new System.Drawing.Point(4, 31);
+            this.baitPage.Name = "baitPage";
+            this.baitPage.Padding = new System.Windows.Forms.Padding(3);
+            this.baitPage.Size = new System.Drawing.Size(338, 495);
+            this.baitPage.TabIndex = 6;
+            this.baitPage.Text = "Наживка";
+            this.baitPage.UseVisualStyleBackColor = true;
+            // 
+            // baitsBox
+            // 
+            this.baitsBox.FormattingEnabled = true;
+            this.baitsBox.ItemHeight = 19;
+            this.baitsBox.Location = new System.Drawing.Point(0, 0);
+            this.baitsBox.Name = "baitsBox";
+            this.baitsBox.Size = new System.Drawing.Size(338, 498);
+            this.baitsBox.TabIndex = 0;
+            this.baitsBox.SelectedIndexChanged += new System.EventHandler(this.baitsBox_SelectedIndexChanged);
+            this.baitsBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.baitsBox_MouseDoubleClick);
             // 
             // Inventory
             // 
@@ -511,6 +538,7 @@ namespace Fishing
             this.assemblyPanel.ResumeLayout(false);
             this.assemblyPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.baitPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,5 +581,7 @@ namespace Fishing
         private System.Windows.Forms.TextBox assemblyType;
         protected internal System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label assNumberLabel;
+        private System.Windows.Forms.TabPage baitPage;
+        private System.Windows.Forms.ListBox baitsBox;
     }
 }

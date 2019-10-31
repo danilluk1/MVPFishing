@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Lures;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Lures;
 using System;
 
 namespace Fishing.BL.Model.UserEvent
@@ -6,9 +7,9 @@ namespace Fishing.BL.Model.UserEvent
     [Serializable]
     public sealed class TrophyFishEvent : BaseEvent
     {
-        private static Lure lure;
+        private static FishBait lure;
 
-        public TrophyFishEvent(Fish f, Lure l) : base("Трофей! " + Player.GetPlayer().NickName + " поймал " + f.ToString(), SelectIndex())
+        public TrophyFishEvent(Fish f, FishBait l) : base("Трофей! " + Player.GetPlayer().NickName + " поймал " + f.ToString(), SelectIndex())
         {
             lure = l;
         }

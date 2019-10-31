@@ -1,4 +1,5 @@
-﻿using Fishing.View.GUI;
+﻿using Fishing.BL.Model.Items;
+using Fishing.View.GUI;
 using Fishing.View.Inventory;
 using System;
 using System.Windows.Forms;
@@ -33,6 +34,8 @@ namespace Fishing.Presenter
             view.SRoadButttonClick += View_SRoadButttonClick;
             view.FRoadButttonClick += View_FRoadButttonClick;
             view.TRoadButttonClick += View_TRoadButttonClick;
+            view.BaitDoubleClick += View_BaitDoubleClick;
+            view.BaitSelectedIndexChanged += View_BaitSelectedIndexChanged;
 
             view.Open();
         }
@@ -76,8 +79,20 @@ namespace Fishing.Presenter
             view.SRoadButttonClick += View_SRoadButttonClick;
             view.FRoadButttonClick += View_FRoadButttonClick;
             view.TRoadButttonClick += View_TRoadButttonClick;
+            view.BaitDoubleClick += View_BaitDoubleClick;
+            view.BaitSelectedIndexChanged += View_BaitSelectedIndexChanged;
 
             view.Open();
+        }
+
+        private void View_BaitSelectedIndexChanged(object sender, EventArgs e)
+        {
+            view.AddItemToRightView(view.Bait_P);
+        }
+
+        private void View_BaitDoubleClick(object sender, EventArgs e)
+        {
+            view.LureText = view.Bait_P.Name;
         }
 
         private void View_MakeOutClick(object sender, EventArgs e)
@@ -86,10 +101,10 @@ namespace Fishing.Presenter
             {
                 if (Player.GetPlayer().EquipedRoad.Assembly.FLine != null)
                     Player.GetPlayer().FLineInv.Add(view.Assembly_P.FLine);
-                if (Player.GetPlayer().EquipedRoad.Assembly.Proad != null)
-                    Player.GetPlayer().RoadInv.Add(view.Assembly_P.Proad);
-                if (Player.GetPlayer().EquipedRoad.Assembly.Lure != null)
-                    Player.GetPlayer().LureInv.Add(view.Assembly_P.Lure);
+                if (Player.GetPlayer().EquipedRoad.Assembly.Road != null)
+                    Player.GetPlayer().RoadInv.Add(view.Assembly_P.Road);
+                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait != null)
+                    Player.GetPlayer().LureInv.Add((Lure)view.Assembly_P.FishBait);
                 if (Player.GetPlayer().EquipedRoad.Assembly.Reel != null)
                     Player.GetPlayer().ReelInv.Add(view.Assembly_P.Reel);
 
@@ -107,8 +122,8 @@ namespace Fishing.Presenter
                     Player.GetPlayer().SetGameRoad(view.Assembly_P, index);
                     Player.GetPlayer().SetEquipedRoad(index);
                     view.Assembly_P.IsEquiped = true;
-                    gui.BaitPicture = view.Assembly_P.Lure.Pict;
-                    gui.RoadPicture = view.Assembly_P.Proad.Pict;
+                    gui.BaitPicture = view.Assembly_P.FishBait.Pict;
+                    gui.RoadPicture = view.Assembly_P.Road.Pict;
                     gui.ReelPicture = view.Assembly_P.Reel.Pict;
                     gui.FLinePicture = view.Assembly_P.FLine.Pict;
             }
@@ -117,16 +132,24 @@ namespace Fishing.Presenter
 
         private void View_FetchButtonClick(object sender, EventArgs e)
         {
-            if (view.FLine_P != null && view.Road_P != null && view.Reel_P != null && view.Lure_P != null)
+            if (view.FLine_P != null && view.Road_P != null && view.Reel_P != null)
             {
-                view.Assembly_P.Proad = view.Road_P;
+                view.Assembly_P.Road = view.Road_P;
                 Player.GetPlayer().RoadInv.Remove(view.Road_P);
 
                 view.Assembly_P.Reel = view.Reel_P;
                 Player.GetPlayer().ReelInv.Remove(view.Reel_P);
 
-                view.Assembly_P.Lure = view.Lure_P;
-                Player.GetPlayer().LureInv.Remove(view.Lure_P);
+                if (view.Assembly_P.Road is Spinning)
+                {
+                    view.Assembly_P.FishBait = view.Lure_P;
+                    Player.GetPlayer().LureInv.Remove(view.Lure_P);
+                }
+                if (view.Assembly_P.Road is Feeder)
+                {
+                    view.Assembly_P.FishBait = view.Bait_P;
+                    Player.GetPlayer().BaitInv.Remove(view.Bait_P);
+                }
 
                 view.Assembly_P.FLine = view.FLine_P;
                 Player.GetPlayer().FLineInv.Remove(view.FLine_P);

@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using System;
@@ -28,7 +29,7 @@ namespace Fishing
         private readonly static string description = Messages.PIKE_DESCRIPTION;
         private readonly static Bitmap bit = Images.pike;
 
-        public Pike(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu)
+        public Pike(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
             : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(6, 3), price, trophyWeight, lures, activParts, description, bit)
         {
             MinDeep = minD;
