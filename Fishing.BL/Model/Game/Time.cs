@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace Fishing.BL.Model.Game
 {
     [Serializable]
     public struct Time
     {
-        public int Hours { get; set; }
+        public int Hours;
         public PartsOfDay Part { get; set; }
         public DayOfWeek Day { get; set; }
 

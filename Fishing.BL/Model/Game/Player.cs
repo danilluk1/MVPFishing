@@ -1,6 +1,7 @@
 ﻿using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
+using Fishing.BL.Resources.Images;
 using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,6 @@ namespace Fishing
         private Player()
         {
         }
-
         public static Player GetPlayer()
         {
             if (player == null)
@@ -52,7 +52,6 @@ namespace Fishing
 
             return player;
         }
-
         public bool IsPlayerAbleToFishing()
         {
             if(EquipedRoad.Assembly != null)
@@ -77,21 +76,24 @@ namespace Fishing
                         FirstRoad = new GameRoad(ass)
                         {
                             RoadX = 100,
-                            RoadY = 350
+                            RoadY = 350,
+                            Image = Roads.road
                         };
                         break;
                     case 2:
                         SecondRoad = new GameRoad(ass)
                         {
                             RoadX = 200,
-                            RoadY = 350
+                            RoadY = 350,
+                            Image = Roads.road
                         };
                         break;
                     case 3:
                         ThirdRoad = new GameRoad(ass)
                         {
                             RoadX = 300,
-                            RoadY = 350
+                            RoadY = 350,
+                            Image = Roads.road
                         };
                         break;
                 }
@@ -101,7 +103,19 @@ namespace Fishing
                 MessageBox.Show("Сборка не собрана");
             }
         }
-
+        public GameRoad GetRoadByIndex(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    return FirstRoad;
+                case 2:
+                    return SecondRoad;
+                case 3:
+                    return ThirdRoad;
+            }
+            return null;
+        }
         public void SetEquipedRoad(int index)
         {
             switch (index)
@@ -117,6 +131,10 @@ namespace Fishing
                     break;
             }
         }
+        public void SetEquipedRoad(GameRoad r)
+        {
+            EquipedRoad = r;
+        }
         public void AddFish(Fish f)
         {
             if (f != null)
@@ -124,7 +142,6 @@ namespace Fishing
                 Fishlist.Add(f);
             }
         }
-
         public Fish GetFishByIndex(int index)
         {
             try
@@ -135,7 +152,6 @@ namespace Fishing
 
             return null;
         }
-
         public void SellFish(Fish f)
         {
             if (f != null)
@@ -152,7 +168,6 @@ namespace Fishing
                 BaseController.GetController().SavePlayer();
             }
         }
-
         public void BrokeRoad()
         {
             Pictures.road = Pictures.brokenRoad;
@@ -162,7 +177,6 @@ namespace Fishing
             player.EquipedRoad.CurPoint = Point.Empty;
             player.Statistic.BrokensRoadsCount++;
         }
-
         public void TornFLine()
         {
             player.EquipedRoad.IsFishAttack = false;
@@ -172,7 +186,6 @@ namespace Fishing
             player.Statistic.TornsFLinesCount++;
             player.Statistic.GatheringCount++;
         }
-
         public void DecSatiety(int value)
         {
             if (value >= 0)
@@ -183,7 +196,6 @@ namespace Fishing
                 }
             }
         }
-
         public bool Eat(BaseFood food)
         {
             if (food != null)

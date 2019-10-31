@@ -12,6 +12,7 @@ namespace Fishing.View.Trip
         public TripForm()
         {
             InitializeComponent();
+            Game.GetGame().HoursInc += TripForm_HoursInc;
             trip = new TripToWater();
             timeLabel.Text = Game.GetGame().Time.ToString();
             watersBox.DataSource = Game.GetGame().Waters;
@@ -91,6 +92,11 @@ namespace Fishing.View.Trip
             {
                 MessageBox.Show("Вы уже находитесь на текущем водоёме");
             }
+        }
+
+        private void TripForm_HoursInc(object sender, EventArgs e)
+        {
+            timeLabel.Text = Game.GetGame().Time.ToString();
         }
     }
 }

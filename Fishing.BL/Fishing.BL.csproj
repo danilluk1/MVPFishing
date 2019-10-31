@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Baits\Bait.cs" />
     <Compile Include="Model\Drawer\Drawer.cs" />
     <Compile Include="Model\Eating\BaseFood.cs" />
     <Compile Include="Model\Eating\BlackCaviar.cs" />
@@ -64,6 +65,9 @@
     <Compile Include="Model\Game\Power.cs" />
     <Compile Include="Model\Game\Statistic.cs" />
     <Compile Include="Model\Game\Time.cs" />
+    <Compile Include="Model\Items\Feeder.cs" />
+    <Compile Include="Model\Items\Float.cs" />
+    <Compile Include="Model\Items\Spinning.cs" />
     <Compile Include="Model\Lures\Jig.cs" />
     <Compile Include="Model\Lures\Pinwheel.cs" />
     <Compile Include="Model\LVLS\Meshera\LVL1.cs" />
@@ -377,5 +381,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

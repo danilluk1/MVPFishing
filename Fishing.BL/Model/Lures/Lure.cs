@@ -39,6 +39,17 @@ namespace Fishing
             return this.Name;
         }
 
+        public override bool Equals(object obj)
+        {
+            Lure l = (Lure)obj;
+            if(this.Name.Equals(l.Name)
+                && this.Price == l.Price)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static Wobbler vob1 = new Wobbler("Составник", Size.Large, DeepType.Flying, 3000, Images.Vob_3015);
         public static Wobbler vob2 = new Wobbler("Воблер 2", Size.XL, DeepType.Flying, 3000, Images.Vob_3002);
         public static Wobbler vob3 = new Wobbler("Воблер 3", Size.Small, DeepType.Top, 3000, Images.Vob_3003);

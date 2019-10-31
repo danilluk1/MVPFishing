@@ -24,11 +24,11 @@ namespace Fishing.BL.Model.Game
         public IGameForm View { get; set; }
         public Timer HoursTimer { get; set; }
         public Water CurrentWater { get; set; } = Ozero.GetWater();
-        public Time Time { get; set; }
+
+        public Time Time;
 
         private Game()
         {
-            Time = new Time();
             HoursTimer = new Timer()
             {
                 Interval = 30000
@@ -47,11 +47,10 @@ namespace Fishing.BL.Model.Game
             }
             return game;
         }
-
         private void HoursTimer_Tick(object sender, EventArgs e)
         {
             Time.IncHours(1);
             HoursInc?.Invoke(this, EventArgs.Empty);
-        }
+        }     
     }
 }

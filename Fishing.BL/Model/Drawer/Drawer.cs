@@ -66,30 +66,34 @@ namespace Fishing.BL.Model.Drawer
 
         public void DrawRoads()
         {
-            if (player.FirstRoad != null && !player.FirstRoad.IsFishAttack)
+            try
             {
-                graphic.DrawImage(Pictures.road, FirstNormalRoad);
+                if (player.FirstRoad != null && !player.FirstRoad.IsFishAttack)
+                {
+                    graphic.DrawImage(player.FirstRoad.Image, FirstNormalRoad);
+                }
+                else if (player.FirstRoad != null && player.FirstRoad.IsFishAttack)
+                {
+                    graphic.DrawImage(player.FirstRoad.Image, FirstBrokenRoad);
+                }
+                if (player.SecondRoad != null && !player.SecondRoad.IsFishAttack)
+                {
+                    graphic.DrawImage(player.SecondRoad.Image, SecondNormalRoad);
+                }
+                else if (player.SecondRoad != null && player.SecondRoad.IsFishAttack)
+                {
+                    graphic.DrawImage(player.SecondRoad.Image, SecondBrokenRoad);
+                }
+                if (player.ThirdRoad != null && !player.ThirdRoad.IsFishAttack)
+                {
+                    graphic.DrawImage(player.ThirdRoad.Image, ThirdNormalRoad);
+                }
+                else if (player.ThirdRoad != null && player.ThirdRoad.IsFishAttack)
+                {
+                    graphic.DrawImage(player.ThirdRoad.Image, ThirdBrokenRoad);
+                }
             }
-            else if(player.FirstRoad != null && player.FirstRoad.IsFishAttack)
-            {
-                graphic.DrawImage(Pictures.izgRoad, FirstBrokenRoad);
-            }
-            if (player.SecondRoad != null && !player.SecondRoad.IsFishAttack)
-            {
-                graphic.DrawImage(Pictures.road, SecondNormalRoad);
-            }
-            else if (player.SecondRoad != null && player.SecondRoad.IsFishAttack)
-            {
-                graphic.DrawImage(Pictures.izgRoad, SecondBrokenRoad);
-            }
-            if (player.ThirdRoad != null && !player.ThirdRoad.IsFishAttack)
-            {
-                graphic.DrawImage(Pictures.road, ThirdNormalRoad);
-            }
-            else if (player.ThirdRoad != null && player.ThirdRoad.IsFishAttack)
-            {
-                graphic.DrawImage(Pictures.izgRoad, ThirdBrokenRoad);
-            }
+            catch (ArgumentNullException) { }
         }
         public void UpdateRectangles()
         {
@@ -98,37 +102,37 @@ namespace Fishing.BL.Model.Drawer
 
                 if (player.FirstRoad != null)
                 {
-                    FirstNormalRoad = new Rectangle(player.FirstRoad.CurPoint.X,
+                    FirstNormalRoad = new Rectangle(player.FirstRoad.RoadX,
                                                     player.FirstRoad.RoadY,
-                                                    Pictures.road.Width,
+                                                    player.FirstRoad.Image.Width,
                                                     257);
 
                     FirstBrokenRoad = new Rectangle(player.FirstRoad.RoadX - 10,
                                                     player.FirstRoad.RoadY,
-                                                    Pictures.izgRoad.Width,
+                                                    player.FirstRoad.Image.Width,
                                                     257);
                 }
 
                 if (player.SecondRoad != null)
                 {
-                    SecondNormalRoad = new Rectangle(player.SecondRoad.CurPoint.X,
+                    SecondNormalRoad = new Rectangle(player.SecondRoad.RoadX,
                                                      player.SecondRoad.RoadY,
-                                                     Pictures.road.Width,
+                                                     player.SecondRoad.Image.Width,
                                                      257);
                     SecondBrokenRoad = new Rectangle(player.SecondRoad.RoadX - 10,
                                                      player.SecondRoad.RoadY,
-                                                     Pictures.izgRoad.Width,
+                                                     player.SecondRoad.Image.Width,
                                                      257);
                 }
                 if (player.ThirdRoad != null)
                 {
-                    ThirdNormalRoad = new Rectangle(player.ThirdRoad.CurPoint.X,
+                    ThirdNormalRoad = new Rectangle(player.ThirdRoad.RoadX,
                                                     player.ThirdRoad.RoadY,
-                                                    Pictures.road.Width,
+                                                    player.ThirdRoad.Image.Width,
                                                     257);
                     ThirdBrokenRoad = new Rectangle(player.ThirdRoad.RoadX - 10,
                                                     player.ThirdRoad.RoadY,
-                                                    Pictures.izgRoad.Width,
+                                                    player.ThirdRoad.Image.Width,
                                                     257);
                 }
                 if (player.EquipedRoad != null)

@@ -18,11 +18,11 @@ namespace Fishing.BL.Model.LVLS.Ozero
                 {
                     Fishes.Add(new Pike(0, 200, 0.4, new HashSet<Lure>() { Lure.jig4, Lure.jelezo1, Lure.vob2 }));
                 }
-                if (i > 350 && i < 750)
+                if (i >= 350 && i < 750)
                 {
                     Fishes.Add(new Perch(0, 200, 0.3, new HashSet<Lure>() { Lure.vert1, Lure.vert2 }));
                 }
-                if (i > 750 && i < 1000)
+                if (i >= 750 && i <= 1000)
                 {
                     Fishes.Add(new SnakeHead(0, 200, 1.5, new HashSet<Lure>() { Lure.jig4 }));
                 }

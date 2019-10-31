@@ -9,6 +9,7 @@ namespace Fishing
 {
     public abstract class LVL
     {
+        private Player player = Player.GetPlayer();
         public Bitmap Image { get; set; }
         public int Widgth;
         public int Height;
@@ -32,29 +33,34 @@ namespace Fishing
 
         public abstract void AddFishes();
 
-        public (bool isFish, bool gathering) GetFish()
+        public (bool isFish, bool gathering) GetFish(GameRoad road)
         {
             try
             {
+                Shuffle(Fishes);
+                Random randRoad = new Random();
                 Random randomGathering = new Random();
                 Random randomFish = new Random();
-                if (Player.GetPlayer().EquipedRoad.Assembly.Lure is Lure)
+                if (road.Assembly.Lure != null)
                 {
-                    if (Player.GetPlayer().EquipedRoad.CurPoint.Y > Deeparr[0, 0].Location.Y && Player.GetPlayer().EquipedRoad.CurPoint.Y < 800 && !Player.GetPlayer().EquipedRoad.IsFishAttack)
+                    if (!road.IsFishAttack)
                     {
-                        Player.GetPlayer().EquipedRoad.Fish = Fishes[randomFish.Next(1, 994)];
-                        if (IsFishAttackAbble(Player.GetPlayer().EquipedRoad.Fish))
+                        road.Fish = Fishes[randomFish.Next(1, 1000)];
+                        if (IsFishAttackAbble(road.Fish, road))
                         {
-                            Player.GetPlayer().EquipedRoad.IsFishAttack = true;
-                            double roadCoef = Player.GetPlayer().EquipedRoad.Fish.Weight / (double)Player.GetPlayer().EquipedRoad.Assembly.Proad.Power;
-                            double flineCoef = Player.GetPlayer().EquipedRoad.Fish.Weight / (double)Player.GetPlayer().EquipedRoad.Assembly.FLine.Power;
-                            Player.GetPlayer().EquipedRoad.RoadIncValue = Convert.ToInt32(roadCoef * 100);
-                            Player.GetPlayer().EquipedRoad.FLineIncValue = Convert.ToInt32(flineCoef * 100);
+                            road.IsFishAttack = true;
+                            double roadCoef = road.Fish.Weight / (double)road.Assembly.Proad.Power;
+                            double flineCoef = road.Fish.Weight / (double)road.Assembly.FLine.Power;
+
+                            road.RoadIncValue = Convert.ToInt32(roadCoef * 100);
+                            road.FLineIncValue = Convert.ToInt32(flineCoef * 100);
+
                             int Gathering = randomGathering.Next(1, 100);
                             if (Gathering <= 5)
                             {
                                 return (true, true);
                             }
+
                             return (true, false);
                         }
                     }
@@ -67,17 +73,17 @@ namespace Fishing
 
         public abstract void SetDeep();
 
-        public static bool IsFishAttackAbble(Fish fish)
+        public static bool IsFishAttackAbble(Fish fish, GameRoad road)
         {
             try
             {
                 bool ba = false;
                 bool pa = false;
-                if (fish.MinDeep <= Player.GetPlayer().EquipedRoad.CurrentDeep && fish.MaxDeep >= Player.GetPlayer().EquipedRoad.CurrentDeep)
+                if (fish.MinDeep <= road.CurrentDeep && fish.MaxDeep >= road.CurrentDeep)
                 {
-                    var part = fish.ActivityParts.Single(p => p == Game.GetGame().Time.Part);
-                    var l = fish.WorkingLures.First(b => b.Name.Equals(Player.GetPlayer().EquipedRoad.Assembly.Lure.Name));
-                    ba = l.Name == null ? false : true;
+                    var part = fish.ActivityParts.First(p => p == Game.GetGame().Time.Part);
+                    var l = fish.WorkingLures.First(b => b.Equals(road.Assembly.Lure));
+                    ba = l == null ? false : true;
                     pa = part.ToString() == null ? false : true;
                 }
                 return ba && pa;
@@ -106,6 +112,19 @@ namespace Fishing
                         BorderStyle = BorderStyle.FixedSingle
                     };
                 }
+            }
+        }
+        public void Shuffle<T>(IList<T> list)
+        {
+            Random rng = new Random();
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
             }
         }
     }
