@@ -2,6 +2,7 @@
 using Fishing.BL.Model.Baits;
 using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
+using Fishing.BL.Model.Hooks;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Model.Waters;
 using Fishing.BL.Resources.Paths;
@@ -45,6 +46,7 @@ namespace Saver.BL.Controller
             Player.GetPlayer().Satiety = Convert.ToInt32(saver.Load<string>(ConfigPaths.SATIETY_DIR) ?? "100");
             Player.GetPlayer().FoodInv = saver.Load<BindingList<BaseFood>>(ConfigPaths.FOODS_DIR) ?? new BindingList<BaseFood>();
             Player.GetPlayer().BaitInv = saver.Load<BindingList<Bait>>(ConfigPaths.BAIT_DIR) ?? new BindingList<Bait>();
+            Player.GetPlayer().HooksInv = saver.Load<BindingList<BaseHook>>(ConfigPaths.HOOKS_DIR) ?? new BindingList<BaseHook>();
             Game.GetGame().Time = saver.Load<Time>(ConfigPaths.TIME_DIR);
             Game.GetGame().CurrentWater = saver.Load<Water>(ConfigPaths.WATER_DIR);
         }
@@ -66,6 +68,7 @@ namespace Saver.BL.Controller
             saver.Save(ConfigPaths.TIME_DIR, Game.GetGame().Time);
             saver.Save(ConfigPaths.WATER_DIR, Game.GetGame().CurrentWater);
             saver.Save(ConfigPaths.BAIT_DIR, Player.GetPlayer().BaitInv);
+            saver.Save(ConfigPaths.HOOKS_DIR, Player.GetPlayer().HooksInv);
         }
     }
 }

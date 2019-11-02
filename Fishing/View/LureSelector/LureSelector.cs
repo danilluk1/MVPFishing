@@ -2,23 +2,28 @@
 using Fishing.Presenter;
 using Fishing.View.LureSelector.View;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fishing.View.LureSelector
 {
-    public partial class LureSelector : Form, ISelector<Lure>
+    public partial class LureSelector<T> : Form, ISelector<T>
+        where T : FishBait
     {
-        public LureSelector()
+        private BindingList<T> List;
+        public LureSelector(BindingList<T> list)
         {
             InitializeComponent();
+            List = list;
+            lureList.DataSource = list;
         }
 
-        public Image Picture { get => lureImage.BackgroundImage; set => lureImage.BackgroundImage = Lure.Pict; }
+        public Image Picture { get => lureImage.BackgroundImage; set => lureImage.BackgroundImage = FishBait.Pict; }
         public string DeepBoxText { get => deepBox.Text; set => deepBox.Text = value; }
         public string SizeBoxText { get => sizeBox.Text; set => sizeBox.Text = value; }
         public BasePresenter Presenter { private get; set; }
-        public Lure Lure { get => (Lure)Player.GetPlayer().LureInv[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
+        public T FishBait { get => List[lureList.SelectedIndex]; set => throw new NotImplementedException(); }
 
         public event EventHandler LureListIndexChanged;
 
@@ -31,7 +36,6 @@ namespace Fishing.View.LureSelector
 
         private void LureSelector_Load(object sender, EventArgs e)
         {
-            lureList.DataSource = Player.GetPlayer().LureInv;
         }
 
         private void LureList_MouseDoubleClick(object sender, MouseEventArgs e)

@@ -115,6 +115,15 @@ namespace Fishing.BL.Resources.Paths {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на config/hooks.dat.
+        /// </summary>
+        internal static string HOOKS_DIR {
+            get {
+                return ResourceManager.GetString("HOOKS_DIR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на config/lures.dat.
         /// </summary>
         internal static string LURES_DIR {

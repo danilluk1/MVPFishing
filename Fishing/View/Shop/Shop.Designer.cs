@@ -51,8 +51,10 @@ namespace Fishing
             this.foodsBox = new System.Windows.Forms.ListBox();
             this.lurePage = new System.Windows.Forms.TabPage();
             this.lureBox = new System.Windows.Forms.ListBox();
-            this.closeButton = new System.Windows.Forms.Button();
             this.baitsPage = new System.Windows.Forms.TabPage();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.hooksPage = new System.Windows.Forms.TabPage();
+            this.hookList = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemBox)).BeginInit();
             this.shopTab.SuspendLayout();
             this.RoadPage.SuspendLayout();
@@ -61,6 +63,7 @@ namespace Fishing
             this.productPage.SuspendLayout();
             this.lurePage.SuspendLayout();
             this.baitsPage.SuspendLayout();
+            this.hooksPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // itemBox
@@ -159,6 +162,7 @@ namespace Fishing
             this.shopTab.Controls.Add(this.productPage);
             this.shopTab.Controls.Add(this.lurePage);
             this.shopTab.Controls.Add(this.baitsPage);
+            this.shopTab.Controls.Add(this.hooksPage);
             this.shopTab.Location = new System.Drawing.Point(53, 37);
             this.shopTab.Name = "shopTab";
             this.shopTab.SelectedIndex = 0;
@@ -250,16 +254,6 @@ namespace Fishing
             this.lureBox.SelectedIndexChanged += new System.EventHandler(this.lureBox_SelectedIndexChanged);
             this.lureBox.DoubleClick += new System.EventHandler(this.lureBox_DoubleClick);
             // 
-            // closeButton
-            // 
-            this.closeButton.Location = new System.Drawing.Point(723, 26);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(33, 23);
-            this.closeButton.TabIndex = 23;
-            this.closeButton.Text = "X";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
             // baitsPage
             // 
             this.baitsPage.Controls.Add(this.baitsList);
@@ -270,6 +264,37 @@ namespace Fishing
             this.baitsPage.TabIndex = 5;
             this.baitsPage.Text = "Наживка";
             this.baitsPage.UseVisualStyleBackColor = true;
+            // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(723, 26);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(33, 23);
+            this.closeButton.TabIndex = 23;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // hooksPage
+            // 
+            this.hooksPage.Controls.Add(this.hookList);
+            this.hooksPage.Location = new System.Drawing.Point(4, 22);
+            this.hooksPage.Name = "hooksPage";
+            this.hooksPage.Padding = new System.Windows.Forms.Padding(3);
+            this.hooksPage.Size = new System.Drawing.Size(457, 425);
+            this.hooksPage.TabIndex = 6;
+            this.hooksPage.Text = "Крючки";
+            this.hooksPage.UseVisualStyleBackColor = true;
+            // 
+            // hookList
+            // 
+            this.hookList.FormattingEnabled = true;
+            this.hookList.Location = new System.Drawing.Point(-4, -2);
+            this.hookList.Name = "hookList";
+            this.hookList.Size = new System.Drawing.Size(461, 433);
+            this.hookList.TabIndex = 0;
+            this.hookList.SelectedIndexChanged += new System.EventHandler(this.hookList_SelectedIndexChanged);
+            this.hookList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.hookList_MouseDoubleClick);
             // 
             // Shop
             // 
@@ -300,6 +325,7 @@ namespace Fishing
             this.productPage.ResumeLayout(false);
             this.lurePage.ResumeLayout(false);
             this.baitsPage.ResumeLayout(false);
+            this.hooksPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,5 +353,7 @@ namespace Fishing
         private System.Windows.Forms.TabPage lurePage;
         private System.Windows.Forms.ListBox lureBox;
         private System.Windows.Forms.TabPage baitsPage;
+        private System.Windows.Forms.TabPage hooksPage;
+        private System.Windows.Forms.ListBox hookList;
     }
 }

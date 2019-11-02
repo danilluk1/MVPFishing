@@ -81,8 +81,20 @@ namespace Fishing.Presenter
             view.TRoadButttonClick += View_TRoadButttonClick;
             view.BaitDoubleClick += View_BaitDoubleClick;
             view.BaitSelectedIndexChanged += View_BaitSelectedIndexChanged;
+            view.HookDoubleClick += View_HookDoubleClick;
+            view.HookSelectedIndex += View_HookSelectedIndex;
 
             view.Open();
+        }
+
+        private void View_HookSelectedIndex(object sender, EventArgs e)
+        {
+            view.AddItemToRightView(view.Hook_P);
+        }
+
+        private void View_HookDoubleClick(object sender, EventArgs e)
+        {
+            view.LureText = view.Hook_P.Name;
         }
 
         private void View_BaitSelectedIndexChanged(object sender, EventArgs e)
@@ -140,6 +152,9 @@ namespace Fishing.Presenter
                 view.Assembly_P.Reel = view.Reel_P;
                 Player.GetPlayer().ReelInv.Remove(view.Reel_P);
 
+                view.Assembly_P.FLine = view.FLine_P;
+                Player.GetPlayer().FLineInv.Remove(view.FLine_P);
+
                 if (view.Assembly_P.Road is Spinning)
                 {
                     view.Assembly_P.FishBait = view.Lure_P;
@@ -149,10 +164,10 @@ namespace Fishing.Presenter
                 {
                     view.Assembly_P.FishBait = view.Bait_P;
                     Player.GetPlayer().BaitInv.Remove(view.Bait_P);
-                }
 
-                view.Assembly_P.FLine = view.FLine_P;
-                Player.GetPlayer().FLineInv.Remove(view.FLine_P);
+                    view.Assembly_P.Hook = view.Hook_P;
+                    Player.GetPlayer().HooksInv.Remove(view.Hook_P);
+                }
             }
         }
 

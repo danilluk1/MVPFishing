@@ -11,11 +11,6 @@ namespace Fishing.BL.Model.Fishes
     [Serializable]
     public class Asp : Fish
     {
-        private readonly static HashSet<Size> lures = new HashSet<Size>()
-        {
-            Size.Small,
-            Size.Large,
-        };
 
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
@@ -30,7 +25,7 @@ namespace Fishing.BL.Model.Fishes
         private readonly static string description = Messages.ASP_DESCRIPTION;
         private readonly static Bitmap bit = Images.zhereh;
 
-        public Asp(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(200, Convert.ToInt32(7000 * maxSizeCoef)), Power.SetPower(4, 2), price, trophyWeight, lures, activParts, description, bit)
+        public Asp(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(200, Convert.ToInt32(7000 * maxSizeCoef)), Power.SetPower(4, 2), price, trophyWeight, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

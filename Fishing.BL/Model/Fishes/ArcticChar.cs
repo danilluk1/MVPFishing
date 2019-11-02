@@ -11,12 +11,6 @@ namespace Fishing
     [Serializable]
     public class ArcticChar : Fish
     {
-        private readonly static HashSet<Size> lures = new HashSet<Size>()
-        {
-            Size.Small,
-            Size.Large,
-        };
-
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
@@ -30,7 +24,7 @@ namespace Fishing
         private readonly static string description = Messages.ARCTICCHAR_DESCRIPTION;
         private readonly static Bitmap bit = Images.golec;
 
-        public ArcticChar(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(200, 20000), Power.SetPower(6, 2), price, trophyWeight, lures, activParts, description, bit)
+        public ArcticChar(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(200, Convert.ToInt32(20000 * maxSizeCoef)), Power.SetPower(6, 2), price, trophyWeight, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

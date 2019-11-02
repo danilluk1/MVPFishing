@@ -1,5 +1,6 @@
 ﻿using Fishing.BL.Model.Baits;
 using Fishing.BL.Model.Eating;
+using Fishing.BL.Model.Hooks;
 using Fishing.View.Menu;
 using Saver.BL.Controller;
 using System;
@@ -60,7 +61,20 @@ namespace Fishing.Presenter
             Item.LureShop.Add(Lure.jig2);
             Item.LureShop.Add(Lure.jig3);
             Item.LureShop.Add(Lure.jig4);
+            Item.RoadShop.Add(Road.Vesta276);
             Item.BaitsShop.Add(Bait.worm);
+            Item.BaitsShop.Add(Bait.maggot);
+            Item.BaitsShop.Add(Bait.livebait);
+            Item.BaitsShop.Add(Bait.caviar);
+            Item.BaitsShop.Add(Bait.cheese);
+            Item.BaitsShop.Add(Bait.corn);
+            Item.HooksShop.Add(FeederHook.feeder1);
+            Item.HooksShop.Add(FeederHook.feeder2);
+            Item.HooksShop.Add(FeederHook.feeder3);
+            Item.HooksShop.Add(FloatsHook.baitHolder);
+            Item.HooksShop.Add(FloatsHook.barakuda);
+            Item.HooksShop.Add(FloatsHook.takara);
+            Item.HooksShop.Add(FloatsHook.wormStrong);
         }
     }
 }

@@ -56,6 +56,8 @@ namespace Fishing
             this.roadsView = new System.Windows.Forms.ListView();
             this.roadsList = new System.Windows.Forms.ImageList(this.components);
             this.ItemsTab = new System.Windows.Forms.TabControl();
+            this.baitPage = new System.Windows.Forms.TabPage();
+            this.baitsBox = new System.Windows.Forms.ListBox();
             this.roadTextBox = new System.Windows.Forms.TextBox();
             this.reelTextBox = new System.Windows.Forms.TextBox();
             this.flineTextBox = new System.Windows.Forms.TextBox();
@@ -69,8 +71,8 @@ namespace Fishing
             this.assNumberLabel = new System.Windows.Forms.Label();
             this.assemblyType = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.baitPage = new System.Windows.Forms.TabPage();
-            this.baitsBox = new System.Windows.Forms.ListBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.hooksBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.BaitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FLineBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelBox)).BeginInit();
@@ -81,9 +83,10 @@ namespace Fishing
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.ItemsTab.SuspendLayout();
+            this.baitPage.SuspendLayout();
             this.assemblyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.baitPage.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // BaitBox
@@ -193,10 +196,10 @@ namespace Fishing
             this.tabPage6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage6.Controls.Add(this.assembliesBox);
             this.tabPage6.Controls.Add(this.countBox);
-            this.tabPage6.Location = new System.Drawing.Point(4, 28);
+            this.tabPage6.Location = new System.Drawing.Point(4, 31);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(338, 498);
+            this.tabPage6.Size = new System.Drawing.Size(338, 495);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Сборки";
             // 
@@ -215,10 +218,10 @@ namespace Fishing
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.luresView);
-            this.tabPage5.Location = new System.Drawing.Point(4, 28);
+            this.tabPage5.Location = new System.Drawing.Point(4, 31);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(338, 498);
+            this.tabPage5.Size = new System.Drawing.Size(338, 495);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Приманки";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -250,10 +253,10 @@ namespace Fishing
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.ReelsList);
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Location = new System.Drawing.Point(4, 31);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(338, 498);
+            this.tabPage3.Size = new System.Drawing.Size(338, 495);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Катушки";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -273,10 +276,10 @@ namespace Fishing
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.FLineList);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(338, 498);
+            this.tabPage2.Size = new System.Drawing.Size(338, 495);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Леска";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -296,10 +299,10 @@ namespace Fishing
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.roadsView);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(338, 498);
+            this.tabPage1.Size = new System.Drawing.Size(338, 495);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Удочки";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -334,12 +337,36 @@ namespace Fishing
             this.ItemsTab.Controls.Add(this.tabPage5);
             this.ItemsTab.Controls.Add(this.tabPage6);
             this.ItemsTab.Controls.Add(this.baitPage);
+            this.ItemsTab.Controls.Add(this.tabPage4);
             this.ItemsTab.Font = new System.Drawing.Font("Gabriola", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ItemsTab.Location = new System.Drawing.Point(41, 27);
             this.ItemsTab.Name = "ItemsTab";
             this.ItemsTab.SelectedIndex = 0;
             this.ItemsTab.Size = new System.Drawing.Size(346, 530);
             this.ItemsTab.TabIndex = 23;
+            // 
+            // baitPage
+            // 
+            this.baitPage.Controls.Add(this.baitsBox);
+            this.baitPage.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.baitPage.Location = new System.Drawing.Point(4, 31);
+            this.baitPage.Name = "baitPage";
+            this.baitPage.Padding = new System.Windows.Forms.Padding(3);
+            this.baitPage.Size = new System.Drawing.Size(338, 495);
+            this.baitPage.TabIndex = 6;
+            this.baitPage.Text = "Наживка";
+            this.baitPage.UseVisualStyleBackColor = true;
+            // 
+            // baitsBox
+            // 
+            this.baitsBox.FormattingEnabled = true;
+            this.baitsBox.ItemHeight = 19;
+            this.baitsBox.Location = new System.Drawing.Point(0, 0);
+            this.baitsBox.Name = "baitsBox";
+            this.baitsBox.Size = new System.Drawing.Size(338, 498);
+            this.baitsBox.TabIndex = 0;
+            this.baitsBox.SelectedIndexChanged += new System.EventHandler(this.baitsBox_SelectedIndexChanged);
+            this.baitsBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.baitsBox_MouseDoubleClick);
             // 
             // roadTextBox
             // 
@@ -473,28 +500,27 @@ namespace Fishing
             this.pictureBox5.TabIndex = 12;
             this.pictureBox5.TabStop = false;
             // 
-            // baitPage
+            // tabPage4
             // 
-            this.baitPage.Controls.Add(this.baitsBox);
-            this.baitPage.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.baitPage.Location = new System.Drawing.Point(4, 31);
-            this.baitPage.Name = "baitPage";
-            this.baitPage.Padding = new System.Windows.Forms.Padding(3);
-            this.baitPage.Size = new System.Drawing.Size(338, 495);
-            this.baitPage.TabIndex = 6;
-            this.baitPage.Text = "Наживка";
-            this.baitPage.UseVisualStyleBackColor = true;
+            this.tabPage4.Controls.Add(this.hooksBox);
+            this.tabPage4.Location = new System.Drawing.Point(4, 31);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(338, 495);
+            this.tabPage4.TabIndex = 7;
+            this.tabPage4.Text = "Крючки";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // baitsBox
+            // hooksBox
             // 
-            this.baitsBox.FormattingEnabled = true;
-            this.baitsBox.ItemHeight = 19;
-            this.baitsBox.Location = new System.Drawing.Point(0, 0);
-            this.baitsBox.Name = "baitsBox";
-            this.baitsBox.Size = new System.Drawing.Size(338, 498);
-            this.baitsBox.TabIndex = 0;
-            this.baitsBox.SelectedIndexChanged += new System.EventHandler(this.baitsBox_SelectedIndexChanged);
-            this.baitsBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.baitsBox_MouseDoubleClick);
+            this.hooksBox.FormattingEnabled = true;
+            this.hooksBox.ItemHeight = 22;
+            this.hooksBox.Location = new System.Drawing.Point(0, 0);
+            this.hooksBox.Name = "hooksBox";
+            this.hooksBox.Size = new System.Drawing.Size(335, 510);
+            this.hooksBox.TabIndex = 0;
+            this.hooksBox.SelectedIndexChanged += new System.EventHandler(this.hooksBox_SelectedIndexChanged);
+            this.hooksBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.hooksBox_MouseDoubleClick);
             // 
             // Inventory
             // 
@@ -535,10 +561,11 @@ namespace Fishing
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ItemsTab.ResumeLayout(false);
+            this.baitPage.ResumeLayout(false);
             this.assemblyPanel.ResumeLayout(false);
             this.assemblyPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.baitPage.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,5 +610,7 @@ namespace Fishing
         private System.Windows.Forms.Label assNumberLabel;
         private System.Windows.Forms.TabPage baitPage;
         private System.Windows.Forms.ListBox baitsBox;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ListBox hooksBox;
     }
 }

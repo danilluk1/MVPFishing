@@ -59,5 +59,10 @@ namespace Fishing
             UI.gui.Show();
             this.Close();
         }
+
+        private void lvl4Box_Click(object sender, EventArgs e)
+        {
+            Create(new LVL4());
+        }
     }
 }

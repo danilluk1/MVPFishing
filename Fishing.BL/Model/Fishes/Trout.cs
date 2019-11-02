@@ -11,12 +11,6 @@ namespace Fishing
     [Serializable]
     public class Trout : Fish
     {
-        private readonly static HashSet<Size> lures = new HashSet<Size>()
-        {
-          Size.Small,
-          Size.Large,
-        };
-
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
@@ -31,7 +25,7 @@ namespace Fishing
         private readonly static string description = Messages.TROUT_DESCRIPTION;
         private readonly static Bitmap bit = Images.forel;
 
-        public Trout(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, 15000), Power.SetPower(4, 2), price, trophyWeight, lures, activParts, description, bit)
+        public Trout(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, Convert.ToInt32(15000 * maxSizeCoef)), Power.SetPower(4, 2), price, trophyWeight, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

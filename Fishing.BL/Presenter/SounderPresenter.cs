@@ -33,16 +33,25 @@ namespace Fishing.BL.Presenter
                                                                                 (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i + 1].Tag / 10);
                     drawX = drawX2;
                 }
-                drawPoint(g);
+                DrawPoint(g);
             }
             catch (NullReferenceException) { }
         }
 
-        private void drawPoint(Graphics g)
+        private void DrawPoint(Graphics g)
         {
             Player player = Player.GetPlayer();
-            float coef = (CurLVL.Height - 3) * (SOUNDERWIDTH / (float)CurLVL.Height - 3) / SOUNDERWIDTH;
-            float x = (player.EquipedRoad.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y) / coef;
+            float coef = 0;
+            int height = CurLVL.Deeparr[0, CurLVL.Height - 1].Location.Y - CurLVL.LabelStartY;
+            if(height >= SOUNDERWIDTH)
+            {
+                coef = SOUNDERWIDTH / height;
+            }
+            if (height < SOUNDERWIDTH)
+            {
+                coef = height / SOUNDERWIDTH;
+            }
+            float x = (player.EquipedRoad.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y) * coef;
             g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().EquipedRoad.CurrentDeep / 10 - 4, 4, 4);
         }
     }

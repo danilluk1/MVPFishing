@@ -29,7 +29,6 @@ namespace Fishing.Presenter
 
         private Drawer drawer;
         private EventHelper evHelper;
-
         public LVLPresenter(IGameForm view, IGUIPresenter v, LVL curLVL)
         {
             this.CurLVL = curLVL;
@@ -271,16 +270,19 @@ namespace Fishing.Presenter
                     case Keys.D1:
                         player.SetEquipedRoad(1);
                         AddRoadToGUI();
+                        drawer.RTrigon.X = player.EquipedRoad.RoadX + 12;
                         break;
 
                     case Keys.D2:
                         player.SetEquipedRoad(2);
                         AddRoadToGUI();
+                        drawer.RTrigon.X = player.EquipedRoad.RoadX + 12;
                         break;
 
                     case Keys.D3:
                         player.SetEquipedRoad(3);
                         AddRoadToGUI();
+                        drawer.RTrigon.X = player.EquipedRoad.RoadX + 12;
                         break;
                 }
             }
@@ -365,7 +367,7 @@ namespace Fishing.Presenter
                     {
                         case Keys.G:
                             if (weight <= road.Assembly.Road.Power * 0.2)
-                            {
+                            {//TO GAMEROAD CLASS
                                 road.Image = Roads.izg1;
                             }
                             else if (weight <= road.Assembly.Road.Power * 0.25)
@@ -629,9 +631,11 @@ namespace Fishing.Presenter
             gui.RoadPicture = null;
             gui.ReelPicture = null;
             gui.FLinePicture = null;
+            gui.HookPicture = null;
             gui.BaitPicture = player.EquipedRoad.Assembly.FishBait.Pict;
             gui.RoadPicture = player.EquipedRoad.Assembly.Road.Pict;
             gui.ReelPicture = player.EquipedRoad.Assembly.Reel.Pict;
+            gui.HookPicture = player.EquipedRoad.Assembly.Hook.Pict;
             gui.FLinePicture = player.EquipedRoad.Assembly.FLine.Pict;
             drawer.RTrigon.X = player.EquipedRoad.RoadX + 12;
         }

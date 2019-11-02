@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Hooks;
 using Fishing.BL.View;
 using System;
 
@@ -33,6 +34,9 @@ namespace Fishing.View.Inventory
         event EventHandler BaitDoubleClick;
         event EventHandler BaitSelectedIndexChanged;
 
+        event EventHandler HookDoubleClick;
+        event EventHandler HookSelectedIndex;
+
         event EventHandler FRoadButttonClick;
         event EventHandler SRoadButttonClick;
         event EventHandler TRoadButttonClick;
@@ -42,6 +46,7 @@ namespace Fishing.View.Inventory
         FLine FLine_P { get; set; }
         Lure Lure_P { get; set; }
         Bait Bait_P { get; set; }
+        BaseHook Hook_P { get; set; }
         Fishing.Assembly Assembly_P { get; set; }
 
         string RoadText { get; set; }

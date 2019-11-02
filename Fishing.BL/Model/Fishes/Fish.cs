@@ -15,7 +15,6 @@ namespace Fishing
         public Power Power;
         public double Price { get; set; }
         public int TrophyWeight { get; set; }
-        public HashSet<Size> LuresSize { get; set; }
         public HashSet<PartsOfDay> ActivityParts { get; set; }
         public HashSet<FishBait> WorkingLures { get; set; }
         public string Description { get; set; }
@@ -24,14 +23,13 @@ namespace Fishing
         public int MinDeep { get; set; }
         public double MaxSizeCoef { get; set; }
 
-        public Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<Size> lures, HashSet<PartsOfDay> activParts, string description, Bitmap bit)
+        public Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<PartsOfDay> activParts, string description, Bitmap bit)
         {
             this.Name = name;
             this.Weight = weight;
             this.Power = power;
             this.Price = price;
             this.TrophyWeight = trophyWeight;
-            this.LuresSize = lures;
             this.Description = description;
             this.Bitmap = bit;
             this.ActivityParts = activParts;

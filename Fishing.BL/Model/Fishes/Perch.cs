@@ -11,11 +11,6 @@ namespace Fishing
     [Serializable]
     public class Perch : Fish
     {
-        private readonly static HashSet<Size> lures = new HashSet<Size>()
-        {
-          Size.Small,
-        };
-
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
@@ -29,7 +24,7 @@ namespace Fishing
         private readonly static Bitmap bit = Images.okyn;
 
         public Perch(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
-            : base(name, randWigth.Next(200, Convert.ToInt32(1700 * maxSizeCoef)), Power.SetPower(3, 1), price, 1300, lures, activParts, description, bit)
+            : base(name, randWigth.Next(200, Convert.ToInt32(1700 * maxSizeCoef)), Power.SetPower(3, 1), price, 1300, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

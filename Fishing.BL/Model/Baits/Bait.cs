@@ -23,5 +23,11 @@ namespace Fishing.BL.Model.Baits
         }
 
         public static Worm worm = new Worm();
+        public static Maggot maggot = new Maggot();
+        public static Caviar caviar = new Caviar();
+        public static Corn corn = new Corn();
+        public static Cheese cheese = new Cheese();
+        public static Barley barley = new Barley();
+        public static LiveBait livebait = new LiveBait();
     }
 }

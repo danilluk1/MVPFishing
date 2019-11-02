@@ -160,6 +160,9 @@
   <data name="catfish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\catfish.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cheeze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cheeze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Circl_5103" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Circl-5103.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,6 +177,9 @@
   </data>
   <data name="compass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\compass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="corn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\corn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="deepvobler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\deepvobler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,6 +229,9 @@
   <data name="HYDRA_1711" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\HYDRA 1711.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ikra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ikra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="image011" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\image011.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -250,6 +259,9 @@
   <data name="key" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="koroed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\koroed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="layer10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\layer10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -273,6 +285,9 @@
   </data>
   <data name="lvl3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\lvl3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lvl4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\lvl4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="map" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\map.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -300,6 +315,9 @@
   </data>
   <data name="MesheraMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\MesheraMap.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="motyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\motyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="nalim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\nalim.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -342,6 +360,9 @@
   </data>
   <data name="ozerolvl4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ozerolvl4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="perlovka" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\perlovka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Phantom_852" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Phantom 852.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -534,6 +555,9 @@
   </data>
   <data name="zhereh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\zhereh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zhivec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\zhivec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zmeegolov" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\zmeegolov.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

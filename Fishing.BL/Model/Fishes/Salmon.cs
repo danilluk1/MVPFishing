@@ -11,12 +11,6 @@ namespace Fishing
     [Serializable]
     public class Salmon : Fish
     {
-        private readonly static HashSet<Size> lures = new HashSet<Size>()
-        {
-          Size.XL,
-          Size.Large,
-        };
-
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
@@ -30,7 +24,7 @@ namespace Fishing
         private readonly static string description = Messages.SALMON_DESCRIPTION;
         private readonly static Bitmap bit = Images.semga;
 
-        public Salmon(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, 30000), Power.SetPower(6, 2), price, trophyWeight, lures, activParts, description, bit)
+        public Salmon(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, Convert.ToInt32(30000 * maxSizeCoef)), Power.SetPower(6, 2), price, trophyWeight, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;

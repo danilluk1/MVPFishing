@@ -1,5 +1,6 @@
 ﻿using Fishing.BL.Model.Baits;
 using Fishing.BL.Model.Eating;
+using Fishing.BL.Model.Hooks;
 using Fishing.Presenter;
 using Fishing.View.Shop;
 using System;
@@ -18,6 +19,7 @@ namespace Fishing
             foodsBox.DataSource = BaseFood.FoodShop;
             lureBox.DataSource = Item.LureShop;
             baitsList.DataSource = Item.BaitsShop;
+            hookList.DataSource = Item.HooksShop;
             moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
 
@@ -37,6 +39,7 @@ namespace Fishing
 
         public event EventHandler LureDoubleClick;
         public event EventHandler BaitDoubleClick;
+        public event EventHandler HookDoubleClick;
 
         public Road Road_P
         {
@@ -130,6 +133,23 @@ namespace Fishing
                 try
                 {
                     return Item.BaitsShop[baitsList.SelectedIndex];
+                }
+                catch (ArgumentOutOfRangeException) { }
+
+                return null;
+            }
+            set
+            {
+            }
+        }
+
+        public BaseHook Hook_P
+        {
+            get
+            {
+                try
+                {
+                    return Item.HooksShop[hookList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -259,6 +279,16 @@ namespace Fishing
                     this.typeBox.Text = " ";
                     this.label1.Text = " ";
                 }
+                if (Item.SelectItemType(i) is BaseHook)
+                {
+                    BaseHook r = (BaseHook)i;
+                    this.itemBox.BackgroundImage = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.GatheringChance.ToString();
+                    this.priceBox.Text = r.Price.ToString();
+                    this.typeBox.Text = " ";
+                    this.label1.Text = " ";
+                }
             }
             catch (ArgumentOutOfRangeException) { }
         }
@@ -281,6 +311,16 @@ namespace Fishing
         private void baitsList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             BaitDoubleClick?.Invoke(this, e);
+        }
+
+        private void hookList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addItemtoRightView(Hook_P);
+        }
+
+        private void hookList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            HookDoubleClick?.Invoke(this, e);
         }
     }
 }

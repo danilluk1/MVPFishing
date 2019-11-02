@@ -1,6 +1,7 @@
 ﻿using Fishing.BL.Model.Baits;
 using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Game;
+using Fishing.BL.Model.Hooks;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Resources.Images;
 using Saver.BL.Controller;
@@ -32,6 +33,7 @@ namespace Fishing
         public BindingList<Lure> LureInv { get; set; }
         public BindingList<BaseFood> FoodInv { get; set; }
         public BindingList<Bait> BaitInv { get; set; }
+        public BindingList<BaseHook> HooksInv { get; set; }
         public Stack<BaseEvent> EventHistory { get; set; }
         public int Satiety { get; set; } = 100;
         public Statistic Statistic { get; set; } = new Statistic();

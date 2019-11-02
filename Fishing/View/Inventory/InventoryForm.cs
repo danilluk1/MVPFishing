@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Hooks;
 using Fishing.BL.Model.Lures;
 using Fishing.BL.Resources.Images;
 using Fishing.Presenter;
@@ -37,6 +38,7 @@ namespace Fishing
             FLineList.DataSource = Player.GetPlayer().FLineInv;
             ReelsList.DataSource = Player.GetPlayer().ReelInv;
             baitsBox.DataSource = Player.GetPlayer().BaitInv;
+            hooksBox.DataSource = Player.GetPlayer().HooksInv;
             foreach (Road r in Player.GetPlayer().RoadInv)
             {
                 ListViewItem lvi = new ListViewItem();
@@ -175,13 +177,27 @@ namespace Fishing
             }
             set { }
         }
+        public BaseHook Hook_P
+        {
+            get
+            {
+                try
+                {
+                    return Player.GetPlayer().HooksInv[hooksBox.SelectedIndex];
+                }
+                catch (ArgumentOutOfRangeException) { }
+
+                return null;
+            }
+            set { }
+        }
 
         public string RoadText { get => roadTextBox.Text; set => roadTextBox.Text = value; }
         public string ReelText { get => reelTextBox.Text; set => reelTextBox.Text = value; }
         public string FLineText { get => flineTextBox.Text; set => flineTextBox.Text = value; }
         public string LureText { get => lureTextBox.Text; set => lureTextBox.Text = value; }
         public BasePresenter Presenter { private get; set; }
-        public string AssNumbText { get => assNumberLabel.Text; set => assNumberLabel.Text = value; }
+        public string AssNumbText { get => assNumberLabel.Text; set => assNumberLabel.Text = value; }       
 
         public event EventHandler FLineSelectedIndexChanged;
 
@@ -212,6 +228,8 @@ namespace Fishing
         public event EventHandler TRoadButttonClick;
         public event EventHandler BaitDoubleClick;
         public event EventHandler BaitSelectedIndexChanged;
+        public event EventHandler HookDoubleClick;
+        public event EventHandler HookSelectedIndex;
 
         private void RoadsList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -274,7 +292,14 @@ namespace Fishing
         {
             if (Player.GetPlayer().EquipedRoad.Assembly != null && !Player.GetPlayer().EquipedRoad.IsBaitInWater)
             {
-                var presenter = new SelectorPresenter(new LureSelector(), UI.gui);
+                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Lure)
+                {
+                    var presenter = new SelectorPresenter<Lure>(new LureSelector<Lure>(Player.GetPlayer().LureInv), UI.gui);
+                }
+                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Bait)
+                {
+                    var presenter = new SelectorPresenter<Bait>(new LureSelector<Bait>(Player.GetPlayer().BaitInv), UI.gui);
+                }
             }
         }
 
@@ -320,6 +345,14 @@ namespace Fishing
                     this.pictureBox5.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Count.ToString();
+                    this.typeBox.Text = " ";
+                }
+                if (Item.SelectItemType(item) is BaseHook)
+                {
+                    BaseHook r = (BaseHook)item;
+                    this.pictureBox5.BackgroundImage = r.Pict;
+                    this.nameBox.Text = r.Name;
+                    this.powerBox.Text = r.GatheringChance.ToString();
                     this.typeBox.Text = " ";
                 }
             }
@@ -424,6 +457,16 @@ namespace Fishing
         private void baitsBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             BaitDoubleClick?.Invoke(this, e);
+        }
+
+        private void hooksBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HookSelectedIndex?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void hooksBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            HookDoubleClick?.Invoke(this, e);
         }
     }
 }

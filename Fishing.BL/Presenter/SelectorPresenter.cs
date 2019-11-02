@@ -1,16 +1,17 @@
-﻿using Fishing.Presenter;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.Presenter;
 using Fishing.View.GUI;
 using Fishing.View.LureSelector.View;
 using System;
 
 namespace Fishing.View.LureSelector.Presenter
 {
-    public class SelectorPresenter : BasePresenter
+    public class SelectorPresenter<T> : BasePresenter where T : FishBait
     {
-        private ISelector<Lure> view;
+        private ISelector<T> view;
         private IGUIPresenter gui;
 
-        public SelectorPresenter(ISelector<Lure> view, IGUIPresenter gui)
+        public SelectorPresenter(ISelector<T> view, IGUIPresenter gui)
         {
             this.view = view;
             this.gui = gui;
@@ -22,16 +23,24 @@ namespace Fishing.View.LureSelector.Presenter
 
         private void View_LureListIndexChanged(object sender, EventArgs e)
         {
-            view.Picture = view.Lure.Pict;
-            view.DeepBoxText = view.Lure.DeepType.ToString();
-            view.SizeBoxText = view.Lure.Size.ToString();
+            view.Picture = view.FishBait.Pict;
+            if (view.FishBait is Lure l)
+            {
+                view.DeepBoxText = l.DeepType.ToString();
+                view.SizeBoxText = l.Size.ToString();
+            }
+            if (view.FishBait is Bait b)
+            {
+                view.SizeBoxText = b.Count.ToString();
+                view.DeepBoxText = b.Name.ToString();
+            }
         }
 
         private void View_LureListDoubleClick(object sender, EventArgs e)
         {
             try
             {
-                Player.GetPlayer().EquipedRoad.Assembly.FishBait = view.Lure;                
+                Player.GetPlayer().EquipedRoad.Assembly.FishBait = view.FishBait;                
                 gui.BaitPicture = Player.GetPlayer().EquipedRoad.Assembly.FishBait.Pict;
                 view.Down();
             }

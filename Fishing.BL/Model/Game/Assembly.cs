@@ -1,4 +1,6 @@
 ﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Hooks;
+using Fishing.BL.Model.Items;
 using System;
 
 namespace Fishing
@@ -10,6 +12,7 @@ namespace Fishing
         public Reel Reel { get; set; }
         public FLine FLine { get; set; }
         public FishBait FishBait { get; set; }
+        public BaseHook Hook { get; set; }
         public string Name { get; set; }
 
         public bool IsEquiped;
@@ -41,7 +44,14 @@ namespace Fishing
                     {
                         if (FishBait != null)
                         {
-                            return true;
+                            if (Road is Feeder && Hook != null)
+                            {
+                                return true;
+                            }
+                            else if(Road is Spinning)
+                            {
+                                return true;
+                            }
                         }
                     }
                 }

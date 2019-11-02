@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Model.MapFactory;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Presenter;
@@ -61,6 +62,7 @@ namespace Fishing
         public Image RoadPicture { get => roadBox.BackgroundImage; set => roadBox.BackgroundImage = value; }
         public Image ReelPicture { get => reelBox.BackgroundImage; set => reelBox.BackgroundImage = value; }
         public Image FLinePicture { get => flineBox.BackgroundImage; set => flineBox.BackgroundImage = value; }
+        public Image HookPicture { get => hookBox.BackgroundImage; set => hookBox.BackgroundImage = value; }
 
         public event PaintEventHandler SounderPaint;
 
@@ -96,7 +98,14 @@ namespace Fishing
         {
             if (Player.GetPlayer().EquipedRoad.Assembly != null && !Player.GetPlayer().EquipedRoad.IsBaitInWater)
             {
-                SelectorPresenter presenter = new SelectorPresenter(new LureSelector(), this);
+                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Lure)
+                {
+                    var presenter = new SelectorPresenter<Lure>(new LureSelector<Lure>(Player.GetPlayer().LureInv), this);
+                }
+                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Bait)
+                {
+                    var presenter = new SelectorPresenter<Bait>(new LureSelector<Bait>(Player.GetPlayer().BaitInv), this);
+                }
             }
         }
 

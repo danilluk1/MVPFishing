@@ -56,7 +56,7 @@ namespace Fishing
                             road.FLineIncValue = Convert.ToInt32(flineCoef * 100);
 
                             int Gathering = randomGathering.Next(1, 100);
-                            if (Gathering <= 5)
+                            if (Gathering <= road.Assembly.Hook.GatheringChance)
                             {
                                 return (true, true);
                             }

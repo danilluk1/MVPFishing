@@ -37,8 +37,8 @@ namespace Fishing
             this.CloseButton = new System.Windows.Forms.Button();
             this.SettingButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.InventoryButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.fishShopButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MapButton
@@ -69,7 +69,7 @@ namespace Fishing
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(542, 418);
+            this.CloseButton.Location = new System.Drawing.Point(532, 418);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(105, 34);
             this.CloseButton.TabIndex = 2;
@@ -97,16 +97,6 @@ namespace Fishing
             this.label2.Size = new System.Drawing.Size(0, 24);
             this.label2.TabIndex = 5;
             // 
-            // InventoryButton
-            // 
-            this.InventoryButton.Location = new System.Drawing.Point(63, 332);
-            this.InventoryButton.Name = "InventoryButton";
-            this.InventoryButton.Size = new System.Drawing.Size(241, 37);
-            this.InventoryButton.TabIndex = 6;
-            this.InventoryButton.Text = "Инвентарь";
-            this.InventoryButton.UseVisualStyleBackColor = true;
-            this.InventoryButton.Click += new System.EventHandler(this.InventoryButton_Click);
-            // 
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
@@ -119,6 +109,17 @@ namespace Fishing
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // fishShopButton
+            // 
+            this.fishShopButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fishShopButton.BackgroundImage")));
+            this.fishShopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fishShopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fishShopButton.Location = new System.Drawing.Point(47, 157);
+            this.fishShopButton.Name = "fishShopButton";
+            this.fishShopButton.Size = new System.Drawing.Size(257, 64);
+            this.fishShopButton.TabIndex = 8;
+            this.fishShopButton.UseVisualStyleBackColor = true;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,8 +128,8 @@ namespace Fishing
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(680, 480);
+            this.Controls.Add(this.fishShopButton);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.InventoryButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SettingButton);
             this.Controls.Add(this.CloseButton);
@@ -151,8 +152,8 @@ namespace Fishing
         protected internal System.Windows.Forms.Button MapButton;
         protected internal System.Windows.Forms.Button ShopButton;
         protected internal System.Windows.Forms.Button CloseButton;
-        protected internal System.Windows.Forms.Button InventoryButton;
         protected internal System.Windows.Forms.Button SettingButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button fishShopButton;
     }
 }

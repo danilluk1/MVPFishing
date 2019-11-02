@@ -40,11 +40,11 @@ namespace Fishing
             this.TextDeepLabel = new System.Windows.Forms.Label();
             this.DeepLabel = new System.Windows.Forms.Label();
             this.LowerPanel = new System.Windows.Forms.Panel();
+            this.hookBox = new System.Windows.Forms.PictureBox();
             this.flineBox = new System.Windows.Forms.PictureBox();
             this.reelBox = new System.Windows.Forms.PictureBox();
             this.ReelBar = new System.Windows.Forms.ProgressBar();
             this.roadBox = new System.Windows.Forms.PictureBox();
-            this.eatingBar = new VerticalProgressBar.VerticalProgressBar();
             this.WiringTypeLabel = new System.Windows.Forms.Label();
             this.StatsBox = new System.Windows.Forms.PictureBox();
             this.InventoryBox = new System.Windows.Forms.PictureBox();
@@ -58,9 +58,10 @@ namespace Fishing
             this.MoneyLabel = new System.Windows.Forms.Label();
             this.SettingLabel = new System.Windows.Forms.Label();
             this.MapLabel = new System.Windows.Forms.Label();
-            this.hookBox = new System.Windows.Forms.PictureBox();
+            this.eatingBar = new VerticalProgressBar.VerticalProgressBar();
             this.SounderPanel.SuspendLayout();
             this.LowerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hookBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flineBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reelBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roadBox)).BeginInit();
@@ -69,13 +70,12 @@ namespace Fishing
             ((System.ComponentModel.ISupportInitialize)(this.BaitsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FpondBox)).BeginInit();
             this.UpperPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hookBox)).BeginInit();
             this.SuspendLayout();
             // 
             // SounderUpdater
             // 
             this.SounderUpdater.Enabled = true;
-            this.SounderUpdater.Interval = 10;
+            this.SounderUpdater.Interval = 25;
             this.SounderUpdater.Tick += new System.EventHandler(this.SounderUpdater_Tick);
             // 
             // eventsList
@@ -179,6 +179,16 @@ namespace Fishing
             this.LowerPanel.Size = new System.Drawing.Size(1023, 213);
             this.LowerPanel.TabIndex = 20;
             // 
+            // hookBox
+            // 
+            this.hookBox.BackColor = System.Drawing.Color.White;
+            this.hookBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.hookBox.Location = new System.Drawing.Point(456, 129);
+            this.hookBox.Name = "hookBox";
+            this.hookBox.Size = new System.Drawing.Size(93, 75);
+            this.hookBox.TabIndex = 31;
+            this.hookBox.TabStop = false;
+            // 
             // flineBox
             // 
             this.flineBox.BackColor = System.Drawing.Color.White;
@@ -218,23 +228,6 @@ namespace Fishing
             this.roadBox.Size = new System.Drawing.Size(94, 154);
             this.roadBox.TabIndex = 28;
             this.roadBox.TabStop = false;
-            // 
-            // eatingBar
-            // 
-            this.eatingBar.BackColor = System.Drawing.Color.Transparent;
-            this.eatingBar.BorderStyle = VerticalProgressBar.BorderStyles.Classic;
-            this.eatingBar.Color = System.Drawing.Color.Gold;
-            this.eatingBar.Location = new System.Drawing.Point(19, 18);
-            this.eatingBar.Maximum = 100;
-            this.eatingBar.Minimum = 0;
-            this.eatingBar.Name = "eatingBar";
-            this.eatingBar.Size = new System.Drawing.Size(18, 84);
-            this.eatingBar.Step = 10;
-            this.eatingBar.Style = VerticalProgressBar.Styles.Solid;
-            this.eatingBar.TabIndex = 27;
-            this.eatingBar.Value = 0;
-            this.eatingBar.Load += new System.EventHandler(this.eatingBar_Load);
-            this.eatingBar.Click += new System.EventHandler(this.EatingBar_Click);
             // 
             // WiringTypeLabel
             // 
@@ -384,15 +377,22 @@ namespace Fishing
             this.MapLabel.Text = "Карта";
             this.MapLabel.Click += new System.EventHandler(this.MapLabel_Click);
             // 
-            // hookBox
+            // eatingBar
             // 
-            this.hookBox.BackColor = System.Drawing.Color.White;
-            this.hookBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.hookBox.Location = new System.Drawing.Point(456, 129);
-            this.hookBox.Name = "hookBox";
-            this.hookBox.Size = new System.Drawing.Size(93, 75);
-            this.hookBox.TabIndex = 31;
-            this.hookBox.TabStop = false;
+            this.eatingBar.BackColor = System.Drawing.Color.Transparent;
+            this.eatingBar.BorderStyle = VerticalProgressBar.BorderStyles.Classic;
+            this.eatingBar.Color = System.Drawing.Color.Gold;
+            this.eatingBar.Location = new System.Drawing.Point(19, 18);
+            this.eatingBar.Maximum = 100;
+            this.eatingBar.Minimum = 0;
+            this.eatingBar.Name = "eatingBar";
+            this.eatingBar.Size = new System.Drawing.Size(18, 84);
+            this.eatingBar.Step = 10;
+            this.eatingBar.Style = VerticalProgressBar.Styles.Solid;
+            this.eatingBar.TabIndex = 27;
+            this.eatingBar.Value = 0;
+            this.eatingBar.Load += new System.EventHandler(this.eatingBar_Load);
+            this.eatingBar.Click += new System.EventHandler(this.EatingBar_Click);
             // 
             // UI
             // 
@@ -417,6 +417,7 @@ namespace Fishing
             this.SounderPanel.PerformLayout();
             this.LowerPanel.ResumeLayout(false);
             this.LowerPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hookBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flineBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reelBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roadBox)).EndInit();
@@ -426,7 +427,6 @@ namespace Fishing
             ((System.ComponentModel.ISupportInitialize)(this.FpondBox)).EndInit();
             this.UpperPanel.ResumeLayout(false);
             this.UpperPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hookBox)).EndInit();
             this.ResumeLayout(false);
 
         }

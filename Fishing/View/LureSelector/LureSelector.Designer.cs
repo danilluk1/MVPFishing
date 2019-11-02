@@ -1,6 +1,6 @@
 ﻿namespace Fishing.View.LureSelector
 {
-    partial class LureSelector
+    partial class LureSelector<T> 
     {
         /// <summary>
         /// Required designer variable.

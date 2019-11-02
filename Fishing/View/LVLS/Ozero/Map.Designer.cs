@@ -35,9 +35,11 @@ namespace Fishing
             this.lvl1Box = new System.Windows.Forms.PictureBox();
             this.lvl2Box = new System.Windows.Forms.PictureBox();
             this.lvl3Box = new System.Windows.Forms.PictureBox();
+            this.lvl4Box = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.lvl1Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lvl2Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lvl3Box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lvl4Box)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -86,6 +88,18 @@ namespace Fishing
             this.lvl3Box.TabStop = false;
             this.lvl3Box.Click += new System.EventHandler(this.Lvl3Box_Click);
             // 
+            // lvl4Box
+            // 
+            this.lvl4Box.BackColor = System.Drawing.Color.Transparent;
+            this.lvl4Box.BackgroundImage = global::Fishing.Properties.Resources.blackkrug;
+            this.lvl4Box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lvl4Box.Location = new System.Drawing.Point(496, 569);
+            this.lvl4Box.Name = "lvl4Box";
+            this.lvl4Box.Size = new System.Drawing.Size(22, 27);
+            this.lvl4Box.TabIndex = 8;
+            this.lvl4Box.TabStop = false;
+            this.lvl4Box.Click += new System.EventHandler(this.lvl4Box_Click);
+            // 
             // Map
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,6 +107,7 @@ namespace Fishing
             this.BackgroundImage = global::Fishing.Properties.Resources.ozero1f;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(912, 768);
+            this.Controls.Add(this.lvl4Box);
             this.Controls.Add(this.lvl3Box);
             this.Controls.Add(this.lvl2Box);
             this.Controls.Add(this.lvl1Box);
@@ -104,6 +119,7 @@ namespace Fishing
             ((System.ComponentModel.ISupportInitialize)(this.lvl1Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lvl2Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lvl3Box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lvl4Box)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -113,5 +129,6 @@ namespace Fishing
         private System.Windows.Forms.PictureBox lvl1Box;
         private System.Windows.Forms.PictureBox lvl2Box;
         private System.Windows.Forms.PictureBox lvl3Box;
+        private System.Windows.Forms.PictureBox lvl4Box;
     }
 }

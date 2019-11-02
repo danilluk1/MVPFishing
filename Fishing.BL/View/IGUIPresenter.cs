@@ -9,6 +9,7 @@ namespace Fishing.View.GUI
         Image RoadPicture { get; set; }
         Image ReelPicture { get; set; }
         Image FLinePicture { get; set; }
+        Image HookPicture { get; set; }
         int DeepValue { get; set; }
         int RoadBarValue { get; set; }
         int FLineBarValue { get; set; }

@@ -11,12 +11,6 @@ namespace Fishing.BL.Model.Fishes
     [Serializable]
     internal class Burbot : Fish
     {
-        private readonly static HashSet<Size> lures = new HashSet<Size>()
-        {
-            Size.Small,
-            Size.Large,
-        };
-
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Morning,
@@ -30,7 +24,7 @@ namespace Fishing.BL.Model.Fishes
         private readonly static Bitmap bit = Images.nalim;
 
         public Burbot(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
-            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(5, 2), price, trophyWeight, lures, activParts, description, bit)
+            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(5, 2), price, trophyWeight, activParts, description, bit)
         {
             MinDeep = minD;
             MaxDeep = maxD;
