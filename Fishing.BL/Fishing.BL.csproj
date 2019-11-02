@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LabelInfo.cs" />
+    <Compile Include="lvl.cs" />
+    <Compile Include="MapInfo.cs" />
     <Compile Include="Model\Baits\Bait.cs" />
     <Compile Include="Model\Baits\Barley.cs" />
     <Compile Include="Model\Baits\Caviar.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="Model\Items\Spinning.cs" />
     <Compile Include="Model\Baits\Lures\Jig.cs" />
     <Compile Include="Model\Baits\Lures\Pinwheel.cs" />
+    <Compile Include="Model\LVLS\LVLRealisation.cs" />
     <Compile Include="Model\LVLS\Meshera\LVL1.cs" />
     <Compile Include="Model\LVLS\Meshera\LVL2.cs" />
     <Compile Include="Model\LVLS\Meshera\LVL3.cs" />
@@ -105,6 +109,8 @@
     <Compile Include="Model\Waters\Meshera.cs" />
     <Compile Include="Model\Waters\Ozero.cs" />
     <Compile Include="Model\Waters\Water.cs" />
+    <Compile Include="Model\Waters\WaterRealisation.cs" />
+    <Compile Include="PicturesBoxInfo.cs" />
     <Compile Include="Presenter\FoodPresenter.cs" />
     <Compile Include="Presenter\StatisticPresenter.cs" />
     <Compile Include="Resources\Images\FishesImg.Designer.cs">

@@ -48,7 +48,7 @@ namespace Saver.BL.Controller
             Player.GetPlayer().BaitInv = saver.Load<BindingList<Bait>>(ConfigPaths.BAIT_DIR) ?? new BindingList<Bait>();
             Player.GetPlayer().HooksInv = saver.Load<BindingList<BaseHook>>(ConfigPaths.HOOKS_DIR) ?? new BindingList<BaseHook>();
             Game.GetGame().Time = saver.Load<Time>(ConfigPaths.TIME_DIR);
-            Game.GetGame().CurrentWater = saver.Load<Water>(ConfigPaths.WATER_DIR);
+            Game.GetGame().CurrentWater = new WaterRealisation("is");
         }
 
         public void SavePlayer()

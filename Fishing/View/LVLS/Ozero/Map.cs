@@ -1,5 +1,6 @@
 ﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Model.LVLS.Ozero;
+using Fishing.BL.Resources.Images;
 using Fishing.BL.View;
 using Fishing.Presenter;
 using Fishing.View.DeepField;
@@ -16,6 +17,25 @@ namespace Fishing
         public Map()
         {
             InitializeComponent();
+            BackgroundImage = Game.GetGame().CurrentWater.MapImage;
+            foreach (var p in Game.GetGame().CurrentWater.Locs)
+            {
+                MessageBox.Show("");
+                PictureBox box = new PictureBox()
+                {
+                    Left = p.Left,
+                    Top = p.Top,
+                    Width = p.Width,
+                    Height = p.Height,
+                    BackgroundImage = Images.blackkrug,
+                    BackColor = Color.Transparent,
+                    BackgroundImageLayout = ImageLayout.Stretch,
+                    Tag = p.LocName,
+                    BorderStyle = BorderStyle.None,
+
+                };
+                Controls.Add(box);
+            }
         }
 
         public Image BackImage { get => BackgroundImage; set => BackgroundImage = value; }

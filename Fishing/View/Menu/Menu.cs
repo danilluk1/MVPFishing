@@ -30,8 +30,8 @@ namespace Fishing
 
         private void MapButton_Click(object sender, EventArgs e)
         {
-            var f = new MFactory(Game.GetGame().CurrentWater);
-            f.CreateMap();
+            Map map = new Map();
+            map.Show();
         }
 
         private void ShopButton_Click(object sender, EventArgs e)

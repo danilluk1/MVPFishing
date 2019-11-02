@@ -1,5 +1,7 @@
 ﻿using Fishing.BL.Resources.Images;
 using System;
+using System.Collections.Generic;
+using WindowsFormsApp1;
 
 namespace Fishing.BL.Model.Waters
 {
@@ -17,7 +19,7 @@ namespace Fishing.BL.Model.Waters
             return water;
         }
 
-        private Ozero() : base("Озеро", Images.ozero1f, 0, 0)
+        private Ozero() : base("Озеро", Images.ozero1f, 0, 0, new List<PicturesBoxInfo>())
         {
         }
     }

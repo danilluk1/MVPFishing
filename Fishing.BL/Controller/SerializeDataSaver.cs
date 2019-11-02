@@ -3,7 +3,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Saver.BL.Controller
 {
-    internal class SerializeDataSaver : IDataSaver
+    public class SerializeDataSaver : IDataSaver
     {
         public T Load<T>(string fileName)
         {

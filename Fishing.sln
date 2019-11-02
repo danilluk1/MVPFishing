@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fishing", "Fishing\Fishing.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fishing.BL", "Fishing.BL\Fishing.BL.csproj", "{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Map Editor", "..\..\..\source\repos\WindowsFormsApp1\WindowsFormsApp1\Map Editor.csproj", "{7126FC35-8317-4995-AA7F-4A20BE72E721}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F16AB9B1-DEEB-451F-B962-9BFFC7B0A27B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7126FC35-8317-4995-AA7F-4A20BE72E721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7126FC35-8317-4995-AA7F-4A20BE72E721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7126FC35-8317-4995-AA7F-4A20BE72E721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7126FC35-8317-4995-AA7F-4A20BE72E721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
