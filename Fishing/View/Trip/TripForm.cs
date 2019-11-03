@@ -1,5 +1,6 @@
 ﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Model.Trip;
+using Fishing.BL.Model.Waters;
 using System;
 using System.Windows.Forms;
 
@@ -71,7 +72,8 @@ namespace Fishing.View.Trip
         private void WatersBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             trip = new TripToWater();
-            trip.TripWater = Game.GetGame().Waters[watersBox.SelectedIndex];
+            var water = new WaterRealisation(Game.GetGame().Waters[watersBox.SelectedIndex]);
+            trip.TripWater = water.GetLVL(Game.GetGame().Waters[watersBox.SelectedIndex]);
             mapBox.BackgroundImage = trip.TripWater.MapImage;
             trip.CountPrice();
             trip.CountTime();

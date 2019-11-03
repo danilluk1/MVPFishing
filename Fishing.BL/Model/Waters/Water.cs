@@ -24,7 +24,7 @@ namespace Fishing.BL.Model.Waters
             Name = name;
             Locs = list;
         }
-
+        public abstract Water GetLVL(string name);
         public override string ToString()
         {
             return Name;

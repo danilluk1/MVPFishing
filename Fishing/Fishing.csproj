@@ -111,12 +111,6 @@
     <Compile Include="View\Inventory\InventoryForm.Designer.cs">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LVLS\Meshera\MesheraMap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\LVLS\Meshera\MesheraMap.Designer.cs">
-      <DependentUpon>MesheraMap.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Menu\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,9 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Inventory\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\LVLS\Meshera\MesheraMap.resx">
-      <DependentUpon>MesheraMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Menu\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

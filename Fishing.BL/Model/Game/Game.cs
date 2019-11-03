@@ -2,6 +2,7 @@
 using Fishing.View.LVLS.Ozero;
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Fishing.BL.Model.Game
@@ -18,12 +19,12 @@ namespace Fishing.BL.Model.Game
     public class Game
     {
         private static Game game;
-        public BindingList<Water> Waters = new BindingList<Water>();
+        public BindingList<string> Waters = new BindingList<string>();
 
         public event EventHandler HoursInc;
         public IGameForm View { get; set; }
         public Timer HoursTimer { get; set; }
-        public Water CurrentWater { get; set; } = Ozero.GetWater();
+        public Water CurrentWater { get; set; }
 
         public Time Time;
 
@@ -34,9 +35,7 @@ namespace Fishing.BL.Model.Game
                 Interval = 30000
             };
             HoursTimer.Tick += HoursTimer_Tick;
-            HoursTimer.Start();
-            Waters.Add(Ozero.GetWater());
-            Waters.Add(Meshera.GetWater());
+            HoursTimer.Start();           
         }
 
         public static Game GetGame()

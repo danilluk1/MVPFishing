@@ -9,6 +9,7 @@ using Fishing.BL.Resources.Paths;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 
 namespace Saver.BL.Controller
 {
@@ -48,7 +49,12 @@ namespace Saver.BL.Controller
             Player.GetPlayer().BaitInv = saver.Load<BindingList<Bait>>(ConfigPaths.BAIT_DIR) ?? new BindingList<Bait>();
             Player.GetPlayer().HooksInv = saver.Load<BindingList<BaseHook>>(ConfigPaths.HOOKS_DIR) ?? new BindingList<BaseHook>();
             Game.GetGame().Time = saver.Load<Time>(ConfigPaths.TIME_DIR);
-            Game.GetGame().CurrentWater = new WaterRealisation("is");
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters");
+            foreach (var item in dir.GetDirectories())
+            {
+                Game.GetGame().Waters.Add(item.ToString());
+            }
+            // Game.GetGame().CurrentWater = new WaterRealisation("Исеть");
         }
 
         public void SavePlayer()

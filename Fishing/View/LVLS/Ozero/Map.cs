@@ -1,5 +1,5 @@
 ﻿using Fishing.BL.Model.Game;
-using Fishing.BL.Model.LVLS.Ozero;
+using Fishing.BL.Model.LVLS;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.View;
 using Fishing.Presenter;
@@ -20,7 +20,6 @@ namespace Fishing
             BackgroundImage = Game.GetGame().CurrentWater.MapImage;
             foreach (var p in Game.GetGame().CurrentWater.Locs)
             {
-                MessageBox.Show("");
                 PictureBox box = new PictureBox()
                 {
                     Left = p.Left,
@@ -34,8 +33,15 @@ namespace Fishing
                     BorderStyle = BorderStyle.None,
 
                 };
+                box.Click += Box_Click;
                 Controls.Add(box);
             }
+        }
+
+        private void Box_Click(object sender, EventArgs e)
+        {
+            var lvlrealisation = new LVLRealisation((sender as PictureBox).Tag.ToString());
+            Create(lvlrealisation);
         }
 
         public Image BackImage { get => BackgroundImage; set => BackgroundImage = value; }
@@ -54,22 +60,6 @@ namespace Fishing
         {
             this.Close();
         }
-
-        private void Lvl1Box_Click(object sender, EventArgs e)
-        {
-            Create(new LVL1());
-        }
-
-        private void Lvl2Box_Click(object sender, EventArgs e)
-        {
-            Create(new LVL2());
-        }
-
-        private void Lvl3Box_Click(object sender, EventArgs e)
-        {
-            Create(new LVL3());
-        }
-
         public void Create(LVL lvl)
         {
             UI.gui = new UI(lvl);
@@ -77,12 +67,8 @@ namespace Fishing
             var presenter = new LVLPresenter(Game.GetGame().View, UI.gui, lvl);
             var field = new DeepField(lvl);
             UI.gui.Show();
+            field.Show();
             this.Close();
-        }
-
-        private void lvl4Box_Click(object sender, EventArgs e)
-        {
-            Create(new LVL4());
         }
     }
 }

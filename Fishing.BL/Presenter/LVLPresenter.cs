@@ -41,10 +41,6 @@ namespace Fishing.Presenter
             sp = new SoundPlayer();
             evHelper = new EventHelper(v);
 
-            CurLVL.AddDeep();
-            CurLVL.SetDeep();
-            CurLVL.AddFishes();
-
             view.RepaintScreen += View_RepaintScreen;
             view.MouseClick += View_MouseLeftClick;
             view.KeyDOWN += View_KeyDOWN;

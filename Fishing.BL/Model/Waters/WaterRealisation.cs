@@ -23,12 +23,11 @@ namespace Fishing.BL.Model.Waters
         public WaterRealisation(string name) : base(name, Images.ozero1f, 0, 0, locs)
         {
             this.Name = name;
-            GetLVL(name);
             Locs = locs;
-            MessageBox.Show(Name, KmFromNearestStation.ToString());
+            GetLVL(name);
         }
 
-        public void GetLVL(string name)
+        public override Water GetLVL(string name)
         {
             var path = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + name;
             SerializeDataSaver s = new SerializeDataSaver();
@@ -40,7 +39,7 @@ namespace Fishing.BL.Model.Waters
             DailyPrice = Convert.ToInt32(ar[2]);
             KmFromNearestStation = Convert.ToInt32(ar[3]);
             locs = s.Load<List<PicturesBoxInfo>>(path + "\\" + "Map.dat");
-
+            return this;
         }
     }
 }

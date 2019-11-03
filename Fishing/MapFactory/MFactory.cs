@@ -13,16 +13,7 @@ namespace Fishing.BL.Model.MapFactory
 
         public void CreateMap()
         {
-            if (water is Meshera)
-            {
-                MesheraMap map = new MesheraMap();
-                map.Show();
-            }
-            if (water is Ozero)
-            {
-                Map map = new Map();
-                map.Show();
-            }
+
         }
     }
 }

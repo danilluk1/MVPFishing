@@ -93,12 +93,6 @@
     <Compile Include="Model\Baits\Lures\Jig.cs" />
     <Compile Include="Model\Baits\Lures\Pinwheel.cs" />
     <Compile Include="Model\LVLS\LVLRealisation.cs" />
-    <Compile Include="Model\LVLS\Meshera\LVL1.cs" />
-    <Compile Include="Model\LVLS\Meshera\LVL2.cs" />
-    <Compile Include="Model\LVLS\Meshera\LVL3.cs" />
-    <Compile Include="Model\LVLS\Meshera\LVL4.cs" />
-    <Compile Include="Model\LVLS\Ozero\LVL3.cs" />
-    <Compile Include="Model\LVLS\Ozero\LVL4.cs" />
     <Compile Include="Model\Trip\TripToWater.cs" />
     <Compile Include="Model\UserEvent\FishEvent.cs" />
     <Compile Include="Model\UserEvent\FLineTornEvent.cs" />
@@ -106,8 +100,6 @@
     <Compile Include="Model\UserEvent\RoadBrokenEvent.cs" />
     <Compile Include="Model\UserEvent\TrophyFishEvent.cs" />
     <Compile Include="Model\UserEvent\BaseEvent.cs" />
-    <Compile Include="Model\Waters\Meshera.cs" />
-    <Compile Include="Model\Waters\Ozero.cs" />
     <Compile Include="Model\Waters\Water.cs" />
     <Compile Include="Model\Waters\WaterRealisation.cs" />
     <Compile Include="PicturesBoxInfo.cs" />
@@ -167,8 +159,6 @@
     <Compile Include="Model\Baits\Lures\Lure.cs" />
     <Compile Include="Model\Baits\Lures\Wobbler.cs" />
     <Compile Include="Model\LVLS\LVL.cs" />
-    <Compile Include="Model\LVLS\Ozero\LVL1.cs" />
-    <Compile Include="Model\LVLS\Ozero\LVL2.cs" />
     <Compile Include="Presenter\AssemblyPresenter.cs" />
     <Compile Include="Presenter\CurrentFishPresenter.cs" />
     <Compile Include="Presenter\FPondPresenter.cs" />

@@ -10,7 +10,6 @@ namespace WindowsFormsApp1
     public class LabelInfo
     {
         public string Deep { get; set; }
-
         public int IsSnag { get; set; }
     }
 }

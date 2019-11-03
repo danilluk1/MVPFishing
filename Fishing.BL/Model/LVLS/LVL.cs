@@ -10,23 +10,12 @@ namespace Fishing
     public abstract class LVL
     {
         private Player player = Player.GetPlayer();
-        public Bitmap Image { get; set; }
+        public Image Image { get; set; }
         public int Widgth;
         public int Height;
         public int LabelStartY;
         public int LabelStartX;
-        public int MinDeep;
-        public int MaxDeep;
-
-        public LVL(Bitmap img, int w, int h, int labelX, int labelY)
-        {
-            Image = img;
-            Widgth = w;
-            Height = h;
-            LabelStartY = labelY;
-            LabelStartX = labelX;
-            Deeparr = new Label[w, h];
-        }
+        public string Name { get; set; }
 
         public Label[,] Deeparr;
         protected List<Fish> Fishes = new List<Fish>(1000);
@@ -102,11 +91,11 @@ namespace Fishing
                 {
                     this.Deeparr[x, y] = new Label()
                     {
-                        Left = LabelStartX + 5 + x * 20,
-                        Top = LabelStartY + y * 15,
-                        Height = 15,
+                        Left = LabelStartX + 5 + x * 40,
+                        Top = LabelStartY + y * 23,
+                        Height = 23,
                         TextAlign = ContentAlignment.MiddleLeft,
-                        Width = 20,
+                        Width = 40,
                         Visible = true,
                         Font = new Font("Arial", 6, FontStyle.Regular),
                         BorderStyle = BorderStyle.FixedSingle
