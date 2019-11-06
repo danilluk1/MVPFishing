@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.UserEvent;
+﻿using Fishing.BL.Model.Game;
+using Fishing.BL.Model.UserEvent;
 using System.Drawing;
 
 namespace Fishing.View.GUI
@@ -10,7 +11,7 @@ namespace Fishing.View.GUI
         Image ReelPicture { get; set; }
         Image FLinePicture { get; set; }
         Image HookPicture { get; set; }
-        int DeepValue { get; set; }
+        string DeepValue { get; set; }
         int RoadBarValue { get; set; }
         int FLineBarValue { get; set; }
         int MoneyLValue { get; set; }
@@ -20,9 +21,8 @@ namespace Fishing.View.GUI
         int EatingBarValue { get; set; }
 
         void AddEventToBox(BaseEvent ev);
-
         void ClearEvents();
-
+        void AddRoadToGUI(GameRoad road);
         void IncrementRoadBarValue(int value);
 
         void IncrementFLineBarValue(int value);

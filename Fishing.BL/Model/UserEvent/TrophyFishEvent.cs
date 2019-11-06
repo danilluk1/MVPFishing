@@ -32,6 +32,10 @@ namespace Fishing.BL.Model.UserEvent
             {
                 return 6;
             }
+            if (lure is Bait)
+            {
+                return 7;
+            }
             return 1;
         }
     }

@@ -149,7 +149,7 @@
             this.GameLogs.Location = new System.Drawing.Point(4, 22);
             this.GameLogs.Name = "GameLogs";
             this.GameLogs.Padding = new System.Windows.Forms.Padding(3);
-            this.GameLogs.Size = new System.Drawing.Size(577, 500);
+            this.GameLogs.Size = new System.Drawing.Size(538, 445);
             this.GameLogs.TabIndex = 1;
             this.GameLogs.Text = "Лог событий";
             this.GameLogs.UseVisualStyleBackColor = true;
@@ -175,6 +175,8 @@
             this.eventsList.Images.SetKeyName(4, "deepvobler.png");
             this.eventsList.Images.SetKeyName(5, "sriv.png");
             this.eventsList.Images.SetKeyName(6, "vibro.png");
+            this.eventsList.Images.SetKeyName(7, "bio.png");
+            this.eventsList.Images.SetKeyName(8, "eat.png");
             // 
             // StatisticForm
             // 

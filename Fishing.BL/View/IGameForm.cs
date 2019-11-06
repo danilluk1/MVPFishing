@@ -33,15 +33,6 @@ namespace Fishing.View.LVLS.Ozero
 
         LVLPresenter LVLPresenter { set; }
         void UpdateForm();
-        void StopBaitTimer();
-        void StartBaitTimer();
-        void StartGatheringTimer();
-        void StopGatheringTimer();
         void CreateCurrentFish(Fish fish);
-        void StopMainTimer();
-        void StartMainTimer();
-
-        void StartFishMovesTimer();
-        void StopFishMovesTimer();
     }
 }

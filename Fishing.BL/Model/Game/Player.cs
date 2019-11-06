@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Fishing
 {
@@ -17,7 +18,7 @@ namespace Fishing
     public sealed class Player
     {
         private const int SATIETY_MAX_VALUE = 100;
-        private const int SATIETY_MIN_VALUE = 100;
+        private const int SATIETY_MIN_VALUE = 0;
 
         private static Player player;
 
@@ -35,13 +36,15 @@ namespace Fishing
         public BindingList<Bait> BaitInv { get; set; }
         public BindingList<BaseHook> HooksInv { get; set; }
         public Stack<BaseEvent> EventHistory { get; set; }
+        public event Action EventHistoryUpdated;
+
         public int Satiety { get; set; } = 100;
+        public event Action<int> SatietyUpdated;
         public Statistic Statistic { get; set; } = new Statistic();
         public int Money { get; set; } = 99999999;
         public int WindingSpeed { get; set; }
         public Fish CFish { get; set; }
         public string NickName { get; set; } = "Рыболов";
-
         public Netting Netting { get; set; } = new Netting();
 
         private Player()
@@ -55,6 +58,14 @@ namespace Fishing
             }
 
             return player;
+        }
+        public void AddEventToHistory(BaseEvent ev)
+        {
+            if(ev != null)
+            {
+                EventHistory.Push(ev);
+                EventHistoryUpdated.Invoke();
+            }
         }
         public bool IsPlayerAbleToFishing()
         {
@@ -172,13 +183,28 @@ namespace Fishing
                 BaseController.GetController().SavePlayer();
             }
         }
+        public void AddBait(Bait bait)
+        {
+            MessageBox.Show(bait.Count.ToString());
+            var b = BaitInv.FirstOrDefault(fb => bait.Name.Equals(fb.Name));
+            if (b != default)
+            {
+                BaitInv[BaitInv.IndexOf(b)].Count += bait.Count;
+            }
+            else
+            {
+                BaitInv.Add(bait);
+            }
+        }
         public void BrokeRoad()
         {
-            Pictures.road = Pictures.brokenRoad;
+            player.EquipedRoad.Image = Roads.broken;
             player.EquipedRoad.IsBaitInWater = false;
             player.EquipedRoad.IsFishAttack = false;
             player.EquipedRoad.Assembly.Road = null;
             player.EquipedRoad.CurPoint = Point.Empty;
+            player.EquipedRoad.FLineIncValue = 0;
+            player.EquipedRoad.RoadIncValue = 0;
             player.Statistic.BrokensRoadsCount++;
         }
         public void TornFLine()
@@ -187,6 +213,8 @@ namespace Fishing
             player.EquipedRoad.Assembly.FishBait = null;
             player.EquipedRoad.IsBaitMoving = false;
             player.EquipedRoad.CurPoint = Point.Empty;
+            player.EquipedRoad.FLineIncValue = 0;
+            player.EquipedRoad.RoadIncValue = 0;
             player.Statistic.TornsFLinesCount++;
             player.Statistic.GatheringCount++;
         }
@@ -208,6 +236,8 @@ namespace Fishing
                 {
                     Satiety += food.Productivity;
                     FoodInv.Remove(food);
+                    AddEventToHistory(new FoodEvent(food));
+                    SatietyUpdated.Invoke(food.Productivity);
                     return true;
                 }
                 else

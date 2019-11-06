@@ -89,6 +89,8 @@ namespace Fishing
             this.eventsList.Images.SetKeyName(4, "deepvobler.png");
             this.eventsList.Images.SetKeyName(5, "sriv.png");
             this.eventsList.Images.SetKeyName(6, "vibro.png");
+            this.eventsList.Images.SetKeyName(7, "bio.png");
+            this.eventsList.Images.SetKeyName(8, "eat.png");
             // 
             // eventsView
             // 
@@ -116,7 +118,7 @@ namespace Fishing
             this.SounderPanel.Controls.Add(this.DeepLabel);
             this.SounderPanel.Location = new System.Drawing.Point(643, 8);
             this.SounderPanel.Name = "SounderPanel";
-            this.SounderPanel.Size = new System.Drawing.Size(372, 190);
+            this.SounderPanel.Size = new System.Drawing.Size(372, 202);
             this.SounderPanel.TabIndex = 22;
             this.SounderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SounderPanel_Paint);
             // 
@@ -126,7 +128,7 @@ namespace Fishing
             this.LureDeep.AutoSize = true;
             this.LureDeep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LureDeep.ForeColor = System.Drawing.Color.Red;
-            this.LureDeep.Location = new System.Drawing.Point(3, 163);
+            this.LureDeep.Location = new System.Drawing.Point(3, 175);
             this.LureDeep.Name = "LureDeep";
             this.LureDeep.Size = new System.Drawing.Size(19, 20);
             this.LureDeep.TabIndex = 22;
@@ -137,7 +139,7 @@ namespace Fishing
             this.TextDeepLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TextDeepLabel.AutoSize = true;
             this.TextDeepLabel.Font = new System.Drawing.Font("Segoe Script", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TextDeepLabel.Location = new System.Drawing.Point(257, 166);
+            this.TextDeepLabel.Location = new System.Drawing.Point(257, 178);
             this.TextDeepLabel.Name = "TextDeepLabel";
             this.TextDeepLabel.Size = new System.Drawing.Size(60, 17);
             this.TextDeepLabel.TabIndex = 21;
@@ -149,7 +151,7 @@ namespace Fishing
             this.DeepLabel.AutoSize = true;
             this.DeepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DeepLabel.ForeColor = System.Drawing.Color.Red;
-            this.DeepLabel.Location = new System.Drawing.Point(323, 163);
+            this.DeepLabel.Location = new System.Drawing.Point(323, 175);
             this.DeepLabel.Name = "DeepLabel";
             this.DeepLabel.Size = new System.Drawing.Size(19, 20);
             this.DeepLabel.TabIndex = 18;
@@ -386,12 +388,11 @@ namespace Fishing
             this.eatingBar.Maximum = 100;
             this.eatingBar.Minimum = 0;
             this.eatingBar.Name = "eatingBar";
-            this.eatingBar.Size = new System.Drawing.Size(18, 84);
+            this.eatingBar.Size = new System.Drawing.Size(18, 88);
             this.eatingBar.Step = 10;
             this.eatingBar.Style = VerticalProgressBar.Styles.Solid;
             this.eatingBar.TabIndex = 27;
             this.eatingBar.Value = 0;
-            this.eatingBar.Load += new System.EventHandler(this.eatingBar_Load);
             this.eatingBar.Click += new System.EventHandler(this.EatingBar_Click);
             // 
             // UI

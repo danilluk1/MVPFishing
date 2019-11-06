@@ -36,18 +36,42 @@ namespace Fishing.BL.Model.Drawer
         {
             if (player.FirstRoad != null)
             {
-                graphic.DrawEllipse(new Pen(sbrush), player.FirstRoad.CurPoint.X, player.FirstRoad.CurPoint.Y, 4, 4);
+                if(player.FirstRoad == player.EquipedRoad)
+                {
+                    sbrush.Color = Color.Red;
+                }
+                else
+                {
+                    sbrush.Color = Color.White;
+                }
+                graphic.DrawEllipse(new Pen(Color.White), player.FirstRoad.CurPoint.X, player.FirstRoad.CurPoint.Y, 4, 4);
                 graphic.FillEllipse(sbrush, player.FirstRoad.CurPoint.X, player.FirstRoad.CurPoint.Y, 4, 4);
             }
 
             if (player.SecondRoad != null)
             {
-                graphic.DrawEllipse(new Pen(sbrush), player.SecondRoad.CurPoint.X, player.SecondRoad.CurPoint.Y, 4, 4);
+                if (player.SecondRoad == player.EquipedRoad)
+                {
+                    sbrush.Color = Color.Red;
+                }
+                else
+                {
+                    sbrush.Color = Color.White;
+                }
+                graphic.DrawEllipse(new Pen(Color.White), player.SecondRoad.CurPoint.X, player.SecondRoad.CurPoint.Y, 4, 4);
                 graphic.FillEllipse(sbrush, player.SecondRoad.CurPoint.X, player.SecondRoad.CurPoint.Y, 4, 4);
             }
             if (player.ThirdRoad != null)
             {
-                graphic.DrawEllipse(new Pen(sbrush), player.ThirdRoad.CurPoint.X, player.ThirdRoad.CurPoint.Y, 4, 4);
+                if (player.ThirdRoad == player.EquipedRoad)
+                {
+                    sbrush.Color = Color.Red;
+                }
+                else
+                {
+                    sbrush.Color = Color.White;
+                }
+                graphic.DrawEllipse(new Pen(Color.White), player.ThirdRoad.CurPoint.X, player.ThirdRoad.CurPoint.Y, 4, 4);
                 graphic.FillEllipse(sbrush, player.ThirdRoad.CurPoint.X, player.ThirdRoad.CurPoint.Y, 4, 4);
             }
         }

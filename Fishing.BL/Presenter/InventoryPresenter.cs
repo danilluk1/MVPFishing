@@ -134,10 +134,7 @@ namespace Fishing.Presenter
                     Player.GetPlayer().SetGameRoad(view.Assembly_P, index);
                     Player.GetPlayer().SetEquipedRoad(index);
                     view.Assembly_P.IsEquiped = true;
-                    gui.BaitPicture = view.Assembly_P.FishBait.Pict;
-                    gui.RoadPicture = view.Assembly_P.Road.Pict;
-                    gui.ReelPicture = view.Assembly_P.Reel.Pict;
-                    gui.FLinePicture = view.Assembly_P.FLine.Pict;
+                    gui.AddRoadToGUI(Player.GetPlayer().EquipedRoad);
             }
             catch (NullReferenceException) { }
         }

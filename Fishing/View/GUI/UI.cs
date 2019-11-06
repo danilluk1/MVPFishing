@@ -1,5 +1,6 @@
 ﻿using Fishing.BL.Model.Baits;
 using Fishing.BL.Model.Game;
+using Fishing.BL.Model.Items;
 using Fishing.BL.Model.MapFactory;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Presenter;
@@ -42,16 +43,27 @@ namespace Fishing
             catch (NullReferenceException) { }
             MoneyLValue = Player.GetPlayer().Money;
             Game.GetGame().HoursInc += GUI_HoursInc;
+            Player.GetPlayer().EventHistoryUpdated += ShowLastEvent;
+            Player.GetPlayer().SatietyUpdated += SatietyUpdated;
             timeLabel.Text = Game.GetGame().Time.ToString();
         }
 
+        private void SatietyUpdated(int obj)
+        {
+            eatingBar.Increment(obj);
+        }
+
+        private void ShowLastEvent()
+        {
+            AddEventToBox(Player.GetPlayer().EventHistory.Peek());
+        }
         private void GUI_HoursInc(object sender, EventArgs e)
         {
             timeLabel.Text = Game.GetGame().Time.ToString();
         }
 
         public Bitmap BaitPicture { get => (Bitmap)BaitsPicture.BackgroundImage; set => BaitsPicture.BackgroundImage = value; }
-        public int DeepValue { get => Convert.ToInt32(DeepLabel.Text); set => DeepLabel.Text = value.ToString(); }
+        public string DeepValue { get => DeepLabel.Text; set => DeepLabel.Text = value; }
         public int RoadBarValue { get => ReelBar.Value; set => ReelBar.Value = value; }
         public int FLineBarValue { get => FLineBar.Value; set => FLineBar.Value = value; }
         public int EventBoxItemsCount { get => eventsView.Items.Count; set => throw new NotImplementedException(); }
@@ -111,7 +123,7 @@ namespace Fishing
 
         private void EatingBar_Click(object sender, EventArgs e)
         {
-            FoodPresenter presenter = new FoodPresenter(new FoodInventory());
+            var presenter = new FoodPresenter(new FoodInventory());
         }
 
         private void SounderPanel_Paint(object sender, PaintEventArgs e)
@@ -170,8 +182,21 @@ namespace Fishing
             }
         }
 
-        private void eatingBar_Load(object sender, EventArgs e)
+        public void AddRoadToGUI(GameRoad road)
         {
+            BaitPicture = null;
+            RoadPicture = null;
+            ReelPicture = null;
+            FLinePicture = null;
+            HookPicture = null;
+            BaitPicture = road.Assembly.FishBait.Pict;
+            FLinePicture = road.Assembly.FLine.Pict;
+            RoadPicture = road.Assembly.Road.Pict;
+            ReelPicture = road.Assembly.Reel.Pict;
+            if (road.Assembly.Road is Feeder)
+            {
+                HookPicture = road.Assembly.Hook.Pict;
+            }
         }
     }
 }

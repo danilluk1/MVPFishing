@@ -1,4 +1,5 @@
 ﻿using Fishing.BL.Model.Game;
+using Fishing.BL.Model.Items;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +10,7 @@ namespace Fishing
 {
     public abstract class LVL
     {
-        private Player player = Player.GetPlayer();
+        private readonly Player player = Player.GetPlayer();
         public Image Image { get; set; }
         public int Widgth;
         public int Height;
@@ -45,9 +46,19 @@ namespace Fishing
                             road.FLineIncValue = Convert.ToInt32(flineCoef * 100);
 
                             int Gathering = randomGathering.Next(1, 100);
-                            if (Gathering <= road.Assembly.Hook.GatheringChance)
+                            if (road.Assembly.Road is Spinning)
                             {
-                                return (true, true);
+                                if (Gathering <= 5)
+                                {
+                                    return (true, true);
+                                }
+                            }
+                            if (road.Assembly.Road is Feeder)
+                            {
+                                if (Gathering <= road.Assembly.Hook.GatheringChance)
+                                {
+                                    return (true, true);
+                                }
                             }
 
                             return (true, false);
@@ -80,27 +91,6 @@ namespace Fishing
             catch (InvalidOperationException)
             {
                 return false;
-            }
-        }
-
-        public void AddDeep()
-        {
-            for (int x = 0; x < Widgth; x++)
-            {
-                for (int y = 0; y < Height; y++)
-                {
-                    this.Deeparr[x, y] = new Label()
-                    {
-                        Left = LabelStartX + 5 + x * 40,
-                        Top = LabelStartY + y * 23,
-                        Height = 23,
-                        TextAlign = ContentAlignment.MiddleLeft,
-                        Width = 40,
-                        Visible = true,
-                        Font = new Font("Arial", 6, FontStyle.Regular),
-                        BorderStyle = BorderStyle.FixedSingle
-                    };
-                }
             }
         }
         public void Shuffle<T>(IList<T> list)

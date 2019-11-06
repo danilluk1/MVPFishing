@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Resources.Images;
+﻿using Fishing.BL.Model.UserEvent;
+using Fishing.BL.Resources.Images;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -25,13 +26,13 @@ namespace Fishing.BL.Model.Game
             {
                 IsFishAttack = false;
                 Player.GetPlayer().Statistic.GatheringCount++;
-
+                Player.GetPlayer().AddEventToHistory(new GatheringEvent());
                 Image = Roads.road;
                 FLineIncValue = 0;
                 RoadIncValue = 0;
 
-                gatheringTimer.Stop();
             }
+            gatheringTimer.Stop();
         }
 
         private void CountFishMovesTimer_Tick(object sender, EventArgs e)
@@ -54,31 +55,41 @@ namespace Fishing.BL.Model.Game
             var (isFish, gathering) = CurLVL.GetFish(this);
             if (isFish)
             {
+                baitTimer.Stop();
                 if (Fish.Weight <= Assembly.Road.Power * 0.2)
                 {
-                    Image = Roads.izg1;
+                    GImage = Roads.izg1;
+                    HImage = Roads.izg1H;
                 }
                 else if (Fish.Weight <= Assembly.Road.Power * 0.25)
                 {
-                    Image = Roads.izg2;
+                    GImage = Roads.izg2;
+                    HImage = Roads.izg2H;
                 }
                 else if (Fish.Weight <= Assembly.Road.Power * 0.3)
                 {
-                    Image = Roads.izg3;
+                    GImage = Roads.izg3;
+                    HImage = Roads.izg3H;
                 }
                 else if (Fish.Weight <= Assembly.Road.Power * 0.4)
                 {
-                    Image = Roads.izg4;
+                    GImage = Roads.izg4;
+                    HImage = Roads.izg4H;
                 }
                 else if (Fish.Weight >= Assembly.Road.Power * 0.4)
                 {
-                    Image = Roads.izg5;
+                    GImage = Roads.izg5;
+                    HImage = Roads.izg5H;
                 }
                 countFishMovesTimer.Start();
                 if (gathering)
                 {
+                    Random r = new Random();
+                    var res = r.Next(100, 5000);
+                    gatheringTimer.Interval = res;
                     gatheringTimer.Start();
                 }
+                Image = GImage;
             }
         }
 
@@ -97,6 +108,8 @@ namespace Fishing.BL.Model.Game
 
         public LVL CurLVL { get; set; }
         public Image Image { get; set; }
+        public Image HImage { get; set; }
+        public Image GImage { get; set; }
         public Assembly Assembly { get; set; }
         public Fish Fish { get; set; }
 
@@ -114,6 +127,7 @@ namespace Fishing.BL.Model.Game
         public int CurrentDeep;
         public int RoadIncValue;
         public int FLineIncValue;
+
         public void StartBaitTimer()
         {
             if (IsBaitInWater)

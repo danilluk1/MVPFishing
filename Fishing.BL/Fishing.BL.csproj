@@ -65,7 +65,6 @@
     <Compile Include="Model\Eating\Bread.cs" />
     <Compile Include="Model\Eating\Caviar.cs" />
     <Compile Include="Model\Eating\Cheese.cs" />
-    <Compile Include="Model\EventHelper\EventHelper.cs" />
     <Compile Include="Model\Fishes\Asp.cs" />
     <Compile Include="Model\Fishes\Bream.cs" />
     <Compile Include="Model\Fishes\Burbot.cs" />
@@ -87,6 +86,7 @@
     <Compile Include="Model\Hooks\BaseHook.cs" />
     <Compile Include="Model\Hooks\FeederHook.cs" />
     <Compile Include="Model\Hooks\FloatsHook.cs" />
+    <Compile Include="Model\FishString.cs" />
     <Compile Include="Model\Items\Feeder.cs" />
     <Compile Include="Model\Items\Float.cs" />
     <Compile Include="Model\Items\Spinning.cs" />
@@ -96,6 +96,7 @@
     <Compile Include="Model\Trip\TripToWater.cs" />
     <Compile Include="Model\UserEvent\FishEvent.cs" />
     <Compile Include="Model\UserEvent\FLineTornEvent.cs" />
+    <Compile Include="Model\UserEvent\FoodEvent.cs" />
     <Compile Include="Model\UserEvent\GatheringEvent.cs" />
     <Compile Include="Model\UserEvent\RoadBrokenEvent.cs" />
     <Compile Include="Model\UserEvent\TrophyFishEvent.cs" />
@@ -434,8 +435,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\LVLS\Ozero\LVL1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

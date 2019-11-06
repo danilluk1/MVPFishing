@@ -48,7 +48,7 @@ namespace Fishing
                             {
                                 return true;
                             }
-                            else if(Road is Spinning)
+                            if(Road is Spinning)
                             {
                                 return true;
                             }

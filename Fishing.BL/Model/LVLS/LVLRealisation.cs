@@ -16,28 +16,22 @@ namespace Fishing.BL.Model.LVLS
     public class LVLRealisation : LVL
     {
         static LabelInfo[,] list;
-        static string path = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "boloto";
+        static string path = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "Болото";
         public LVLRealisation(string name)
         {
             Name = name;
-            GetLVLData(name);
-            SetDeep();
-            AddDeep();
-            AddFishes();
         }
         public override void AddFishes()
         {
-            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "boloto";
+            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "Болото";
             string line;
             System.IO.StreamReader file =
                     new System.IO.StreamReader(p + "\\" + "FishesList");
             while ((line = file.ReadLine()) != null)
             {
-                switch (line)
-                {
-                    case "Голец аркт":
-                        break;
-                }
+                FishString fs = new FishString(line);
+                var fish = fs.GetFishByStr(line);
+                Fishes.Add(fish);
             }
         }
 
@@ -46,22 +40,33 @@ namespace Fishing.BL.Model.LVLS
             Deeparr = new Label[Widgth, Height];
             SerializeDataSaver saver = new SerializeDataSaver();
             LabelInfo[,] deep = saver.Load<LabelInfo[,]>(path + "\\" + "DeepField.dat");
-            for(int y = 0; y < Height; y++) 
+            for (int x = 0; x < Widgth; x++)
             {
-                for(int x = 0; x < Widgth; x++)
+                for (int y = 0; y < Height; y++)
                 {
-                    Deeparr[x, y] = new Label();
-                    Deeparr[x, y].Text = deep[x, y].Deep;
-                    Deeparr[x, y].Tag = deep[x, y].IsSnag;
+                    this.Deeparr[x, y] = new Label()
+                    {
+                        Left = LabelStartX + 5 + x * 40,
+                        Top = LabelStartY + y * 23,
+                        Height = 23,
+                        TextAlign = ContentAlignment.MiddleLeft,
+                        ForeColor = Color.White,
+                        Width = 40,
+                        Visible = true,
+                        Font = new Font("Arial", 8, FontStyle.Regular),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Text = deep[x, y].Deep,                      
+                        Tag = deep[x, y].IsSnag
+                    };
                 }
             }
         }
         
         public LVL GetLVLData(string path)
         {
-            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "boloto";
+            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "Болото";
             SerializeDataSaver s = new SerializeDataSaver();
-            Image = Image.FromFile(p+ "\\BackImg.png");
+            Image = Image.FromFile(p+ "\\BackImg.jpg");
             string sb = File.ReadAllText(p + "\\" + "LVLInfo");
             string[] ar = sb.Split(' ');
             Widgth = Convert.ToInt32(ar[0]);

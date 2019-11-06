@@ -84,11 +84,14 @@ namespace Fishing.View.Trip
         {
             if (Game.GetGame().CurrentWater != trip.TripWater)
             {
-                Game.GetGame().CurrentWater = trip.TripWater;
-                Game.GetGame().Time.IncHours(trip.HoursInTrip);
-                Player.GetPlayer().Money -= trip.Price;
-                timeLabel.Text = Game.GetGame().Time.ToString();
-                moneyLabel.Text = Player.GetPlayer().Money.ToString();
+                if (Player.GetPlayer().Money >= trip.Price)
+                {
+                    Game.GetGame().CurrentWater = trip.TripWater;
+                    Game.GetGame().Time.IncHours(trip.HoursInTrip);
+                    Player.GetPlayer().Money -= trip.Price;
+                    timeLabel.Text = Game.GetGame().Time.ToString();
+                    moneyLabel.Text = Player.GetPlayer().Money.ToString();
+                }
             }
             else
             {

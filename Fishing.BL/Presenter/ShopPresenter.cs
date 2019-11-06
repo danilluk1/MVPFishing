@@ -36,7 +36,7 @@ namespace Fishing.Presenter
         {
             if (IsPlayerAbleToBuyItem(view.Bait_P))
             {
-                Player.GetPlayer().BaitInv.Add(view.Bait_P);
+                Player.GetPlayer().AddBait(view.Bait_P);
                 Player.GetPlayer().Money -= view.Bait_P.Price;
                 view.MoneyL = Player.GetPlayer().Money.ToString();
                 view.LowerL = "Куплено...";
@@ -56,7 +56,7 @@ namespace Fishing.Presenter
 
         private void View_ProductDoubleClick(object sender, EventArgs e)
         {
-            if (IsPlayerAbleToBuyItem(view.Road_P))
+            if (IsPlayerAbleToBuyItem(view.Food_P))
             {
                 Player.GetPlayer().FoodInv.Add(view.Food_P);
                 Player.GetPlayer().Money -= view.Food_P.Price;

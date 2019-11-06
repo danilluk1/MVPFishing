@@ -101,26 +101,6 @@ namespace Fishing
         {
             this.Refresh();
         }
-        public void StopBaitTimer()
-        {
-            baitTimer.Stop();
-        }
-
-        public void StartBaitTimer()
-        {
-            baitTimer.Start();
-        }
-
-        public void StartGatheringTimer()
-        {
-            GatheringTimer.Start();
-        }
-
-        public void StopGatheringTimer()
-        {
-            GatheringTimer.Stop();
-        }
-
         public void CreateCurrentFish(Fish fish)
         {
             var f = new CurrentFish(fish);
@@ -148,16 +128,6 @@ namespace Fishing
         private void GameForm_MouseClick(object sender, MouseEventArgs e)
         {
             MouseClick?.Invoke(this, e);
-        }
-
-        public void StartFishMovesTimer()
-        {
-            fishMovestimer.Start();
-        }
-
-        public void StopFishMovesTimer()
-        {
-            fishMovestimer.Stop();
         }
     }
 }

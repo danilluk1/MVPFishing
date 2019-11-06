@@ -29,8 +29,8 @@ namespace Fishing.BL.Presenter
                 for (int i = 0; i < CurLVL.Height - 1; i++)
                 {
                     drawX2 = drawX + (SOUNDERWIDTH / (CurLVL.Height - 1));
-                    g.DrawLine(new Pen(Color.White, 2), drawX, (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i].Tag / 10, drawX2,
-                                                                                (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i + 1].Tag / 10);
+                    g.DrawLine(new Pen(Color.White, 2), drawX, Convert.ToInt32(CurLVL.Deeparr[Sounder.GetSounder().Row, i].Text) / 10, drawX2,
+                                                                                Convert.ToInt32(CurLVL.Deeparr[Sounder.GetSounder().Row, i + 1].Text) / 10);
                     drawX = drawX2;
                 }
                 DrawPoint(g);
@@ -42,7 +42,7 @@ namespace Fishing.BL.Presenter
         {
             Player player = Player.GetPlayer();
             float coef = 0;
-            int height = CurLVL.Deeparr[0, CurLVL.Height - 1].Location.Y - CurLVL.LabelStartY;
+            int height = 23 * CurLVL.Height;
             if(height >= SOUNDERWIDTH)
             {
                 coef = SOUNDERWIDTH / height;
@@ -51,7 +51,7 @@ namespace Fishing.BL.Presenter
             {
                 coef = height / SOUNDERWIDTH;
             }
-            float x = (player.EquipedRoad.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y) * coef;
+            float x = Sounder.GetSounder().Column * (SOUNDERWIDTH / CurLVL.Height);
             g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().EquipedRoad.CurrentDeep / 10 - 4, 4, 4);
         }
     }

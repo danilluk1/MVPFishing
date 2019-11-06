@@ -34,7 +34,7 @@ namespace Fishing
             this.Bitmap = bit;
             this.ActivityParts = activParts;
         }
-
+        
         public bool isTrophy()
         {
             bool res = Weight < TrophyWeight ? false : true;

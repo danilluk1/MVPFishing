@@ -4,6 +4,7 @@ using Fishing.BL.Model.Hooks;
 using Fishing.Presenter;
 using Fishing.View.Shop;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Fishing
@@ -17,8 +18,17 @@ namespace Fishing
             ReelsList.DataSource = Item.ReelShop;
             FLineList.DataSource = Item.LeskaShop;
             foodsBox.DataSource = BaseFood.FoodShop;
-            lureBox.DataSource = Item.LureShop;
-            baitsList.DataSource = Item.BaitsShop;
+            foreach (var fb in FishBait.FishBaits)
+            {
+                if (fb is Lure)
+                {
+                    lureBox.Items.Add(fb);
+                }
+                if (fb is Bait)
+                {
+                    baitsList.Items.Add(fb);
+                }
+            }
             hookList.DataSource = Item.HooksShop;
             moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
@@ -92,56 +102,9 @@ namespace Fishing
             }
         }
 
-        public BaseFood Food_P
-        {
-            get
-            {
-                try
-                {
-                    return BaseFood.FoodShop[foodsBox.SelectedIndex];
-                }
-                catch (ArgumentOutOfRangeException) { }
-
-                return null;
-            }
-            set
-            {
-            }
-        }
-
-        public Lure Lure_P
-        {
-            get
-            {
-                try
-                {
-                    return Item.LureShop[lureBox.SelectedIndex];
-                }
-                catch (ArgumentOutOfRangeException) { }
-
-                return null;
-            }
-            set
-            {
-            }
-        }
-
-        public Bait Bait_P
-        {
-            get
-            {
-                try
-                {
-                    return Item.BaitsShop[baitsList.SelectedIndex];
-                }
-                catch (ArgumentOutOfRangeException) { }
-
-                return null;
-            }
-            set
-            {
-            }
-        }
+        public BaseFood Food_P { get => BaseFood.FoodShop[foodsBox.SelectedIndex]; set => throw new ArgumentNullException(); }
+        public Lure Lure_P { get => (Lure)FishBait.GetFishBaitByName(lureBox.SelectedItem.ToString()); set => throw new ArgumentException(); }
+        public Bait Bait_P { get => (Bait)FishBait.GetFishBaitByName(baitsList.SelectedItem.ToString()); set => throw new ArgumentException(); }
 
         public BaseHook Hook_P
         {
