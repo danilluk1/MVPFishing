@@ -72,7 +72,7 @@ namespace Fishing.View.Trip
         private void WatersBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             trip = new TripToWater();
-            var water = new WaterRealisation(Game.GetGame().Waters[watersBox.SelectedIndex]);
+            var water = new WaterRealisation();
             trip.TripWater = water.GetLVL(Game.GetGame().Waters[watersBox.SelectedIndex]);
             mapBox.BackgroundImage = trip.TripWater.MapImage;
             trip.CountPrice();
@@ -82,7 +82,7 @@ namespace Fishing.View.Trip
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            if (Game.GetGame().CurrentWater != trip.TripWater)
+            if (Game.GetGame().CurrentWater.Name != trip.TripWater.Name)
             {
                 if (Player.GetPlayer().Money >= trip.Price)
                 {

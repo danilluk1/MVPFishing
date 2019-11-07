@@ -6,28 +6,30 @@ namespace Fishing.View.Assembly
 {
     public partial class AddAssembly : Form, IAddAssembly
     {
-        private AssemblyPresenter presenter;
 
         public AddAssembly()
         {
             InitializeComponent();
-            presenter = new AssemblyPresenter(this);
-            presenter.CloseForm += Presenter_CloseForm;
         }
 
         public string AssemblyName { get => nameBox.Text; set => AssemblyName = nameBox.Text; }
+        public BasePresenter Presenter { private get; set; }
 
         public event EventHandler AddAssemblyClick;
 
-        private void Presenter_CloseForm(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Add_Click(object sender, EventArgs e)
         {
-            if (AddAssemblyClick != null)
-                AddAssemblyClick(this, EventArgs.Empty);
+            AddAssemblyClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void Open()
+        {
+            this.Show();
+        }
+
+        public void Down()
+        {
+            this.Close();
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Saver.BL.Controller
             Player.GetPlayer().EventHistory = saver.Load<Stack<BaseEvent>>(ConfigPaths.EVENTHSTR_DIR) ?? new Stack<BaseEvent>();
             Player.GetPlayer().Statistic = saver.Load<Statistic>(ConfigPaths.STATS_DIR) ?? new Statistic();
             Player.GetPlayer().Satiety = Convert.ToInt32(saver.Load<string>(ConfigPaths.SATIETY_DIR) ?? "100");
-            Player.GetPlayer().FoodInv = saver.Load<BindingList<BaseFood>>(ConfigPaths.FOODS_DIR) ?? new BindingList<BaseFood>();
+            Player.GetPlayer().FoodInv = saver.Load<BindingList<Food>>(ConfigPaths.FOODS_DIR) ?? new BindingList<Food>();
             Player.GetPlayer().BaitInv = saver.Load<BindingList<Bait>>(ConfigPaths.BAIT_DIR) ?? new BindingList<Bait>();
             Player.GetPlayer().HooksInv = saver.Load<BindingList<BaseHook>>(ConfigPaths.HOOKS_DIR) ?? new BindingList<BaseHook>();
             Game.GetGame().Time = saver.Load<Time>(ConfigPaths.TIME_DIR);
@@ -54,7 +54,10 @@ namespace Saver.BL.Controller
             {
                 Game.GetGame().Waters.Add(item.ToString());
             }
-            // Game.GetGame().CurrentWater = new WaterRealisation("Исеть");
+            string wName = saver.Load<string>(ConfigPaths.WATER_DIR) ?? "Тобол";
+            WaterRealisation wr = new WaterRealisation();
+            wr.GetLVL(wName);
+            Game.GetGame().CurrentWater = wr;
         }
 
         public void SavePlayer()
@@ -72,7 +75,7 @@ namespace Saver.BL.Controller
             saver.Save(ConfigPaths.FOODS_DIR, Player.GetPlayer().FoodInv);
             saver.Save(ConfigPaths.SATIETY_DIR, Player.GetPlayer().Satiety.ToString());
             saver.Save(ConfigPaths.TIME_DIR, Game.GetGame().Time);
-            saver.Save(ConfigPaths.WATER_DIR, Game.GetGame().CurrentWater);
+            saver.Save(ConfigPaths.WATER_DIR, Game.GetGame().CurrentWater.Name);
             saver.Save(ConfigPaths.BAIT_DIR, Player.GetPlayer().BaitInv);
             saver.Save(ConfigPaths.HOOKS_DIR, Player.GetPlayer().HooksInv);
         }

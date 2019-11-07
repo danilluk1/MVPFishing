@@ -46,18 +46,8 @@ namespace Fishing.Presenter
             Item.ReelShop.Add(Reel.SYBERIA_4);
             Item.ReelShop.Add(Reel.Zymix);
             Item.ReelShop.Add(Reel.Syberia_1);
-            Item.ReelShop.Add(Reel.TBR_4000);
-            BaseFood.FoodShop.Add(BaseFood.blackcaviar);
-            BaseFood.FoodShop.Add(BaseFood.caviar);
-            BaseFood.FoodShop.Add(BaseFood.bread);
-            BaseFood.FoodShop.Add(BaseFood.cheese);           
+            Item.ReelShop.Add(Reel.TBR_4000);     
             Item.RoadShop.Add(Road.Vesta276);
-            FishBait.FishBaits.Add(Bait.worm);
-            FishBait.FishBaits.Add(Bait.maggot);
-            FishBait.FishBaits.Add(Bait.livebait);
-            FishBait.FishBaits.Add(Bait.caviar);
-            FishBait.FishBaits.Add(Bait.cheese);
-            FishBait.FishBaits.Add(Bait.corn);
             Item.HooksShop.Add(FeederHook.feeder1);
             Item.HooksShop.Add(FeederHook.feeder2);
             Item.HooksShop.Add(FeederHook.feeder3);
@@ -65,7 +55,14 @@ namespace Fishing.Presenter
             Item.HooksShop.Add(FloatsHook.barakuda);
             Item.HooksShop.Add(FloatsHook.takara);
             Item.HooksShop.Add(FloatsHook.wormStrong);
-            Player.GetPlayer().LureInv.Add(new Jig("Виброхвост 4", Size.XL, DeepType.Jig, 500, Images.Tvis_119));
+
+            FishBait.FishBaits.Add(new Bait("Сыр", 30, 500, Images.cheeze));
+            FishBait.FishBaits.Add(new Bait("Червь", 30, 50, Images.worm));
+            FishBait.FishBaits.Add(new Bait("Опарыш", 30, 150, Images.worm));
+            FishBait.FishBaits.Add(new Bait("Опарыш", 30, 150, Images.zhivec));
+            FishBait.FishBaits.Add(new Bait("Икра", 30, 1000, Images.ikra));
+            FishBait.FishBaits.Add(new Bait("Кукуруза", 30, 250, Images.corn));
+            FishBait.FishBaits.Add(new Wobbler("Составник", Size.Large, DeepType.Flying, 3000, Images.Vob_3015));
             FishBait.FishBaits.Add(new Wobbler("Составник", Size.Large, DeepType.Flying, 3000, Images.Vob_3015));
             FishBait.FishBaits.Add(new Wobbler("Воблер 2", Size.XL, DeepType.Flying, 3000, Images.Vob_3002));
             FishBait.FishBaits.Add(new Wobbler("Воблер 3", Size.Small, DeepType.Top, 3000, Images.Vob_3003));
@@ -80,6 +77,25 @@ namespace Fishing.Presenter
             FishBait.FishBaits.Add(new Jig("Виброхвост 2", Size.Small, DeepType.Jig, 500, Images.Tvis_105));
             FishBait.FishBaits.Add(new Jig("Виброхвост 3", Size.Large, DeepType.Jig, 500, Images.Tvis_104));
             FishBait.FishBaits.Add(new Jig("Виброхвост 4", Size.XL, DeepType.Jig, 500, Images.Tvis_119));
+            Food.Foods.Add(new Food("Хлеб", 50, 10, Images.hleb));
+            Food.Foods.Add(new Food("Икра", 1500, 30, Images.ikra));
+            Food.Foods.Add(new Food("Икра Чёрная", 5000, 70, Images.black));
+            Food.Foods.Add(new Food("Сыр", 1000, 50, Images.black));
+            Food.Foods.Add(new Food("Печенье", 500, 25, Images.black));
+            Food.Foods.Add(new Food("Скумбрия", 700, 35, Images.black));
+            Food.Foods.Add(new Food("Рыбные консервы", 700, 35, Images.fishkonc));
+            Food.Foods.Add(new Food("Бананы", 250, 5, Images.banany));
+            Food.Foods.Add(new Food("Апельсины", 500, 20, Images.apelsin));
+        }
+
+        public override void Run()
+        {
+            view.Open();
+        }
+
+        public override void End()
+        {
+            view.Down();
         }
     }
 }

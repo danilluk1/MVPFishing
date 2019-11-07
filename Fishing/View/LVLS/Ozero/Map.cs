@@ -40,8 +40,8 @@ namespace Fishing
 
         private void Box_Click(object sender, EventArgs e)
         {
-            var lvlrealisation = new LVLRealisation((sender as PictureBox).Tag.ToString());
-            lvlrealisation.GetLVLData(lvlrealisation.Name);
+            var lvlrealisation = new LVLRealisation();
+            lvlrealisation.GetLVLData((sender as PictureBox).Tag.ToString());
             Create(lvlrealisation);
         }
 
@@ -66,6 +66,7 @@ namespace Fishing
             UI.gui = new UI(lvl);
             Game.GetGame().View = new GameForm();
             var presenter = new LVLPresenter(Game.GetGame().View, UI.gui, lvl);
+            presenter.Run();
             var field = new DeepField(lvl);
             UI.gui.Show();
             this.Close();

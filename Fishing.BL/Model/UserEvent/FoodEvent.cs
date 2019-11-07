@@ -10,7 +10,7 @@ namespace Fishing.BL.Model.UserEvent
     [Serializable]
     class FoodEvent : BaseEvent
     {
-        public FoodEvent(BaseFood food) : base(Player.GetPlayer().NickName + " Съел " + food.Name, 8)
+        public FoodEvent(Food food) : base(Player.GetPlayer().NickName + " Съел " + food.Name, 8)
         {
         }
     }

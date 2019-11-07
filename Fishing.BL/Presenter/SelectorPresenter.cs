@@ -48,5 +48,15 @@ namespace Fishing.View.LureSelector.Presenter
             {
             }
         }
+
+        public override void Run()
+        {
+            view.Open();
+        }
+
+        public override void End()
+        {
+            view.Down();
+        }
     }
 }

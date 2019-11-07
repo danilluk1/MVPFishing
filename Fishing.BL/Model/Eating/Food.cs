@@ -1,16 +1,17 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 
 namespace Fishing.BL.Model.Eating
 {
     [Serializable]
-    public abstract class BaseFood : Item
-    {
-        public static BindingList<BaseFood> FoodShop = new BindingList<BaseFood>();
+    public class Food : Item
+    {       
+        public static BindingList<Food> Foods = new BindingList<Food>();
         public int Productivity { get; set; }
 
-        public BaseFood(string name, int price, int productivity, Bitmap bit) : base(name, price, bit)
+        public Food(string name, int price, int productivity, Bitmap bit) : base(name, price, bit)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -19,14 +20,14 @@ namespace Fishing.BL.Model.Eating
             Productivity = productivity;
         }
 
+        public static Food GetFoodByName(string name)
+        {
+            var food = Foods.SingleOrDefault(f => f.Name.Equals(name));
+            return food;
+        }
         public override string ToString()
         {
             return Name;
         }
-
-        public static Bread bread = new Bread();
-        public static Cheese cheese = new Cheese();
-        public static Caviar caviar = new Caviar();
-        public static BlackCaviar blackcaviar = new BlackCaviar();
     }
 }

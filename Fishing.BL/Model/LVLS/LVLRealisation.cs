@@ -16,14 +16,13 @@ namespace Fishing.BL.Model.LVLS
     public class LVLRealisation : LVL
     {
         static LabelInfo[,] list;
-        static string path = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "Болото";
-        public LVLRealisation(string name)
+        
+        public LVLRealisation()
         {
-            Name = name;
         }
         public override void AddFishes()
         {
-            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "Болото";
+            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + Name;
             string line;
             System.IO.StreamReader file =
                     new System.IO.StreamReader(p + "\\" + "FishesList");
@@ -37,9 +36,10 @@ namespace Fishing.BL.Model.LVLS
 
         public override void SetDeep()
         {
+            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + Name;
             Deeparr = new Label[Widgth, Height];
             SerializeDataSaver saver = new SerializeDataSaver();
-            LabelInfo[,] deep = saver.Load<LabelInfo[,]>(path + "\\" + "DeepField.dat");
+            LabelInfo[,] deep = saver.Load<LabelInfo[,]>(p + "\\" + "DeepField.dat");
             for (int x = 0; x < Widgth; x++)
             {
                 for (int y = 0; y < Height; y++)
@@ -64,7 +64,8 @@ namespace Fishing.BL.Model.LVLS
         
         public LVL GetLVLData(string path)
         {
-            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + "Болото";
+            Name = path;
+            string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + path;
             SerializeDataSaver s = new SerializeDataSaver();
             Image = Image.FromFile(p+ "\\BackImg.jpg");
             string sb = File.ReadAllText(p + "\\" + "LVLInfo");

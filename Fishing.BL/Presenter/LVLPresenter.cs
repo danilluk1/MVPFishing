@@ -37,7 +37,6 @@ namespace Fishing.Presenter
             this.gui = v;
             view.LVLPresenter = this;
             view.BackImage = CurLVL.Image;
-            view.Open();
             player = Player.GetPlayer();
             sp = new SoundPlayer();
 
@@ -57,6 +56,7 @@ namespace Fishing.Presenter
         private void View_FormClose(object sender, EventArgs e)
         {
             BaseController.GetController().SavePlayer();
+            this.End();
         }
 
         private void View_MainTimerTick(object sender, EventArgs e)
@@ -439,6 +439,16 @@ namespace Fishing.Presenter
             }
 
             return false;
+        }
+
+        public override void Run()
+        {
+            view.Open();
+        }
+
+        public override void End()
+        {
+            view.Down();
         }
     }
 }

@@ -127,6 +127,9 @@
   <data name="Atlantic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Atlantic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="banany" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\banany.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="barah_but01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\barah_but01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,12 +175,6 @@
   <data name="Colorado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Colorado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="compass1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\compass1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="compass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\compass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="corn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\corn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,11 +190,20 @@
   <data name="DRACO_FD_1704" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\DRACO FD 1704.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fishkonc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\fishkonc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fon11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\fon11.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fon8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\fon8.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="foodshopbutton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\food1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foodshopbutton2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\food2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="forel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\1052.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -292,6 +298,12 @@
   <data name="map" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\map.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="mapbutton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\compass1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapbutton2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\compass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Marco_R1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Marco-R1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -361,6 +373,9 @@
   <data name="ozerolvl4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ozerolvl4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pech" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\pech.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="perlovka" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\perlovka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -421,13 +436,19 @@
   <data name="road2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\road2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sellfishbutton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sell1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sellfishbutton2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sell2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="semga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\1039.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shop1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="shopbutton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\shop1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shop2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="shopbutton2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\shop2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shop_but11" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -435,6 +456,9 @@
   </data>
   <data name="sir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\sir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="skumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\skumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sounder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Sounder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -481,10 +505,10 @@
   <data name="Titanium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Titanium.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="travel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="travelbutton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\travel1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="travel2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="travelbutton2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\travel2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tvis_102" type="System.Resources.ResXFileRef, System.Windows.Forms">

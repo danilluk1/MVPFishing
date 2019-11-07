@@ -33,11 +33,6 @@ namespace Fishing.View.LureSelector
         {
             LureListIndexChanged?.Invoke(this, EventArgs.Empty);
         }
-
-        private void LureSelector_Load(object sender, EventArgs e)
-        {
-        }
-
         private void LureList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             LureListDoubleClick?.Invoke(this, EventArgs.Empty);

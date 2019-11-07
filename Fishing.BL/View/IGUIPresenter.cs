@@ -1,10 +1,11 @@
 ﻿using Fishing.BL.Model.Game;
 using Fishing.BL.Model.UserEvent;
+using Fishing.BL.View;
 using System.Drawing;
 
 namespace Fishing.View.GUI
 {
-    public interface IGUIPresenter
+    public interface IGUIPresenter : IView
     {
         Bitmap BaitPicture { get; set; }
         Image RoadPicture { get; set; }

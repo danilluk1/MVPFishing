@@ -10,7 +10,7 @@ namespace Fishing.BL.Model.Items
     [Serializable]
     public class Feeder : Road
     {
-        public Feeder(string name, ROAD_TYPE type, int power, int price, Bitmap pic) : base(name, type, power, price, pic)
+        public Feeder(string name, int wear, int power, int price, Bitmap pic) : base(name, wear, power, price, pic)
         {
         }
     }

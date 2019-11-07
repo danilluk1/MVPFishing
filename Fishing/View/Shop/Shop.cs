@@ -2,6 +2,7 @@
 using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Hooks;
 using Fishing.Presenter;
+using Fishing.View.ItemShower;
 using Fishing.View.Shop;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,6 @@ namespace Fishing
             RoadsList.DataSource = Item.RoadShop;
             ReelsList.DataSource = Item.ReelShop;
             FLineList.DataSource = Item.LeskaShop;
-            foodsBox.DataSource = BaseFood.FoodShop;
             foreach (var fb in FishBait.FishBaits)
             {
                 if (fb is Lure)
@@ -101,8 +101,6 @@ namespace Fishing
             {
             }
         }
-
-        public BaseFood Food_P { get => BaseFood.FoodShop[foodsBox.SelectedIndex]; set => throw new ArgumentNullException(); }
         public Lure Lure_P { get => (Lure)FishBait.GetFishBaitByName(lureBox.SelectedItem.ToString()); set => throw new ArgumentException(); }
         public Bait Bait_P { get => (Bait)FishBait.GetFishBaitByName(baitsList.SelectedItem.ToString()); set => throw new ArgumentException(); }
 
@@ -126,6 +124,7 @@ namespace Fishing
         private void RoadsList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             addItemtoRightView(Road_P);
+                     
         }
 
         private void FLineList_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,12 +156,6 @@ namespace Fishing
         {
             RoadDoubleClick?.Invoke(this, EventArgs.Empty);
         }
-
-        private void FoodsBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            addItemtoRightView(Food_P);
-        }
-
         private void FoodsBox_DoubleClick(object sender, EventArgs e)
         {
             ProductDoubleClick?.Invoke(this, EventArgs.Empty);
@@ -212,9 +205,9 @@ namespace Fishing
                     this.typeBox.Text = " ";
                     this.label1.Text = " ";
                 }
-                if (Item.SelectItemType(i) is BaseFood)
+                if (Item.SelectItemType(i) is Food)
                 {
-                    BaseFood r = (BaseFood)i;
+                    Food r = (Food)i;
                     this.itemBox.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Productivity.ToString();
@@ -284,6 +277,16 @@ namespace Fishing
         private void hookList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             HookDoubleClick?.Invoke(this, e);
+        }
+
+        private void RoadsList_MouseHover(object sender, EventArgs e)
+        {
+            if(RoadsList.SelectedItem != null)
+            {
+                RoadsList.
+                var shower = new ItemShower();
+                shower.Show();
+            }
         }
     }
 }

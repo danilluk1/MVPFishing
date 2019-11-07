@@ -1,7 +1,6 @@
 ﻿using Fishing.BL.Model.Baits;
 using Fishing.BL.Model.Game;
 using Fishing.BL.Model.Items;
-using Fishing.BL.Model.MapFactory;
 using Fishing.BL.Model.UserEvent;
 using Fishing.BL.Presenter;
 using Fishing.BL.View;
@@ -18,7 +17,7 @@ using System.Windows.Forms;
 
 namespace Fishing
 {
-    public partial class UI : Form, IGUI, IGUIPresenter, ISounder
+    public partial class UI : Form, IGUIPresenter, ISounder
     {
         private GUIPresenter presenter;
         private readonly SounderPresenter sound;
@@ -33,19 +32,13 @@ namespace Fishing
             eatingBar.Value = Player.GetPlayer().Satiety;
             presenter = new GUIPresenter(this);
             sound = new SounderPresenter(this, lvl);
-            try
-            {
-                BaitsPicture.Image = Player.GetPlayer().EquipedRoad.Assembly.FishBait.Pict;
-                roadBox.Image = Player.GetPlayer().EquipedRoad.Assembly.Road.Pict;
-                reelBox.Image = Player.GetPlayer().EquipedRoad.Assembly.Reel.Pict;
-                flineBox.Image = Player.GetPlayer().EquipedRoad.Assembly.FLine.Pict;
-            }
-            catch (NullReferenceException) { }
+
             MoneyLValue = Player.GetPlayer().Money;
+            timeLabel.Text = Game.GetGame().Time.ToString();
+
             Game.GetGame().HoursInc += GUI_HoursInc;
             Player.GetPlayer().EventHistoryUpdated += ShowLastEvent;
             Player.GetPlayer().SatietyUpdated += SatietyUpdated;
-            timeLabel.Text = Game.GetGame().Time.ToString();
         }
 
         private void SatietyUpdated(int obj)
@@ -75,6 +68,7 @@ namespace Fishing
         public Image ReelPicture { get => reelBox.BackgroundImage; set => reelBox.BackgroundImage = value; }
         public Image FLinePicture { get => flineBox.BackgroundImage; set => flineBox.BackgroundImage = value; }
         public Image HookPicture { get => hookBox.BackgroundImage; set => hookBox.BackgroundImage = value; }
+        public BasePresenter Presenter { private get; set; }
 
         public event PaintEventHandler SounderPaint;
 
@@ -82,16 +76,15 @@ namespace Fishing
 
         private void MapLabel_Click(object sender, EventArgs e)
         {
-            MFactory f = new MFactory(Game.GetGame().CurrentWater);
             Game.GetGame().View.Down();
-            f.CreateMap();
+            Map map = new Map();
+            map.Show();
         }
 
         private void MenuLabel_Click(object sender, EventArgs e)
         {
             UI.gui.Close();
             Game.GetGame().View.Down();
-            MenuPresenter presenter = new MenuPresenter(new Menu());
         }
 
         private void SettingLabel_Click(object sender, EventArgs e)
@@ -124,6 +117,17 @@ namespace Fishing
         private void EatingBar_Click(object sender, EventArgs e)
         {
             var presenter = new FoodPresenter(new FoodInventory());
+            presenter.Run();
+        }
+        private void InventoryBox_Click(object sender, EventArgs e)
+        {
+            var presenter = new InventoryPresenter(new Inventory(), gui);
+            presenter.Run();
+        }
+        private void StatsBox_Click(object sender, EventArgs e)
+        {
+            var presenter = new StatisticPresenter(new StatisticForm());
+            presenter.Run();
         }
 
         private void SounderPanel_Paint(object sender, PaintEventArgs e)
@@ -135,17 +139,6 @@ namespace Fishing
         {
             SounderPanel.Refresh();
         }
-
-        private void InventoryBox_Click(object sender, EventArgs e)
-        {
-            var presenter = new InventoryPresenter(new Inventory(), gui);
-        }
-
-        private void StatsBox_Click(object sender, EventArgs e)
-        {
-            StatisticPresenter presenter = new StatisticPresenter(new StatisticForm());
-        }
-
         public void AddEventToBox(BaseEvent ev)
         {
             ListViewItem lvi = new ListViewItem();
@@ -197,6 +190,16 @@ namespace Fishing
             {
                 HookPicture = road.Assembly.Hook.Pict;
             }
+        }
+
+        public void Open()
+        {
+            this.Show();
+        }
+
+        public void Down()
+        {
+            this.Show();
         }
     }
 }

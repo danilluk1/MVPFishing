@@ -10,7 +10,7 @@ namespace Fishing.BL.Model.Items
     [Serializable]
     class Spinning : Road
     {
-        public Spinning(string name, ROAD_TYPE type, int power, int price, Bitmap pic) : base(name, type, power, price, pic)
+        public Spinning(string name, int wear, int power, int price, Bitmap pic) : base(name, wear, power, price, pic)
         {
         }
     }

@@ -16,13 +16,8 @@ namespace Fishing.BL.Model.Waters
 
         public int MinLVL { get; set; }
 
-        public Water(string name, Image mi, int dp, int km, List<PicturesBoxInfo> list)
+        public Water()
         {
-            MapImage = mi;
-            DailyPrice = dp;
-            KmFromNearestStation = km;
-            Name = name;
-            Locs = list;
         }
         public abstract Water GetLVL(string name);
         public override string ToString()

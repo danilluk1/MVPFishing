@@ -1,9 +1,11 @@
-﻿using Fishing.BL.Model.Game;
-using Fishing.BL.Model.MapFactory;
+﻿using Fishing.BL.Resources.Images;
 using Fishing.Presenter;
+using Fishing.View.FishShop;
 using Fishing.View.Menu;
 using Fishing.View.Trip;
 using System;
+using System.Drawing;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace Fishing
@@ -68,6 +70,24 @@ namespace Fishing
         public void Down()
         {
             this.Close();
+        }
+
+        private void Button_MouseEnter(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            button.BackgroundImage = (Image)Images.ResourceManager.GetObject(button.Name.ToLower() + "2");
+        }
+
+        private void Button_MouseLeave(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            button.BackgroundImage = (Image)Images.ResourceManager.GetObject(button.Name.ToLower() + "1");
+        }
+
+        private void FoodShopButton_Click(object sender, EventArgs e)
+        {
+            var form = new FoodShopForm();
+            form.Show();
         }
     }
 }

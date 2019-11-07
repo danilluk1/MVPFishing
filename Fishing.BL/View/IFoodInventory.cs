@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Fishing.BL.Model.Eating;
+using System;
 using System.Drawing;
 
 namespace Fishing.BL.View
 {
     public interface IFoodInventory : IView
     {
-        int SelectedIndex { get; set; }
-        Image FoodImage { get; set; }
+        string FoodsSelectedItem { get; set; }
         string FoodProductivityTextBox { get; set; }
+        void ShowFood(Food food);
 
         event EventHandler ListSelectedIndexChanged;
 

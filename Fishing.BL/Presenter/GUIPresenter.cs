@@ -5,11 +5,21 @@ namespace Fishing.Presenter
 {
     public class GUIPresenter : BasePresenter
     {
-        private IGUI view;
+        private IGUIPresenter view;
 
-        public GUIPresenter(IGUI view)
+        public GUIPresenter(IGUIPresenter view)
         {
             this.view = view;
+        }
+
+        public override void Run()
+        {
+            view.Open();
+        }
+
+        public override void End()
+        {
+            view.Down();
         }
     }
 }

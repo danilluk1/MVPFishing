@@ -36,8 +36,6 @@ namespace Fishing.Presenter
             view.TRoadButttonClick += View_TRoadButttonClick;
             view.BaitDoubleClick += View_BaitDoubleClick;
             view.BaitSelectedIndexChanged += View_BaitSelectedIndexChanged;
-
-            view.Open();
         }
 
         private void View_TRoadButttonClick(object sender, EventArgs e)
@@ -170,7 +168,7 @@ namespace Fishing.Presenter
 
         private void View_CloseButtonClick(object sender, EventArgs e)
         {
-            view.Down();
+            End();
         }
 
         private void View_FLineSelectedIndexChanged(object sender, EventArgs e)
@@ -211,6 +209,16 @@ namespace Fishing.Presenter
         private void View_LureDoubleClick(object sender, EventArgs e)
         {
             view.LureText = view.Lure_P.Name;
+        }
+
+        public override void Run()
+        {
+            view.Open();
+        }
+
+        public override void End()
+        {
+            view.Down();
         }
     }
 }

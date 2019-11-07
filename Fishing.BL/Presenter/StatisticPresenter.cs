@@ -12,12 +12,20 @@ namespace Fishing.BL.Presenter
         {
             this.view = view;
             view.Presenter = this;
-            view.Open();
             view.LoadForm += View_Load;
         }
 
         private void View_Load(object sender, EventArgs e)
         {
+        }
+        public override void Run()
+        {
+            view.Open();
+        }
+
+        public override void End()
+        {
+            view.Down();
         }
     }
 }

@@ -40,6 +40,7 @@
             this.foodsBox.Location = new System.Drawing.Point(25, 13);
             this.foodsBox.Name = "foodsBox";
             this.foodsBox.Size = new System.Drawing.Size(213, 290);
+            this.foodsBox.Sorted = true;
             this.foodsBox.TabIndex = 0;
             this.foodsBox.SelectedIndexChanged += new System.EventHandler(this.FoodsBox_SelectedIndexChanged);
             this.foodsBox.DoubleClick += new System.EventHandler(this.FoodsBox_DoubleClick);

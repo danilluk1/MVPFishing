@@ -27,7 +27,6 @@ namespace Fishing.View.Shop
         Road Road_P { get; set; }
         Reel Reel_P { get; set; }
         FLine FLine_P { get; set; }
-        BaseFood Food_P { get; set; }
         Lure Lure_P { get; set; }
         Bait Bait_P { get; set; }
         BaseHook Hook_P { get; set; }

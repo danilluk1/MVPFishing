@@ -12,6 +12,7 @@ namespace Fishing.Presenter
         public AssemblyPresenter(IAddAssembly view)
         {
             this.view = view;
+            view.Presenter = this;
             view.AddAssemblyClick += View_AddAssemblyClick;
         }
 
@@ -19,7 +20,17 @@ namespace Fishing.Presenter
         {
             string name = view.AssemblyName;
             Player.GetPlayer().Assemblies.Add(new Assembly(name));
-            CloseForm?.Invoke(this, EventArgs.Empty);
+            End();
+        }
+
+        public override void Run()
+        {
+            view.Open();
+        }
+
+        public override void End()
+        {
+            view.Down();
         }
     }
 }

@@ -15,16 +15,8 @@ namespace Fishing.BL.Model.Waters
     [Serializable]
     public class WaterRealisation : Water
     {
-        static Image backimg;
-        static int dp = 0;
-        static int km = 0;
-        static int minlvl = 0;
-        static List<PicturesBoxInfo> locs;
-        public WaterRealisation(string name) : base(name, Images.ozero1f, 0, 0, locs)
+        public WaterRealisation()
         {
-            this.Name = name;
-            Locs = locs;
-            GetLVL(name);
         }
 
         public override Water GetLVL(string name)
@@ -38,7 +30,7 @@ namespace Fishing.BL.Model.Waters
             MinLVL = Convert.ToInt32(ar[1]);
             DailyPrice = Convert.ToInt32(ar[2]);
             KmFromNearestStation = Convert.ToInt32(ar[3]);
-            locs = s.Load<List<PicturesBoxInfo>>(path + "\\" + "Map.dat");
+            Locs = s.Load<List<PicturesBoxInfo>>(path + "\\" + "Map.dat");
             return this;
         }
     }

@@ -285,8 +285,8 @@ namespace Fishing
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
-            var addForm = new AddAssembly();
-            addForm.Show();
+            var addPresenter = new AssemblyPresenter(new AddAssembly());
+            addPresenter.Run();
         }
         private void BaitBox_Click(object sender, EventArgs e)
         {

@@ -32,7 +32,7 @@ namespace Fishing
         public BindingList<Reel> ReelInv { get; set; }
         public BindingList<FLine> FLineInv { get; set; }
         public BindingList<Lure> LureInv { get; set; }
-        public BindingList<BaseFood> FoodInv { get; set; }
+        public BindingList<Food> FoodInv { get; set; }
         public BindingList<Bait> BaitInv { get; set; }
         public BindingList<BaseHook> HooksInv { get; set; }
         public Stack<BaseEvent> EventHistory { get; set; }
@@ -80,6 +80,13 @@ namespace Fishing
                 }
             }
             return false;
+        }
+        public bool IsAbleToBuyItem(Item item)
+        {
+            bool result;
+            result = item.Price <= Money ? true : false;
+
+            return result;
         }
         public void SetGameRoad(Assembly ass, int index)
         {
@@ -228,7 +235,7 @@ namespace Fishing
                 }
             }
         }
-        public bool Eat(BaseFood food)
+        public bool Eat(Food food)
         {
             if (food != null)
             {

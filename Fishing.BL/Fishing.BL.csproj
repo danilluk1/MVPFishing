@@ -51,20 +51,9 @@
     <Compile Include="lvl.cs" />
     <Compile Include="MapInfo.cs" />
     <Compile Include="Model\Baits\Bait.cs" />
-    <Compile Include="Model\Baits\Barley.cs" />
-    <Compile Include="Model\Baits\Caviar.cs" />
-    <Compile Include="Model\Baits\Cheese.cs" />
-    <Compile Include="Model\Baits\Corn.cs" />
     <Compile Include="Model\Baits\FishBait.cs" />
-    <Compile Include="Model\Baits\LiveBait.cs" />
-    <Compile Include="Model\Baits\Maggot.cs" />
-    <Compile Include="Model\Baits\Worm.cs" />
     <Compile Include="Model\Drawer\Drawer.cs" />
-    <Compile Include="Model\Eating\BaseFood.cs" />
-    <Compile Include="Model\Eating\BlackCaviar.cs" />
-    <Compile Include="Model\Eating\Bread.cs" />
-    <Compile Include="Model\Eating\Caviar.cs" />
-    <Compile Include="Model\Eating\Cheese.cs" />
+    <Compile Include="Model\Eating\Food.cs" />
     <Compile Include="Model\Fishes\Asp.cs" />
     <Compile Include="Model\Fishes\Bream.cs" />
     <Compile Include="Model\Fishes\Burbot.cs" />
@@ -110,6 +99,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FishesImg.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Images\FoodButtons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodButtons.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Images\HooksImg.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -181,7 +175,6 @@
     <Compile Include="View\IDeepField.cs" />
     <Compile Include="View\IFoodInventory.cs" />
     <Compile Include="View\IFPond.cs" />
-    <Compile Include="View\IGUI.cs" />
     <Compile Include="View\IGUIPresenter.cs" />
     <Compile Include="View\IInventory.cs" />
     <Compile Include="View\IGameForm.cs" />
@@ -205,8 +198,13 @@
     <Content Include="Resources\85.wav" />
     <Content Include="Resources\Achilles 233.jpg" />
     <None Include="Resources\apelsin.png" />
+    <None Include="Resources\apelsin_a.png" />
+    <None Include="Resources\apelsin_d.png" />
     <Content Include="Resources\Atlantic.png" />
     <None Include="Resources\BaitHolder.png" />
+    <None Include="Resources\banany_a.png" />
+    <None Include="Resources\banany_d.png" />
+    <None Include="Resources\banany.png" />
     <Content Include="Resources\barah_but01.png" />
     <Content Include="Resources\barah_but03.png" />
     <None Include="Resources\baseback.png" />
@@ -214,6 +212,8 @@
     <Content Include="Resources\beluga.jpg" />
     <None Include="Resources\black.png" />
     <Content Include="Resources\blackkrug.png" />
+    <None Include="Resources\black_a.png" />
+    <None Include="Resources\black_d.png" />
     <Content Include="Resources\boil.png" />
     <Content Include="Resources\brake5.wav" />
     <None Include="Resources\break.png" />
@@ -249,16 +249,21 @@
     <None Include="Resources\Fider.png" />
     <None Include="Resources\Fider 2.png" />
     <None Include="Resources\Fider 3.png" />
+    <None Include="Resources\fishkonc.png" />
     <Content Include="Resources\fon11.wav" />
     <Content Include="Resources\fon8.wav" />
     <None Include="Resources\golavl.png" />
     <None Include="Resources\frog.png" />
     <None Include="Resources\GoldCarp.png" />
+    <None Include="Resources\food1.jpg" />
+    <None Include="Resources\food2.jpg" />
     <Content Include="Resources\golec.png" />
     <Content Include="Resources\gorbusha.jpg" />
     <None Include="Resources\hvastun.png" />
     <None Include="Resources\HRoad.png" />
     <None Include="Resources\ikra.png" />
+    <None Include="Resources\hleb_a.png" />
+    <None Include="Resources\hleb_d.png" />
     <Content Include="Resources\Images\hleb.png" />
     <Content Include="Resources\HYDRA 1711.png" />
     <Content Include="Resources\Hydra.png" />
@@ -317,6 +322,7 @@
     <Content Include="Resources\ozerolvl3.jpg" />
     <Content Include="Resources\ozerolvl4.jpg" />
     <None Include="Resources\perlovka.png" />
+    <None Include="Resources\pech.png" />
     <Content Include="Resources\Phantom 852.jpg" />
     <Content Include="Resources\pike.jpg" />
     <Content Include="Resources\plotva.png" />
@@ -327,6 +333,8 @@
     <Content Include="Resources\Quest Reel.png" />
     <Content Include="Resources\rak.jpg" />
     <None Include="Resources\red.png" />
+    <None Include="Resources\red_a.png" />
+    <None Include="Resources\red_d.png" />
     <Content Include="Resources\ribec.jpg" />
     <Content Include="Resources\ribec.png" />
     <Content Include="Resources\ring.wav" />
@@ -337,11 +345,16 @@
     <None Include="Resources\road.png" />
     <Content Include="Resources\road2.png" />
     <None Include="Resources\Scavenger.png" />
+    <None Include="Resources\sell2.jpg" />
+    <None Include="Resources\sell1.jpg" />
     <Content Include="Resources\sellfish.wav" />
     <None Include="Resources\shop1.jpg" />
     <None Include="Resources\shop2.jpg" />
     <Content Include="Resources\shop_but11.png" />
     <None Include="Resources\sir.png" />
+    <None Include="Resources\sir_a.png" />
+    <None Include="Resources\sir_d.png" />
+    <None Include="Resources\skumb.png" />
     <Content Include="Resources\Sounder.png" />
     <None Include="Resources\sriv.png" />
     <None Include="Resources\spoon.png" />
@@ -398,6 +411,10 @@
     <EmbeddedResource Include="Resources\Images\FishesImg.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>FishesImg.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\FoodButtons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FoodButtons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Images\HooksImg.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
