@@ -16,7 +16,6 @@ namespace Fishing
         {
             InitializeComponent();
         }
-
         public string NickNameL { get => label2.Text; set => label2.Text = value; }
         public string LowerLValue { get => label2.Text; set => label2.Text = value; }
         public BasePresenter Presenter { private get; set; }
@@ -41,11 +40,6 @@ namespace Fishing
             var presenter = new ShopPresenter(new Shop());
         }
 
-        private void InventoryButton_Click(object sender, EventArgs e)
-        {
-            var presenter = new InventoryPresenter(new Inventory());
-        }
-
         private void CloseButton_Click(object sender, EventArgs e)
         {
             ExitButtonClick?.Invoke(this, EventArgs.Empty);
@@ -60,16 +54,6 @@ namespace Fishing
         {
             var form = new TripForm();
             form.Show();
-        }
-
-        public void Open()
-        {
-            this.Show();
-        }
-
-        public void Down()
-        {
-            this.Close();
         }
 
         private void Button_MouseEnter(object sender, EventArgs e)
@@ -89,5 +73,16 @@ namespace Fishing
             var form = new FoodShopForm();
             form.Show();
         }
+
+        public void Open()
+        {
+            this.Show();
+        }
+
+        public void Down()
+        {
+            this.Close();
+        }
+
     }
 }

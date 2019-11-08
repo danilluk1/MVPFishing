@@ -45,6 +45,11 @@ namespace Fishing.BL.Model.Game
                 {
                     Fish.Power.X = fishMovingX.Next(-Fish.Power.X, Math.Abs(Fish.Power.X) + 1);
                     Fish.Power.Y = fishMovingY.Next(-Math.Abs(Fish.Power.Y), 2);
+                    Assembly.Reel.Wear -= 1;
+                    if(RoadIncValue >= 30)
+                    {
+                        Assembly.Road.Wear -= 1;
+                    }
                 }
             }
             catch (NullReferenceException) { }
@@ -95,7 +100,7 @@ namespace Fishing.BL.Model.Game
 
         public Timer baitTimer = new Timer()
         { 
-            Interval = 5000,
+            Interval = 500,
         };
         public Timer countFishMovesTimer = new Timer()
         {

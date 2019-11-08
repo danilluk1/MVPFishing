@@ -76,14 +76,13 @@ namespace Fishing
 
         private void MapLabel_Click(object sender, EventArgs e)
         {
-            Game.GetGame().View.Down();
+            UI.gui.Close();
             Map map = new Map();
             map.Show();
         }
 
         private void MenuLabel_Click(object sender, EventArgs e)
         {
-            UI.gui.Close();
             Game.GetGame().View.Down();
         }
 

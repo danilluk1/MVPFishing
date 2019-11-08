@@ -11,7 +11,7 @@ namespace Fishing.View.LVLS.Ozero
         Point CurPoint { get; set; }
         Image BackImage { get; set; }
 
-        event MouseEventHandler MouseClick;
+        event MouseEventHandler FormMouseClick;
 
         event PaintEventHandler RepaintScreen;
 

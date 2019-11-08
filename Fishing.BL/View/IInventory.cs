@@ -37,9 +37,7 @@ namespace Fishing.View.Inventory
         event EventHandler HookDoubleClick;
         event EventHandler HookSelectedIndex;
 
-        event EventHandler FRoadButttonClick;
-        event EventHandler SRoadButttonClick;
-        event EventHandler TRoadButttonClick;
+        event EventHandler RoadButtonsClick;
 
         Road Road_P { get; set; }
         Reel Reel_P { get; set; }
@@ -54,6 +52,10 @@ namespace Fishing.View.Inventory
         string FLineText { get; set; }
         string LureText { get; set; }
         string AssNumbText { get; set; }
+
+        int RoadWearValue { get; set; }
+        int ReelWearMax { get; set; }
+        int ReelWearValue { get; set; }
 
         void AddItemToRightView(Item item);
 

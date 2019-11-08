@@ -23,7 +23,7 @@ namespace Fishing
         public Image BackImage { get => BackgroundImage; set => BackgroundImage = value; }
         public LVLPresenter LVLPresenter { private get; set; }
 
-        public event EventHandler MouseClick;
+        public event MouseEventHandler FormMouseClick;
 
         public event EventHandler CountGathering;
 
@@ -53,16 +53,6 @@ namespace Fishing
             MainTimerTick?.Invoke(this, e);
         }
 
-        private void GatheringTimer_Tick(object sender, EventArgs e)
-        {
-            CountGathering?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void FishMovestimer_Tick(object sender, EventArgs e)
-        {
-            CountFishMoves?.Invoke(this, EventArgs.Empty);
-        }
-
         private void OzeroForm_KeyDown(object sender, KeyEventArgs e)
         {
             KeyDOWN?.Invoke(this, e);
@@ -73,9 +63,9 @@ namespace Fishing
             KeyUP?.Invoke(this, e);
         }
 
-        private void BaitTimer_Tick(object sender, EventArgs e)
+        private void GameForm_MouseClick(object sender, MouseEventArgs e)
         {
-            BaitTimerTick?.Invoke(this, e);
+            FormMouseClick?.Invoke(this, e);
         }
 
         private void OzeroForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -113,21 +103,6 @@ namespace Fishing
         public void Down()
         {
             this.Close();
-        }
-
-        public void StopMainTimer()
-        {
-            mainTimerTick.Stop();
-        }
-
-        public void StartMainTimer()
-        {
-            mainTimerTick.Start();
-        }
-
-        private void GameForm_MouseClick(object sender, MouseEventArgs e)
-        {
-            MouseClick?.Invoke(this, e);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Fishing.BL.Model.Baits;
 using Fishing.BL.Model.Hooks;
 using Fishing.BL.Model.Lures;
-using Fishing.BL.Resources.Images;
+using Fishing.BL.Model.Items;
 using Fishing.Presenter;
 using Fishing.View.Assembly;
 using Fishing.View.Inventory;
@@ -17,7 +17,6 @@ namespace Fishing
         public Inventory()
         {
             InitializeComponent();
-
             if (Player.GetPlayer().Assemblies.Count == 0)
             {
                 AddAssembly add = new AddAssembly();
@@ -43,15 +42,15 @@ namespace Fishing
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = r.Name;
-                if (r.Type == ROAD_TYPE.Spinning)
+                if (r is Spinning)
                 {
                     lvi.ImageIndex = roadsList.Images.IndexOfKey("shop_but02.png");
                 }
-                if(r.Type == ROAD_TYPE.Float)
+                if(r is Float)
                 {
                     lvi.ImageIndex = roadsList.Images.IndexOfKey("shop_but01.png");
                 }
-                if (r.Type == ROAD_TYPE.Feeder)
+                if (r is Feeder)
                 {
                     lvi.ImageIndex = roadsList.Images.IndexOfKey("rm_but01.png");
                 }
@@ -197,7 +196,10 @@ namespace Fishing
         public string FLineText { get => flineTextBox.Text; set => flineTextBox.Text = value; }
         public string LureText { get => lureTextBox.Text; set => lureTextBox.Text = value; }
         public BasePresenter Presenter { private get; set; }
-        public string AssNumbText { get => assNumberLabel.Text; set => assNumberLabel.Text = value; }       
+        public string AssNumbText { get => assNumberLabel.Text; set => assNumberLabel.Text = value; }
+        public int RoadWearValue { get => roadWearBar.Value; set => roadWearBar.Value = value; }
+        public int ReelWearMax { get => reelWearBar.Maximum; set => reelWearBar.Maximum = value; }
+        public int ReelWearValue { get => reelWearBar.Value; set => reelWearBar.Value = value; }
 
         public event EventHandler FLineSelectedIndexChanged;
 
@@ -223,13 +225,16 @@ namespace Fishing
 
         public event EventHandler MakeOutClick;
 
-        public event EventHandler FRoadButttonClick;
-        public event EventHandler SRoadButttonClick;
-        public event EventHandler TRoadButttonClick;
         public event EventHandler BaitDoubleClick;
         public event EventHandler BaitSelectedIndexChanged;
         public event EventHandler HookDoubleClick;
         public event EventHandler HookSelectedIndex;
+        public event EventHandler RoadButtonsClick;
+
+        private void RoadButtons_Click(object sender, EventArgs e)
+        {
+            RoadButtonsClick?.Invoke(sender, e);
+        }
 
         private void RoadsList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -303,6 +308,46 @@ namespace Fishing
             }
         }
 
+        private void roadsView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RoadSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void roadsView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            RoadDoubleClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void luresView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LureSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void luresView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            LureDoubleClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void baitsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BaitSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void baitsBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            BaitDoubleClick?.Invoke(this, e);
+        }
+
+        private void hooksBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HookSelectedIndex?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void hooksBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            HookDoubleClick?.Invoke(this, e);
+        }
+
         public void AddItemToRightView(Item item)
         {
             try
@@ -313,7 +358,7 @@ namespace Fishing
                     this.pictureBox5.BackgroundImage = r.Pict;
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Power.ToString();
-                    this.typeBox.Text = r.Type.ToString();
+                    this.typeBox.Text = r.GetType().ToString();
                 }
                 if (Item.SelectItemType(item) is Reel)
                 {
@@ -364,15 +409,15 @@ namespace Fishing
             {
                 try
                 {
-                    if(ass.Road.Type == ROAD_TYPE.Spinning)
+                    if (ass.Road is Spinning)
                     {
                         assemblyType.Text = "Спиннинг";
                     }
-                    if(ass.Road.Type == ROAD_TYPE.Feeder)
+                    if (ass.Road is Feeder)
                     {
                         assemblyType.Text = "Фидер";
                     }
-                    if (ass.Road.Type == ROAD_TYPE.Float)
+                    if (ass.Road is Float)
                     {
                         assemblyType.Text = "Поплавок";
                     }
@@ -391,7 +436,7 @@ namespace Fishing
         }
         public void SetButtonDisabled(int index)
         {
-            switch (index) 
+            switch (index)
             {
                 case 1:
                     fRoadButton.Enabled = true;
@@ -412,61 +457,6 @@ namespace Fishing
         public void Down()
         {
             this.Close();
-        }
-
-        private void fRoadButton_Click(object sender, EventArgs e)
-        {
-            FRoadButttonClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void sRoadButton_Click(object sender, EventArgs e)
-        {
-            SRoadButttonClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void tRoadButton_Click(object sender, EventArgs e)
-        {
-            TRoadButttonClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void roadsView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RoadSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void roadsView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            RoadDoubleClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void luresView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LureSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void luresView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            LureDoubleClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void baitsBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BaitSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void baitsBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            BaitDoubleClick?.Invoke(this, e);
-        }
-
-        private void hooksBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HookSelectedIndex?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void hooksBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            HookDoubleClick?.Invoke(this, e);
         }
     }
 }

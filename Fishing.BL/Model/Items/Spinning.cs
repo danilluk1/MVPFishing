@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Fishing.BL.Model.Items
 {
     [Serializable]
-    class Spinning : Road
+    public class Spinning : Road
     {
         public Spinning(string name, int wear, int power, int price, Bitmap pic) : base(name, wear, power, price, pic)
         {

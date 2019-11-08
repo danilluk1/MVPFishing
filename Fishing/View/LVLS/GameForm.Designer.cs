@@ -74,6 +74,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.OzeroForm_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OzeroForm_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OzeroForm_KeyUp);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameForm_MouseClick);
             this.ResumeLayout(false);
 
         }

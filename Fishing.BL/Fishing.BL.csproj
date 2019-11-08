@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LabelInfo.cs" />
-    <Compile Include="lvl.cs" />
     <Compile Include="MapInfo.cs" />
     <Compile Include="Model\Baits\Bait.cs" />
     <Compile Include="Model\Baits\FishBait.cs" />

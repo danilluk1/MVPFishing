@@ -8,53 +8,10 @@ namespace Fishing.Presenter
 {
     public class InventoryPresenter : BasePresenter
     {
+        private Player player = Player.GetPlayer();
         private IInventory view;
         private IGUIPresenter gui;
         private int index = 1;
-
-        public InventoryPresenter(IInventory view)
-        {
-            this.view = view;
-            view.Presenter = this;
-
-            view.AssNumbText = index.ToString();
-
-            view.LureDoubleClick += View_LureDoubleClick;
-            view.LureSelectedIndexChanged += View_LureSelectedIndexChanged;
-            view.ReelDoubleClick += View_ReelDoubleClick;
-            view.ReelSelectedIndexChanged += View_ReelSelectedIndexChanged;
-            view.RoadDoubleClick += View_RoadDoubleClick;
-            view.RoadSelectedIndexChanged += View_RoadSelectedIndexChanged;
-            view.FLineDoubleClick += View_FLineDoubleClick;
-            view.FLineSelectedIndexChanged += View_FLineSelectedIndexChanged;
-            view.CloseButtonClick += View_CloseButtonClick;
-            view.FetchButtonClick += View_FetchButtonClick;
-            view.AssemblyDoubleClick += View_AssemblyDoubleClick;
-            view.MakeOutClick += View_MakeOutClick;
-            view.SRoadButttonClick += View_SRoadButttonClick;
-            view.FRoadButttonClick += View_FRoadButttonClick;
-            view.TRoadButttonClick += View_TRoadButttonClick;
-            view.BaitDoubleClick += View_BaitDoubleClick;
-            view.BaitSelectedIndexChanged += View_BaitSelectedIndexChanged;
-        }
-
-        private void View_TRoadButttonClick(object sender, EventArgs e)
-        {
-            index = 3;
-            view.AssNumbText = index.ToString();
-        }
-
-        private void View_FRoadButttonClick(object sender, EventArgs e)
-        {
-            index = 1;
-            view.AssNumbText = index.ToString();
-        }
-
-        private void View_SRoadButttonClick(object sender, EventArgs e)
-        {
-            index = 2;
-            view.AssNumbText = index.ToString();
-        }
 
         public InventoryPresenter(IInventory view, IGUIPresenter gui)
         {
@@ -74,15 +31,19 @@ namespace Fishing.Presenter
             view.FetchButtonClick += View_FetchButtonClick;
             view.AssemblyDoubleClick += View_AssemblyDoubleClick;
             view.MakeOutClick += View_MakeOutClick;
-            view.SRoadButttonClick += View_SRoadButttonClick;
-            view.FRoadButttonClick += View_FRoadButttonClick;
-            view.TRoadButttonClick += View_TRoadButttonClick;
+            view.RoadButtonsClick += RoadButtonClick;
             view.BaitDoubleClick += View_BaitDoubleClick;
             view.BaitSelectedIndexChanged += View_BaitSelectedIndexChanged;
             view.HookDoubleClick += View_HookDoubleClick;
             view.HookSelectedIndex += View_HookSelectedIndex;
 
             view.Open();
+        }
+
+        private void RoadButtonClick(object sender, EventArgs e)
+        {
+            index = Convert.ToInt32((sender as Button).Text);
+            view.AssNumbText = index.ToString();
         }
 
         private void View_HookSelectedIndex(object sender, EventArgs e)
@@ -126,15 +87,12 @@ namespace Fishing.Presenter
         private void View_AssemblyDoubleClick(object sender, EventArgs e)
         {
             view.ShowAssembly(view.Assembly_P);
-            try
-            {
-
-                    Player.GetPlayer().SetGameRoad(view.Assembly_P, index);
-                    Player.GetPlayer().SetEquipedRoad(index);
-                    view.Assembly_P.IsEquiped = true;
-                    gui.AddRoadToGUI(Player.GetPlayer().EquipedRoad);
-            }
-            catch (NullReferenceException) { }
+            Player.GetPlayer().SetGameRoad(view.Assembly_P, index);
+            Player.GetPlayer().SetEquipedRoad(index);
+            view.Assembly_P.IsEquiped = true;
+            gui.AddRoadToGUI(Player.GetPlayer().EquipedRoad);
+            view.RoadWearValue = view.Assembly_P.Road.Wear;
+            view.ReelWearValue = view.Assembly_P.Reel.Wear;
         }
 
         private void View_FetchButtonClick(object sender, EventArgs e)
@@ -164,6 +122,7 @@ namespace Fishing.Presenter
                     Player.GetPlayer().HooksInv.Remove(view.Hook_P);
                 }
             }
+
         }
 
         private void View_CloseButtonClick(object sender, EventArgs e)

@@ -9,12 +9,12 @@ namespace Fishing
     [Serializable]
     public abstract class Item
     {
-        public static BindingList<Road> RoadShop = new BindingList<Road>();
-        public static BindingList<Reel> ReelShop = new BindingList<Reel>();
-        public static BindingList<FLine> LeskaShop = new BindingList<FLine>();
-        public static BindingList<Lure> LureShop = new BindingList<Lure>();
-        public static BindingList<Bait> BaitsShop = new BindingList<Bait>();
-        public static BindingList<BaseHook> HooksShop = new BindingList<BaseHook>();
+        public static BindingList<Road> Roads = new BindingList<Road>();
+        public static BindingList<Reel> Reels = new BindingList<Reel>();
+        public static BindingList<FLine> FLines = new BindingList<FLine>();
+        public static BindingList<Lure> Lures = new BindingList<Lure>();
+        public static BindingList<Bait> Baits = new BindingList<Bait>();
+        public static BindingList<BaseHook> Hooks = new BindingList<BaseHook>();
         public string Name { get; }
         public int Price { get; }
         public Bitmap Pict { get; }
@@ -30,17 +30,17 @@ namespace Fishing
         {
             if (this is Road)
             {
-                Road r = RoadShop[i];
+                Road r = Roads[i];
                 Player.GetPlayer().RoadInv.Add(r);
             }
             if (this is Reel)
             {
-                Reel r = ReelShop[i];
+                Reel r = Reels[i];
                 Player.GetPlayer().ReelInv.Add(r);
             }
             if (this is FLine)
             {
-                FLine r = LeskaShop[i];
+                FLine r = FLines[i];
                 Player.GetPlayer().FLineInv.Add(r);
             }
         }

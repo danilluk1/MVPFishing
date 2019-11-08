@@ -268,7 +268,6 @@ namespace Fishing
             this.RoadsList.TabIndex = 0;
             this.RoadsList.SelectedIndexChanged += new System.EventHandler(this.RoadsList_SelectedIndexChanged_1);
             this.RoadsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.RoadsList_MouseDoubleClick_1);
-            this.RoadsList.MouseHover += new System.EventHandler(this.RoadsList_MouseHover);
             // 
             // shopTab
             // 

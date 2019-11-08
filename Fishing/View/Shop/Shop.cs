@@ -15,9 +15,9 @@ namespace Fishing
         public Shop()
         {
             InitializeComponent();
-            RoadsList.DataSource = Item.RoadShop;
-            ReelsList.DataSource = Item.ReelShop;
-            FLineList.DataSource = Item.LeskaShop;
+            RoadsList.DataSource = Item.Roads;
+            ReelsList.DataSource = Item.Reels;
+            FLineList.DataSource = Item.FLines;
             foreach (var fb in FishBait.FishBaits)
             {
                 if (fb is Lure)
@@ -29,7 +29,7 @@ namespace Fishing
                     baitsList.Items.Add(fb);
                 }
             }
-            hookList.DataSource = Item.HooksShop;
+            hookList.DataSource = Item.Hooks;
             moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
 
@@ -57,7 +57,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Item.RoadShop[RoadsList.SelectedIndex];
+                    return Item.Roads[RoadsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -74,7 +74,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Item.ReelShop[ReelsList.SelectedIndex];
+                    return Item.Reels[ReelsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -91,7 +91,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Item.LeskaShop[FLineList.SelectedIndex];
+                    return Item.FLines[FLineList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -110,7 +110,7 @@ namespace Fishing
             {
                 try
                 {
-                    return Item.HooksShop[hookList.SelectedIndex];
+                    return Item.Hooks[hookList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
@@ -182,7 +182,6 @@ namespace Fishing
                     this.nameBox.Text = r.Name;
                     this.powerBox.Text = r.Power.ToString();
                     this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = r.Type.ToString();
                     this.label1.Text = " ";
                 }
                 if (Item.SelectItemType(i) is Reel)
@@ -277,16 +276,6 @@ namespace Fishing
         private void hookList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             HookDoubleClick?.Invoke(this, e);
-        }
-
-        private void RoadsList_MouseHover(object sender, EventArgs e)
-        {
-            if(RoadsList.SelectedItem != null)
-            {
-                RoadsList.
-                var shower = new ItemShower();
-                shower.Show();
-            }
         }
     }
 }

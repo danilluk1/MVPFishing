@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Fishing.BL.Model.Items
 {
-    class Float : Road
+    public class Float : Road
     {
-        public Float(string name, ROAD_TYPE type, int power, int price, Bitmap pic) : base(name, type, power, price, pic)
+        public Float(string name, int wear, int power, int price, Bitmap pic) : base(name, wear, power, price, pic)
         {
         }
     }

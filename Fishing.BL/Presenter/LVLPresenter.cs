@@ -41,7 +41,7 @@ namespace Fishing.Presenter
             sp = new SoundPlayer();
 
             view.RepaintScreen += View_RepaintScreen;
-            view.MouseClick += View_MouseLeftClick;
+            view.FormMouseClick += View_MouseLeftClick;
             view.KeyDOWN += View_KeyDOWN;
             view.KeyUP += View_KeyUP;
             view.MainTimerTick += View_MainTimerTick;
@@ -58,7 +58,6 @@ namespace Fishing.Presenter
             BaseController.GetController().SavePlayer();
             this.End();
         }
-
         private void View_MainTimerTick(object sender, EventArgs e)
         {
             try
@@ -113,8 +112,7 @@ namespace Fishing.Presenter
                 view.UpdateForm();
             }
             catch (NullReferenceException) { }           
-        }
-
+        }    
         private void View_KeyDOWN(object sender, KeyEventArgs e)
         {
             try
@@ -201,7 +199,6 @@ namespace Fishing.Presenter
             }
             catch (NullReferenceException) { }
         }
-
         private void View_KeyUP(object sender, KeyEventArgs e)
         {
             try
@@ -227,11 +224,10 @@ namespace Fishing.Presenter
             }
             catch (NullReferenceException) { }
         }
-
         private void View_MouseLeftClick(object sender, MouseEventArgs e)
         {
 
-            if (player.EquipedRoad.IsFishAttack == false && !IsPointIntersecWithRoadRect(view.CurPoint).IsIntersec)
+            if (player.EquipedRoad.IsFishAttack == false)
             {
                 MakeCast(view.CurPoint);
             }
@@ -246,11 +242,11 @@ namespace Fishing.Presenter
                 var tuple = IsPointIntersecWithRoadRect(view.CurPoint);
                 if (tuple.IsIntersec)
                 {
+                    MessageBox.Show("");
                     tuple.Road = null;
                 }
             }
         }
-
         private void View_RepaintScreen(object sender, PaintEventArgs e)
         {
             try
@@ -276,15 +272,14 @@ namespace Fishing.Presenter
             {
                 player.EquipedRoad.CurLVL = CurLVL;
                 SetSounderCoord(point);
-                player.EquipedRoad.RoadX = point.X;
 
-                player.EquipedRoad.IsBaitInWater = true;
-                player.EquipedRoad.IsBaitMoving = false;
-                player.EquipedRoad.StartBaitTimer();
-
-                if (!player.EquipedRoad.IsFishAttack && !IsPointIntersecWithRoadRect(point).Item1)
+                if (!player.EquipedRoad.IsFishAttack)
                 {
                     CheckBorders(point, player.EquipedRoad);
+                    player.EquipedRoad.IsBaitInWater = true;
+                    player.EquipedRoad.IsBaitMoving = false;
+                    player.EquipedRoad.StartBaitTimer();
+                    player.EquipedRoad.RoadX = player.EquipedRoad.CurPoint.X;
                     player.EquipedRoad.LastCastPoint = point;
 
                     sp.Stream = SoundsRes.zabr;
@@ -295,7 +290,7 @@ namespace Fishing.Presenter
                     player.EquipedRoad.RoadY = 350;
                     try
                     {
-                        if (player.EquipedRoad.Assembly.FishBait == null && player.EquipedRoad.Assembly.Road.Type == ROAD_TYPE.Spinning)
+                        if (player.EquipedRoad.Assembly.FishBait == null)
                         {
                             player.EquipedRoad.CurPoint.Y = 0;
                             MessageBox.Show(Messages.NO_LURE_EQUIPED);
@@ -312,7 +307,6 @@ namespace Fishing.Presenter
                 MessageBox.Show("Игрок не готов к рыбалке");
             }
         }
-
         private void DoWiring()
         {
             if (player.EquipedRoad.RoadY != 357)
@@ -329,7 +323,6 @@ namespace Fishing.Presenter
             }
             player.EquipedRoad.CurPoint.Y += Player.GetPlayer().WindingSpeed;
         }
-
         private void AutoDecBarValues()
         {
             if (gui.FLineBarValue > 0)
@@ -341,7 +334,6 @@ namespace Fishing.Presenter
                 gui.IncrementRoadBarValue(-3);
             }
         }
-
         private void SetSounderCoord(Point point)
         {
             for (int y = 0; y < CurLVL.Height; y++)
@@ -433,7 +425,7 @@ namespace Fishing.Presenter
 
         private bool IsFishAbleToGoIntoFpond()
         {
-            if (player.EquipedRoad.IsFishAttack && player.EquipedRoad.CurPoint.Y > 550)
+            if (player.EquipedRoad.IsFishAttack && player.EquipedRoad.CurPoint.Y >= NO_WATER_AREA)
             {
                 return true;
             }
