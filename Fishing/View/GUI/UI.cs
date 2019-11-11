@@ -15,17 +15,15 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 
-namespace Fishing
-{
-    public partial class UI : Form, IGUIPresenter, ISounder
-    {
+namespace Fishing {
+
+    public partial class UI : Form, IGUIPresenter, ISounder {
         private GUIPresenter presenter;
         private readonly SounderPresenter sound;
         public static UI gui;
         private SoundPlayer sp = new SoundPlayer();
 
-        public UI(LVL lvl)
-        {
+        public UI(LVL lvl) {
             InitializeComponent();
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint |
                                                                             ControlStyles.UserPaint, true);
@@ -41,17 +39,15 @@ namespace Fishing
             Player.GetPlayer().SatietyUpdated += SatietyUpdated;
         }
 
-        private void SatietyUpdated(int obj)
-        {
+        private void SatietyUpdated(int obj) {
             eatingBar.Increment(obj);
         }
 
-        private void ShowLastEvent()
-        {
+        private void ShowLastEvent() {
             AddEventToBox(Player.GetPlayer().EventHistory.Peek());
         }
-        private void GUI_HoursInc(object sender, EventArgs e)
-        {
+
+        private void GUI_HoursInc(object sender, EventArgs e) {
             timeLabel.Text = Game.GetGame().Time.ToString();
         }
 
@@ -74,108 +70,90 @@ namespace Fishing
 
         public event EventHandler RefreshSounder;
 
-        private void MapLabel_Click(object sender, EventArgs e)
-        {
+        private void MapLabel_Click(object sender, EventArgs e) {
             UI.gui.Close();
             Map map = new Map();
             map.Show();
         }
 
-        private void MenuLabel_Click(object sender, EventArgs e)
-        {
+        private void MenuLabel_Click(object sender, EventArgs e) {
             Game.GetGame().View.Down();
         }
 
-        private void SettingLabel_Click(object sender, EventArgs e)
-        {
+        private void SettingLabel_Click(object sender, EventArgs e) {
             SettingsForm f = new SettingsForm();
             f.Show();
         }
 
-        private void FpondBox_Click(object sender, EventArgs e)
-        {
+        private void FpondBox_Click(object sender, EventArgs e) {
             fishesForm form = new fishesForm();
             form.Show();
         }
 
-        private void BaitsPicture_Click(object sender, EventArgs e)
-        {
-            if (Player.GetPlayer().EquipedRoad.Assembly != null && !Player.GetPlayer().EquipedRoad.IsBaitInWater)
-            {
-                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Lure)
-                {
+        private void BaitsPicture_Click(object sender, EventArgs e) {
+            if (Player.GetPlayer().EquipedRoad.Assembly != null && !Player.GetPlayer().EquipedRoad.IsBaitInWater) {
+                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Lure) {
                     var presenter = new SelectorPresenter<Lure>(new LureSelector<Lure>(Player.GetPlayer().LureInv), this);
                 }
-                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Bait)
-                {
+                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Bait) {
                     var presenter = new SelectorPresenter<Bait>(new LureSelector<Bait>(Player.GetPlayer().BaitInv), this);
                 }
             }
         }
 
-        private void EatingBar_Click(object sender, EventArgs e)
-        {
+        private void EatingBar_Click(object sender, EventArgs e) {
             var presenter = new FoodPresenter(new FoodInventory());
             presenter.Run();
         }
-        private void InventoryBox_Click(object sender, EventArgs e)
-        {
+
+        private void InventoryBox_Click(object sender, EventArgs e) {
             var presenter = new InventoryPresenter(new Inventory(), gui);
             presenter.Run();
         }
-        private void StatsBox_Click(object sender, EventArgs e)
-        {
+
+        private void StatsBox_Click(object sender, EventArgs e) {
             var presenter = new StatisticPresenter(new StatisticForm());
             presenter.Run();
         }
 
-        private void SounderPanel_Paint(object sender, PaintEventArgs e)
-        {
+        private void SounderPanel_Paint(object sender, PaintEventArgs e) {
             SounderPaint?.Invoke(this, e);
         }
 
-        private void SounderUpdater_Tick(object sender, EventArgs e)
-        {
+        private void SounderUpdater_Tick(object sender, EventArgs e) {
             SounderPanel.Refresh();
         }
-        public void AddEventToBox(BaseEvent ev)
-        {
+
+        public void AddEventToBox(BaseEvent ev) {
             ListViewItem lvi = new ListViewItem();
             lvi.Text = ev.Text;
             lvi.ImageIndex = ev.Index;
-            if (ev is TrophyFishEvent)
-            {
+            if (ev is TrophyFishEvent) {
                 lvi.ForeColor = Color.White;
                 lvi.BackColor = Color.Navy;
             }
             eventsView.Items.Add(lvi);
         }
 
-        public void ClearEvents()
-        {
+        public void ClearEvents() {
             eventsView.Items.Clear();
         }
 
-        public void IncrementRoadBarValue(int value)
-        {
+        public void IncrementRoadBarValue(int value) {
             ReelBar.Increment(value);
         }
 
-        public void IncrementFLineBarValue(int value)
-        {
+        public void IncrementFLineBarValue(int value) {
             FLineBar.Increment(value);
         }
 
-        public void CheckNeedsAndClearEventBox()
-        {
-            if (EventBoxItemsCount >= 5)
-            {
+        public void CheckNeedsAndClearEventBox() {
+            if (EventBoxItemsCount >= 5) {
                 ClearEvents();
             }
         }
 
-        public void AddRoadToGUI(GameRoad road)
-        {
+        public void AddRoadToGUI(GameRoad road) {
             BaitPicture = null;
             RoadPicture = null;
             ReelPicture = null;
@@ -185,19 +163,16 @@ namespace Fishing
             FLinePicture = road.Assembly.FLine.Pict;
             RoadPicture = road.Assembly.Road.Pict;
             ReelPicture = road.Assembly.Reel.Pict;
-            if (road.Assembly.Road is Feeder)
-            {
+            if (road.Assembly.Road is Feeder) {
                 HookPicture = road.Assembly.Hook.Pict;
             }
         }
 
-        public void Open()
-        {
+        public void Open() {
             this.Show();
         }
 
-        public void Down()
-        {
+        public void Down() {
             this.Show();
         }
     }

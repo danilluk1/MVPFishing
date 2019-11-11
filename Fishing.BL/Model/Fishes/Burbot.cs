@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Fishing.BL.Model.Fishes
-{
+namespace Fishing.BL.Model.Fishes {
+
     [Serializable]
-    internal class Burbot : Fish
-    {
+    internal class Burbot : Fish {
+
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Morning,
@@ -24,8 +24,7 @@ namespace Fishing.BL.Model.Fishes
         private readonly static Bitmap bit = Images.nalim;
 
         public Burbot(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
-            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(5, 2), price, trophyWeight, activParts, description, bit)
-        {
+            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(5, 2), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

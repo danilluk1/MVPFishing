@@ -1,15 +1,9 @@
-﻿using Fishing.BL.Model.Game;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Fishing.BL.Model.Drawer
-{
-    class Drawer
-    {
+namespace Fishing.BL.Model.Drawer {
+
+    internal class Drawer {
         private Graphics graphic;
 
         private Player player = Player.GetPlayer();
@@ -24,51 +18,40 @@ namespace Fishing.BL.Model.Drawer
         public Rectangle ThirdNormalRoad;
         public Rectangle ThirdBrokenRoad;
 
-        Rectangle Netting;
+        private Rectangle Netting;
         public Rectangle RTrigon;
 
-        public Drawer(Graphics g)
-        {
+        public Drawer(Graphics g) {
             graphic = g;
         }
 
-        public void DrawPoints()
-        {
-            if (player.FirstRoad != null)
-            {
-                if(player.FirstRoad == player.EquipedRoad)
-                {
+        public void DrawPoints() {
+            if (player.FirstRoad != null) {
+                if (player.FirstRoad == player.EquipedRoad) {
                     sbrush.Color = Color.Red;
                 }
-                else
-                {
+                else {
                     sbrush.Color = Color.White;
                 }
                 graphic.DrawEllipse(new Pen(Color.White), player.FirstRoad.CurPoint.X, player.FirstRoad.CurPoint.Y, 4, 4);
                 graphic.FillEllipse(sbrush, player.FirstRoad.CurPoint.X, player.FirstRoad.CurPoint.Y, 4, 4);
             }
 
-            if (player.SecondRoad != null)
-            {
-                if (player.SecondRoad == player.EquipedRoad)
-                {
+            if (player.SecondRoad != null) {
+                if (player.SecondRoad == player.EquipedRoad) {
                     sbrush.Color = Color.Red;
                 }
-                else
-                {
+                else {
                     sbrush.Color = Color.White;
                 }
                 graphic.DrawEllipse(new Pen(Color.White), player.SecondRoad.CurPoint.X, player.SecondRoad.CurPoint.Y, 4, 4);
                 graphic.FillEllipse(sbrush, player.SecondRoad.CurPoint.X, player.SecondRoad.CurPoint.Y, 4, 4);
             }
-            if (player.ThirdRoad != null)
-            {
-                if (player.ThirdRoad == player.EquipedRoad)
-                {
+            if (player.ThirdRoad != null) {
+                if (player.ThirdRoad == player.EquipedRoad) {
                     sbrush.Color = Color.Red;
                 }
-                else
-                {
+                else {
                     sbrush.Color = Color.White;
                 }
                 graphic.DrawEllipse(new Pen(Color.White), player.ThirdRoad.CurPoint.X, player.ThirdRoad.CurPoint.Y, 4, 4);
@@ -76,56 +59,43 @@ namespace Fishing.BL.Model.Drawer
             }
         }
 
-        public void DrawNetting()
-        {
+        public void DrawNetting() {
             graphic.DrawImage(Pictures.netting, Netting);
         }
-        public void DrawTrigon()
-        {
-            if (player.EquipedRoad != null)
-            {
+
+        public void DrawTrigon() {
+            if (player.EquipedRoad != null) {
                 graphic.DrawImage(Pictures.trigon, RTrigon);
             }
         }
 
-        public void DrawRoads()
-        {
-            try
-            {
-                if (player.FirstRoad != null && !player.FirstRoad.IsFishAttack)
-                {
+        public void DrawRoads() {
+            try {
+                if (player.FirstRoad != null && !player.FirstRoad.IsFishAttack) {
                     graphic.DrawImage(player.FirstRoad.Image, FirstNormalRoad);
                 }
-                else if (player.FirstRoad != null && player.FirstRoad.IsFishAttack)
-                {
+                else if (player.FirstRoad != null && player.FirstRoad.IsFishAttack) {
                     graphic.DrawImage(player.FirstRoad.Image, FirstBrokenRoad);
                 }
-                if (player.SecondRoad != null && !player.SecondRoad.IsFishAttack)
-                {
+                if (player.SecondRoad != null && !player.SecondRoad.IsFishAttack) {
                     graphic.DrawImage(player.SecondRoad.Image, SecondNormalRoad);
                 }
-                else if (player.SecondRoad != null && player.SecondRoad.IsFishAttack)
-                {
+                else if (player.SecondRoad != null && player.SecondRoad.IsFishAttack) {
                     graphic.DrawImage(player.SecondRoad.Image, SecondBrokenRoad);
                 }
-                if (player.ThirdRoad != null && !player.ThirdRoad.IsFishAttack)
-                {
+                if (player.ThirdRoad != null && !player.ThirdRoad.IsFishAttack) {
                     graphic.DrawImage(player.ThirdRoad.Image, ThirdNormalRoad);
                 }
-                else if (player.ThirdRoad != null && player.ThirdRoad.IsFishAttack)
-                {
+                else if (player.ThirdRoad != null && player.ThirdRoad.IsFishAttack) {
                     graphic.DrawImage(player.ThirdRoad.Image, ThirdBrokenRoad);
                 }
             }
             catch (ArgumentNullException) { }
         }
-        public void UpdateRectangles()
-        {
-            try
-            {
 
-                if (player.FirstRoad != null)
-                {
+        public void UpdateRectangles() {
+            try {
+                if (player.FirstRoad != null) {
                     FirstNormalRoad = new Rectangle(player.FirstRoad.RoadX,
                                                     player.FirstRoad.RoadY,
                                                     player.FirstRoad.Image.Width,
@@ -137,8 +107,7 @@ namespace Fishing.BL.Model.Drawer
                                                     257);
                 }
 
-                if (player.SecondRoad != null)
-                {
+                if (player.SecondRoad != null) {
                     SecondNormalRoad = new Rectangle(player.SecondRoad.RoadX,
                                                      player.SecondRoad.RoadY,
                                                      player.SecondRoad.Image.Width,
@@ -148,8 +117,7 @@ namespace Fishing.BL.Model.Drawer
                                                      player.SecondRoad.Image.Width,
                                                      257);
                 }
-                if (player.ThirdRoad != null)
-                {
+                if (player.ThirdRoad != null) {
                     ThirdNormalRoad = new Rectangle(player.ThirdRoad.RoadX,
                                                     player.ThirdRoad.RoadY,
                                                     player.ThirdRoad.Image.Width,
@@ -159,24 +127,20 @@ namespace Fishing.BL.Model.Drawer
                                                     player.ThirdRoad.Image.Width,
                                                     257);
                 }
-                if (player.EquipedRoad != null)
-                {
+                if (player.EquipedRoad != null) {
                     Netting = new Rectangle(player.EquipedRoad.CurPoint.X,
                                             -300,
                                             60,
                                             200);
                 }
-                if (player.EquipedRoad != null)
-                {
+                if (player.EquipedRoad != null) {
                     RTrigon = new Rectangle(player.EquipedRoad.RoadX + 12,
                                             585,
                                             18,
                                             18);
                 }
             }
-            catch (NullReferenceException)
-            {
-
+            catch (NullReferenceException) {
             }
         }
     }

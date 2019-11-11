@@ -1,29 +1,22 @@
-﻿using Fishing.BL.Resources.Images;
-using Saver.BL.Controller;
+﻿using Saver.BL.Controller;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WindowsFormsApp1;
 
-namespace Fishing.BL.Model.Waters
-{
+namespace Fishing.BL.Model.Waters {
+
     [Serializable]
-    public class WaterRealisation : Water
-    {
-        public WaterRealisation()
-        {
+    public class WaterRealisation : Water {
+
+        public WaterRealisation() {
         }
 
-        public override Water GetLVL(string name)
-        {
+        public override Water GetLVL(string name) {
             var path = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + name;
             SerializeDataSaver s = new SerializeDataSaver();
-            string sb = File.ReadAllText(path + "\\" +"WaterInfo");           
+            string sb = File.ReadAllText(path + "\\" + "WaterInfo");
             string[] ar = sb.Split(' ');
             MapImage = Image.FromFile(path + "\\" + "MapImg.png");
             Name = ar[0];

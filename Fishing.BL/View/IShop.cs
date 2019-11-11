@@ -1,13 +1,12 @@
 ﻿using Fishing.BL.Model.Baits;
-using Fishing.BL.Model.Eating;
 using Fishing.BL.Model.Hooks;
 using Fishing.BL.View;
 using System;
 
-namespace Fishing.View.Shop
-{
-    public interface IShop : IView
-    {
+namespace Fishing.View.Shop {
+
+    public interface IShop : IView {
+
         event EventHandler FLineDoubleClick;
 
         event EventHandler RoadDoubleClick;

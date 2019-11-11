@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Fishing.BL.View
-{
-    public interface IStatistic : IView
-    {
+namespace Fishing.BL.View {
+
+    public interface IStatistic : IView {
+
         event EventHandler LoadForm;
 
         string NameLText { get; set; }

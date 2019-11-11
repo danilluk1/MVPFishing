@@ -8,20 +8,16 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Fishing
-{
-    public partial class Map : Form, IMap
-    {
+namespace Fishing {
+
+    public partial class Map : Form, IMap {
         public static GameForm ozero;
 
-        public Map()
-        {
+        public Map() {
             InitializeComponent();
             BackgroundImage = Game.GetGame().CurrentWater.MapImage;
-            foreach (var p in Game.GetGame().CurrentWater.Locs)
-            {
-                PictureBox box = new PictureBox()
-                {
+            foreach (var p in Game.GetGame().CurrentWater.Locs) {
+                PictureBox box = new PictureBox() {
                     Left = p.Left,
                     Top = p.Top,
                     Width = p.Width,
@@ -31,15 +27,13 @@ namespace Fishing
                     BackgroundImageLayout = ImageLayout.Stretch,
                     Tag = p.LocName,
                     BorderStyle = BorderStyle.None,
-
                 };
                 box.Click += Box_Click;
                 Controls.Add(box);
             }
         }
 
-        private void Box_Click(object sender, EventArgs e)
-        {
+        private void Box_Click(object sender, EventArgs e) {
             var lvlrealisation = new LVLRealisation();
             lvlrealisation.GetLVLData((sender as PictureBox).Tag.ToString());
             Create(lvlrealisation);
@@ -47,22 +41,19 @@ namespace Fishing
 
         public Image BackImage { get => BackgroundImage; set => BackgroundImage = value; }
 
-        public void Open()
-        {
+        public void Open() {
             this.Show();
         }
 
-        public void Down()
-        {
+        public void Down() {
             this.Close();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
+        private void Button1_Click(object sender, EventArgs e) {
             this.Close();
         }
-        public void Create(LVLRealisation lvl)
-        {
+
+        public void Create(LVLRealisation lvl) {
             UI.gui = new UI(lvl);
             Game.GetGame().View = new GameForm();
             var presenter = new LVLPresenter(Game.GetGame().View, UI.gui, lvl);

@@ -1,19 +1,15 @@
 ﻿using Fishing.BL.Resources.Images;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Fishing.BL.Model.Hooks
-{
+namespace Fishing.BL.Model.Hooks {
+
     [Serializable]
-    class FloatsHook : BaseHook
-    {
-        public FloatsHook(string name, int gathch, int price, Bitmap bit) : base(name, gathch, price, bit)
-        {
+    internal class FloatsHook : BaseHook {
+
+        public FloatsHook(string name, int gathch, int price, Bitmap bit) : base(name, gathch, price, bit) {
         }
+
         public static FloatsHook baitHolder = new FloatsHook("Bait Holder", 25, 800, HooksImg.BaitHolder);
         public static FloatsHook barakuda = new FloatsHook("Barracuda", 20, 1500, HooksImg.Barracuda);
         public static FloatsHook takara = new FloatsHook("Takara 2002", 12, 2500, HooksImg.Takara_2002);

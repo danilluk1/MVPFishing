@@ -4,11 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Fishing
-{
+namespace Fishing {
+
     [Serializable]
-    public abstract class Fish
-    {
+    public abstract class Fish {
         protected static Random randWigth = new Random();
         public string Name { get; set; }
         public int Weight { get; set; }
@@ -23,8 +22,7 @@ namespace Fishing
         public int MinDeep { get; set; }
         public double MaxSizeCoef { get; set; }
 
-        public Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<PartsOfDay> activParts, string description, Bitmap bit)
-        {
+        public Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<PartsOfDay> activParts, string description, Bitmap bit) {
             this.Name = name;
             this.Weight = weight;
             this.Power = power;
@@ -34,21 +32,17 @@ namespace Fishing
             this.Bitmap = bit;
             this.ActivityParts = activParts;
         }
-        
-        public bool isTrophy()
-        {
+
+        public bool isTrophy() {
             bool res = Weight < TrophyWeight ? false : true;
             return res;
         }
 
-        public override string ToString()
-        {
-            if (Weight / 1000 > 0)
-            {
+        public override string ToString() {
+            if (Weight / 1000 > 0) {
                 return Name + " " + Weight / 1000 + "кг " + Weight % 1000 + "г";
             }
-            else
-            {
+            else {
                 return Name + " " + Weight + "г";
             }
         }

@@ -250,10 +250,6 @@
       <Name>Fishing.BL</Name>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
-    <ProjectReference Include="..\ItemShower\ItemShower.csproj">
-      <Project>{d46cb26f-b724-4afb-a7d1-7a13caf5bcf8}</Project>
-      <Name>ItemShower</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\layer10.jpg" />

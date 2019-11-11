@@ -9,14 +9,12 @@ using Saver.BL.Controller;
 using System;
 using System.Windows.Forms;
 
-namespace Fishing.Presenter
-{
-    public class MenuPresenter : BasePresenter
-    {
+namespace Fishing.Presenter {
+
+    public class MenuPresenter : BasePresenter {
         private readonly IMenu view;
 
-        public MenuPresenter(IMenu view)
-        {
+        public MenuPresenter(IMenu view) {
             this.view = view;
             view.Presenter = this;
             view.ExitButtonClick += View_ExitButtonClick;
@@ -24,14 +22,12 @@ namespace Fishing.Presenter
             BaseController.GetController().Initiallize();
         }
 
-        private void View_ExitButtonClick(object sender, EventArgs e)
-        {
+        private void View_ExitButtonClick(object sender, EventArgs e) {
             BaseController.GetController().SavePlayer();
             Application.Exit();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
+        private void Menu_Load(object sender, EventArgs e) {
             view.LowerLValue = Player.GetPlayer().NickName;
 
             Item.Reels.Add(new Reel("Hydra", 100, 6, 30, 100000, Images.Hydra));
@@ -94,13 +90,11 @@ namespace Fishing.Presenter
             Food.Foods.Add(new Food("Апельсины", 500, 20, Images.apelsin));
         }
 
-        public override void Run()
-        {
+        public override void Run() {
             view.Open();
         }
 
-        public override void End()
-        {
+        public override void End() {
             view.Down();
         }
     }

@@ -4,10 +4,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Fishing.View.LVLS.Ozero
-{
-    public interface IGameForm : IView
-    {
+namespace Fishing.View.LVLS.Ozero {
+
+    public interface IGameForm : IView {
         Point CurPoint { get; set; }
         Image BackImage { get; set; }
 
@@ -32,7 +31,9 @@ namespace Fishing.View.LVLS.Ozero
         event EventHandler DecSacietyTimerTick;
 
         LVLPresenter LVLPresenter { set; }
+
         void UpdateForm();
+
         void CreateCurrentFish(Fish fish);
     }
 }

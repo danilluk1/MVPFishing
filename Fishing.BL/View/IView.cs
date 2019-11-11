@@ -1,7 +1,7 @@
-﻿namespace Fishing.BL.View
-{
-    public interface IView
-    {
+﻿namespace Fishing.BL.View {
+
+    public interface IView {
+
         void Open();
 
         void Down();

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Fishing.View.FPond
-{
-    public interface IFPond
-    {
+namespace Fishing.View.FPond {
+
+    public interface IFPond {
+
         event EventHandler SelectedIndexChanged;
 
         event EventHandler SellButtonClick;

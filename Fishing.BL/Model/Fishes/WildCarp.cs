@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Fishing.BL.Model.Fishes
-{
+namespace Fishing.BL.Model.Fishes {
+
     [Serializable]
-    class WildCarp : Fish
-    {
+    internal class WildCarp : Fish {
+
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Night
@@ -22,8 +22,7 @@ namespace Fishing.BL.Model.Fishes
         private readonly static string description = Messages.WILDCARP_DESCRIPTION;
         private readonly static Bitmap bit = FishesImg.Carp;
 
-        public WildCarp(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, Convert.ToInt32(30000 * maxSizeCoef)), Power.SetPower(10, 3), price, trophyWeight, activParts, description, bit)
-        {
+        public WildCarp(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, Convert.ToInt32(30000 * maxSizeCoef)), Power.SetPower(10, 3), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

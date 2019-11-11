@@ -2,38 +2,30 @@
 using Fishing.BL.Model.Lures;
 using System;
 
-namespace Fishing.BL.Model.UserEvent
-{
+namespace Fishing.BL.Model.UserEvent {
+
     [Serializable]
-    public sealed class TrophyFishEvent : BaseEvent
-    {
+    public sealed class TrophyFishEvent : BaseEvent {
         private static FishBait lure;
 
-        public TrophyFishEvent(Fish f, FishBait l) : base("Трофей! " + Player.GetPlayer().NickName + " поймал " + f.ToString(), SelectIndex())
-        {
+        public TrophyFishEvent(Fish f, FishBait l) : base("Трофей! " + Player.GetPlayer().NickName + " поймал " + f.ToString(), SelectIndex()) {
             lure = l;
         }
 
-        private static int SelectIndex()
-        {
-            if (lure is Wobbler)
-            {
+        private static int SelectIndex() {
+            if (lure is Wobbler) {
                 return 4;
             }
-            if (lure is Shaker)
-            {
+            if (lure is Shaker) {
                 return 2;
             }
-            if (lure is Pinwheel)
-            {
+            if (lure is Pinwheel) {
                 return 3;
             }
-            if (lure is Jig)
-            {
+            if (lure is Jig) {
                 return 6;
             }
-            if (lure is Bait)
-            {
+            if (lure is Bait) {
                 return 7;
             }
             return 1;

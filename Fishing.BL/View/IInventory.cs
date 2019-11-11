@@ -3,10 +3,10 @@ using Fishing.BL.Model.Hooks;
 using Fishing.BL.View;
 using System;
 
-namespace Fishing.View.Inventory
-{
-    public interface IInventory : IView
-    {
+namespace Fishing.View.Inventory {
+
+    public interface IInventory : IView {
+
         event EventHandler FLineSelectedIndexChanged;
 
         event EventHandler RoadSelectedIndexChanged;
@@ -32,9 +32,11 @@ namespace Fishing.View.Inventory
         event EventHandler MakeOutClick;
 
         event EventHandler BaitDoubleClick;
+
         event EventHandler BaitSelectedIndexChanged;
 
         event EventHandler HookDoubleClick;
+
         event EventHandler HookSelectedIndex;
 
         event EventHandler RoadButtonsClick;

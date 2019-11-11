@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Fishing
-{
+namespace Fishing {
+
     [Serializable]
-    public class Pike : Fish
-    {
+    public class Pike : Fish {
+
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
@@ -25,8 +25,7 @@ namespace Fishing
         private readonly static Bitmap bit = Images.pike;
 
         public Pike(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
-            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(6, 3), price, trophyWeight, activParts, description, bit)
-        {
+            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(6, 3), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

@@ -2,51 +2,47 @@
 using Fishing.BL.View;
 using Fishing.Presenter;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
-namespace Fishing.View.FoodInventory
-{
-    public partial class FoodInventory : Form, IFoodInventory
-    {
-        public FoodInventory()
-        {
+namespace Fishing.View.FoodInventory {
+
+    public partial class FoodInventory : Form, IFoodInventory {
+
+        public FoodInventory() {
             InitializeComponent();
             foodsBox.DataSource = Player.GetPlayer().FoodInv;
         }
+
         public string FoodProductivityTextBox { get => foodProductBox.Text; set => foodProductBox.Text = "Восполняет: %" + value; }
         public BasePresenter Presenter { private get; set; }
         public string FoodsSelectedItem { get => foodsBox.SelectedItem.ToString(); set => throw new NotImplementedException(); }
 
         public event EventHandler ListSelectedIndexChanged;
+
         public event EventHandler ListDoubleClick;
-        public void ShowFood(Food food)
-        {
+
+        public void ShowFood(Food food) {
             FoodBox.BackgroundImage = food.Pict;
             foodProductBox.Text = "Восполняет " + food.Productivity + "%";
         }
-        private void FoodsBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+
+        private void FoodsBox_SelectedIndexChanged(object sender, EventArgs e) {
             ListSelectedIndexChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private void FoodsBox_DoubleClick(object sender, EventArgs e)
-        {
+        private void FoodsBox_DoubleClick(object sender, EventArgs e) {
             ListDoubleClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
+        private void CloseButton_Click(object sender, EventArgs e) {
             Down();
         }
 
-        public void Open()
-        {
+        public void Open() {
             this.Show();
         }
 
-        public void Down()
-        {
+        public void Down() {
             this.Close();
         }
     }

@@ -1,21 +1,17 @@
-﻿using Fishing.BL.Resources.Images;
-using System;
+﻿using System;
 using System.Drawing;
 
-namespace Fishing
-{
+namespace Fishing {
+
     [Serializable]
-    public class FLine : Item
-    {
+    public class FLine : Item {
         public int Power;
 
-        public FLine(string name, int power, int price, Bitmap pic) : base(name, price, pic)
-        {
+        public FLine(string name, int power, int price, Bitmap pic) : base(name, price, pic) {
             Power = power;
         }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return this.Name;
         }
     }

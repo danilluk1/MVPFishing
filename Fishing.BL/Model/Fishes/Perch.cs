@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Fishing
-{
+namespace Fishing {
+
     [Serializable]
-    public class Perch : Fish
-    {
+    public class Perch : Fish {
+
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
@@ -24,8 +24,7 @@ namespace Fishing
         private readonly static Bitmap bit = Images.okyn;
 
         public Perch(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
-            : base(name, randWigth.Next(200, Convert.ToInt32(1700 * maxSizeCoef)), Power.SetPower(3, 1), price, 1300, activParts, description, bit)
-        {
+            : base(name, randWigth.Next(200, Convert.ToInt32(1700 * maxSizeCoef)), Power.SetPower(3, 1), price, 1300, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

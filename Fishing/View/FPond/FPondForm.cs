@@ -4,17 +4,15 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Fishing
-{
-    public partial class fishesForm : Form, IFPond
-    {
+namespace Fishing {
+
+    public partial class fishesForm : Form, IFPond {
         private FPondPresenter presenter;
         public Image RightImage { get => FishImage.BackgroundImage; set => FishImage.BackgroundImage = value; }
         public int SelectedIndex { get => FishList.SelectedIndex; set => throw new NotImplementedException(); }
         public string DescriptionText { get => fishDescription.Text; set => fishDescription.Text = value; }
 
-        public fishesForm()
-        {
+        public fishesForm() {
             InitializeComponent();
             FishList.DataSource = Player.GetPlayer().Fishlist;
             presenter = new FPondPresenter(this, UI.gui);
@@ -24,29 +22,24 @@ namespace Fishing
 
         public event EventHandler SellButtonClick;
 
-        private void FishList_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void FishList_SelectedIndexChanged(object sender, EventArgs e) {
             SelectedIndexChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private void FishesForm_KeyDown(object sender, KeyEventArgs e)
-        {
+        private void FishesForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Space)
                 this.Close();
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
+        private void CloseButton_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void SellButton_Click(object sender, EventArgs e)
-        {
+        private void SellButton_Click(object sender, EventArgs e) {
             SellButtonClick?.Invoke(sender, EventArgs.Empty);
         }
 
-        private void FishesForm_Load(object sender, EventArgs e)
-        {
+        private void FishesForm_Load(object sender, EventArgs e) {
         }
     }
 }

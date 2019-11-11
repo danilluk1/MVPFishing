@@ -11,29 +11,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 
-namespace Saver.BL.Controller
-{
-    internal class BaseController
-    {
+namespace Saver.BL.Controller {
+
+    internal class BaseController {
         private static BaseController controller;
         private IDataSaver saver = new SerializeDataSaver();
 
-        private BaseController()
-        {
+        private BaseController() {
         }
 
-        public static BaseController GetController()
-        {
-            if (controller == null)
-            {
+        public static BaseController GetController() {
+            if (controller == null) {
                 controller = new BaseController();
             }
 
             return controller;
         }
 
-        public void Initiallize()
-        {
+        public void Initiallize() {
             Player.GetPlayer().LureInv = saver.Load<BindingList<Lure>>(ConfigPaths.LURES_DIR) ?? new BindingList<Lure>();
             Player.GetPlayer().RoadInv = saver.Load<BindingList<Road>>(ConfigPaths.ROADS_DIR) ?? new BindingList<Road>();
             Player.GetPlayer().FLineInv = saver.Load<BindingList<FLine>>(ConfigPaths.FLINES_DIR) ?? new BindingList<FLine>();
@@ -50,8 +45,7 @@ namespace Saver.BL.Controller
             Player.GetPlayer().HooksInv = saver.Load<BindingList<BaseHook>>(ConfigPaths.HOOKS_DIR) ?? new BindingList<BaseHook>();
             Game.GetGame().Time = saver.Load<Time>(ConfigPaths.TIME_DIR);
             DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters");
-            foreach (var item in dir.GetDirectories())
-            {
+            foreach (var item in dir.GetDirectories()) {
                 Game.GetGame().Waters.Add(item.ToString());
             }
             string wName = saver.Load<string>(ConfigPaths.WATER_DIR) ?? "Тобол";
@@ -60,8 +54,7 @@ namespace Saver.BL.Controller
             Game.GetGame().CurrentWater = wr;
         }
 
-        public void SavePlayer()
-        {
+        public void SavePlayer() {
             saver.Save(ConfigPaths.LURES_DIR, Player.GetPlayer().LureInv);
             saver.Save(ConfigPaths.ROADS_DIR, Player.GetPlayer().RoadInv);
             saver.Save(ConfigPaths.REELS_DIR, Player.GetPlayer().ReelInv);

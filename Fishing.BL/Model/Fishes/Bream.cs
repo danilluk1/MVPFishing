@@ -5,15 +5,12 @@ using Fishing.BL.Resources.Messages;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Fishing.BL.Model.Fishes
-{
+namespace Fishing.BL.Model.Fishes {
+
     [Serializable]
-    public class Bream : Fish
-    {
+    public class Bream : Fish {
+
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
@@ -28,8 +25,7 @@ namespace Fishing.BL.Model.Fishes
         private readonly static string description = Messages.BREAM_DESCRIPTION;
         private readonly static Bitmap bit = Images.lesh1;
 
-        public Bream(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(150, Convert.ToInt32(4500 * maxSizeCoef)), Power.SetPower(8, 2), price, trophyWeight, activParts, description, bit)
-        {
+        public Bream(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(150, Convert.ToInt32(4500 * maxSizeCoef)), Power.SetPower(8, 2), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;
