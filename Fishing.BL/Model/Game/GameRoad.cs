@@ -45,7 +45,8 @@ namespace Fishing.BL.Model.Game {
 
         private void BaitTimer_Tick(object sender, EventArgs e) {
             var (isFish, gathering) = CurLVL.GetFish(this);
-            if (isFish) {
+            if (isFish)
+            {
                 baitTimer.Stop();
                 if (Fish.Weight <= Assembly.Road.Power * 0.2) {
                     GImage = Roads.izg1;

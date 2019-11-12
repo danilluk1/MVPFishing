@@ -71,7 +71,7 @@ namespace Fishing {
                     var part = fish.ActivityParts.First(p => p == Game.GetGame().Time.Part);
                     var l = fish.WorkingLures.First(b => b.Name.Equals(road.Assembly.FishBait.Name));
                     ba = l == null ? false : true;
-                    pa = part.ToString() == null ? false : true;
+                    pa = part == default ? false : true;
                 }
                 return ba && pa;
             }

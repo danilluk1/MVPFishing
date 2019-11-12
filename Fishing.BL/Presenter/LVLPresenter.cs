@@ -153,7 +153,6 @@ namespace Fishing.Presenter {
                         view.CreateCurrentFish(player.EquipedRoad.Fish);
                         player.Statistic.TakenFishesCount++;
 
-                        player.Netting.HideNetting();
                     }
                     break;
 
@@ -212,10 +211,9 @@ namespace Fishing.Presenter {
             if (!tup.IsIntersec && !player.EquipedRoad.IsFishAttack) {
                 MakeCast(view.CurPoint);
             }
-            if (e.Button == MouseButtons.Right) {
-                var tuple = IsPointIntersecWithRoadRect(view.CurPoint);
-                if (tuple.IsIntersec) {
-                    tuple.Road = null;
+            if (e.Button == MouseButtons.Right) {               
+                if (tup.IsIntersec) {
+                    player.EquipedRoad = null;
                 }
             }
         }
@@ -274,12 +272,7 @@ namespace Fishing.Presenter {
             if (player.EquipedRoad.RoadY != 357) {
                 player.EquipedRoad.RoadY += 7;
             }
-            if (player.EquipedRoad.IsFishAttack) {
-                player.WindingSpeed = player.EquipedRoad.Assembly.Reel.Power;
-            }
-            else {
-                player.WindingSpeed = 1;
-            }
+            player.WindingSpeed = player.EquipedRoad.IsFishAttack ? player.EquipedRoad.Assembly.Reel.Power : 1;
             player.EquipedRoad.CurPoint.Y += Player.GetPlayer().WindingSpeed;
         }
 

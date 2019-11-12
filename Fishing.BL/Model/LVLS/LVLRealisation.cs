@@ -10,9 +10,6 @@ namespace Fishing.BL.Model.LVLS {
     public class LVLRealisation : LVL {
         private static LabelInfo[,] list;
 
-        public LVLRealisation() {
-        }
-
         public override void AddFishes() {
             string p = @"C:\Users\Programmer\Desktop\Projects\MVPFish — копия — копия\Fishing.BL\Model\Waters" + "\\" + Game.Game.GetGame().CurrentWater.Name + "\\" + Name;
             string line;
@@ -20,8 +17,7 @@ namespace Fishing.BL.Model.LVLS {
                     new System.IO.StreamReader(p + "\\" + "FishesList");
             while ((line = file.ReadLine()) != null) {
                 FishString fs = new FishString(line);
-                var fish = fs.GetFishByStr(line);
-                Fishes.Add(fish);
+                Fishes.Add((Fish)fs);
             }
         }
 

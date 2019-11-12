@@ -1,4 +1,5 @@
-﻿using Fishing.BL.Model.Baits;
+﻿using Fishing.BL.Model;
+using Fishing.BL.Model.Baits;
 using Fishing.BL.Model.Game;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,9 @@ namespace Fishing {
 
     [Serializable]
     public abstract class Fish {
-        protected static Random randWigth = new Random();
+        protected internal static Random randomWeight = new Random();
         public string Name { get; set; }
         public int Weight { get; set; }
-        public Power Power;
         public double Price { get; set; }
         public int TrophyWeight { get; set; }
         public HashSet<PartsOfDay> ActivityParts { get; set; }
@@ -21,8 +21,10 @@ namespace Fishing {
         public int MaxDeep { get; set; }
         public int MinDeep { get; set; }
         public double MaxSizeCoef { get; set; }
+        public Power Power;
 
-        public Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<PartsOfDay> activParts, string description, Bitmap bit) {
+
+        protected Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<PartsOfDay> activParts, string description, Bitmap bit) {
             this.Name = name;
             this.Weight = weight;
             this.Power = power;
@@ -45,6 +47,10 @@ namespace Fishing {
             else {
                 return Name + " " + Weight + "г";
             }
+        }
+
+        public static explicit operator Fish(FishString fs) {
+            return fs.GetFishByStr();
         }
     }
 }

@@ -6,31 +6,44 @@ using System.Text.RegularExpressions;
 
 namespace Fishing.BL.Model {
 
-    public class FishString //Name:Size% MinDeep-MaxDeep {Lure1, Lure2}
+    public class FishString //Name:Size% MinDeep-MaxDeep [Lure1, Lure2]
     {
+        private static string pattern = @".+";
         private string LoadStr;
 
         public FishString(string loadStr) {
-            LoadStr = loadStr;
+            if (Regex.IsMatch(loadStr, pattern)) {
+                LoadStr = loadStr;
+            }
+            else {
+                throw new ArgumentException("Wrong format!");
+            }
         }
 
-        public Fish GetFishByStr(string str) {
+        public Fish GetFishByStr() {
             Fish fish = null;
 
-            Regex regex = new Regex(@".*(?=:)");
-            Match namem = regex.Match(str);
+            var regex = new Regex(@".*(?=:)");
+
+            var namem = regex.Match(LoadStr);
             var name = namem.Value;
+
             regex = new Regex(@"\d+");
-            MatchCollection matches = regex.Matches(str);
+
+            var matches = regex.Matches(LoadStr);
             var coef = Convert.ToSingle(matches[0].Value) / 100;
             var minDeep = Convert.ToInt32(matches[1].Value);
             var maxDeep = Convert.ToInt32(matches[2].Value);
-            regex = new Regex(@"(?<={).*(?=})");
-            Match match = regex.Match(str);
+
+            regex = new Regex(@"(?<=\[).*(?=\])");
+
+            var match = regex.Match(LoadStr);
             var luresList = match.Value;
 
             var lures = luresList.Split(',');
+
             HashSet<FishBait> baits = new HashSet<FishBait>();
+
             foreach (var s in lures) {
                 baits.Add(FishBait.GetFishBaitByName(s));
             }

@@ -24,7 +24,7 @@ namespace Fishing.BL.Model.Fishes {
         private readonly static string description = Messages.RYBETS_DESCRIPTION;
         private readonly static Bitmap bit = Images.ribec;
 
-        public Rybets(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(50, Convert.ToInt32(1200 * maxSizeCoef)), Power.SetPower(6, 2), price, trophyWeight, activParts, description, bit) {
+        public Rybets(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randomWeight.Next(50, Convert.ToInt32(1200 * maxSizeCoef)), Power.SetPower(6, 2), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

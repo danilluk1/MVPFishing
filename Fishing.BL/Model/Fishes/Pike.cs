@@ -25,7 +25,7 @@ namespace Fishing {
         private readonly static Bitmap bit = Images.pike;
 
         public Pike(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
-            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(6, 3), price, trophyWeight, activParts, description, bit) {
+            : base(name, randomWeight.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(6, 3), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

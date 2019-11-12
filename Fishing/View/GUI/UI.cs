@@ -154,17 +154,27 @@ namespace Fishing {
         }
 
         public void AddRoadToGUI(GameRoad road) {
-            BaitPicture = null;
-            RoadPicture = null;
-            ReelPicture = null;
-            FLinePicture = null;
-            HookPicture = null;
-            BaitPicture = road.Assembly.FishBait.Pict;
-            FLinePicture = road.Assembly.FLine.Pict;
-            RoadPicture = road.Assembly.Road.Pict;
-            ReelPicture = road.Assembly.Reel.Pict;
+            var baitPic = road.Assembly.FishBait.Pict;
+            var flinePic = road.Assembly.FLine.Pict;
+            var roadPic = road.Assembly.Road.Pict;
+            var reelPic = road.Assembly.Reel.Pict;
+            var hookPic = road.Assembly.Hook.Pict;
+            if (baitPic != null) {
+                BaitPicture = road.Assembly.FishBait.Pict;
+            }
+            if (flinePic != null) {
+                FLinePicture = road.Assembly.FLine.Pict;
+            }
+            if (roadPic != null) {
+                RoadPicture = road.Assembly.Road.Pict;
+            }
+            if (reelPic != null) {
+                ReelPicture = road.Assembly.Reel.Pict;
+            }
             if (road.Assembly.Road is Feeder) {
-                HookPicture = road.Assembly.Hook.Pict;
+                if (hookPic != null) {
+                    HookPicture = road.Assembly.Hook.Pict;
+                }
             }
         }
 

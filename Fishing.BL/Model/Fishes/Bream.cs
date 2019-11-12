@@ -25,7 +25,7 @@ namespace Fishing.BL.Model.Fishes {
         private readonly static string description = Messages.BREAM_DESCRIPTION;
         private readonly static Bitmap bit = Images.lesh1;
 
-        public Bream(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(150, Convert.ToInt32(4500 * maxSizeCoef)), Power.SetPower(8, 2), price, trophyWeight, activParts, description, bit) {
+        public Bream(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randomWeight.Next(150, Convert.ToInt32(4500 * maxSizeCoef)), Power.SetPower(8, 2), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

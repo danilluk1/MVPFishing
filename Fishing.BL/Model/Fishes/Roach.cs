@@ -25,7 +25,7 @@ namespace Fishing.BL.Model.Fishes {
         private readonly static string description = Messages.ROACH_DESCRIPTION;
         private readonly static Bitmap bit = Images.plotva;
 
-        public Roach(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(50, Convert.ToInt32(1800 * maxSizeCoef)), Power.SetPower(6, 2), price, trophyWeight, activParts, description, bit) {
+        public Roach(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randomWeight.Next(50, Convert.ToInt32(1800 * maxSizeCoef)), Power.SetPower(6, 2), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

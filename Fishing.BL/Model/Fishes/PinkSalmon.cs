@@ -25,7 +25,7 @@ namespace Fishing {
         private readonly static string description = Messages.PINKSALMON_DESCRIPTION;
         private readonly static Bitmap bit = Images.gorbusha;
 
-        public PinkSalmon(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(500, Convert.ToInt32(20000 * maxSizeCoef)), Power.SetPower(7, 4), price, trophyWeight, activParts, description, bit) {
+        public PinkSalmon(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randomWeight.Next(500, Convert.ToInt32(20000 * maxSizeCoef)), Power.SetPower(7, 4), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

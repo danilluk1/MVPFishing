@@ -203,6 +203,7 @@ namespace Fishing {
         }
 
         public void TornFLine() {
+            player.EquipedRoad.Image = Roads.road;
             player.EquipedRoad.IsFishAttack = false;
             player.EquipedRoad.Assembly.FishBait = null;
             player.EquipedRoad.IsBaitMoving = false;

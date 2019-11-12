@@ -24,7 +24,7 @@ namespace Fishing.BL.Model.Fishes {
         private readonly static string description = Messages.ASP_DESCRIPTION;
         private readonly static Bitmap bit = Images.zhereh;
 
-        public Asp(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randWigth.Next(200, Convert.ToInt32(7000 * maxSizeCoef)), Power.SetPower(4, 2), price, trophyWeight, activParts, description, bit) {
+        public Asp(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randomWeight.Next(200, Convert.ToInt32(7000 * maxSizeCoef)), Power.SetPower(4, 2), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;
