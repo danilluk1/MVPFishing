@@ -283,6 +283,7 @@
     <None Include="Resources\izg5.png" />
     <None Include="Resources\izg5h.png" />
     <Content Include="Resources\karass.jpg" />
+    <None Include="Resources\kassa.wav" />
     <Content Include="Resources\key.png" />
     <None Include="Resources\koroed.png" />
     <Content Include="Resources\layer10.jpg" />

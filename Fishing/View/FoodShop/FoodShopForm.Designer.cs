@@ -39,6 +39,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.apelsin_button = new System.Windows.Forms.PictureBox();
             this.banany_button = new System.Windows.Forms.PictureBox();
+            this.moneyLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hleb_Button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sir_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ikra_button)).BeginInit();
@@ -190,6 +191,16 @@
             this.banany_button.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.banany_button.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
+            // moneyLabel
+            // 
+            this.moneyLabel.AutoSize = true;
+            this.moneyLabel.BackColor = System.Drawing.Color.Transparent;
+            this.moneyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.moneyLabel.Location = new System.Drawing.Point(573, 9);
+            this.moneyLabel.Name = "moneyLabel";
+            this.moneyLabel.Size = new System.Drawing.Size(0, 16);
+            this.moneyLabel.TabIndex = 10;
+            // 
             // FoodShopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +208,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.moneyLabel);
             this.Controls.Add(this.banany_button);
             this.Controls.Add(this.apelsin_button);
             this.Controls.Add(this.pictureBox1);
@@ -237,5 +249,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox apelsin_button;
         private System.Windows.Forms.PictureBox banany_button;
+        private System.Windows.Forms.Label moneyLabel;
     }
 }
