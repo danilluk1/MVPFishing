@@ -1,11 +1,12 @@
 ﻿using Fishing.BL.Resources.Images;
 using Fishing.Presenter;
-using Fishing.View.FishShop;
+using Fishing.View.FoodShop;
 using Fishing.View.Menu;
 using Fishing.View.Trip;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
 namespace Fishing {
     public partial class Menu : Form, IMenu {
@@ -33,6 +34,7 @@ namespace Fishing {
 
         private void ShopButton_Click(object sender, EventArgs e) {
             var presenter = new ShopPresenter(new Shop());
+            presenter.Run();
         }
 
         private void CloseButton_Click(object sender, EventArgs e) {

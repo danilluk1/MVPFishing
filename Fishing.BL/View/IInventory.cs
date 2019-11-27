@@ -63,6 +63,5 @@ namespace Fishing.View.Inventory {
 
         void ShowAssembly(Fishing.Assembly ass);
 
-        void SetButtonDisabled(int index);
     }
 }

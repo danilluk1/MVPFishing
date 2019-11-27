@@ -114,7 +114,7 @@ namespace Fishing {
                 }
             }
             else {
-                MessageBox.Show("Сборка не собрана");
+                MessageBox.Show(@"Сборка не собрана");
             }
         }
 
@@ -169,7 +169,7 @@ namespace Fishing {
 
         public void SellFish(Fish f) {
             if (f != null) {
-                if (!f.isTrophy()) {
+                if (!f.IsTrophy()) {
                     player.Money += (int)f.Price * f.Weight;
                 }
                 else {
@@ -232,7 +232,7 @@ namespace Fishing {
                     return true;
                 }
                 else {
-                    MessageBox.Show("Игрок не достаточно голоден, чтобы съесть это");
+                    MessageBox.Show(@"Игрок не достаточно голоден, чтобы съесть это");
                     return false;
                 }
             }

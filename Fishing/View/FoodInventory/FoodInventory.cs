@@ -3,6 +3,7 @@ using Fishing.BL.View;
 using Fishing.Presenter;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
 namespace Fishing.View.FoodInventory {
 
@@ -39,11 +40,11 @@ namespace Fishing.View.FoodInventory {
         }
 
         public void Open() {
-            this.Show();
+            Show();
         }
 
         public void Down() {
-            this.Close();
+            Close();
         }
     }
 }

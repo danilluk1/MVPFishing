@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1 {
+namespace Fishing.BL {
 
     [Serializable]
     public class MapInfo {
         public string WaterName { get; set; }
-        public List<PicturesBoxInfo> Locs { get; set; }
+        public List<PicturesBoxInfo> Locations { get; set; }
         public Image BackImg { get; set; }
 
         public MapInfo(Image img, string name, List<PicturesBoxInfo> l) {
             BackImg = img;
-            Locs = l;
+            Locations = l;
             WaterName = name;
             MessageBox.Show(l.Count.ToString());
         }

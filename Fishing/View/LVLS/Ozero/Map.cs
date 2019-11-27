@@ -16,7 +16,7 @@ namespace Fishing {
         public Map() {
             InitializeComponent();
             BackgroundImage = Game.GetGame().CurrentWater.MapImage;
-            foreach (var p in Game.GetGame().CurrentWater.Locs) {
+            foreach (var p in Game.GetGame().CurrentWater.Locations) {
                 PictureBox box = new PictureBox() {
                     Left = p.Left,
                     Top = p.Top,
@@ -34,7 +34,7 @@ namespace Fishing {
         }
 
         private void Box_Click(object sender, EventArgs e) {
-            var lvlrealisation = new LVLRealisation();
+            var lvlrealisation = new LvlImplementation();
             lvlrealisation.GetLVLData((sender as PictureBox).Tag.ToString());
             Create(lvlrealisation);
         }
@@ -53,13 +53,13 @@ namespace Fishing {
             this.Close();
         }
 
-        public void Create(LVLRealisation lvl) {
-            UI.gui = new UI(lvl);
+        public void Create(LvlImplementation lvl) {
+            UI.Gui = new UI(lvl);
             Game.GetGame().View = new GameForm();
-            var presenter = new LVLPresenter(Game.GetGame().View, UI.gui, lvl);
+            var presenter = new LVLPresenter(Game.GetGame().View, UI.Gui, lvl);
             presenter.Run();
             var field = new DeepField(lvl);
-            UI.gui.Show();
+            UI.Gui.Show();
             this.Close();
         }
     }

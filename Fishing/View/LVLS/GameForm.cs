@@ -1,10 +1,11 @@
 ﻿using Fishing.BL.Resources.Sounds;
 using Fishing.Presenter;
-using Fishing.View.LVLS.Ozero;
 using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
+using Fishing.BL.View;
 
 namespace Fishing {
 
@@ -24,10 +25,6 @@ namespace Fishing {
 
         public event MouseEventHandler FormMouseClick;
 
-        public event EventHandler CountGathering;
-
-        public event EventHandler CountFishMoves;
-
         public event PaintEventHandler RepaintScreen;
 
         public event KeyEventHandler KeyDOWN;
@@ -36,25 +33,23 @@ namespace Fishing {
 
         public event EventHandler MainTimerTick;
 
-        public event EventHandler BaitTimerTick;
-
         public event EventHandler FormClose;
 
         public event EventHandler DecSacietyTimerTick;
 
-        private void OzeroForm_Paint(object sender, PaintEventArgs e) {
+        private void GameForm_Paint(object sender, PaintEventArgs e) {
             RepaintScreen?.Invoke(this, e);
         }
 
-        private void MainTaskstimer_Tick(object sender, EventArgs e) {
+        private void MainTaskTimer_Tick(object sender, EventArgs e) {
             MainTimerTick?.Invoke(this, e);
         }
 
-        private void OzeroForm_KeyDown(object sender, KeyEventArgs e) {
+        private void GameForm_KeyDown(object sender, KeyEventArgs e) {
             KeyDOWN?.Invoke(this, e);
         }
 
-        private void OzeroForm_KeyUp(object sender, KeyEventArgs e) {
+        private void GameForm_KeyUp(object sender, KeyEventArgs e) {
             KeyUP?.Invoke(this, e);
         }
 
@@ -62,9 +57,9 @@ namespace Fishing {
             FormMouseClick?.Invoke(this, e);
         }
 
-        private void OzeroForm_FormClosed(object sender, FormClosedEventArgs e) {
+        private void GameForm_FormClosed(object sender, FormClosedEventArgs e) {
             FormClose?.Invoke(this, EventArgs.Empty);
-            UI.gui.Close();
+            UI.Gui.Close();
         }
 
         private void DecrementSatiety_Tick(object sender, EventArgs e) {
@@ -72,14 +67,14 @@ namespace Fishing {
         }
 
         private void SoundPlayerTimer_Tick(object sender, EventArgs e) {
-            Random r = new Random();
-            string name = "day" + r.Next(1, 9).ToString();
-            SoundPlayer player = new SoundPlayer(SoundsRes.ResourceManager.GetStream(name));
+            var r = new Random();
+            var name = "day" + r.Next(1, 9);
+            var player = new SoundPlayer(SoundsRes.ResourceManager.GetStream(name));
             player.Play();
         }
 
         public void UpdateForm() {
-            this.Refresh();
+            Refresh();
         }
 
         public void CreateCurrentFish(Fish fish) {
@@ -88,11 +83,11 @@ namespace Fishing {
         }
 
         public void Open() {
-            this.Show();
+            Show();
         }
 
         public void Down() {
-            this.Close();
+            Close();
         }
     }
 }

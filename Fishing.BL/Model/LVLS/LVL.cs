@@ -13,11 +13,11 @@ namespace Fishing {
         public Image Image { get; set; }
         public int Widgth;
         public int Height;
-        public int LabelStartY;
-        public int LabelStartX;
+        public int DeepTiesStartY;
+        public int DeepTiesStartX;
         public string Name { get; set; }
 
-        public Label[,] Deeparr;
+        public Label[,] DeepArray;
         protected List<Fish> Fishes = new List<Fish>(1000);
 
         public abstract void AddFishes();

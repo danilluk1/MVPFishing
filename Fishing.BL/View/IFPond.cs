@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using Fishing.BL.View;
 
-namespace Fishing.View.FPond {
+namespace Fishing.BL.View {
 
-    public interface IFPond {
+    public interface IFPond  : IView {
 
         event EventHandler SelectedIndexChanged;
 

@@ -1,4 +1,4 @@
-﻿namespace Fishing.Presenter {
+﻿namespace Fishing.BL.Presenter {
 
     public abstract class BasePresenter {
 

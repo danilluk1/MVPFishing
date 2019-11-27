@@ -18,7 +18,6 @@ namespace Fishing {
             PartsOfDay.Night
         };
 
-        private readonly static int power = 4;
         private readonly static string name = "Форель";
         private readonly static int price = 2;
         private readonly static int trophyWeight = 11000;

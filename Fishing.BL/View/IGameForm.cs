@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Fishing.View.LVLS.Ozero {
+namespace Fishing.BL.View {
 
     public interface IGameForm : IView {
         Point CurPoint { get; set; }
@@ -14,17 +14,11 @@ namespace Fishing.View.LVLS.Ozero {
 
         event PaintEventHandler RepaintScreen;
 
-        event EventHandler CountGathering;
-
-        event EventHandler CountFishMoves;
-
         event KeyEventHandler KeyDOWN;
 
         event KeyEventHandler KeyUP;
 
         event EventHandler MainTimerTick;
-
-        event EventHandler BaitTimerTick;
 
         event EventHandler FormClose;
 

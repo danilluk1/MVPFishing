@@ -1,21 +1,23 @@
 ﻿using Fishing.Presenter;
-using Fishing.View.FPond;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
+using Fishing.BL.View;
 
 namespace Fishing {
 
-    public partial class fishesForm : Form, IFPond {
-        private FPondPresenter presenter;
+    public partial class FishPondForm : Form, IFPond {
         public Image RightImage { get => FishImage.BackgroundImage; set => FishImage.BackgroundImage = value; }
         public int SelectedIndex { get => FishList.SelectedIndex; set => throw new NotImplementedException(); }
         public string DescriptionText { get => fishDescription.Text; set => fishDescription.Text = value; }
+        public BasePresenter Presenter { get; set; }
 
-        public fishesForm() {
+        public FishPondForm() {
             InitializeComponent();
             FishList.DataSource = Player.GetPlayer().Fishlist;
-            presenter = new FPondPresenter(this, UI.gui);
+            var pres = new FPondPresenter(this, UI.Gui);
+            pres.Run();
         }
 
         public event EventHandler SelectedIndexChanged;
@@ -28,7 +30,9 @@ namespace Fishing {
 
         private void FishesForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Space)
+            {
                 this.Close();
+            }
         }
 
         private void CloseButton_Click(object sender, EventArgs e) {
@@ -40,6 +44,14 @@ namespace Fishing {
         }
 
         private void FishesForm_Load(object sender, EventArgs e) {
+        }
+
+        public void Open() {
+            Show();
+        }
+
+        public void Down() {
+            Close();
         }
     }
 }

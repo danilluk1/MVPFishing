@@ -297,7 +297,7 @@ namespace Fishing
             this.FpondBox.Size = new System.Drawing.Size(74, 91);
             this.FpondBox.TabIndex = 23;
             this.FpondBox.TabStop = false;
-            this.FpondBox.Click += new System.EventHandler(this.FpondBox_Click);
+            this.FpondBox.Click += new System.EventHandler(this.FishingPondBox_Click);
             // 
             // UpperPanel
             // 
@@ -319,19 +319,20 @@ namespace Fishing
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(407, 16);
+            this.timeLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.timeLabel.Location = new System.Drawing.Point(438, 16);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(0, 13);
+            this.timeLabel.Size = new System.Drawing.Size(0, 16);
             this.timeLabel.TabIndex = 16;
             // 
             // MenuLabel
             // 
             this.MenuLabel.AutoSize = true;
             this.MenuLabel.BackColor = System.Drawing.Color.Transparent;
-            this.MenuLabel.Font = new System.Drawing.Font("Segoe Script", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MenuLabel.Location = new System.Drawing.Point(105, 3);
+            this.MenuLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.MenuLabel.Location = new System.Drawing.Point(95, 6);
             this.MenuLabel.Name = "MenuLabel";
-            this.MenuLabel.Size = new System.Drawing.Size(77, 34);
+            this.MenuLabel.Size = new System.Drawing.Size(78, 26);
             this.MenuLabel.TabIndex = 15;
             this.MenuLabel.Text = "Меню";
             this.MenuLabel.Click += new System.EventHandler(this.MenuLabel_Click);
@@ -350,19 +351,20 @@ namespace Fishing
             // 
             this.MoneyLabel.AutoSize = true;
             this.MoneyLabel.BackColor = System.Drawing.Color.Transparent;
+            this.MoneyLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MoneyLabel.Location = new System.Drawing.Point(345, 18);
             this.MoneyLabel.Name = "MoneyLabel";
-            this.MoneyLabel.Size = new System.Drawing.Size(0, 13);
+            this.MoneyLabel.Size = new System.Drawing.Size(0, 15);
             this.MoneyLabel.TabIndex = 13;
             // 
             // SettingLabel
             // 
             this.SettingLabel.AutoSize = true;
             this.SettingLabel.BackColor = System.Drawing.Color.Transparent;
-            this.SettingLabel.Font = new System.Drawing.Font("Segoe Script", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SettingLabel.Location = new System.Drawing.Point(188, 0);
+            this.SettingLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.SettingLabel.Location = new System.Drawing.Point(179, 6);
             this.SettingLabel.Name = "SettingLabel";
-            this.SettingLabel.Size = new System.Drawing.Size(147, 34);
+            this.SettingLabel.Size = new System.Drawing.Size(135, 26);
             this.SettingLabel.TabIndex = 12;
             this.SettingLabel.Text = "Настройки";
             this.SettingLabel.Click += new System.EventHandler(this.SettingLabel_Click);
@@ -371,10 +373,10 @@ namespace Fishing
             // 
             this.MapLabel.AutoSize = true;
             this.MapLabel.BackColor = System.Drawing.Color.Transparent;
-            this.MapLabel.Font = new System.Drawing.Font("Segoe Script", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MapLabel.Location = new System.Drawing.Point(7, 0);
+            this.MapLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MapLabel.Location = new System.Drawing.Point(8, 6);
             this.MapLabel.Name = "MapLabel";
-            this.MapLabel.Size = new System.Drawing.Size(96, 34);
+            this.MapLabel.Size = new System.Drawing.Size(81, 26);
             this.MapLabel.TabIndex = 11;
             this.MapLabel.Text = "Карта";
             this.MapLabel.Click += new System.EventHandler(this.MapLabel_Click);

@@ -1,4 +1,6 @@
-﻿namespace Fishing.BL.View {
+﻿using Fishing.BL.Presenter;
+
+namespace Fishing.BL.View {
 
     public interface IView {
 
@@ -6,6 +8,6 @@
 
         void Down();
 
-        Fishing.Presenter.BasePresenter Presenter { set; }
+        BasePresenter Presenter { set; }
     }
 }

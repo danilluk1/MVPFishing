@@ -151,8 +151,8 @@ namespace Fishing
             this.hookList.Name = "hookList";
             this.hookList.Size = new System.Drawing.Size(461, 422);
             this.hookList.TabIndex = 0;
-            this.hookList.SelectedIndexChanged += new System.EventHandler(this.hookList_SelectedIndexChanged);
-            this.hookList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.hookList_MouseDoubleClick);
+            this.hookList.SelectedIndexChanged += new System.EventHandler(this.HookList_SelectedIndexChanged);
+            this.hookList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.HookList_MouseDoubleClick);
             // 
             // baitsPage
             // 
@@ -174,8 +174,8 @@ namespace Fishing
             this.baitsList.Name = "baitsList";
             this.baitsList.Size = new System.Drawing.Size(454, 422);
             this.baitsList.TabIndex = 21;
-            this.baitsList.SelectedIndexChanged += new System.EventHandler(this.baitsList_SelectedIndexChanged);
-            this.baitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.baitsList_MouseDoubleClick);
+            this.baitsList.SelectedIndexChanged += new System.EventHandler(this.BaitsList_SelectedIndexChanged);
+            this.baitsList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.BaitsList_MouseDoubleClick);
             // 
             // lurePage
             // 
@@ -197,8 +197,8 @@ namespace Fishing
             this.lureBox.Name = "lureBox";
             this.lureBox.Size = new System.Drawing.Size(454, 422);
             this.lureBox.TabIndex = 0;
-            this.lureBox.SelectedIndexChanged += new System.EventHandler(this.lureBox_SelectedIndexChanged);
-            this.lureBox.DoubleClick += new System.EventHandler(this.lureBox_DoubleClick);
+            this.lureBox.SelectedIndexChanged += new System.EventHandler(this.LureBox_SelectedIndexChanged);
+            this.lureBox.DoubleClick += new System.EventHandler(this.LureBox_DoubleClick);
             // 
             // ReelsPage
             // 

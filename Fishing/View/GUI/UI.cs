@@ -8,7 +8,6 @@ using Fishing.Presenter;
 using Fishing.View.FoodInventory;
 using Fishing.View.GUI;
 using Fishing.View.LureSelector;
-using Fishing.View.LureSelector.Presenter;
 using Fishing.View.Statistic;
 using System;
 using System.Drawing;
@@ -18,18 +17,19 @@ using System.Windows.Forms;
 namespace Fishing {
 
     public partial class UI : Form, IGUIPresenter, ISounder {
-        private GUIPresenter presenter;
-        private readonly SounderPresenter sound;
-        public static UI gui;
-        private SoundPlayer sp = new SoundPlayer();
+        public static UI Gui;
+        private readonly GUIPresenter _presenter;
+        private readonly SounderPresenter _sound;
 
         public UI(LVL lvl) {
             InitializeComponent();
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint |
                                                                             ControlStyles.UserPaint, true);
             eatingBar.Value = Player.GetPlayer().Satiety;
-            presenter = new GUIPresenter(this);
-            sound = new SounderPresenter(this, lvl);
+            _presenter = new GUIPresenter(this);
+            _presenter.Run(); //Mistake
+            _sound = new SounderPresenter(this, lvl);
+            _sound.Run();
 
             MoneyLValue = Player.GetPlayer().Money;
             timeLabel.Text = Game.GetGame().Time.ToString();
@@ -68,11 +68,10 @@ namespace Fishing {
 
         public event PaintEventHandler SounderPaint;
 
-        public event EventHandler RefreshSounder;
-
         private void MapLabel_Click(object sender, EventArgs e) {
-            UI.gui.Close();
-            Map map = new Map();
+            Gui.Close();
+            Game.GetGame().View.Down();
+            var map = new Map();
             map.Show();
         }
 
@@ -81,39 +80,41 @@ namespace Fishing {
         }
 
         private void SettingLabel_Click(object sender, EventArgs e) {
-            SettingsForm f = new SettingsForm();
+            var f = new SettingsForm();
             f.Show();
         }
 
-        private void FpondBox_Click(object sender, EventArgs e) {
-            fishesForm form = new fishesForm();
-            form.Show();
+        private void FishingPondBox_Click(object sender, EventArgs e) {
+            var f = new FishPondForm();
+            f.Show();
         }
 
         private void BaitsPicture_Click(object sender, EventArgs e) {
-            if (Player.GetPlayer().EquipedRoad.Assembly != null && !Player.GetPlayer().EquipedRoad.IsBaitInWater) {
-                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Lure) {
-                    var presenter = new SelectorPresenter<Lure>(new LureSelector<Lure>(Player.GetPlayer().LureInv), this);
-                }
-                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Bait) {
-                    var presenter = new SelectorPresenter<Bait>(new LureSelector<Bait>(Player.GetPlayer().BaitInv), this);
-                }
+            if (Player.GetPlayer().EquipedRoad.Assembly == null || Player.GetPlayer().EquipedRoad.IsBaitInWater) return;
+            if (Player.GetPlayer().EquipedRoad.Assembly.FishBait is Lure) {
+                var pres = new SelectorPresenter<Lure>(new LureSelector<Lure>(Player.GetPlayer().LureInv), this);
+                pres.Run();
+            }
+            if (!(Player.GetPlayer().EquipedRoad.Assembly.FishBait is Bait)) return;
+            {
+                var pres = new SelectorPresenter<Bait>(new LureSelector<Bait>(Player.GetPlayer().BaitInv), this);
+                pres.Run();
             }
         }
 
         private void EatingBar_Click(object sender, EventArgs e) {
-            var presenter = new FoodPresenter(new FoodInventory());
-            presenter.Run();
+            var pres = new FoodPresenter(new FoodInventory());
+            pres.Run();
         }
 
         private void InventoryBox_Click(object sender, EventArgs e) {
-            var presenter = new InventoryPresenter(new Inventory(), gui);
-            presenter.Run();
+            var pres = new InventoryPresenter(new Inventory(), Gui);
+            pres.Run();
         }
 
         private void StatsBox_Click(object sender, EventArgs e) {
-            var presenter = new StatisticPresenter(new StatisticForm());
-            presenter.Run();
+            var pres = new StatisticPresenter(new StatisticForm());
+            pres.Run();
         }
 
         private void SounderPanel_Paint(object sender, PaintEventArgs e) {
@@ -125,9 +126,10 @@ namespace Fishing {
         }
 
         public void AddEventToBox(BaseEvent ev) {
-            ListViewItem lvi = new ListViewItem();
-            lvi.Text = ev.Text;
-            lvi.ImageIndex = ev.Index;
+            var lvi = new ListViewItem {
+                Text = ev.Text,
+                ImageIndex = ev.Index
+            };
             if (ev is TrophyFishEvent) {
                 lvi.ForeColor = Color.White;
                 lvi.BackColor = Color.Navy;
@@ -155,14 +157,15 @@ namespace Fishing {
 
         public void AddRoadToGUI(GameRoad road) {
             var baitPic = road.Assembly.FishBait.Pict;
-            var flinePic = road.Assembly.FLine.Pict;
+            var fLinePic = road.Assembly.FLine.Pict;
             var roadPic = road.Assembly.Road.Pict;
             var reelPic = road.Assembly.Reel.Pict;
             var hookPic = road.Assembly.Hook.Pict;
+            BaitPicture = baitPic != null ? road.Assembly.FishBait.Pict : default;
             if (baitPic != null) {
                 BaitPicture = road.Assembly.FishBait.Pict;
             }
-            if (flinePic != null) {
+            if (fLinePic != null) {
                 FLinePicture = road.Assembly.FLine.Pict;
             }
             if (roadPic != null) {
@@ -171,10 +174,9 @@ namespace Fishing {
             if (reelPic != null) {
                 ReelPicture = road.Assembly.Reel.Pict;
             }
-            if (road.Assembly.Road is Feeder) {
-                if (hookPic != null) {
-                    HookPicture = road.Assembly.Hook.Pict;
-                }
+            if (!(road.Assembly.Road is Feeder)) return;
+            if (hookPic != null) {
+                HookPicture = road.Assembly.Hook.Pict;
             }
         }
 

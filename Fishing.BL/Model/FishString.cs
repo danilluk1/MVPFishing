@@ -5,13 +5,17 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace Fishing.BL.Model {
-
-    public class FishString //Name:Size% MinDeep-MaxDeep [Lure1, Lure2]
+    /// <summary>
+    /// Name:Size% MinDeep-MaxDeep [Lurei, Lurei+1, i+2]
+    /// </summary>
+    /// 
+    public class FishString
     {
-        private static string pattern = @".+";
-        private string LoadStr;
+        private readonly string LoadStr;
 
-        public FishString(string loadStr) {
+        public FishString(string loadStr)
+        {
+            string pattern = @".+:\d+\s\d+-\d+\s\[.+\]";
             if (Regex.IsMatch(loadStr, pattern)) {
                 LoadStr = loadStr;
             }
@@ -22,16 +26,15 @@ namespace Fishing.BL.Model {
 
         public Fish GetFishByStr() {
             Fish fish = null;
-
             var regex = new Regex(@".*(?=:)");
 
-            var namem = regex.Match(LoadStr);
-            var name = namem.Value;
+            var fishName = regex.Match(LoadStr);
+            var name = fishName.Value;
 
             regex = new Regex(@"\d+");
 
             var matches = regex.Matches(LoadStr);
-            var coef = Convert.ToSingle(matches[0].Value) / 100;
+            var sizeCf = Convert.ToSingle(matches[0].Value) / 100;
             var minDeep = Convert.ToInt32(matches[1].Value);
             var maxDeep = Convert.ToInt32(matches[2].Value);
 
@@ -49,71 +52,71 @@ namespace Fishing.BL.Model {
             }
             switch (name) {
                 case "Щука":
-                fish = new Pike(minDeep, maxDeep, coef, baits);
+                fish = new Pike(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Арктич. Голец":
-                fish = new ArcticChar(minDeep, maxDeep, coef, baits);
+                fish = new ArcticChar(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Жерех":
-                fish = new Asp(minDeep, maxDeep, coef, baits);
+                fish = new Asp(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Лещ":
-                fish = new Bream(minDeep, maxDeep, coef, baits);
+                fish = new Bream(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Налим":
-                fish = new Burbot(minDeep, maxDeep, coef, baits);
+                fish = new Burbot(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Голавль":
-                fish = new Chub(minDeep, maxDeep, coef, baits);
+                fish = new Chub(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Карась Зол":
-                fish = new GoldCarp(minDeep, maxDeep, coef, baits);
+                fish = new GoldCarp(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Карась Сер":
-                fish = new SilverCarp(minDeep, maxDeep, coef, baits);
+                fish = new SilverCarp(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Хариус":
-                fish = new Grayling(minDeep, maxDeep, coef, baits);
+                fish = new Grayling(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Окунь":
-                fish = new Perch(minDeep, maxDeep, coef, baits);
+                fish = new Perch(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Горбуша":
-                fish = new PinkSalmon(minDeep, maxDeep, coef, baits);
+                fish = new PinkSalmon(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Плотва":
-                fish = new Roach(minDeep, maxDeep, coef, baits);
+                fish = new Roach(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Рыбец":
-                fish = new Rybets(minDeep, maxDeep, coef, baits);
+                fish = new Rybets(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Сёмга":
-                fish = new Salmon(minDeep, maxDeep, coef, baits);
+                fish = new Salmon(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Подлещик":
-                fish = new Scavenger(minDeep, maxDeep, coef, baits);
+                fish = new Scavenger(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Змееголов":
-                fish = new SnakeHead(minDeep, maxDeep, coef, baits);
+                fish = new SnakeHead(minDeep, maxDeep, sizeCf, baits);
                 break;
 
                 case "Линь":
-                fish = new Tench(minDeep, maxDeep, coef, baits);
+                fish = new Tench(minDeep, maxDeep, sizeCf, baits);
                 break;
             }
             return fish;

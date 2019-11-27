@@ -11,21 +11,20 @@ namespace Fishing {
     [Serializable]
     public class PinkSalmon : Fish {
 
-        private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
+        private static readonly HashSet<PartsOfDay> ActiveParts = new HashSet<PartsOfDay>()
         {
             PartsOfDay.Evening,
             PartsOfDay.Morning,
             PartsOfDay.Night
         };
 
-        private readonly static int power = 7;
-        private readonly static string name = "Горбуша";
-        private readonly static int price = 3;
-        private readonly static int trophyWeight = 18000;
-        private readonly static string description = Messages.PINKSALMON_DESCRIPTION;
-        private readonly static Bitmap bit = Images.gorbusha;
+        private static readonly string name = "Горбуша";
+        private static readonly int price = 3;
+        private static readonly int trophyWeight = 18000;
+        private static readonly string description = Messages.PINKSALMON_DESCRIPTION;
+        private static readonly Bitmap bit = Images.gorbusha;
 
-        public PinkSalmon(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randomWeight.Next(500, Convert.ToInt32(20000 * maxSizeCoef)), Power.SetPower(7, 4), price, trophyWeight, activParts, description, bit) {
+        public PinkSalmon(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu) : base(name, randomWeight.Next(500, Convert.ToInt32(20000 * maxSizeCoef)), Power.SetPower(7, 4), price, trophyWeight, ActiveParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

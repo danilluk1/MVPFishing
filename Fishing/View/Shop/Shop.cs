@@ -5,6 +5,7 @@ using Fishing.Presenter;
 using Fishing.View.Shop;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
 namespace Fishing {
     public partial class Shop : Form, IShop {
@@ -101,15 +102,15 @@ namespace Fishing {
         }
 
         private void RoadsList_SelectedIndexChanged_1(object sender, EventArgs e) {
-            addItemtoRightView(Road_P);
+            AddItemToRightView(Road_P);
         }
 
         private void FLineList_SelectedIndexChanged(object sender, EventArgs e) {
-            addItemtoRightView(FLine_P);
+            AddItemToRightView(FLine_P);
         }
 
         private void ReelsList_SelectedIndexChanged(object sender, EventArgs e) {
-            addItemtoRightView(Reel_P);
+            AddItemToRightView(Reel_P);
         }
 
         private void FLineList_MouseDoubleClick(object sender, MouseEventArgs e) {
@@ -140,95 +141,97 @@ namespace Fishing {
             this.Close();
         }
 
-        public void addItemtoRightView(Item i) {
+        public void AddItemToRightView(Item i) {
             try {
                 if (Item.SelectItemType(i) is Road) {
-                    Road r = (Road)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.label1.Text = " ";
+                    var r = (Road)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.Power.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    label1.Text = " ";
                 }
                 if (Item.SelectItemType(i) is Reel) {
-                    Reel r = (Reel)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
+                    var r = (Reel)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.Power.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
                 if (Item.SelectItemType(i) is FLine) {
-                    FLine r = (FLine)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
+                    var r = (FLine)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.Power.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
                 if (Item.SelectItemType(i) is Food) {
-                    Food r = (Food)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Productivity.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
+                    var r = (Food)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.Productivity.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
                 if (Item.SelectItemType(i) is Lure) {
-                    Lure r = (Lure)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.DeepType.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = r.Size.ToString();
-                    this.label1.Text = " ";
+                    var r = (Lure)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.DeepType.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = r.Size.ToString();
+                    label1.Text = " ";
                 }
                 if (Item.SelectItemType(i) is Bait) {
-                    Bait r = (Bait)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = "Кол-во: 30";
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
+                    var r = (Bait)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = "Кол-во: 30";
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
-                if (Item.SelectItemType(i) is BaseHook) {
-                    BaseHook r = (BaseHook)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.GatheringChance.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
+
+                if (!(Item.SelectItemType(i) is BaseHook)) return;
+                {
+                    var r = (BaseHook)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.GatheringChance.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
             }
             catch (ArgumentOutOfRangeException) { }
         }
 
-        private void lureBox_SelectedIndexChanged(object sender, EventArgs e) {
-            addItemtoRightView(Lure_P);
+        private void LureBox_SelectedIndexChanged(object sender, EventArgs e) {
+            AddItemToRightView(Lure_P);
         }
 
-        private void lureBox_DoubleClick(object sender, EventArgs e) {
+        private void LureBox_DoubleClick(object sender, EventArgs e) {
             LureDoubleClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void baitsList_SelectedIndexChanged(object sender, EventArgs e) {
-            addItemtoRightView(Bait_P);
+        private void BaitsList_SelectedIndexChanged(object sender, EventArgs e) {
+            AddItemToRightView(Bait_P);
         }
 
-        private void baitsList_MouseDoubleClick(object sender, MouseEventArgs e) {
+        private void BaitsList_MouseDoubleClick(object sender, MouseEventArgs e) {
             BaitDoubleClick?.Invoke(this, e);
         }
 
-        private void hookList_SelectedIndexChanged(object sender, EventArgs e) {
-            addItemtoRightView(Hook_P);
+        private void HookList_SelectedIndexChanged(object sender, EventArgs e) {
+            AddItemToRightView(Hook_P);
         }
 
-        private void hookList_MouseDoubleClick(object sender, MouseEventArgs e) {
+        private void HookList_MouseDoubleClick(object sender, MouseEventArgs e) {
             HookDoubleClick?.Invoke(this, e);
         }
     }

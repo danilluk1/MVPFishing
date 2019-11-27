@@ -53,8 +53,7 @@ namespace Fishing.View.Trip {
         }
 
         private void DaysUpDown_SelectedItemChanged(object sender, EventArgs e) {
-            int res = 0;
-            Int32.TryParse(daysUpDown.Items[daysUpDown.SelectedIndex].ToString(), out res);
+            int.TryParse(daysUpDown.Items[daysUpDown.SelectedIndex].ToString(), out var res);
             trip.DaysCount = res;
             trip.CountPrice();
             tripBox.Text = trip.ToString();
@@ -62,7 +61,7 @@ namespace Fishing.View.Trip {
 
         private void WatersBox_SelectedIndexChanged(object sender, EventArgs e) {
             trip = new TripToWater();
-            var water = new WaterRealisation();
+            var water = new WaterImplementation();
             trip.TripWater = water.GetLVL(Game.GetGame().Waters[watersBox.SelectedIndex]);
             mapBox.BackgroundImage = trip.TripWater.MapImage;
             trip.CountPrice();
@@ -72,16 +71,15 @@ namespace Fishing.View.Trip {
 
         private void GoButton_Click(object sender, EventArgs e) {
             if (Game.GetGame().CurrentWater.Name != trip.TripWater.Name) {
-                if (Player.GetPlayer().Money >= trip.Price) {
-                    Game.GetGame().CurrentWater = trip.TripWater;
-                    Game.GetGame().Time.IncHours(trip.HoursInTrip);
-                    Player.GetPlayer().Money -= trip.Price;
-                    timeLabel.Text = Game.GetGame().Time.ToString();
-                    moneyLabel.Text = Player.GetPlayer().Money.ToString();
-                }
+                if (Player.GetPlayer().Money < trip.Price) return;
+                Game.GetGame().CurrentWater = trip.TripWater;
+                Game.GetGame().Time.IncHours(trip.HoursInTrip);
+                Player.GetPlayer().Money -= trip.Price;
+                timeLabel.Text = Game.GetGame().Time.ToString();
+                moneyLabel.Text = Player.GetPlayer().Money.ToString();
             }
             else {
-                MessageBox.Show("Вы уже находитесь на текущем водоёме");
+                MessageBox.Show(@"Вы уже находитесь на текущем водоёме");
             }
         }
 

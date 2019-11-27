@@ -1,15 +1,16 @@
-﻿using Fishing.View.FPond;
-using Fishing.View.GUI;
+﻿using Fishing.View.GUI;
 using System;
+using Fishing.BL.View;
 
-namespace Fishing.Presenter {
+namespace Fishing.BL.Presenter {
 
-    public class FPondPresenter {
-        private IFPond view;
-        private IGUIPresenter gui;
+    public class FPondPresenter : BasePresenter {
+        private readonly IFPond view;
+        private readonly IGUIPresenter gui;
 
         public FPondPresenter(IFPond view, IGUIPresenter gui) {
             this.view = view;
+            view.Presenter = this;
             this.gui = gui;
             view.SellButtonClick += View_SellButtonClick;
             view.SelectedIndexChanged += View_SelectedIndexChanged;
@@ -32,6 +33,16 @@ namespace Fishing.Presenter {
             gui.MoneyLValue = Player.GetPlayer().Money;
             view.DescriptionText = " ";
             view.RightImage = null;
+        }
+
+        public override void Run()
+        {
+            view.Open();
+        }
+
+        public override void End()
+        {
+            view.Down();
         }
     }
 }

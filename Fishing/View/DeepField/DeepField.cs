@@ -1,31 +1,29 @@
 ﻿using Fishing.BL.View;
+using Fishing.Presenter;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
 namespace Fishing.View.DeepField {
 
     public partial class DeepField : Form, IDeepField {
-        private LVL lvl;
-
         public DeepField(LVL lvl) {
             InitializeComponent();
-            this.lvl = lvl;
-            for (int x = 0; x < lvl.Widgth; x++) {
-                for (int y = 0; y < lvl.Height; y++) {
-                    Controls.Add(lvl.Deeparr[x, y]);
+            for (var y = 0; y < lvl.Height; y++) {
+                for (var x = 0; x < lvl.Widgth; x++) {
+                    Controls.Add(lvl.DeepArray[x, y]);
                 }
             }
         }
 
+        public BasePresenter Presenter { get; set; }
+
         public void Down() {
-            this.Close();
+            Close();
         }
 
-        public void Open(LVL lvl) {
-            DeepField df = new DeepField(lvl);
-        }
-
-        private void DeepField_Load(object sender, EventArgs e) {
+        public void Open() {
+            Show();
         }
     }
 }

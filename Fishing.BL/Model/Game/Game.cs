@@ -1,8 +1,8 @@
 ﻿using Fishing.BL.Model.Waters;
-using Fishing.View.LVLS.Ozero;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Fishing.BL.View;
 
 namespace Fishing.BL.Model.Game {
 

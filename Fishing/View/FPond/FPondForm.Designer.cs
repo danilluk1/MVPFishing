@@ -3,7 +3,7 @@ using Fishing.BL.Resources.Images;
 
 namespace Fishing
 {
-    partial class fishesForm
+    partial class FishPondForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace Fishing
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fishesForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FishPondForm));
             this.FishList = new System.Windows.Forms.ListBox();
             this.FishImage = new System.Windows.Forms.PictureBox();
             this.SellButton = new System.Windows.Forms.Button();
@@ -95,7 +95,7 @@ namespace Fishing
             this.fishDescription.TabIndex = 4;
             this.fishDescription.Text = "";
             // 
-            // fishesForm
+            // FishPondForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,10 +108,10 @@ namespace Fishing
             this.Controls.Add(this.FishImage);
             this.Controls.Add(this.FishList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "fishesForm";
+            this.Name = "FishPondForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fishesForm";
+            this.Text = "FishPondForm";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FishesForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FishesForm_KeyDown);

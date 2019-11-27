@@ -21,10 +21,11 @@ namespace Fishing {
         public int MaxDeep { get; set; }
         public int MinDeep { get; set; }
         public double MaxSizeCoef { get; set; }
+
         public Power Power;
 
 
-        protected Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<PartsOfDay> activParts, string description, Bitmap bit) {
+        protected Fish(string name, int weight, Power power, double price, int trophyWeight, HashSet<PartsOfDay> activeParts, string description, Bitmap bit) {
             this.Name = name;
             this.Weight = weight;
             this.Power = power;
@@ -32,10 +33,10 @@ namespace Fishing {
             this.TrophyWeight = trophyWeight;
             this.Description = description;
             this.Bitmap = bit;
-            this.ActivityParts = activParts;
+            this.ActivityParts = activeParts;
         }
 
-        public bool isTrophy() {
+        public bool IsTrophy() {
             bool res = Weight < TrophyWeight ? false : true;
             return res;
         }

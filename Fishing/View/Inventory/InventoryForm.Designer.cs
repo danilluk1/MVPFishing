@@ -72,7 +72,7 @@ namespace Fishing
             this.assemblyPanel = new System.Windows.Forms.Panel();
             this.assNumberLabel = new System.Windows.Forms.Label();
             this.assemblyType = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.itemImageBox = new System.Windows.Forms.PictureBox();
             this.reelWearBar = new VerticalProgressBar.VerticalProgressBar();
             this.roadWearBar = new VerticalProgressBar.VerticalProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.BaitBox)).BeginInit();
@@ -88,7 +88,7 @@ namespace Fishing
             this.baitPage.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.assemblyPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // BaitBox
@@ -242,8 +242,8 @@ namespace Fishing
             this.luresView.TabIndex = 0;
             this.luresView.UseCompatibleStateImageBehavior = false;
             this.luresView.View = System.Windows.Forms.View.SmallIcon;
-            this.luresView.SelectedIndexChanged += new System.EventHandler(this.luresView_SelectedIndexChanged);
-            this.luresView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.luresView_MouseDoubleClick);
+            this.luresView.SelectedIndexChanged += new System.EventHandler(this.LuresView_SelectedIndexChanged);
+            this.luresView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LuresView_MouseDoubleClick);
             // 
             // lureList
             // 
@@ -324,8 +324,8 @@ namespace Fishing
             this.roadsView.TabIndex = 0;
             this.roadsView.UseCompatibleStateImageBehavior = false;
             this.roadsView.View = System.Windows.Forms.View.SmallIcon;
-            this.roadsView.SelectedIndexChanged += new System.EventHandler(this.roadsView_SelectedIndexChanged);
-            this.roadsView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.roadsView_MouseDoubleClick);
+            this.roadsView.SelectedIndexChanged += new System.EventHandler(this.RoadsView_SelectedIndexChanged);
+            this.roadsView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.RoadsView_MouseDoubleClick);
             // 
             // roadsList
             // 
@@ -372,8 +372,8 @@ namespace Fishing
             this.baitsBox.Name = "baitsBox";
             this.baitsBox.Size = new System.Drawing.Size(338, 488);
             this.baitsBox.TabIndex = 0;
-            this.baitsBox.SelectedIndexChanged += new System.EventHandler(this.baitsBox_SelectedIndexChanged);
-            this.baitsBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.baitsBox_MouseDoubleClick);
+            this.baitsBox.SelectedIndexChanged += new System.EventHandler(this.BaitsBox_SelectedIndexChanged);
+            this.baitsBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.BaitsBox_MouseDoubleClick);
             // 
             // tabPage4
             // 
@@ -395,8 +395,8 @@ namespace Fishing
             this.hooksBox.Name = "hooksBox";
             this.hooksBox.Size = new System.Drawing.Size(335, 510);
             this.hooksBox.TabIndex = 0;
-            this.hooksBox.SelectedIndexChanged += new System.EventHandler(this.hooksBox_SelectedIndexChanged);
-            this.hooksBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.hooksBox_MouseDoubleClick);
+            this.hooksBox.SelectedIndexChanged += new System.EventHandler(this.HooksBox_SelectedIndexChanged);
+            this.hooksBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.HooksBox_MouseDoubleClick);
             // 
             // roadTextBox
             // 
@@ -521,16 +521,16 @@ namespace Fishing
             this.assemblyType.Size = new System.Drawing.Size(100, 20);
             this.assemblyType.TabIndex = 30;
             // 
-            // pictureBox5
+            // itemImageBox
             // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(386, 351);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(108, 99);
-            this.pictureBox5.TabIndex = 12;
-            this.pictureBox5.TabStop = false;
+            this.itemImageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemImageBox.BackColor = System.Drawing.Color.Transparent;
+            this.itemImageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.itemImageBox.Location = new System.Drawing.Point(386, 351);
+            this.itemImageBox.Name = "itemImageBox";
+            this.itemImageBox.Size = new System.Drawing.Size(108, 99);
+            this.itemImageBox.TabIndex = 12;
+            this.itemImageBox.TabStop = false;
             // 
             // reelWearBar
             // 
@@ -569,7 +569,7 @@ namespace Fishing
             this.ClientSize = new System.Drawing.Size(715, 620);
             this.Controls.Add(this.typeBox);
             this.Controls.Add(this.BaitBox);
-            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.itemImageBox);
             this.Controls.Add(this.powerBox);
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.assemblyPanel);
@@ -603,7 +603,7 @@ namespace Fishing
             this.tabPage4.ResumeLayout(false);
             this.assemblyPanel.ResumeLayout(false);
             this.assemblyPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemImageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -644,7 +644,7 @@ namespace Fishing
         private System.Windows.Forms.ListView luresView;
         private System.Windows.Forms.Panel assemblyPanel;
         private System.Windows.Forms.TextBox assemblyType;
-        protected internal System.Windows.Forms.PictureBox pictureBox5;
+        protected internal System.Windows.Forms.PictureBox itemImageBox;
         private System.Windows.Forms.Label assNumberLabel;
         private System.Windows.Forms.TabPage baitPage;
         private System.Windows.Forms.ListBox baitsBox;

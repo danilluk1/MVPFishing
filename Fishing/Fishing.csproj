@@ -230,6 +230,7 @@
     <EmbeddedResource Include="View\Trip\TripForm.resx">
       <DependentUpon>TripForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="Properties\DataSources\Assembly.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

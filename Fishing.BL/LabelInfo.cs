@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsFormsApp1 {
+namespace Fishing.BL {
 
     [Serializable]
     public class LabelInfo {

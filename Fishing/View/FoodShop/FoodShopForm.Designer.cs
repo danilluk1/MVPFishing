@@ -1,4 +1,4 @@
-﻿namespace Fishing.View.FishShop
+﻿namespace Fishing.View.FoodShop
 {
     partial class FoodShopForm
     {
@@ -158,7 +158,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(28, 26);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.closeBox_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.CloseBox_Click);
             // 
             // apelsin_button
             // 

@@ -3,18 +3,19 @@ using Fishing.View.GUI;
 using Fishing.View.Inventory;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
 namespace Fishing.Presenter {
 
     public class InventoryPresenter : BasePresenter {
-        private Player player = Player.GetPlayer();
-        private IInventory view;
-        private IGUIPresenter gui;
+        private readonly Player _player = Player.GetPlayer();
+        private readonly IInventory _view;
+        private readonly IGUIPresenter _gui;
         private int index = 1;
 
         public InventoryPresenter(IInventory view, IGUIPresenter gui) {
-            this.view = view;
-            this.gui = gui;
+            this._view = view;
+            this._gui = gui;
             view.Presenter = this;
 
             view.LureDoubleClick += View_LureDoubleClick;
@@ -39,74 +40,77 @@ namespace Fishing.Presenter {
         }
 
         private void RoadButtonClick(object sender, EventArgs e) {
-            index = Convert.ToInt32((sender as Button).Text);
-            view.AssNumbText = index.ToString();
+            index = Convert.ToInt32((sender as Button)?.Text);
+            _view.AssNumbText = index.ToString();
         }
 
         private void View_HookSelectedIndex(object sender, EventArgs e) {
-            view.AddItemToRightView(view.Hook_P);
+            _view.AddItemToRightView(_view.Hook_P);
         }
 
         private void View_HookDoubleClick(object sender, EventArgs e) {
-            view.LureText = view.Hook_P.Name;
+            _view.LureText = _view.Hook_P.Name;
         }
 
         private void View_BaitSelectedIndexChanged(object sender, EventArgs e) {
-            view.AddItemToRightView(view.Bait_P);
+            _view.AddItemToRightView(_view.Bait_P);
         }
 
         private void View_BaitDoubleClick(object sender, EventArgs e) {
-            view.LureText = view.Bait_P.Name;
+            _view.LureText = _view.Bait_P.Name;
         }
 
         private void View_MakeOutClick(object sender, EventArgs e) {
             try {
-                if (Player.GetPlayer().EquipedRoad.Assembly.FLine != null)
-                    Player.GetPlayer().FLineInv.Add(view.Assembly_P.FLine);
-                if (Player.GetPlayer().EquipedRoad.Assembly.Road != null)
-                    Player.GetPlayer().RoadInv.Add(view.Assembly_P.Road);
-                if (Player.GetPlayer().EquipedRoad.Assembly.FishBait != null)
-                    Player.GetPlayer().LureInv.Add((Lure)view.Assembly_P.FishBait);
-                if (Player.GetPlayer().EquipedRoad.Assembly.Reel != null)
-                    Player.GetPlayer().ReelInv.Add(view.Assembly_P.Reel);
+                if (_player.EquipedRoad.Assembly.FLine != null)
+                    _player.FLineInv.Add(_view.Assembly_P.FLine);
+                if (_player.EquipedRoad.Assembly.Road != null)
+                    _player.RoadInv.Add(_view.Assembly_P.Road);
+                if (_player.EquipedRoad.Assembly.FishBait != null)
+                    _player.LureInv.Add((Lure)_view.Assembly_P.FishBait);
+                if (_player.EquipedRoad.Assembly.Reel != null)
+                    _player.ReelInv.Add(_view.Assembly_P.Reel);
 
-                Player.GetPlayer().Assemblies.Remove(view.Assembly_P);
+                _player.Assemblies.Remove(_view.Assembly_P);
             }
             catch (NullReferenceException) { }
         }
 
         private void View_AssemblyDoubleClick(object sender, EventArgs e) {
-            view.ShowAssembly(view.Assembly_P);
-            Player.GetPlayer().SetGameRoad(view.Assembly_P, index);
-            Player.GetPlayer().SetEquipedRoad(index);
-            view.Assembly_P.IsEquiped = true;
-            gui.AddRoadToGUI(Player.GetPlayer().EquipedRoad);
-            view.RoadWearValue = view.Assembly_P.Road.Wear;
-            view.ReelWearValue = view.Assembly_P.Reel.Wear;
+            _view.ShowAssembly(_view.Assembly_P);
+            _player.SetGameRoad(_view.Assembly_P, index);
+            _player.SetEquipedRoad(index);
+            _view.Assembly_P.IsEquiped = true;
+            _gui.AddRoadToGUI(_player.EquipedRoad);
+            _view.RoadWearValue = _view.Assembly_P.Road.Wear;
+            _view.ReelWearValue = _view.Assembly_P.Reel.Wear;
         }
 
         private void View_FetchButtonClick(object sender, EventArgs e) {
-            if (view.FLine_P != null && view.Road_P != null && view.Reel_P != null) {
-                view.Assembly_P.Road = view.Road_P;
-                Player.GetPlayer().RoadInv.Remove(view.Road_P);
+            if (_view.Assembly_P == null) return;
+            if (_view.FLine_P == null || _view.Road_P == null || _view.Reel_P == null) return;
+            _view.Assembly_P.Road = _view.Road_P;
+            _player.RoadInv.Remove(_view.Road_P);
 
-                view.Assembly_P.Reel = view.Reel_P;
-                Player.GetPlayer().ReelInv.Remove(view.Reel_P);
+            _view.Assembly_P.Reel = _view.Reel_P;
+            _player.ReelInv.Remove(_view.Reel_P);
 
-                view.Assembly_P.FLine = view.FLine_P;
-                Player.GetPlayer().FLineInv.Remove(view.FLine_P);
+            _view.Assembly_P.FLine = _view.FLine_P;
+            _player.FLineInv.Remove(_view.FLine_P);
 
-                if (view.Assembly_P.Road is Spinning) {
-                    view.Assembly_P.FishBait = view.Lure_P;
-                    Player.GetPlayer().LureInv.Remove(view.Lure_P);
-                }
-                if (view.Assembly_P.Road is Feeder) {
-                    view.Assembly_P.FishBait = view.Bait_P;
-                    Player.GetPlayer().BaitInv.Remove(view.Bait_P);
+            switch (_view.Assembly_P.Road)
+            {
+                case Spinning _:
+                    _view.Assembly_P.FishBait = _view.Lure_P;
+                    _player.LureInv.Remove(_view.Lure_P);
+                    break;
+                case Feeder _:
+                    _view.Assembly_P.FishBait = _view.Bait_P;
+                    _player.BaitInv.Remove(_view.Bait_P);
 
-                    view.Assembly_P.Hook = view.Hook_P;
-                    Player.GetPlayer().HooksInv.Remove(view.Hook_P);
-                }
+                    _view.Assembly_P.Hook = _view.Hook_P;
+                    _player.HooksInv.Remove(_view.Hook_P);
+                    break;
             }
         }
 
@@ -115,43 +119,43 @@ namespace Fishing.Presenter {
         }
 
         private void View_FLineSelectedIndexChanged(object sender, EventArgs e) {
-            view.AddItemToRightView(view.FLine_P);
+            _view.AddItemToRightView(_view.FLine_P);
         }
 
         private void View_FLineDoubleClick(object sender, EventArgs e) {
-            view.FLineText = view.FLine_P.Name;
+            _view.FLineText = _view.FLine_P.Name;
         }
 
         private void View_RoadSelectedIndexChanged(object sender, EventArgs e) {
-            view.AddItemToRightView(view.Road_P);
+            _view.AddItemToRightView(_view.Road_P);
         }
 
         private void View_RoadDoubleClick(object sender, EventArgs e) {
-            view.RoadText = view.Road_P.Name;
+            _view.RoadText = _view.Road_P.Name;
         }
 
         private void View_ReelSelectedIndexChanged(object sender, EventArgs e) {
-            view.AddItemToRightView(view.Reel_P);
+            _view.AddItemToRightView(_view.Reel_P);
         }
 
         private void View_ReelDoubleClick(object sender, EventArgs e) {
-            view.ReelText = view.Reel_P.Name;
+            _view.ReelText = _view.Reel_P.Name;
         }
 
         private void View_LureSelectedIndexChanged(object sender, EventArgs e) {
-            view.AddItemToRightView(view.Lure_P);
+            _view.AddItemToRightView(_view.Lure_P);
         }
 
         private void View_LureDoubleClick(object sender, EventArgs e) {
-            view.LureText = view.Lure_P.Name;
+            _view.LureText = _view.Lure_P.Name;
         }
 
         public override void Run() {
-            view.Open();
+            _view.Open();
         }
 
         public override void End() {
-            view.Down();
+            _view.Down();
         }
     }
 }

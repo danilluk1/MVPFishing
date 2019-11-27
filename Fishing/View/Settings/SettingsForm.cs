@@ -12,7 +12,7 @@ namespace Fishing {
         private void Button1_Click(object sender, EventArgs e) {
             if (nameBox.Text != null) {
                 Player.GetPlayer().NickName = nameBox.Text;
-                MessageBox.Show("Успешно");
+                MessageBox.Show(@"Успешно");
                 this.Close();
             }
         }

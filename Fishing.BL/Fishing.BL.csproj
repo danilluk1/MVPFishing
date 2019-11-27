@@ -80,7 +80,7 @@
     <Compile Include="Model\Items\Spinning.cs" />
     <Compile Include="Model\Baits\Lures\Jig.cs" />
     <Compile Include="Model\Baits\Lures\Pinwheel.cs" />
-    <Compile Include="Model\LVLS\LVLRealisation.cs" />
+    <Compile Include="Model\LVLS\LvlImplementation.cs" />
     <Compile Include="Model\Trip\TripToWater.cs" />
     <Compile Include="Model\UserEvent\FishEvent.cs" />
     <Compile Include="Model\UserEvent\FLineTornEvent.cs" />
@@ -90,7 +90,7 @@
     <Compile Include="Model\UserEvent\TrophyFishEvent.cs" />
     <Compile Include="Model\UserEvent\BaseEvent.cs" />
     <Compile Include="Model\Waters\Water.cs" />
-    <Compile Include="Model\Waters\WaterRealisation.cs" />
+    <Compile Include="Model\Waters\WaterImplementation.cs" />
     <Compile Include="PicturesBoxInfo.cs" />
     <Compile Include="Presenter\FoodPresenter.cs" />
     <Compile Include="Presenter\StatisticPresenter.cs" />

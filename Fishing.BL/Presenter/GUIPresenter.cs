@@ -1,20 +1,21 @@
-﻿using Fishing.View.GUI;
+﻿using Fishing.BL.Presenter;
+using Fishing.View.GUI;
 
 namespace Fishing.Presenter {
 
     public class GUIPresenter : BasePresenter {
-        private IGUIPresenter view;
+        private readonly IGUIPresenter _view;
 
         public GUIPresenter(IGUIPresenter view) {
-            this.view = view;
+            this._view = view;
         }
 
         public override void Run() {
-            view.Open();
+            _view.Open();
         }
 
         public override void End() {
-            view.Down();
+            _view.Down();
         }
     }
 }

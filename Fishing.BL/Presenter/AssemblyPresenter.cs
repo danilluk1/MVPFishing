@@ -1,31 +1,30 @@
 ﻿using Fishing.View.Assembly;
 using System;
+using Fishing.BL.Presenter;
 
 namespace Fishing.Presenter {
 
     public class AssemblyPresenter : BasePresenter {
-        private readonly IAddAssembly view;
-
-        public event EventHandler CloseForm;
+        private readonly IAddAssembly _view;
 
         public AssemblyPresenter(IAddAssembly view) {
-            this.view = view;
+            _view = view;
             view.Presenter = this;
             view.AddAssemblyClick += View_AddAssemblyClick;
         }
 
         private void View_AddAssemblyClick(object sender, EventArgs e) {
-            string name = view.AssemblyName;
+            var name = _view.AssemblyName;
             Player.GetPlayer().Assemblies.Add(new Assembly(name));
             End();
         }
 
         public override void Run() {
-            view.Open();
+            _view.Open();
         }
 
         public override void End() {
-            view.Down();
+            _view.Down();
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Fishing.BL.Model.UserEvent;
 using Fishing.BL.View;
-using Fishing.Presenter;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
 namespace Fishing.View.Statistic {
     public partial class StatisticForm : Form, IStatistic {
@@ -45,9 +45,10 @@ namespace Fishing.View.Statistic {
             BrokenRoadsLText = Player.GetPlayer().Statistic.BrokensRoadsCount.ToString();
 
             foreach (BaseEvent ev in Player.GetPlayer().EventHistory) {
-                ListViewItem lvi = new ListViewItem();
-                lvi.Text = ev.Text;
-                lvi.ImageIndex = ev.Index;
+                ListViewItem lvi = new ListViewItem {
+                    Text = ev.Text,
+                    ImageIndex = ev.Index
+                };
                 if (ev is TrophyFishEvent) {
                     lvi.ForeColor = System.Drawing.Color.White;
                     lvi.BackColor = System.Drawing.Color.Navy;

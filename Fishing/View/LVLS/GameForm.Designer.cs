@@ -39,7 +39,7 @@
             // 
             this.mainTimerTick.Enabled = true;
             this.mainTimerTick.Interval = 15;
-            this.mainTimerTick.Tick += new System.EventHandler(this.MainTaskstimer_Tick);
+            this.mainTimerTick.Tick += new System.EventHandler(this.MainTaskTimer_Tick);
             // 
             // soundPlayerTimer
             // 
@@ -70,10 +70,10 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fishing";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OzeroForm_FormClosed);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.OzeroForm_Paint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OzeroForm_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OzeroForm_KeyUp);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameForm_FormClosed);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameForm_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyUp);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameForm_MouseClick);
             this.ResumeLayout(false);
 

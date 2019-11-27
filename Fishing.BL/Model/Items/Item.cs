@@ -18,38 +18,24 @@ namespace Fishing {
         public int Price { get; }
         public Bitmap Pict { get; }
 
-        public Item(string name, int price, Bitmap pict) {
+        protected Item(string name, int price, Bitmap pict) {
             Name = name;
             Price = price;
             Pict = pict;
         }
 
-        public void selectAndAddItemToInv(int i) {
-            if (this is Road) {
-                Road r = Roads[i];
-                Player.GetPlayer().RoadInv.Add(r);
-            }
-            if (this is Reel) {
-                Reel r = Reels[i];
-                Player.GetPlayer().ReelInv.Add(r);
-            }
-            if (this is FLine) {
-                FLine r = FLines[i];
-                Player.GetPlayer().FLineInv.Add(r);
-            }
-        }
-
         public static Item SelectItemType(Item item) {
-            if (item is Road) {
-                return (Road)item;
+            switch (item)
+            {
+                case Road road:
+                    return road;
+                case Reel reel:
+                    return reel;
+                case FLine line:
+                    return line;
+                default:
+                    return item;
             }
-            if (item is Reel) {
-                return (Reel)item;
-            }
-            if (item is FLine) {
-                return (FLine)item;
-            }
-            return item;
         }
     }
 }

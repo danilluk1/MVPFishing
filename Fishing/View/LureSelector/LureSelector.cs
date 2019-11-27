@@ -5,12 +5,13 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
 namespace Fishing.View.LureSelector {
 
     public partial class LureSelector<T> : Form, ISelector<T>
         where T : FishBait {
-        private BindingList<T> List;
+        private readonly BindingList<T> List;
 
         public LureSelector(BindingList<T> list) {
             InitializeComponent();

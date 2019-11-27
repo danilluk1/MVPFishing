@@ -8,6 +8,7 @@ using Fishing.View.Menu;
 using Saver.BL.Controller;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
 namespace Fishing.Presenter {
 
@@ -30,13 +31,13 @@ namespace Fishing.Presenter {
         private void Menu_Load(object sender, EventArgs e) {
             view.LowerLValue = Player.GetPlayer().NickName;
 
-            Item.Reels.Add(new Reel("Hydra", 100, 6, 30, 100000, Images.Hydra));
-            Item.Reels.Add(new Reel("SYBERIA_LT_2", 100, 4, 60, 200000, Images.Syberia_LT_2));
-            Item.Reels.Add(new Reel("Quest_Reel", 100, 2, 60, 400000, Images.Quest_Reel));
-            Item.Reels.Add(new Reel("SYBERIA 4", 100, 5, 80, 600000, Images.Syberia_HD_4));
-            Item.Reels.Add(new Reel("Zymix", 100, 7, 90, 400000, Images.Zymix));
-            Item.Reels.Add(new Reel("Syberia 1", 100, 4, 40, 300000, Images.Syberia_HD_1));
-            Item.Reels.Add(new Reel("TBR 4000", 100, 1, 50, 450000, Images.TBR_4000));
+            Item.Reels.Add(new Reel("Hydra", 100, 6, 3, 100000, Images.Hydra));
+            Item.Reels.Add(new Reel("SYBERIA_LT_2", 100, 4, 6, 200000, Images.Syberia_LT_2));
+            Item.Reels.Add(new Reel("Quest_Reel", 100, 2, 6, 400000, Images.Quest_Reel));
+            Item.Reels.Add(new Reel("SYBERIA 4", 100, 5, 8, 600000, Images.Syberia_HD_4));
+            Item.Reels.Add(new Reel("Zymix", 100, 7, 9, 400000, Images.Zymix));
+            Item.Reels.Add(new Reel("Syberia 1", 100, 4, 4, 300000, Images.Syberia_HD_1));
+            Item.Reels.Add(new Reel("TBR 4000", 100, 1, 5, 450000, Images.TBR_4000));
 
             Item.FLines.Add(new FLine("Indiana 4000", 4000, 500, Images.indiana));
             Item.FLines.Add(new FLine("Quest_fishers 90000", 90000, 200000, Images.Quest_Fishers));
