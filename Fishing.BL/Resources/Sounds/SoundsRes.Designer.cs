@@ -180,6 +180,15 @@ namespace Fishing.BL.Resources.Sounds {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
         /// </summary>
+        public static System.IO.UnmanagedMemoryStream kassa {
+            get {
+                return ResourceManager.GetStream("kassa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
         public static System.IO.UnmanagedMemoryStream leskaobr {
             get {
                 return ResourceManager.GetStream("leskaobr", resourceCulture);

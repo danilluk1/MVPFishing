@@ -120,6 +120,9 @@
   <data name="ASSEMBLIES_DIR" xml:space="preserve">
     <value>config/assemblies.dat</value>
   </data>
+  <data name="BAIT_DIR" xml:space="preserve">
+    <value>config/bait.dat</value>
+  </data>
   <data name="EVENTHSTR_DIR" xml:space="preserve">
     <value>config/history.dat</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="FOODS_DIR" xml:space="preserve">
     <value>config/foods.dat</value>
+  </data>
+  <data name="HOOKS_DIR" xml:space="preserve">
+    <value>config/hooks.dat</value>
   </data>
   <data name="LURES_DIR" xml:space="preserve">
     <value>config/lures.dat</value>

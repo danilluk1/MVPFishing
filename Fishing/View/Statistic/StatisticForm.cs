@@ -1,15 +1,12 @@
 ﻿using Fishing.BL.Model.UserEvent;
 using Fishing.BL.View;
-using Fishing.Presenter;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
-namespace Fishing.View.Statistic
-{
-    public partial class StatisticForm : Form, IStatistic
-    {
-        public StatisticForm()
-        {
+namespace Fishing.View.Statistic {
+    public partial class StatisticForm : Form, IStatistic {
+        public StatisticForm() {
             InitializeComponent();
         }
 
@@ -23,28 +20,23 @@ namespace Fishing.View.Statistic
 
         public event EventHandler LoadForm;
 
-        public void addEventToView(ListViewItem i)
-        {
+        public void addEventToView(ListViewItem i) {
             EventView.Items.Add(i);
         }
 
-        public void Down()
-        {
+        public void Down() {
             this.Close();
         }
 
-        public void Open()
-        {
+        public void Open() {
             this.Show();
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
+        private void CloseButton_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void StatisticForm_Load(object sender, EventArgs e)
-        {
+        private void StatisticForm_Load(object sender, EventArgs e) {
             NameLText = Player.GetPlayer().NickName;
             MoneyLText = Player.GetPlayer().Money.ToString();
             GatheringLText = Player.GetPlayer().Statistic.GatheringCount.ToString();
@@ -52,13 +44,12 @@ namespace Fishing.View.Statistic
             TornFLineLText = Player.GetPlayer().Statistic.TornsFLinesCount.ToString();
             BrokenRoadsLText = Player.GetPlayer().Statistic.BrokensRoadsCount.ToString();
 
-            foreach (BaseEvent ev in Player.GetPlayer().EventHistory)
-            {
-                ListViewItem lvi = new ListViewItem();
-                lvi.Text = ev.Text;
-                lvi.ImageIndex = ev.Index;
-                if (ev is TrophyFishEvent)
-                {
+            foreach (BaseEvent ev in Player.GetPlayer().EventHistory) {
+                ListViewItem lvi = new ListViewItem {
+                    Text = ev.Text,
+                    ImageIndex = ev.Index
+                };
+                if (ev is TrophyFishEvent) {
                     lvi.ForeColor = System.Drawing.Color.White;
                     lvi.BackColor = System.Drawing.Color.Navy;
                 }

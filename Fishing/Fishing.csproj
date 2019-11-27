@@ -53,7 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MapFactory\MFactory.cs" />
+    <Compile Include="Resources\FoodButtons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodButtons.resx</DependentUpon>
+    </Compile>
     <Compile Include="VerticalProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +72,12 @@
     </Compile>
     <Compile Include="View\DeepField\DeepField.Designer.cs">
       <DependentUpon>DeepField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FoodShop\FoodShopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FoodShop\FoodShopForm.Designer.cs">
+      <DependentUpon>FoodShopForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FoodInventory\FoodInventory.cs">
       <SubType>Form</SubType>
@@ -93,6 +103,12 @@
     <Compile Include="View\FPond\FPondForm.Designer.cs">
       <DependentUpon>FPondForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ItemShower\ItemShower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ItemShower\ItemShower.Designer.cs">
+      <DependentUpon>ItemShower.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LureSelector\LureSelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,12 +126,6 @@
     </Compile>
     <Compile Include="View\Inventory\InventoryForm.Designer.cs">
       <DependentUpon>InventoryForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\LVLS\Meshera\MesheraMap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\LVLS\Meshera\MesheraMap.Designer.cs">
-      <DependentUpon>MesheraMap.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Menu\Menu.cs">
       <SubType>Form</SubType>
@@ -155,6 +165,10 @@
     <Compile Include="View\Trip\TripForm.Designer.cs">
       <DependentUpon>TripForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources\FoodButtons.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FoodButtons.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Assembly\AddAssembly.resx">
       <DependentUpon>AddAssembly.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FoodInventory\FoodInventory.resx">
       <DependentUpon>FoodInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FoodShop\FoodShopForm.resx">
+      <DependentUpon>FoodShopForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GUI\UI.resx">
       <DependentUpon>UI.cs</DependentUpon>
@@ -173,6 +190,9 @@
     <EmbeddedResource Include="View\FPond\FPondForm.resx">
       <DependentUpon>FPondForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ItemShower\ItemShower.resx">
+      <DependentUpon>ItemShower.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LureSelector\LureSelector.resx">
       <DependentUpon>LureSelector.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,9 +201,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Inventory\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\LVLS\Meshera\MesheraMap.resx">
-      <DependentUpon>MesheraMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Menu\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -213,6 +230,7 @@
     <EmbeddedResource Include="View\Trip\TripForm.resx">
       <DependentUpon>TripForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="Properties\DataSources\Assembly.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -238,10 +256,29 @@
     <None Include="Resources\layer10.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\pech_d.png" />
+    <None Include="Resources\pech_a.png" />
+    <None Include="Resources\red_d.png" />
+    <None Include="Resources\red_a.png" />
+    <None Include="Resources\sir_d.png" />
+    <None Include="Resources\sir_a.png" />
     <None Include="Resources\ozero1f.jpg" />
     <None Include="Resources\MesheraMap.PNG" />
     <None Include="Resources\data_a.png" />
     <None Include="Resources\blackkrug.png" />
+    <None Include="Resources\hleb_a.png" />
+    <None Include="Resources\hleb_d.png" />
+    <None Include="Resources\black_a.png" />
+    <None Include="Resources\black_d.png" />
+    <None Include="Resources\fishkonc_a.png" />
+    <None Include="Resources\fishkonc_d.png" />
+    <None Include="Resources\banany_a.png" />
+    <None Include="Resources\banany_d.png" />
+    <None Include="Resources\apelsin_a.png" />
+    <None Include="Resources\apelsin_d.png" />
+    <None Include="Resources\exit_a.png" />
+    <None Include="Resources\exit_d.png" />
+    <Content Include="Resources\layer.jpg" />
     <Content Include="Resources\layer6.jpg" />
   </ItemGroup>
   <ItemGroup />

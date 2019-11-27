@@ -1,20 +1,15 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Fishing.BL.Model.Fishes
-{
+namespace Fishing.BL.Model.Fishes {
+
     [Serializable]
-    public class SnakeHead : Fish
-    {
-        private readonly static HashSet<Size> lures = new HashSet<Size>()
-        {
-            Size.XL,
-            Size.Large,
-        };
+    public class SnakeHead : Fish {
 
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
@@ -29,9 +24,8 @@ namespace Fishing.BL.Model.Fishes
         private readonly static string description = Messages.SNAKEHEAD_DESCRIPTION;
         private readonly static Bitmap bit = Images.zmeegolov;
 
-        public SnakeHead(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu)
-            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(8, 3), price, trophyWeight, lures, activParts, description, bit)
-        {
+        public SnakeHead(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
+            : base(name, randomWeight.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(8, 3), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

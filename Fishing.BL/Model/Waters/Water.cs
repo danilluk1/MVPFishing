@@ -1,26 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
-namespace Fishing.BL.Model.Waters
-{
+namespace Fishing.BL.Model.Waters {
+
     [Serializable]
-    public abstract class Water
-    {
+    public abstract class Water {
         public Image MapImage { get; set; }
+        public List<PicturesBoxInfo> Locations { get; set; }
         public int DailyPrice { get; set; }
         public int KmFromNearestStation { get; set; }
         public string Name { get; set; }
 
-        public Water(string name, Image mi, int dp, int km)
-        {
-            MapImage = mi;
-            DailyPrice = dp;
-            KmFromNearestStation = km;
-            Name = name;
-        }
-
-        public override string ToString()
-        {
+        public int MinLVL { get; set; }
+        public abstract Water GetLVL(string name);
+        public override string ToString() {
             return Name;
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Fishing.View.LureSelector
 {
-    partial class LureSelector
+    partial class LureSelector<T> 
     {
         /// <summary>
         /// Required designer variable.
@@ -38,9 +38,9 @@
             // lureList
             // 
             this.lureList.FormattingEnabled = true;
-            this.lureList.Location = new System.Drawing.Point(2, 2);
+            this.lureList.Location = new System.Drawing.Point(23, 12);
             this.lureList.Name = "lureList";
-            this.lureList.Size = new System.Drawing.Size(150, 173);
+            this.lureList.Size = new System.Drawing.Size(130, 160);
             this.lureList.TabIndex = 0;
             this.lureList.SelectedIndexChanged += new System.EventHandler(this.LureList_SelectedIndexChanged);
             this.lureList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LureList_MouseDoubleClick);
@@ -48,9 +48,9 @@
             // lureImage
             // 
             this.lureImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.lureImage.Location = new System.Drawing.Point(159, 2);
+            this.lureImage.Location = new System.Drawing.Point(159, 12);
             this.lureImage.Name = "lureImage";
-            this.lureImage.Size = new System.Drawing.Size(122, 88);
+            this.lureImage.Size = new System.Drawing.Size(109, 78);
             this.lureImage.TabIndex = 1;
             this.lureImage.TabStop = false;
             // 
@@ -58,20 +58,22 @@
             // 
             this.deepBox.Location = new System.Drawing.Point(159, 97);
             this.deepBox.Name = "deepBox";
-            this.deepBox.Size = new System.Drawing.Size(122, 20);
+            this.deepBox.Size = new System.Drawing.Size(109, 20);
             this.deepBox.TabIndex = 2;
             // 
             // sizeBox
             // 
             this.sizeBox.Location = new System.Drawing.Point(159, 124);
             this.sizeBox.Name = "sizeBox";
-            this.sizeBox.Size = new System.Drawing.Size(122, 20);
+            this.sizeBox.Size = new System.Drawing.Size(109, 20);
             this.sizeBox.TabIndex = 3;
             // 
             // LureSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Fishing.Properties.Resources.layer10;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(289, 181);
             this.Controls.Add(this.sizeBox);
             this.Controls.Add(this.deepBox);
@@ -83,7 +85,6 @@
             this.Text = "LureSelector";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.SystemColors.ActiveBorder;
-            this.Load += new System.EventHandler(this.LureSelector_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lureImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

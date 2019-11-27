@@ -1,19 +1,15 @@
-﻿using Fishing.BL.Model.Game;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Game;
 using Fishing.BL.Resources.Images;
 using Fishing.BL.Resources.Messages;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Fishing
-{
+namespace Fishing {
+
     [Serializable]
-    public class Pike : Fish
-    {
-        private readonly static HashSet<Size> lures = new HashSet<Size>()
-        {
-            Size.XL,
-        };
+    public class Pike : Fish {
 
         private readonly static HashSet<PartsOfDay> activParts = new HashSet<PartsOfDay>()
         {
@@ -28,9 +24,8 @@ namespace Fishing
         private readonly static string description = Messages.PIKE_DESCRIPTION;
         private readonly static Bitmap bit = Images.pike;
 
-        public Pike(int minD, int maxD, double maxSizeCoef, HashSet<Lure> lu)
-            : base(name, randWigth.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(6, 3), price, trophyWeight, lures, activParts, description, bit)
-        {
+        public Pike(int minD, int maxD, double maxSizeCoef, HashSet<FishBait> lu)
+            : base(name, randomWeight.Next(100, Convert.ToInt32(10000 * maxSizeCoef)), Power.SetPower(6, 3), price, trophyWeight, activParts, description, bit) {
             MinDeep = minD;
             MaxDeep = maxD;
             MaxSizeCoef = maxSizeCoef;

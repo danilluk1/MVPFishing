@@ -99,10 +99,12 @@
             // 
             // watersBox
             // 
+            this.watersBox.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.watersBox.FormattingEnabled = true;
+            this.watersBox.ItemHeight = 16;
             this.watersBox.Location = new System.Drawing.Point(30, 15);
             this.watersBox.Name = "watersBox";
-            this.watersBox.Size = new System.Drawing.Size(136, 602);
+            this.watersBox.Size = new System.Drawing.Size(136, 596);
             this.watersBox.TabIndex = 5;
             this.watersBox.SelectedIndexChanged += new System.EventHandler(this.WatersBox_SelectedIndexChanged);
             // 

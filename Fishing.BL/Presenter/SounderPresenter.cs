@@ -3,47 +3,58 @@ using Fishing.BL.View;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Fishing.Presenter;
 
-namespace Fishing.BL.Presenter
-{
-    public class SounderPresenter
-    {
-        private const float SOUNDERWIDTH = 380f;
-        private readonly ISounder view;
+namespace Fishing.BL.Presenter {
+
+    public class SounderPresenter : BasePresenter {
+        private const float Sounderwidth = 372f;
+        private readonly ISounder _view;
         public LVL CurLVL { get; set; }
 
-        public SounderPresenter(ISounder view, LVL lvl)
-        {
+        public SounderPresenter(ISounder view, LVL lvl) {
             CurLVL = lvl;
-            this.view = view;
+            _view = view;
             view.SounderPaint += SounderPanel_Paint;
         }
 
-        private void SounderPanel_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            try
-            {
+        private void SounderPanel_Paint(object sender, PaintEventArgs e) {
+            var g = e.Graphics;
+            try {
                 float drawX = 0;
-                float drawX2;
-                for (int i = 0; i < CurLVL.Height - 1; i++)
-                {
-                    drawX2 = drawX + (SOUNDERWIDTH / (CurLVL.Height - 1));
-                    g.DrawLine(new Pen(Color.White, 2), drawX, (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i].Tag / 10, drawX2,
-                                                                                (int)CurLVL.Deeparr[Sounder.GetSounder().Row, i + 1].Tag / 10);
+                for (var i = 0; i < CurLVL.Height - 1; i++) {
+                    var drawX2 = drawX + (Sounderwidth / (CurLVL.Height - 1));
+                    g.DrawLine(new Pen(Color.White, 2), drawX, Convert.ToSingle(CurLVL.DeepArray[Sounder.GetSounder().Row, i].Text) / 10, drawX2,
+                        Convert.ToSingle(CurLVL.DeepArray[Sounder.GetSounder().Row, i + 1].Text) / 10);
                     drawX = drawX2;
                 }
-                drawPoint(g);
+                DrawPoint(g);
             }
             catch (NullReferenceException) { }
         }
 
-        private void drawPoint(Graphics g)
+        private void DrawPoint(Graphics g) {
+            var player = Player.GetPlayer();
+            float coef = 0;
+            var height = 23 * CurLVL.Height;
+            if (height >= Sounderwidth) {
+                coef = Sounderwidth / height;
+            }
+            if (height < Sounderwidth) {
+                coef = height / Sounderwidth;
+            }
+            float x = Sounder.GetSounder().Column * (Sounderwidth / CurLVL.Height);
+            g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().EquipedRoad.CurrentDeep / 10 - 4, 4, 4);
+        }
+
+        public override void Run()
         {
-            Player player = Player.GetPlayer();
-            float coef = (CurLVL.Height - 2) * 15 / SOUNDERWIDTH;
-            float x = (player.CurPoint.Y - CurLVL.Deeparr[0, 0].Location.Y) / coef;
-            g.DrawEllipse(new Pen(Color.Black), x, Player.GetPlayer().CurrentDeep / 10 - 4, 4, 4);
+            
+        }
+
+        public override void End()
+        {
+            
         }
     }
 }

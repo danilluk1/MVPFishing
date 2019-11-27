@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Fishing.BL.View
-{
-    public interface ISounder
-    {
-        event PaintEventHandler SounderPaint;
+namespace Fishing.BL.View {
 
-        event EventHandler RefreshSounder;
+    public interface ISounder {
+        event PaintEventHandler SounderPaint;
     }
 }

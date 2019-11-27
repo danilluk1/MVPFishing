@@ -1,10 +1,12 @@
-﻿using Fishing.BL.View;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Hooks;
+using Fishing.BL.View;
 using System;
 
-namespace Fishing.View.Inventory
-{
-    public interface IInventory : IView
-    {
+namespace Fishing.View.Inventory {
+
+    public interface IInventory : IView {
+
         event EventHandler FLineSelectedIndexChanged;
 
         event EventHandler RoadSelectedIndexChanged;
@@ -27,25 +29,39 @@ namespace Fishing.View.Inventory
 
         event EventHandler FetchButtonClick;
 
-        event EventHandler AddButtonClick;
-
         event EventHandler MakeOutClick;
 
-        event EventHandler BaitPicClick;
+        event EventHandler BaitDoubleClick;
+
+        event EventHandler BaitSelectedIndexChanged;
+
+        event EventHandler HookDoubleClick;
+
+        event EventHandler HookSelectedIndex;
+
+        event EventHandler RoadButtonsClick;
 
         Road Road_P { get; set; }
         Reel Reel_P { get; set; }
         FLine FLine_P { get; set; }
         Lure Lure_P { get; set; }
+        Bait Bait_P { get; set; }
+        BaseHook Hook_P { get; set; }
         Fishing.Assembly Assembly_P { get; set; }
 
         string RoadText { get; set; }
         string ReelText { get; set; }
         string FLineText { get; set; }
         string LureText { get; set; }
+        string AssNumbText { get; set; }
 
-        void addItemToRightView(Item item);
+        int RoadWearValue { get; set; }
+        int ReelWearMax { get; set; }
+        int ReelWearValue { get; set; }
 
-        void showAssembly(Fishing.Assembly ass);
+        void AddItemToRightView(Item item);
+
+        void ShowAssembly(Fishing.Assembly ass);
+
     }
 }

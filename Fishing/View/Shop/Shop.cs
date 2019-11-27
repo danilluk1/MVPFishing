@@ -1,21 +1,28 @@
-﻿using Fishing.BL.Model.Eating;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.BL.Model.Eating;
+using Fishing.BL.Model.Hooks;
 using Fishing.Presenter;
 using Fishing.View.Shop;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
-namespace Fishing
-{
-    public partial class Shop : Form, IShop
-    {
-        public Shop()
-        {
+namespace Fishing {
+    public partial class Shop : Form, IShop {
+        public Shop() {
             InitializeComponent();
-            RoadsList.DataSource = Item.RoadShop;
-            ReelsList.DataSource = Item.ReelShop;
-            FLineList.DataSource = Item.LeskaShop;
-            foodsBox.DataSource = BaseFood.FoodShop;
-            lureBox.DataSource = Item.LureShop;
+            RoadsList.DataSource = Item.Roads;
+            ReelsList.DataSource = Item.Reels;
+            FLineList.DataSource = Item.FLines;
+            foreach (var fb in FishBait.FishBaits) {
+                if (fb is Lure) {
+                    lureBox.Items.Add(fb);
+                }
+                if (fb is Bait) {
+                    baitsList.Items.Add(fb);
+                }
+            }
+            hookList.DataSource = Item.Hooks;
             moneyBox.Text = Player.GetPlayer().Money.ToString();
         }
 
@@ -35,212 +42,197 @@ namespace Fishing
 
         public event EventHandler LureDoubleClick;
 
-        public Road Road_P
-        {
-            get
-            {
-                try
-                {
-                    return Item.RoadShop[RoadsList.SelectedIndex];
+        public event EventHandler BaitDoubleClick;
+
+        public event EventHandler HookDoubleClick;
+
+        public Road Road_P {
+            get {
+                try {
+                    return Item.Roads[RoadsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
                 return null;
             }
-            set
-            {
+            set {
             }
         }
 
-        public Reel Reel_P
-        {
-            get
-            {
-                try
-                {
-                    return Item.ReelShop[ReelsList.SelectedIndex];
+        public Reel Reel_P {
+            get {
+                try {
+                    return Item.Reels[ReelsList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
                 return null;
             }
-            set
-            {
+            set {
             }
         }
 
-        public FLine FLine_P
-        {
-            get
-            {
-                try
-                {
-                    return Item.LeskaShop[FLineList.SelectedIndex];
+        public FLine FLine_P {
+            get {
+                try {
+                    return Item.FLines[FLineList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
                 return null;
             }
-            set
-            {
+            set {
             }
         }
 
-        public BaseFood Food_P
-        {
-            get
-            {
-                try
-                {
-                    return BaseFood.FoodShop[foodsBox.SelectedIndex];
+        public Lure Lure_P { get => (Lure)FishBait.GetFishBaitByName(lureBox.SelectedItem.ToString()); set => throw new ArgumentException(); }
+        public Bait Bait_P { get => (Bait)FishBait.GetFishBaitByName(baitsList.SelectedItem.ToString()); set => throw new ArgumentException(); }
+
+        public BaseHook Hook_P {
+            get {
+                try {
+                    return Item.Hooks[hookList.SelectedIndex];
                 }
                 catch (ArgumentOutOfRangeException) { }
 
                 return null;
             }
-            set
-            {
+            set {
             }
         }
 
-        public Lure Lure_P
-        {
-            get
-            {
-                try
-                {
-                    return Item.LureShop[lureBox.SelectedIndex];
-                }
-                catch (ArgumentOutOfRangeException) { }
-
-                return null;
-            }
-            set
-            {
-            }
+        private void RoadsList_SelectedIndexChanged_1(object sender, EventArgs e) {
+            AddItemToRightView(Road_P);
         }
 
-        private void RoadsList_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            addItemtoRightView(Road_P);
+        private void FLineList_SelectedIndexChanged(object sender, EventArgs e) {
+            AddItemToRightView(FLine_P);
         }
 
-        private void FLineList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            addItemtoRightView(FLine_P);
+        private void ReelsList_SelectedIndexChanged(object sender, EventArgs e) {
+            AddItemToRightView(Reel_P);
         }
 
-        private void ReelsList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            addItemtoRightView(Reel_P);
-        }
-
-        private void FLineList_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+        private void FLineList_MouseDoubleClick(object sender, MouseEventArgs e) {
             FLineDoubleClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void ReelsList_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+        private void ReelsList_MouseDoubleClick(object sender, MouseEventArgs e) {
             ReelDoubleClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
+        private void CloseButton_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void RoadsList_MouseDoubleClick_1(object sender, MouseEventArgs e)
-        {
+        private void RoadsList_MouseDoubleClick_1(object sender, MouseEventArgs e) {
             RoadDoubleClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void FoodsBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            addItemtoRightView(Food_P);
-        }
-
-        private void FoodsBox_DoubleClick(object sender, EventArgs e)
-        {
+        private void FoodsBox_DoubleClick(object sender, EventArgs e) {
             ProductDoubleClick?.Invoke(this, EventArgs.Empty);
         }
 
-        public void Open()
-        {
+        public void Open() {
             this.Show();
         }
 
-        public void Down()
-        {
+        public void Down() {
             this.Close();
         }
 
-        public void addItemtoRightView(Item i)
-        {
-            try
-            {
-                if (Item.SelectItemType(i) is Road)
-                {
-                    Road r = (Road)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = r.Type.ToString();
-                    this.label1.Text = " ";
+        public void AddItemToRightView(Item i) {
+            try {
+                if (Item.SelectItemType(i) is Road) {
+                    var r = (Road)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.Power.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    label1.Text = " ";
                 }
-                if (Item.SelectItemType(i) is Reel)
-                {
-                    Reel r = (Reel)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
+                if (Item.SelectItemType(i) is Reel) {
+                    var r = (Reel)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.Power.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
-                if (Item.SelectItemType(i) is FLine)
-                {
-                    FLine r = (FLine)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Power.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
+                if (Item.SelectItemType(i) is FLine) {
+                    var r = (FLine)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.Power.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
-                if (Item.SelectItemType(i) is BaseFood)
-                {
-                    BaseFood r = (BaseFood)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.Productivity.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = " ";
-                    this.label1.Text = " ";
+                if (Item.SelectItemType(i) is Food) {
+                    var r = (Food)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.Productivity.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
-                if (Item.SelectItemType(i) is Lure)
+                if (Item.SelectItemType(i) is Lure) {
+                    var r = (Lure)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.DeepType.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = r.Size.ToString();
+                    label1.Text = " ";
+                }
+                if (Item.SelectItemType(i) is Bait) {
+                    var r = (Bait)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = "Кол-во: 30";
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
+                }
+
+                if (!(Item.SelectItemType(i) is BaseHook)) return;
                 {
-                    Lure r = (Lure)i;
-                    this.itemBox.BackgroundImage = r.Pict;
-                    this.nameBox.Text = r.Name;
-                    this.powerBox.Text = r.DeepType.ToString();
-                    this.priceBox.Text = r.Price.ToString();
-                    this.typeBox.Text = r.Size.ToString();
-                    this.label1.Text = " ";
+                    var r = (BaseHook)i;
+                    itemBox.BackgroundImage = r.Pict;
+                    nameBox.Text = r.Name;
+                    powerBox.Text = r.GatheringChance.ToString();
+                    priceBox.Text = r.Price.ToString();
+                    typeBox.Text = " ";
+                    label1.Text = " ";
                 }
             }
             catch (ArgumentOutOfRangeException) { }
         }
 
-        private void lureBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            addItemtoRightView(Lure_P);
+        private void LureBox_SelectedIndexChanged(object sender, EventArgs e) {
+            AddItemToRightView(Lure_P);
         }
 
-        private void lureBox_DoubleClick(object sender, EventArgs e)
-        {
+        private void LureBox_DoubleClick(object sender, EventArgs e) {
             LureDoubleClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void BaitsList_SelectedIndexChanged(object sender, EventArgs e) {
+            AddItemToRightView(Bait_P);
+        }
+
+        private void BaitsList_MouseDoubleClick(object sender, MouseEventArgs e) {
+            BaitDoubleClick?.Invoke(this, e);
+        }
+
+        private void HookList_SelectedIndexChanged(object sender, EventArgs e) {
+            AddItemToRightView(Hook_P);
+        }
+
+        private void HookList_MouseDoubleClick(object sender, MouseEventArgs e) {
+            HookDoubleClick?.Invoke(this, e);
         }
     }
 }

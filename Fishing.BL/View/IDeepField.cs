@@ -1,9 +1,5 @@
-﻿namespace Fishing.BL.View
-{
-    public interface IDeepField
-    {
-        void Open(LVL lvl);
+﻿namespace Fishing.BL.View {
 
-        void Down();
+    public interface IDeepField : IView {
     }
 }

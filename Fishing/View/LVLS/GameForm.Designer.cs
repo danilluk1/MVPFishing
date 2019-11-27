@@ -29,36 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.baitTimer = new System.Windows.Forms.Timer(this.components);
             this.mainTimerTick = new System.Windows.Forms.Timer(this.components);
-            this.fishMovestimer = new System.Windows.Forms.Timer(this.components);
-            this.GatheringTimer = new System.Windows.Forms.Timer(this.components);
             this.soundPlayerTimer = new System.Windows.Forms.Timer(this.components);
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.decrementSatiety = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // baitTimer
-            // 
-            this.baitTimer.Interval = 500;
-            this.baitTimer.Tick += new System.EventHandler(this.BaitTimer_Tick);
-            // 
             // mainTimerTick
             // 
             this.mainTimerTick.Enabled = true;
             this.mainTimerTick.Interval = 15;
-            this.mainTimerTick.Tick += new System.EventHandler(this.MainTaskstimer_Tick);
-            // 
-            // fishMovestimer
-            // 
-            this.fishMovestimer.Enabled = true;
-            this.fishMovestimer.Interval = 1200;
-            this.fishMovestimer.Tick += new System.EventHandler(this.FishMovestimer_Tick);
-            // 
-            // GatheringTimer
-            // 
-            this.GatheringTimer.Interval = 1500;
-            this.GatheringTimer.Tick += new System.EventHandler(this.GatheringTimer_Tick);
+            this.mainTimerTick.Tick += new System.EventHandler(this.MainTaskTimer_Tick);
             // 
             // soundPlayerTimer
             // 
@@ -89,20 +70,17 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fishing";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OzeroForm_FormClosed);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.OzeroForm_Paint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OzeroForm_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OzeroForm_KeyUp);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OzeroForm_MouseClick);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameForm_FormClosed);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameForm_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyUp);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameForm_MouseClick);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         protected internal System.Windows.Forms.Timer mainTimerTick;
-        protected internal System.Windows.Forms.Timer fishMovestimer;
-        protected internal System.Windows.Forms.Timer baitTimer;
-        protected internal System.Windows.Forms.Timer GatheringTimer;
         private System.Windows.Forms.Timer soundPlayerTimer;
         private System.Windows.Forms.Timer refreshTimer;
         private System.Windows.Forms.Timer decrementSatiety;

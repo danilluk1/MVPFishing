@@ -1,6 +1,5 @@
-﻿namespace Fishing.BL.View
-{
-    public interface ICurrentFishF
-    {
+﻿namespace Fishing.BL.View {
+
+    public interface ICurrentFishF {
     }
 }

@@ -1,33 +1,30 @@
 ﻿using Fishing.Presenter;
 using System;
 using System.Windows.Forms;
+using Fishing.BL.Presenter;
 
-namespace Fishing.View.Assembly
-{
-    public partial class AddAssembly : Form, IAddAssembly
-    {
-        private AssemblyPresenter presenter;
-
-        public AddAssembly()
-        {
+namespace Fishing.View.Assembly {
+    public partial class AddAssembly : Form, IAddAssembly {
+        public AddAssembly() {
             InitializeComponent();
-            presenter = new AssemblyPresenter(this);
-            presenter.CloseForm += Presenter_CloseForm;
         }
 
-        public string AssemblyName { get => nameBox.Text; set => AssemblyName = nameBox.Text; }
+        public string AssemblyName { get => nameBox.Text; set => nameBox.Text = value; }
+        public BasePresenter Presenter { private get; set; }
 
         public event EventHandler AddAssemblyClick;
 
-        private void Presenter_CloseForm(object sender, EventArgs e)
-        {
-            this.Close();
+        private void Add_Click(object sender, EventArgs e) {
+            AddAssemblyClick?.Invoke(this, EventArgs.Empty);
+            Down();
         }
 
-        private void Add_Click(object sender, EventArgs e)
-        {
-            if (AddAssemblyClick != null)
-                AddAssemblyClick(this, EventArgs.Empty);
+        public void Open() {
+            this.Show();
+        }
+
+        public void Down() {
+            this.Close();
         }
     }
 }

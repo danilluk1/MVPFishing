@@ -50,7 +50,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeepField";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Load += new System.EventHandler(this.DeepField_Load);
             this.ResumeLayout(false);
 
         }

@@ -1,59 +1,54 @@
-﻿using Fishing.Presenter;
+﻿using Fishing.BL.Model.Baits;
+using Fishing.Presenter;
 using Fishing.View.GUI;
 using Fishing.View.LureSelector.View;
 using System;
 
-namespace Fishing.View.LureSelector.Presenter
-{
-    public class SelectorPresenter : BasePresenter
-    {
-        private ISelector view;
-        private IGUIPresenter gui;
+namespace Fishing.BL.Presenter {
 
-        public SelectorPresenter(ISelector view, IGUIPresenter gui)
-        {
-            this.view = view;
-            this.gui = gui;
+    public class SelectorPresenter<T> : BasePresenter where T : FishBait {
+        private readonly ISelector<T> _view;
+        private readonly IGUIPresenter _gui;
+
+        public SelectorPresenter(ISelector<T> view, IGUIPresenter gui) {
+            _view = view;
+            _gui = gui;
             view.Presenter = this;
-            view.Open();
             view.LureListDoubleClick += View_LureListDoubleClick;
             view.LureListIndexChanged += View_LureListIndexChanged;
         }
 
-        private void Inv_BaitPicChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void View_LureListIndexChanged(object sender, EventArgs e)
-        {
-            view.Picture = view.Lure.Pict;
-            view.DeepBoxText = view.Lure.DeepType.ToString();
-            view.SizeBoxText = view.Lure.Size.ToString();
-        }
-
-        private void View_LureListDoubleClick(object sender, EventArgs e)
-        {
-            try
+        private void View_LureListIndexChanged(object sender, EventArgs e) {
+            _view.Picture = _view.FishBait.Pict;
+            switch (_view.FishBait)
             {
-                Player.GetPlayer().Assembly.Lure = view.Lure;
-                Player.GetPlayer().SetAssembly(Player.GetPlayer().Assembly);
-                gui.BaitPicture = Player.GetPlayer().Assembly.Lure.Pict;
-                view.Down();
-            }
-            catch (NullReferenceException)
-            {
+                case Lure l:
+                    _view.DeepBoxText = l.DeepType.ToString();
+                    _view.SizeBoxText = l.Size.ToString();
+                    break;
+                case Bait b:
+                    _view.SizeBoxText = b.Count.ToString();
+                    _view.DeepBoxText = b.Name;
+                    break;
             }
         }
 
-        public override void Load()
-        {
-            throw new NotImplementedException();
+        private void View_LureListDoubleClick(object sender, EventArgs e) {
+            try {
+                Player.GetPlayer().EquipedRoad.Assembly.FishBait = _view.FishBait;
+                _gui.BaitPicture = Player.GetPlayer().EquipedRoad.Assembly.FishBait.Pict;
+                _view.Down();
+            }
+            catch (NullReferenceException) {
+            }
         }
 
-        public override void Close()
-        {
-            throw new NotImplementedException();
+        public override void Run() {
+            _view.Open();
+        }
+
+        public override void End() {
+            _view.Down();
         }
     }
 }
