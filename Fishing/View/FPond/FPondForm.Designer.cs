@@ -43,13 +43,12 @@ namespace Fishing
             // FishList
             // 
             this.FishList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.FishList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FishList.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FishList.FormattingEnabled = true;
             this.FishList.ItemHeight = 23;
-            this.FishList.Location = new System.Drawing.Point(36, 22);
+            this.FishList.Location = new System.Drawing.Point(38, 22);
             this.FishList.Name = "FishList";
-            this.FishList.Size = new System.Drawing.Size(263, 414);
+            this.FishList.Size = new System.Drawing.Size(261, 395);
             this.FishList.TabIndex = 0;
             this.FishList.SelectedIndexChanged += new System.EventHandler(this.FishList_SelectedIndexChanged);
             // 
